@@ -4,5 +4,12 @@ git remote add origin https://github.com/lsrosa/makethemsuffer.git
 #sync with remote server
 git fetch --prune
 
+#set user config on git
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+
 #send updates
+git add *
+gir commit -m "what have I done"
 git push origin master
