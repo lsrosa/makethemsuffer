@@ -1,0 +1,8 @@
+#add a branch origin
+git remote add origin https://github.com/lsrosa/makethemsuffer.git
+
+#sync with remote server
+git fetch --prune
+
+#send updates
+git push origin master
