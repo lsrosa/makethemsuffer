@@ -40,10 +40,10 @@ AOCL_LINK_CONFIG := $(shell aocl link-config)
 IOC_BOARD = s5phq_a7
 # Where is the Altera SDK for OpenCL software?
 ifeq ($(wildcard $(ALTERAOCLSDKROOT)),)
-$(error Set ALTERAOCLSDKROOT to the root directory of the Altera SDK for OpenCL software installation)
+$(info Set ALTERAOCLSDKROOT to the root directory of the Altera SDK for OpenCL software installation)
 endif
 ifeq ($(wildcard $(ALTERAOCLSDKROOT)/host/include/CL/opencl.h),)
-$(error Set ALTERAOCLSDKROOT to the root directory of the Altera SDK for OpenCL software installation.)
+$(info Set ALTERAOCLSDKROOT to the root directory of the Altera SDK for OpenCL software installation.)
 endif
 
 CXXFLAGS += -O2
