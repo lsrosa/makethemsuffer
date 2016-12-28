@@ -5,7 +5,7 @@ GPP_NAME=base
 IOC_NAME=IOC
 
 SRC_DIR = src
-BUILD_DIR = build
+BUILD_DIR = ../makethemsuffer_build
 
 #gets all benchmarks and its types of implementations
 BENCHS = $(sort $(wildcard $(SRC_DIR)/*/*))
