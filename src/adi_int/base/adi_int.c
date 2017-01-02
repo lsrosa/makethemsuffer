@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-  int l, ky, kx, nl1, nl2, i, j, loop = 100, n=10;
+  int l, ky, kx, nl1, nl2, i, j, loop = 100, n=100;
   float sig = 0.2;
   float du1[n+1], du2[n+1], du3[n+1], u1[2][n+1][3], u2[2][n+1][3], u3[2][n+1][3];
   int a[3][3];
@@ -24,7 +24,7 @@ int main(){
     nl1 = 0;
     nl2 = 1;
     for ( kx=1 ; kx<3 ; kx++ ){
-      for ( ky=1 ; ky<n ; ky++ ) {  
+      for ( ky=1 ; ky<n ; ky++ ) {
         du1[ky] = u1[nl1][ky+1][kx] - u1[nl1][ky-1][kx];
         du2[ky] = u2[nl1][ky+1][kx] - u2[nl1][ky-1][kx];
         du3[ky] = u3[nl1][ky+1][kx] - u3[nl1][ky-1][kx];

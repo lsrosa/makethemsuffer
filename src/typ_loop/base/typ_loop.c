@@ -11,7 +11,7 @@ int main(){
   int n = (rand() % 30) - 15;
 
   for (i = LB; i < UB; i++) {
-    for (size_t j = LB; j < n; j++) {
+    for (j = LB; j < n; j++) {
       A[i][j] = A[i-1][j+m];
     }
   }
