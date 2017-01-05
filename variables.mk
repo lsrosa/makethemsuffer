@@ -2,7 +2,7 @@ CC=clang
 CXX=g++
 
 GPP_NAME=base
-IOC_NAME=IOC
+IOC_NAME=ioc
 LUP_NAME=lup
 
 SRC_DIR = src
@@ -29,12 +29,8 @@ IOCBIN = $(patsubst $(SRC_DIR)%.cpp, $(BUILD_DIR)%, $(IOC_HOST))
 IOC_BIN = $(subst host/,, $(IOCBIN))
 
 IOC_KERNEL = $(wildcard $(SRC_DIR)/*/$(IOC_NAME)/device/*.cl)
-IOC_KERNELBIN = $(patsubst $(SRC_DIR)%.cl, $(BUILD_DIR)%, $(IOC_KERNEL))
+IOC_KERNELBIN = $(patsubst $(SRC_DIR)%.cl, $(BUILD_DIR)%.aoco, $(IOC_KERNEL))
 IOC_KERNEL_BIN = $(subst device/,, $(IOC_KERNELBIN))
-
-#these dirs are the same for host and kernel
-ICO_BIN_DIR=$(dir $(IOC_BIN))
-IOC_HOST_DIR=$(subst host/,, $(dir $(IOC_HOST)))
 
 # OpenCL compile and link flags.
 AOCL_COMPILE_CONFIG := $(shell aocl compile-config)

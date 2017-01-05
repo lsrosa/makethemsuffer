@@ -20,5 +20,5 @@ __kernel void test1(
 	if ( id < n ){
 		r[id] = x[id] * y[id]; // multiply elements, store product
 		printf("r[%d]=%f\n", id, r[id]);
-	} 
+	}
 }

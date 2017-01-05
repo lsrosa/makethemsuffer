@@ -10,7 +10,7 @@ all: gpp ioc
 
 gpp: $(BUILD_DIRS) $(GPP_BIN)
 
-ioc: $(BUILD_DIRS) $(IOC_BIN) #$(IOC_KERNEL_BIN)
+ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_BIN)
 
 lup: $(BUILD_DIRS) $(LUP_BIN)
 #-----------------------------------------------------
@@ -31,9 +31,13 @@ $(IOC_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.cpp
 		$(foreach L,$(LIBS),-l$L) \
 		-o $@
 
-#$(IOC_KERNEL_BIN): $(ICO_BIN_DIR)%:$(IOC_HOST_DIR)device/%.cl#
-	#@echo -c $^ 	-o $@ #this is the weird debug
-	#aoc -v -c -g --report --board $(IOC_BOARD) $^ -o $@.aoco > $(ICO_BIN_DIR)/aoco_report.txt
+#a kind of reversing the changes done to the name
+$(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN)):
+	cp $(patsubst $(BUILD_DIR)%, $(SRC_DIR)%, $(dir $@))device/$(notdir $@) $@
+
+$(IOC_KERNEL_BIN): $(BUILD_DIR)/%.aoco:$(BUILD_DIR)/%.cl
+	#@echo -c $^ 	-o $@ #this is weird debug
+	aoc -v -c -g --report --board $(IOC_BOARD) $^ -o $@ > $(dir $@)aoco_report.txt
 
 #-----------------------------------------------------
 #------------- LUP compilation -----------------------
@@ -51,3 +55,5 @@ clean:
 	rm -rf	$(BUILD_DIR)
 
 .SILENT: .obj_dir $(BUILD_DIRS)
+
+#.PHONY: $(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN))
