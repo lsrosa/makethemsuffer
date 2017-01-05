@@ -3,9 +3,12 @@ CXX=g++
 
 GPP_NAME=base
 IOC_NAME=IOC
+LUP_NAME=lup
 
 SRC_DIR = src
-BUILD_DIR = ../makethemsuffer_build
+BUILD_DIR = ../build
+
+CFLAGS=-lm
 
 #gets all benchmarks and its types of implementations
 BENCHS = $(sort $(wildcard $(SRC_DIR)/*/*))
@@ -54,3 +57,10 @@ LIB_DIRS :=
 
 INCS := $(wildcard )
 LIBS :=
+
+#-----------------------------------------------------
+#------------- GPP sources and binaries names --------
+LUP_SRC = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*.c)
+LUP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
+
+LUP_MAKEFILE = $(LUP_NAME).make
