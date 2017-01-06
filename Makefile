@@ -37,13 +37,13 @@ $(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN)):
 
 $(IOC_KERNEL_BIN): $(BUILD_DIR)/%.aoco:$(BUILD_DIR)/%.cl
 	#@echo -c $^ 	-o $@ #this is weird debug
-	aoc -v -c -g --report --board $(IOC_BOARD) $^ -o $@ > $(dir $@)aoco_report.txt
+	time 2> $(dir $@)time_report.txt aoc -v -g --report --board $(IOC_BOARD) -c $^ -o $@ > $(dir $@)aoco_report.txt
 
 #-----------------------------------------------------
 #------------- LUP compilation -----------------------
 $(LUP_BIN): $(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
 		cp $(dir $^)*	 $(dir  $@)
-		make -f $(LUP_MAKEFILE) -C $(dir $@) #yeah I know that this is not sophsticated, but works
+		time 2> $(dir $@)time_report.txt make -f $(LUP_MAKEFILE) -C $(dir $@) #yeah I know that this is not sophsticated, but works
 
 #-----------------------------------------------------
 #------------- utils------ ---------------------------
