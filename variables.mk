@@ -36,7 +36,7 @@ IOC_KERNEL_BIN = $(patsubst %.aoco,%.aocx,$(IOC_KERNEL_OBJ))
 AOCL_COMPILE_CONFIG := $(shell aocl compile-config)
 AOCL_LINK_CONFIG := $(shell aocl link-config)
 
-IOC_BOARD = s5_ref
+IOC_BOARD = $(FPGA_BOARD)
 # Where is the Altera SDK for OpenCL software?
 ifeq ($(wildcard $(ALTERAOCLSDKROOT)),)
 $(info Set ALTERAOCLSDKROOT to the root directory of the Altera SDK for OpenCL software installation)
