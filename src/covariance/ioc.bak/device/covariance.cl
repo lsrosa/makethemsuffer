@@ -1,7 +1,4 @@
-#   define N 500
-#   define M 500
-
-void kernel_covariance(
+__kernel void kernel_covariance(
   int m,
   int n,
   float float_n,
@@ -30,7 +27,7 @@ void kernel_covariance(
     for (j2 = j1; j2 < m; j2++){
         symmat[j1*m+j2] = 0.0;
 
-				for (i = 0; i < N; i++)
+				for (i = 0; i < n; i++)
 	  			symmat[j1*m+j2] += data[i*n+j1] * data[i*n+j2];
 
 				symmat[j2*m+j1] = symmat[j1*m+j2];

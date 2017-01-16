@@ -10,7 +10,7 @@ all: gpp ioc
 
 gpp: $(BUILD_DIRS) $(GPP_BIN)
 
-ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_BIN)
+ioc: $(BUILD_DIRS) $(IOC_KERNEL_OBJ) #$(IOC_BIN)
 
 lup: $(BUILD_DIRS) $(LUP_BIN)
 #-----------------------------------------------------
@@ -32,13 +32,15 @@ $(IOC_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.cpp
 		-o $@
 
 #a kind of reversing the changes done to the name
-$(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN)):
+$(patsubst %.aoco,%.cl,$(IOC_KERNEL_OBJ)):
 	cp $(patsubst $(BUILD_DIR)%, $(SRC_DIR)%, $(dir $@))device/$(notdir $@) $@
 
-$(IOC_KERNEL_BIN): $(BUILD_DIR)/%.aoco:$(BUILD_DIR)/%.cl
+$(IOC_KERNEL_OBJ): $(BUILD_DIR)/%.aoco:$(BUILD_DIR)/%.cl
 	#@echo -c $^ 	-o $@ #this is weird debug
 	time 2> $(dir $@)time_report.txt aoc -v -g --report --board $(IOC_BOARD) -c $^ -o $@ > $(dir $@)aoco_report.txt
 
+$(IOC_KERNEL_BIN):$(BUILD_DIR)/%.aocx:$(BUILD_DIR)/%.aoco
+	$(shell cd $(dir $@); aoc -v -g --report --board $(IOC_BOARD) $(notdir $^) -o $(notdir $@))
 #-----------------------------------------------------
 #------------- LUP compilation -----------------------
 $(LUP_BIN): $(BUILD_DIR)/%.v:$(SRC_DIR)/%.c

@@ -29,8 +29,8 @@ IOCBIN = $(patsubst $(SRC_DIR)%.cpp, $(BUILD_DIR)%, $(IOC_HOST))
 IOC_BIN = $(subst host/,, $(IOCBIN))
 
 IOC_KERNEL = $(wildcard $(SRC_DIR)/*/$(IOC_NAME)/device/*.cl)
-IOC_KERNELBIN = $(patsubst $(SRC_DIR)%.cl, $(BUILD_DIR)%.aoco, $(IOC_KERNEL))
-IOC_KERNEL_BIN = $(subst device/,, $(IOC_KERNELBIN))
+IOC_KERNEL_OBJ = $(subst device/,, $(patsubst $(SRC_DIR)%.cl, $(BUILD_DIR)%.aoco, $(IOC_KERNEL)))
+IOC_KERNEL_BIN = $(patsubst %.aoco,%.aocx,$(IOC_KERNEL_OBJ))
 
 # OpenCL compile and link flags.
 AOCL_COMPILE_CONFIG := $(shell aocl compile-config)
