@@ -10,7 +10,7 @@ all: gpp ioc
 
 gpp: $(BUILD_DIRS) $(GPP_BIN)
 
-ioc: $(BUILD_DIRS) $(IOC_KERNEL_OBJ) #$(IOC_BIN)
+ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_BIN)
 
 lup: $(BUILD_DIRS) $(LUP_BIN)
 #-----------------------------------------------------
