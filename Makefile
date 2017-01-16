@@ -37,7 +37,7 @@ $(patsubst %.aoco,%.cl,$(IOC_KERNEL_OBJ)):
 
 $(IOC_KERNEL_OBJ): $(BUILD_DIR)/%.aoco:$(BUILD_DIR)/%.cl
 	#@echo -c $^ 	-o $@ #this is weird debug
-	time 2> $(dir $@)time_report.txt aoc -v -g --report --board $(IOC_BOARD) -c $^ -o $@ > $(dir $@)aoco_report.txt
+	time 2> $(dir $@)time_report.txt aoc -v -g --report --board $(IOC_BOARD) -c $^ -o $@ | tee $(dir $@)aoco_report.txt
 
 $(IOC_KERNEL_BIN):$(BUILD_DIR)/%.aocx:$(BUILD_DIR)/%.aoco
 	$(shell cd $(dir $@); aoc -v -g --report --board $(IOC_BOARD) $(notdir $^) -o $(notdir $@))
