@@ -4,7 +4,7 @@
 #define abs(a) ( ((a) < 0) ? -(a) : (a) )
 
 // Lookup for butterfly calculations
-short sin_lookup[126] = {32767,0,
+short constant sin_lookup[126] = {32767,0,
 												32767,0,  0,32767,
 												32767,0,  23169,23169,  0,32767,  -23169,23169,
 												32767,0,  30272,12539,  23169,23169,  12539,30272,  0,32767,  -12539,30272,  -23169,23169,  -30272,12539,
@@ -22,10 +22,10 @@ short FIX_MPY(short a, short b)
 }
 
 __kernel void fft(
-	__global short * restrict sold_Re[],
-	__global short * restrict sold_Im[],
-	__global short * restrict sReal [],
-	__global short * restrict sImag []
+	__global short * restrict old_Re,
+	__global short * restrict old_Im,
+	__global short * restrict Real,
+	__global short * restrict Imag
 ){
   short m, i, j, l, sin_index=0, istep, shift,
   	    W_Imag, W_Real, // W = exp(-sqrt(-1)*2*pi/Input)Size
