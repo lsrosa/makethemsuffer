@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #define Input_Size  128
 #define inverse     0
 
@@ -24,8 +21,12 @@ short FIX_MPY(short a, short b)
 	return (c >> 15) + ((c >> 14)&1);
 }
 
-void fft(short old_Re[], short old_Im[], short Real [], short Imag [])
-{
+__kernel void fft(
+	__global short * restrict sold_Re[],
+	__global short * restrict sold_Im[],
+	__global short * restrict sReal [],
+	__global short * restrict sImag []
+){
   short m, i, j, l, sin_index=0, istep, shift,
   	    W_Imag, W_Real, // W = exp(-sqrt(-1)*2*pi/Input)Size
 	      qi, qr, ti, tr; // Temporary coefficients
@@ -198,38 +199,4 @@ void fft(short old_Re[], short old_Im[], short Real [], short Imag [])
     }
     l = istep;
   }
-}
-
-int main()
-{
-  short i, Real[Input_Size], Imag[Input_Size], New_Real[Input_Size], New_Imag[Input_Size];
-	volatile short input_temp;
-  int sum = 0;
-
-  // Set input, each input value consists of a Real and imaginary part
-	for (i=0; i<Input_Size; i++){
-		input_temp = 0;
-		Imag[i] = input_temp;
-		input_temp = 10*i;
-    Real[i] = input_temp;
-  }
-
-  fft(Real, Imag, New_Real, New_Imag);
-
-//  for (i=0; i<Input_Size; i++)
-//    printf ("%d\t\t%d\n", New_Real[i], New_Imag[i]);
-
-  for (i=0; i<Input_Size; i++) {
-    sum += abs(New_Real[i]);
-    sum += abs(New_Imag[i]);
-  }
-
-  printf ("Result: %d\n", sum);
-  if (sum == 87100) {
-      printf("RESULT: PASS\n");
-  } else {
-      printf("RESULT: FAIL\n");
-  }
-
-  return sum;
 }

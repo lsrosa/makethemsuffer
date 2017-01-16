@@ -117,7 +117,7 @@ for (i=1;i<=n;i++){
 }
 
 fclose(finput); /*  Close the input file  */
-
+/*
 printf("\nMatrices read from input file\n");
 
 printf("\nMatrix A\n\n");
@@ -125,7 +125,7 @@ matrix_print_off (n,n,a);
 
 printf("\nVector b\n\n");
 vector_print_off (n,b);
-
+*/
 /* Call the Gaussian elimination function */
 
 	gauss(a,b,x,n);
@@ -182,25 +182,25 @@ _______________________________________
 
 rowx = 0;   /* Keep count of the row interchanges */
 for (k=1; k<=n-1; ++k) {
-
-
      amax = (double) fabs(a[k][k]) ;
      m = k;
      for (i=k+1; i<=n; i++){   /* Find the row with largest pivot */
                xfac = (double) fabs(a[i][k]);
                if(xfac > amax) {amax = xfac; m=i;}
-     }
-     if(m != k) {  /* Row interchanges */
+		 }
+		 if(m != k) {  /* Row interchanges */
                  rowx = rowx+1;
                  temp1 = b[k];
                  b[k]  = b[m];
                  b[m]  = temp1;
                  for(j=k; j<=n; j++) {
                        temp = a[k][j];
-                       a[k][j] = a[m][j];
+											 a[k][j] = a[m][j];
                        a[m][j] = temp;
                  }
       }
+			//if(IDEBUG == 1) {printf("\n A after decomposition step %d\n\n",k);
+			//			     matrix_print_off (n, n, a);}
        for (i=k+1; i<=n; ++i) {
           xfac = a[i][k]/a[k][k];
 
@@ -209,18 +209,7 @@ for (k=1; k<=n-1; ++k) {
                }
           b[i] = b[i]-xfac*b[k];
        }
-
-if(IDEBUG == 1) {printf("\n A after decomposition step %d\n\n",k);
-			     matrix_print_off (n, n, a);}
-
 }
-/*
-_______________________________________
-
-  Do the back substitution step
-_______________________________________
-
-*/
 
 for (j=1; j<=n; ++j) {
   k=n-j+1;
@@ -231,7 +220,7 @@ for (j=1; j<=n; ++j) {
   x[k] = x[k]/a[k][k];
 }
 
-if(IDEBUG == 1) printf("\nNumber of row exchanges = %d\n",rowx);
+//if(IDEBUG == 1) printf("\nNumber of row exchanges = %d\n",rowx);
 
 }
 

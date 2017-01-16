@@ -1,6 +1,6 @@
 all:
 	@echo "reference code from base \n"
-	clang -lm ../../base/covariance.c -o refc -lm; ./refc > textbasec.txt
+	clang -lm ../../base/gauss_pivoting.c -o refc -lm; ./refc > textbasec.txt
 	@echo "\n\nreference code on cl format \n"
 	clang ref.c -lm -o refcl; ./refcl > testbasecl.txt
 	@echo "\n"
