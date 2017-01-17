@@ -17,6 +17,10 @@ int main(){
 
 	}
 
-	printf("aaaaa %f\n", A[23][43]);
+  for (i = 0; i < n; i++){
+    for (j = 0; j < n; j++){
+        printf("%f ", A[i][j]);
+    }
+  }
   return 0;
 }
