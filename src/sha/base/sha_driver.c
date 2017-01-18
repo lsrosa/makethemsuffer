@@ -182,12 +182,13 @@ int main (){
       main_result = 0;
       sha_stream ();
 
-      for (i = 0; i < 5; i++)
-	{
+      for (i = 0; i < 5; i++){
+	       printf ("%d\n", sha_info_digest[i]);
+         main_result += (sha_info_digest[i] != outData[i]);
+      }
+      for (i = 0; i < 16; i++){
+         printf ("%d\n", sha_info_data[i]);
+      }
 
-	  main_result += (sha_info_digest[i] != outData[i]);
-	}
-      printf ("%d\n", main_result);
-
-      return main_result;
+      return 0;
     }

@@ -1,0 +1,270 @@
+Compiler Command: aoc -v --report -c jpeg.cl -o jpeg.aoco
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:521:15: error: assigning '__attribute__((address_space(16776963))) unsigned int *' to 'unsigned int *' changes address space of pointer
+  p_quant_tbl =
+              ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:592:20: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+              WriteBlock (&rgb_buf[0][i][0],
+                          ^~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:375:18: note: passing argument to parameter 'store' here
+WriteBlock (int *store, int *p_out_vpos, int *p_out_hpos,
+                 ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:594:30: error: passing '__attribute__((address_space(16776960))) unsigned char *' to parameter of type 'unsigned char *' changes address space of pointer
+                          &out_data_comp_hpos[i], &OutData_comp_buf[i][0]);
+                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:376:21: note: passing argument to parameter 'p_out_buf' here
+            unsigned char *p_out_buf)
+                           ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:635:22: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+              Write4Blocks (&rgb_buf[0][i][0],
+                            ^~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:413:20: note: passing argument to parameter 'store1' here
+Write4Blocks (int *store1, int *store2, int *store3, int *store4,
+                   ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:636:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &rgb_buf[1][i][0],
+                            ^~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:413:33: note: passing argument to parameter 'store2' here
+Write4Blocks (int *store1, int *store2, int *store3, int *store4,
+                                ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:637:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &rgb_buf[2][i][0],
+                            ^~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:413:46: note: passing argument to parameter 'store3' here
+Write4Blocks (int *store1, int *store2, int *store3, int *store4,
+                                             ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:638:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &rgb_buf[3][i][0],
+                            ^~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:413:59: note: passing argument to parameter 'store4' here
+Write4Blocks (int *store1, int *store2, int *store3, int *store4,
+                                                          ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:640:32: error: passing '__attribute__((address_space(16776960))) unsigned char *' to parameter of type 'unsigned char *' changes address space of pointer
+                            &out_data_comp_hpos[i], &OutData_comp_buf[i][0]);
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:414:57: note: passing argument to parameter 'p_out_buf' here
+              int *p_out_vpos, int *p_out_hpos, unsigned char *p_out_buf)
+                                                               ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:828:22: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+  s = DecodeHuffman (&p_jinfo_dc_xhuff_tbl_huffval[tbl_no][0],
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:793:21: note: passing argument to parameter 'Xhuff_huffval' here
+DecodeHuffman (int *Xhuff_huffval, int Dhuff_ml,
+                    ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:830:8: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                     &p_jinfo_dc_dhuff_tbl_maxcode[tbl_no][0],
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:14: note: passing argument to parameter 'Dhuff_maxcode' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                    ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:831:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                     &p_jinfo_dc_dhuff_tbl_mincode[tbl_no][0],
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:34: note: passing argument to parameter 'Dhuff_mincode' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                                        ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:832:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                     &p_jinfo_dc_dhuff_tbl_valptr[tbl_no][0]);
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:54: note: passing argument to parameter 'Dhuff_valptr' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                                                            ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:859:26: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+      r = DecodeHuffman (&p_jinfo_ac_xhuff_tbl_huffval[tbl_no][0],
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:793:21: note: passing argument to parameter 'Xhuff_huffval' here
+DecodeHuffman (int *Xhuff_huffval, int Dhuff_ml,
+                    ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:861:5: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                         &p_jinfo_ac_dhuff_tbl_maxcode[tbl_no][0],
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:14: note: passing argument to parameter 'Dhuff_maxcode' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                    ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:862:5: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                         &p_jinfo_ac_dhuff_tbl_mincode[tbl_no][0],
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:34: note: passing argument to parameter 'Dhuff_mincode' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                                        ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:863:5: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                         &p_jinfo_ac_dhuff_tbl_valptr[tbl_no][0]);
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:794:54: note: passing argument to parameter 'Dhuff_valptr' here
+               int *Dhuff_maxcode, int *Dhuff_mincode, int *Dhuff_valptr)
+                                                            ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:917:7: warning: implicitly declaring C library function 'exit' with type 'void (int) __attribute__((noreturn))'
+      EXIT;
+      ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/global.h:5:29: note: expanded from:
+#define EXIT                exit(0)
+                            ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:917:7: note: please include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:996:25: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+      p_comp_info_index = &p_jinfo_comps_info_index[ci];
+                        ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:997:22: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+      p_comp_info_id = &p_jinfo_comps_info_id[ci];
+                     ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:998:33: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+      p_comp_info_h_samp_factor = &p_jinfo_comps_info_h_samp_factor[ci];
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:999:33: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+      p_comp_info_v_samp_factor = &p_jinfo_comps_info_v_samp_factor[ci];
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1000:32: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+      p_comp_info_quant_tbl_no = &p_jinfo_comps_info_quant_tbl_no[ci];
+                               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1081:19: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+          p_comp_info_id = &p_jinfo_comps_info_id[ci];
+                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1082:26: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+          p_comp_info_dc_tbl_no = &p_jinfo_comps_info_dc_tbl_no[ci];
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1083:26: error: assigning '__attribute__((address_space(16776960))) char *' to 'char *' changes address space of pointer
+          p_comp_info_ac_tbl_no = &p_jinfo_comps_info_ac_tbl_no[ci];
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1161:17: error: assigning '__attribute__((address_space(16776960))) int *' to 'int *' changes address space of pointer
+          p_xhtbl_bits = p_jinfo_ac_xhuff_tbl_bits[index];
+                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1162:20: error: assigning '__attribute__((address_space(16776960))) int *' to 'int *' changes address space of pointer
+          p_xhtbl_huffval = p_jinfo_ac_xhuff_tbl_huffval[index];
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1167:17: error: assigning '__attribute__((address_space(16776960))) int *' to 'int *' changes address space of pointer
+          p_xhtbl_bits = p_jinfo_dc_xhuff_tbl_bits[index];
+                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1168:20: error: assigning '__attribute__((address_space(16776963))) int *' to 'int *' changes address space of pointer
+          p_xhtbl_huffval = p_jinfo_dc_xhuff_tbl_huffval[index];
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1234:16: error: read-only variable is not assignable
+      i_get_dqt++;
+      ~~~~~~~~~^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1236:19: error: assigning '__attribute__((address_space(16776963))) unsigned int *' to 'unsigned int *' changes address space of pointer
+      p_quant_tbl = &p_jinfo_quant_tbl_quantval[num][DCTSIZE2];
+                  ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1323:29: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  tmp = huff_make_dhuff_tb (&p_jinfo_dc_xhuff_tbl_bits[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:724:26: note: passing argument to parameter 'p_xhtbl_bits' here
+huff_make_dhuff_tb (int *p_xhtbl_bits, int p_dhtbl_ml,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1325:8: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_maxcode[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:12: note: passing argument to parameter 'p_dhtbl_maxcode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1326:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_mincode[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:34: note: passing argument to parameter 'p_dhtbl_mincode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                                               ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1327:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_valptr[0][0]);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:726:12: note: passing argument to parameter 'p_dhtbl_valptr' here
+                    int *p_dhtbl_valptr)
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1329:29: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  tmp = huff_make_dhuff_tb (&p_jinfo_dc_xhuff_tbl_bits[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:724:26: note: passing argument to parameter 'p_xhtbl_bits' here
+huff_make_dhuff_tb (int *p_xhtbl_bits, int p_dhtbl_ml,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1331:8: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_maxcode[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:12: note: passing argument to parameter 'p_dhtbl_maxcode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1332:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_mincode[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:34: note: passing argument to parameter 'p_dhtbl_mincode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                                               ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1333:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_dc_dhuff_tbl_valptr[1][0]);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:726:12: note: passing argument to parameter 'p_dhtbl_valptr' here
+                    int *p_dhtbl_valptr)
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1335:29: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  tmp = huff_make_dhuff_tb (&p_jinfo_ac_xhuff_tbl_bits[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:724:26: note: passing argument to parameter 'p_xhtbl_bits' here
+huff_make_dhuff_tb (int *p_xhtbl_bits, int p_dhtbl_ml,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1337:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_maxcode[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:12: note: passing argument to parameter 'p_dhtbl_maxcode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1338:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_mincode[0][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:34: note: passing argument to parameter 'p_dhtbl_mincode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                                               ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1339:8: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_valptr[0][0]);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:726:12: note: passing argument to parameter 'p_dhtbl_valptr' here
+                    int *p_dhtbl_valptr)
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1341:29: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  tmp = huff_make_dhuff_tb (&p_jinfo_ac_xhuff_tbl_bits[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:724:26: note: passing argument to parameter 'p_xhtbl_bits' here
+huff_make_dhuff_tb (int *p_xhtbl_bits, int p_dhtbl_ml,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1343:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_maxcode[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:12: note: passing argument to parameter 'p_dhtbl_maxcode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1344:8: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_mincode[1][0],
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:725:34: note: passing argument to parameter 'p_dhtbl_mincode' here
+                    int *p_dhtbl_maxcode, int *p_dhtbl_mincode,
+                                               ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1345:8: error: passing '__attribute__((address_space(16776963))) int *' to parameter of type 'int *' changes address space of pointer
+                            &p_jinfo_ac_dhuff_tbl_valptr[1][0]);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:726:12: note: passing argument to parameter 'p_dhtbl_valptr' here
+                    int *p_dhtbl_valptr)
+                         ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1355:17: error: passing '__attribute__((address_space(16776960))) unsigned char *restrict' to parameter of type 'unsigned char *' changes address space of pointer
+  read_markers (read_buf);
+                ^~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1252:35: note: passing argument to parameter 'buf' here
+void read_markers (unsigned char *buf){
+                                  ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1357:17: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  decode_start (&OutData_image_width, &OutData_image_height,
+                ^~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:535:20: note: passing argument to parameter 'out_data_image_width' here
+decode_start (int *out_data_image_width, int *out_data_image_height,
+                   ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1357:39: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+  decode_start (&OutData_image_width, &OutData_image_height,
+                                      ^~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:535:47: note: passing argument to parameter 'out_data_image_height' here
+decode_start (int *out_data_image_width, int *out_data_image_height,
+                                              ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1358:3: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                &OutData_comp_vpos[0], &OutData_comp_hpos[0]);
+                ^~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:536:13: note: passing argument to parameter 'out_data_comp_vpos' here
+              int *out_data_comp_vpos, int *out_data_comp_hpos)
+                   ^
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:1358:26: error: passing '__attribute__((address_space(16776960))) int *' to parameter of type 'int *' changes address space of pointer
+                &OutData_comp_vpos[0], &OutData_comp_hpos[0]);
+                                       ^~~~~~~~~~~~~~~~~~~~~
+/home/leandro/makethemsuffer/makethemsuffer/src/jpeg/ioc.bak/device/jpeg.cl:536:38: note: passing argument to parameter 'out_data_comp_hpos' here
+              int *out_data_comp_vpos, int *out_data_comp_hpos)
+                                            ^
+1 warning and 51 errors generated.

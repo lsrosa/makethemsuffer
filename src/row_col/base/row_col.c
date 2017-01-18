@@ -8,8 +8,8 @@ int main(){
 
   for (row = 0; row < rows; row++) {
     for (col = 0; col < cols; col++) {
-      buff_A[row][col] = row/col;
-      buff_B[row][col] = row/(2*col);
+      buff_A[row][col] = (2+row)*(col+1);
+      buff_B[row][col] = (2+row)*(2*col+1);
     }
   }
 
@@ -24,5 +24,12 @@ int main(){
     }
   }
 
-  printf("%f", temp);
+  for (row = 0; row < rows; row++) {
+    for (col = 0; col < cols; col++) {
+        printf("%f-%f-%f", temp, buff_A[row][col],buff_B[row][col]);
+    }
+  }
+
+
+  return 0;
 }
