@@ -7,6 +7,12 @@ int main(){
   int i, j, LB=1, UB=50;
   int A[size][size];
 
+  for (i = 0; i < size; i++) {
+    for (j = 0; j < size; j++) {
+      A[i][j] = (i*size+j);
+    }
+  }
+
   int m = (rand() % 20) - 10;
   int n = (rand() % 30) - 15;
 
@@ -16,6 +22,10 @@ int main(){
     }
   }
 
-  printf("aaaa %d \n", m);
+  for (i = 0; i < size; i++) {
+    for (j = 0; j < size; j++) {
+      printf("%d  ", A[i][j]);
+    }
+  }
   return 0;
 }
