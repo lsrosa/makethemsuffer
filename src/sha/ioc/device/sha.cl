@@ -1,4 +1,12 @@
-#include "sha.h"
+typedef unsigned char BYTE;
+typedef unsigned int INT32;
+
+#define SHA_BLOCKSIZE		64
+
+#define CONST1		0x5a827999L
+#define CONST2		0x6ed9eba1L
+#define CONST3		0x8f1bbcdcL
+#define CONST4		0xca62c1d6L
 
 #define f1(x,y,z)	((x & y) | (~x & z))
 #define f2(x,y,z)	(x ^ y ^ z)
