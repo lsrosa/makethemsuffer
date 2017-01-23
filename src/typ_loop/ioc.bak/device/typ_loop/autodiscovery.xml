@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<board name="s5phq_d5" vfabric="0" big_endian="0">
-	 <global_mem_config name="DDR" mode="burst-interleaved"/> 
-</board>
