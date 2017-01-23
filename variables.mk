@@ -57,6 +57,6 @@ LIBS :=
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
 LUP_SRC = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*.c)
-LUP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
-
+LUP_OBJ = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
+LUP_BIN = $(basename $(LUP_OBJ))
 LUP_MAKEFILE = $(LUP_NAME).make

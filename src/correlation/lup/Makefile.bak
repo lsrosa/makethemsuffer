@@ -1,0 +1,10 @@
+all:
+	@echo "reference code from base \n"
+	clang -lm ../base/correlation.c -o refc -lm; ./refc > res.c
+	@echo "\n\nreference code on cl format \n"
+	clang correlation.c -lm -o reflup; ./reflup > res.lup
+	@echo "\n"
+	diff res.c res.lup
+
+clean:
+	rm refc reflup res.c res.lup

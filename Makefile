@@ -12,7 +12,7 @@ gpp: $(BUILD_DIRS) $(GPP_BIN)
 
 ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_BIN)
 
-lup: $(BUILD_DIRS) $(LUP_BIN)
+lup: $(BUILD_DIRS) $(LUP_OBJ)
 #-----------------------------------------------------
 #------------- GPP compilation -----------------------
 $(GPP_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.c
@@ -43,9 +43,10 @@ $(IOC_KERNEL_BIN):$(BUILD_DIR)/%.aocx:$(BUILD_DIR)/%.aoco
 	$(shell cd $(dir $@); aoc -v -g --report --board $(IOC_BOARD)_a7 $(notdir $^) -o $(notdir $@))
 #-----------------------------------------------------
 #------------- LUP compilation -----------------------
-$(LUP_BIN): $(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
+$(LUP_OBJ): $(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
 		cp $(dir $^)*	 $(dir  $@)
-		time 2> $(dir $@)time_report.txt make -f $(LUP_MAKEFILE) -C $(dir $@) #yeah I know that this is not sophsticated, but works
+		time 2> $(dir $@)time_report.txt make -f $(LUP_MAKEFILE) -C $(dir $@)  #yeah I know that this is not sophsticated /*euphemism here*/, but works
+		make p -f $(LUP_MAKEFILE) -C $(dir $@)
 
 #-----------------------------------------------------
 #------------- utils------ ---------------------------
