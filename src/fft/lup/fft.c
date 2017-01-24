@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #define Input_Size  128
 #define inverse     0
 
@@ -19,6 +16,16 @@ short sin_lookup[126] = {32767,0,
 
 
 short FIX_MPY(short a, short b)
+/* Because all data are integers with respect to 2^15 = 32768, following
+   multiplication, products must be divided by 2^15, or right shifted
+   by 15 bits. (E.g. consider an input value of 1 multiplied by sin(pi/2).
+   This corresponds to 32768 * 32768, and the product also must be 32768).
+
+   Procedure:
+   1. Cast a and b as integers and multiply
+   2. Divide by 2^15 and return as a short
+   3. To increase accuracy, first the product is divided by 2^14, the last
+      bit is checked, and if = 1 then after the final division by 2, add 1 */
 {
 	int c = (int)a*(int)b;
 	return (c >> 15) + ((c >> 14)&1);
@@ -30,6 +37,10 @@ void fft(short old_Re[], short old_Im[], short Real [], short Imag [])
   	    W_Imag, W_Real, // W = exp(-sqrt(-1)*2*pi/Input)Size
 	      qi, qr, ti, tr; // Temporary coefficients
 
+  // Time decimation, swaps are hard-coded, not calculated
+
+	// Note: Each of these corresponds to a load/store. In Legup1.0, the memory
+	// controller has 1 port and this takes a lot of clock cycles
 	Real[0] = old_Re[0];
 	Imag[0] = old_Im[0];
 	Real[1] = old_Re[32];
@@ -159,6 +170,37 @@ void fft(short old_Re[], short old_Im[], short Real [], short Imag [])
 	Real[63] = old_Re[63];
 	Imag[63] = old_Im[63];
 
+  /* Butterfly computation. See Summaryp.pdf. For N =  64 point
+     FFT, there are log2(N) = 6 stages of butterflies, with N/2 = 32 butterflies
+     per stage. In stage 1, every entry is butterflied with its neighbor:
+     (the function B() denotes a butterfly computation)
+
+     Stage 1: B(0,1), B(2,3) ... B(62,63).
+
+     The results are  stored in-place (a butterfly is a 2-input 2-output operation).
+     In stage 2, the butterfly is performed with every other entry:
+
+     Stage 2: B(0,2), B(1,3), B(4,6), B(5,7) ... B(60,62), B(62,63).
+
+     In the third stage, this pattern repeats but skips 4:
+
+     Stage 3: B(0,4), B(1,5), B(2,6), B(3,7),
+                  B(8,12), B(9,13), B(10,14), B(11,15) ...
+
+     The pattern repeats skipping 8, 16 and 32. This is accomplished using 2 nested for
+     loops. The inner for loop is the actual butterfly computation, while the outer
+     creates the correct indices. The outermost  while loop counts the number of passes
+     (hence executes 6x in the 64 point example).
+
+NOTE: In hardware, all 32 butterflies should be in parallel during each stage.
+Currently this is not done by LegUp, as it is unclear that these
+loops can be unrolled. But the required computations do not depend on input values hence
+do not change for any 64-point FFT. Therefore, this set of three loops can be manually
+unrolled to either create six sets of nested for loops (eliminating the while loop) or
+to completely remove the for loops as well.
+
+Therefore while in software using for loops is convenient, the loops can be unrolled
+manually in order to guide LegUp. */
 
   l = 1;
   while (l < Input_Size) // Executes log2(N) times
@@ -224,12 +266,13 @@ int main()
     sum += abs(New_Imag[i]);
   }
 
+	/*
   printf ("Result: %d\n", sum);
   if (sum == 87100) {
       printf("RESULT: PASS\n");
   } else {
       printf("RESULT: FAIL\n");
   }
-
+*/
   return 0;
 }

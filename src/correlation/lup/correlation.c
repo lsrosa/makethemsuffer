@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <math.h>
 #   define N 500
 #   define M 500
 
@@ -85,6 +81,7 @@ int main(int argc, char** argv){
   /* Run kernel. */
   kernel_correlation (m, n, float_n,(float *) data,(float *) symmat,(float *) (float *) mean, (float *) stddev);
 
+/* just for now
  	for (i = 0; i < m; i++){
     for (j = 0; j < m; j++) {
       if ((i * m + j) % m*10 == 0){
@@ -92,6 +89,6 @@ int main(int argc, char** argv){
 			}
     }
 	}
-
+*/
   return 0;
 }
