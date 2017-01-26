@@ -50,6 +50,7 @@ $(LUP_OBJ):$(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
 $(LUP_BIN):$(BUILD_DIR)%.dummy:$(BUILD_DIR)%.v
 	make p -f $(LUP_MAKEFILE) -C $(dir $@)
 	make q -f $(LUP_MAKEFILE) -C $(dir $@)
+	quartus_fit $(dir $@)top
 	echo "dummy" > $@
 #-----------------------------------------------------
 #------------- utils------ ---------------------------
