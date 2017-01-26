@@ -67,6 +67,7 @@ int main(int argc, char** argv){
 	float float_n = 1.2;
 
 	float data[M][N],symmat[M][M],mean[M],stddev[M];
+  float sum;
 
 	for (i = 0; i < m; i++){
 		for (j = 0; j < n; j++){
@@ -77,13 +78,13 @@ int main(int argc, char** argv){
   /* Run kernel. */
   kernel_correlation (m, n, float_n, data, symmat, mean, stddev);
 
+  sum = 0;
  	for (i = 0; i < m; i++){
     for (j = 0; j < m; j++) {
-      if ((i * m + j) % m*10 == 0){
+      sum += symmat[i][j];
 				printf ("%f ", symmat[i][j]);
-			}
     }
 	}
 
-  return 0;
+  return (int)sum;
 }

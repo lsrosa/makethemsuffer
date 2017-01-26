@@ -1,13 +1,13 @@
 NAME=correlation
 all:
 	@echo "reference code from base \n"
-	clang -lm ../../base/$(NAME).c -o refc
+	clang -lm ../base/$(NAME).c -o refc
 	-./refc > c.res
 	@echo "\n\nreference code on cl format \n"
-	clang ref.c -lm -o refcl
-	-./refcl > cl.res
+	clang $(NAME).c -lm -o reflup
+	-./reflup > lup.res
 	@echo "\n"
-	diff c.res cl.res
+	diff c.res lup.res
 
 clean:
-	rm refc refcl c.res cl.res
+	rm refc reflup c.res lup.res
