@@ -1,5 +1,5 @@
 typedef unsigned char BYTE;
-typedef unsigned int INT32;
+typedef int INT32;
 
 #define SHA_BLOCKSIZE		64
 

@@ -61,7 +61,7 @@ void gauss(double **a, double *b, double *x, int n);
 
 int main (void)
 {
-double  **a,*b,*x;
+double  **a,*b,*x, sum;
 float  aij,bi;
 char   desc[ICHAR];
 int    i,j,n;
@@ -81,8 +81,8 @@ if (finput == NULL) {
 */
 fgets(desc, ICHAR , finput);
 fscanf(finput, "%d",&n);
-printf("%s", desc);
-printf("\nDimension of matrix = %d\n\n",n);
+//printf("%s", desc);
+//printf("\nDimension of matrix = %d\n\n",n);
 
 /*
    Dynamic allocation of the arrays and vectors,
@@ -130,10 +130,12 @@ vector_print_off (n,b);
 
 	gauss(a,b,x,n);
 
-printf("\nSolution x\n\n");
-vector_print_off (n,x);
+	for (i = 1; i <= n; i++) {
+		sum += x[i];
+		printf ("%f ", x[i]);
+	}
 
-return(0);
+	return (int)sum;
 }
 
 void gauss(double **a, double *b, double *x, int n)
@@ -222,94 +224,4 @@ for (j=1; j<=n; ++j) {
 
 //if(IDEBUG == 1) printf("\nNumber of row exchanges = %d\n",rowx);
 
-}
-
-int matrix_print_off (int nr, int nc, double **A)
-
-/*
-________________________________________________________________
-
-Name:     matrix_print_off.c
-
-Purpose:  This function will print out a general two-dimensional
-          matrix in a user defined format using offsets that assume
-		  the indices are from 1 to nr and 1 to nc.
-
-Author:   Gregory J. McRae (22 October 1997)
-
-Address:  Department of Chemical Engineering
-          Room 66-372
-          Massachusetts Institute of Technology
-          Cambridge, MA 02139
-		  mcrae@mit.edu
-
-Usage:    mat_print_off(nr, nc, A);
-
-
-Input:    nr     - number of rows (must be >= 1)
-		  nc     - number of columns (must be >= 1)
-		  A      - Matrix A[nr][nc] to be printed
-
-Return:   =  0 Matrix printed correctly
-          = -1 Number of rows not >= 0
-		  = -2 Number of columns not >= 0
-________________________________________________________________
-*/
-{
-int i,j;
-
-if ( nr <= 0 ) return (-1);
-if ( nc <= 0 ) return (-2);
-
-for (i = 1; i <= nr; i++) {
-
- 	for (j = 1; j <= nc; j++) {
-		printf ("%9.4f  ", A[i][j]);
-	}
-
-	printf("\n"); /* Insert a new line at end of each row */
-}
-return (0);
-}
-
-
-int vector_print_off (int nr, double *x)
-
-/*
-________________________________________________________________
-
-Name:     vector_print_off.c
-
-Purpose:  This function will print out a one-dimensional
-          vector in a user defined format, using offsets
-		  that assume the indices are from 1 to nr.
-
-Author:   Gregory J. McRae (22 October 1997)
-
-Address:  Department of Chemical Engineering
-          Room 66-372
-          Massachusetts Institute of Technology
-          Cambridge, MA 02139
-		  mcrae@mit.edu
-
-Usage:    vector_print_off(nr, x);
-
-
-Input:    nr     - number of rows (must be >= 1)
-          x      - Vector x[nr] to be printed
-
-Return:   =  0 Vector printed correctly
-          = -1 Number of rows not >= 0
-________________________________________________________________
-*/
-{
-int i;
-
-if ( nr <= 0 ) return (-1);
-
-for (i = 1; i <= nr; i++) {
-	printf ("%9.4f  \n", x[i]);
-}
-printf("\n");  /* Insert a new line at the end  */
-return (0);
 }

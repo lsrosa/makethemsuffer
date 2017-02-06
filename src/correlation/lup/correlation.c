@@ -1,5 +1,5 @@
-#   define N 500
-#   define M 500
+#   define N 50
+#   define M 50
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */
@@ -86,7 +86,7 @@ int main(int argc, char** argv){
  	for (i = 0; i < m; i++){
     for (j = 0; j < m; j++) {
       sum += symmat[i][j];
-				printf ("%f ", symmat[i][j]);
+			//printf ("%f ", symmat[i][j]);
     }
 	}
 

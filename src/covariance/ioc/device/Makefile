@@ -1,10 +1,13 @@
+NAME=covariance
 all:
 	@echo "reference code from base \n"
-	clang -lm ../../base/covariance.c -o refc -lm; ./refc > textbasec.txt
+	clang -lm ../../base/$(NAME).c -o refc
+	-./refc > c.res
 	@echo "\n\nreference code on cl format \n"
-	clang ref.c -lm -o refcl; ./refcl > testbasecl.txt
+	clang ref.c -lm -o refioc
+	-./refioc > ioc.res
 	@echo "\n"
-	diff textbasec.txt testbasecl.txt
+	diff c.res ioc.res
 
 clean:
-	rm refc refcl textbasec.txt testbasecl.txt
+	rm refc refioc c.res ioc.res

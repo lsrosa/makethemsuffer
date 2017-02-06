@@ -1,4 +1,4 @@
-NAME=jacobi_2d
+NAME=gauss_pivoting
 all:
 	@echo "reference code from base \n"
 	clang -lm ../base/$(NAME).c -o refc

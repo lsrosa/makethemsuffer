@@ -1,5 +1,5 @@
-NAME=sha
 SRCS=sha.c
+NAME=sha
 
 LEVEL = /home/leandro/legup/4.0/examples
 ifeq ($(NO_OPT),)
@@ -9,4 +9,5 @@ ifeq ($(NO_INLINE),)
 	NO_INLINE=1
 endif
 
+LOCAL_CONFIG = -legup-config=config.tcl
 include $(LEVEL)/Makefile.common

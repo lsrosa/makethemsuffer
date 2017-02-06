@@ -10,3 +10,4 @@ ifeq ($(NO_INLINE),)
 endif
 
 include $(LEVEL)/Makefile.common
+LOCAL_CONFIG = -legup-config=config.tcl

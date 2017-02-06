@@ -1,4 +1,4 @@
-NAME=fft
+NAME=typ_loop
 all:
 	@echo "reference code from base \n"
 	clang -lm ../../base/$(NAME).c -o refc

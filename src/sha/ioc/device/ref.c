@@ -194,5 +194,5 @@ int main (){
          printf ("%d\n", sha_info_datatest[i]);
       }
 
-      return 0  ;
+      return main_result;
     }

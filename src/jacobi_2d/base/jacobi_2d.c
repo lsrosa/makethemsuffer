@@ -2,7 +2,7 @@
 
 int main(){
   int i, j, t, n = 100;
-	float A[n][n];
+	float A[n][n], sum;
 
 	for (i = 0; i < n; i++){
     for (j = 0; j < n; j++){
@@ -17,10 +17,13 @@ int main(){
 
 	}
 
+  sum = 0;
   for (i = 0; i < n; i++){
     for (j = 0; j < n; j++){
+        sum += A[i][j];
         printf("%f ", A[i][j]);
     }
   }
-  return 0;
+
+  return (int)sum;
 }

@@ -222,14 +222,8 @@ int main()
   for (i=0; i<Input_Size; i++) {
     sum += abs(New_Real[i]);
     sum += abs(New_Imag[i]);
+		printf("%d %d\n", New_Real[i], New_Imag[i]);
   }
 
-  printf ("Result: %d\n", sum);
-  if (sum == 87100) {
-      printf("RESULT: PASS\n");
-  } else {
-      printf("RESULT: FAIL\n");
-  }
-
-  return 0;
+  return sum;
 }

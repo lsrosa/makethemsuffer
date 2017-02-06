@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-#   define N 500
-#   define M 500
+#   define N 50
+#   define M 50
 
 /* Main computational kernel. The whole function will be timed,
    including the call and return. */

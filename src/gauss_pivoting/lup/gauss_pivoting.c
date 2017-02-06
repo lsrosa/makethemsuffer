@@ -4,12 +4,6 @@
 #define IDEBUG 1  /*  Flag to enable printing of intermediate
                       results of decomposition =1 yes, =0 no. */
 
-
-/*   Function Prototypes  */
-
-int matrix_print_off (int nr, int nc, double *A);
-int  vector_print_off (int nr, double *x);
-
 void gauss(
 	double *a,
 	double *b,
@@ -64,49 +58,22 @@ for (j=0; j<n; ++j) {
 
 int main (void)
 {
-double  *a,*b,*x;
+double sum;
 float  aij,bi;
 char   desc[ICHAR];
 int    i,j,n;
-FILE   *finput;
 
-/* Open the file containing a description, n,A and b  */
+n=4;
 
-finput = fopen("gauss.dat","r");
-if (finput == NULL) {
-						printf("Data file gauss.dat not found\n");
-						return(-1);
-					}
-
-/*
-    Get a one line description of the matrix problem and
-    then the dimension, n, of the system A[n][n] and b[n]
-*/
-fgets(desc, ICHAR , finput);
-fscanf(finput, "%d",&n);
-printf("%s", desc);
-printf("\nDimension of matrix = %d\n\n",n);
-
-a = calloc(n*n, sizeof(double *));
-
-b = calloc(n, sizeof(double));
-x = calloc(n, sizeof(double));
+double x[n];
 
 /*   Read the elements of A */
+double a[4][4] = { 2,  1,  0,  0, 1,  2,  1,  0, 0,  1,  2,  1, 0,  0,  1,  2};
 
-for (i=0;i<n;i++){
-	for (j=0;j<n;j++) {
-		fscanf(finput,"%f ",&aij);
-		a[i*n+j] = (double) aij;
-	}
-}
 //matrix_print_off (n,n,a);
 /*  Read the elements of b */
 
-for (i=0;i<n;i++){
-   fscanf(finput,"%f ",&bi);
-   b[i] = (double) bi;
-}
+double b[4] = {2, 1, 4, 8};
 
 //fclose(finput); /*  Close the input file  */
 /*
@@ -120,39 +87,12 @@ vector_print_off (n,b);
 */
 /* Call the Gaussian elimination function */
 
-	gauss(a,b,x,n);
+	gauss((double*)a,b,x,n);
 
-printf("\nSolution x\n\n");
-vector_print_off (n,x);
-
-return(0);
-}
-
-int matrix_print_off (int nr, int nc, double *A){
-	int i,j;
-
-	if ( nr <= 0 ) return (-1);
-	if ( nc <= 0 ) return (-2);
-
-	for (i = 0; i < nr; i++) {
-
-	 	for (j = 0; j < nc; j++) {
-			printf ("%9.4f  ", A[i*nc+j]);
-		}
-
-		printf("\n"); /* Insert a new line at end of each row */
+	for (i = 0; i < n; i++) {
+		sum += x[i];
+		//printf ("%f ", x[i]);
 	}
-	return (0);
-}
 
-int vector_print_off (int nr, double *x){
-int i;
-
-if ( nr <= 0 ) return (-1);
-
-for (i = 0; i < nr; i++) {
-	printf ("%9.4f  \n", x[i]);
-}
-printf("\n");  /* Insert a new line at the end  */
-return (0);
+return (int)sum;
 }

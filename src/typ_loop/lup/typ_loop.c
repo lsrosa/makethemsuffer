@@ -15,6 +15,7 @@ void typ_loop(int * A, int s, int LB, int UB,int m, int n){
 int main(){
   int i, j, LB=1, UB=50;
   int A[size][size];
+  int sum;
 
   for (i = 0; i < size; i++) {
     for (j = 0; j < size; j++) {
@@ -29,13 +30,13 @@ int main(){
 
   typ_loop((int *)A, size, LB, UB, m, n);
 
-  /* for now
+  sum = 0;
   for (i = 0; i < size; i++) {
     for (j = 0; j < size; j++) {
-      printf("%d  ", A[i][j]);
+      sum += A[i][j];
+      //printf("%d  ", A[i][j]);
     }
   }
-  */
 
-  return 0;
+  return (int)sum;
 }

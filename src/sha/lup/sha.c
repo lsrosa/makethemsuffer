@@ -185,14 +185,14 @@ int main (){
       main_result = 0;
       sha_stream ((BYTE*)indatatest,in_itest,sha_info_digesttest, sha_info_datatest,VSIZEtest,BLOCK_SIZEtest);
 
-      /* just for now
+
       for (i = 0; i < 5; i++){
-	       printf ("%d\n", sha_info_digesttest[i]);
+	       //printf ("%d\n", sha_info_digesttest[i]);
          main_result += (sha_info_digesttest[i] != outData[i]);
       }
       for (i = 0; i < 16; i++){
-         printf ("%d\n", sha_info_datatest[i]);
+         //printf ("%d\n", sha_info_datatest[i]);
       }
-      */
-      return 0  ;
+
+      return main_result;
     }

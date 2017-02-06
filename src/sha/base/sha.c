@@ -190,5 +190,5 @@ int main (){
          printf ("%d\n", sha_info_data[i]);
       }
 
-      return 0;
+      return main_result;
     }

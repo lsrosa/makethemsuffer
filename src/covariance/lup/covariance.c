@@ -1,5 +1,5 @@
-#   define N 500
-#   define M 500
+#   define N 50
+#   define M 50
 
 void kernel_covariance(
   int m,
@@ -44,6 +44,7 @@ int main(int argc, char** argv)
   int n = N;
   int m = M;
 	int i, j;
+  float sum;
 
   /* Variable declaration/allocation. */
 	float float_n = 1.2;
@@ -60,11 +61,13 @@ int main(int argc, char** argv)
   /* Run kernel. */
   kernel_covariance (m, n, float_n, (float *)data, (float *)symmat, (float *)mean);
 
-/* just for now
-	for (i = 0; i < m; i++)
+  sum = 0;
+	for (i = 0; i < m; i++){
 		for (j = 0; j < m; j++) {
-			if ((i * m + j) % 10*m == 0) printf  ("%f ", symmat[i][j]);
+      sum += symmat[i][j];
+			//printf  ("%f ", symmat[i][j]);
 		}
-*/
-  return 0;
+  }
+
+  return (int)sum;
 }

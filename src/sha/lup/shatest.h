@@ -1,17 +1,14 @@
-typedef char BYTE;
-typedef long int INT32;
+typedef unsigned char BYTE;
+typedef int INT32;
 
 #define SHA_BLOCKSIZE		64
 
-//INT32 sha_info_count_lo;
-//INT32 sha_info_count_hi;	/* 64-bit bit count */
 INT32 sha_info_digesttest[5];	/* message digest */
+INT32 sha_info_count_lotest, sha_info_count_hitest;	/* 64-bit bit count */
 INT32 sha_info_datatest[16];
-
 
 #define BLOCK_SIZEtest 8192
 #define VSIZEtest 2
-
 
 #define CONST1		0x5a827999L
 #define CONST2		0x6ed9eba1L
@@ -23,7 +20,7 @@ INT32 sha_info_datatest[16];
 |     indata, in_i : input data                                            |
 +--------------------------------------------------------------------------+
 */
-BYTE indatatest[VSIZEtest][BLOCK_SIZEtest] = {
+const BYTE indatatest[VSIZEtest][BLOCK_SIZEtest] = {
   {75, 117, 114, 116, 86, 111, 110, 110, 101, 103, 117, 116, 115, 67, 111,
    109, 109, 101, 110, 99, 101, 109, 101, 110, 116, 65, 100, 100, 114, 101,
    115, 115, 97, 116, 77, 73, 84, 76, 97, 100, 105, 101, 115, 97, 110, 100,
@@ -1107,4 +1104,4 @@ BYTE indatatest[VSIZEtest][BLOCK_SIZEtest] = {
    116, 109, 101, 105, 110, 50, 48, 121, 101, 97, 114, 115, 121, 111, 117,
    108, 108, 108, 111, 111}
 };
-int in_itest[VSIZEtest] = { 8192, 8192 };
+const int in_itest[VSIZEtest] = { 8192, 8192 };

@@ -53,7 +53,7 @@ int main(){
   for ( kx=1 ; kx<3 ; kx++ ){
     for ( ky=1 ; ky<n ; ky++ ) {
       sum += u1[1][ky][kx]+u2[1][ky][kx]+u3[1][ky][kx];
-      printf("%f %f %f\n", u1[1][ky][kx],u2[1][ky][kx],u3[1][ky][kx]);
+      //printf("%f %f %f\n", u1[1][ky][kx],u2[1][ky][kx],u3[1][ky][kx]);
     }
   }
 
