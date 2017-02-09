@@ -12,7 +12,10 @@ gpp: $(BUILD_DIRS) $(GPP_BIN)
 
 ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_KERNEL_OBJ)
 
-lup: $(BUILD_DIRS) $(LUP_BIN) #$(LUP_OBJ)
+lup: $(BUILD_DIRS) $(LUP_BIN)
+
+obj: $(BUILD_DIRS) $(LUP_OBJ)
+
 #-----------------------------------------------------
 #------------- GPP compilation -----------------------
 $(GPP_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.c

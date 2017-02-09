@@ -1,7 +1,7 @@
 CC=clang
 CXX=g++
 
-GPP_NAME=base
+GPP_NAME=gpp
 IOC_NAME=ioc
 LUP_NAME=lup
 
@@ -11,7 +11,7 @@ BUILD_DIR = ../build
 CFLAGS=-lm
 
 #gets all benchmarks and its types of implementations
-BENCHS = $(sort $(wildcard $(SRC_DIR)/*/*))
+BENCHS = $(sort $(wildcard $(SRC_DIR)/*/*/*))
 
 #name of directories for the object, intermediate and binary files
 BUILD_DIRS = $(patsubst $(SRC_DIR)%, $(BUILD_DIR)%, $(BENCHS))
@@ -56,7 +56,7 @@ LIBS :=
 
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
-LUP_SRC = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*.c)
+LUP_SRC = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*/*.c)
 LUP_OBJ = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
 LUP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.dummy, $(LUP_SRC))
 LUP_MAKEFILE = $(LUP_NAME).make

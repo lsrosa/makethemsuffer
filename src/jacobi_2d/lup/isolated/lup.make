@@ -1,5 +1,5 @@
-NAME=adi_int
-SRCS=adi_int.c
+NAME=jacobi_2d
+SRCS=jacobi_2d.c
 
 LEVEL = /home/leandro/legup/4.0/examples
 ifeq ($(NO_OPT),)
@@ -9,5 +9,5 @@ ifeq ($(NO_INLINE),)
 	NO_INLINE=1
 endif
 
-include $(LEVEL)/Makefile.common
 LOCAL_CONFIG = -legup-config=config.tcl
+include $(LEVEL)/Makefile.common
