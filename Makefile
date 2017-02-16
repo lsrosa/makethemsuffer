@@ -14,8 +14,10 @@ ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_KERNEL_OBJ)
 
 lup: $(BUILD_DIRS) $(LUP_BIN)
 
-obj: $(BUILD_DIRS) $(LUP_OBJ)
-
+test:
+	@echo $(LUP_BENCH_DIRS) "\n\n"
+	@echo $(LUP_BENCH_NAMES) "\n\n"
+	@echo $(LUP_OBJ) "\n\n"
 #-----------------------------------------------------
 #------------- GPP compilation -----------------------
 $(GPP_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.c
@@ -48,6 +50,7 @@ $(IOC_KERNEL_BIN):$(BUILD_DIR)/%.aocx:$(BUILD_DIR)/%.aoco
 #------------- LUP compilation -----------------------
 $(LUP_OBJ):$(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
 	cp $(dir $^)*	 $(dir  $@)
+	cloc $(dir  $@)*.c > $(dir  $@)source_lines_number.txt
 	time 2> $(dir $@)time_report.txt make -f $(LUP_MAKEFILE) -C $(dir $@)  #yeah I know that this is not sophsticated /*euphemism here*/, but works
 
 $(LUP_BIN):$(BUILD_DIR)%.dummy:$(BUILD_DIR)%.v

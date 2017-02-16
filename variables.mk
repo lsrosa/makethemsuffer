@@ -11,14 +11,16 @@ BUILD_DIR = ../build
 CFLAGS=-lm
 
 #gets all benchmarks and its types of implementations
-BENCHS = $(sort $(wildcard $(SRC_DIR)/*/*/*))
+BENCHS = $(sort $(dir $(wildcard $(SRC_DIR)/*/*/*/)))
 
 #name of directories for the object, intermediate and binary files
 BUILD_DIRS = $(patsubst $(SRC_DIR)%, $(BUILD_DIR)%, $(BENCHS))
 
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
-GPP_SRC = $(wildcard $(SRC_DIR)/*/$(GPP_NAME)/*.c)
+GPP_BENCH_DIRS = $(wildcard $(SRC_DIR)/*/$(GPP_NAME))
+GPP_BENCH_NAMES=$(patsubst  $(SRC_DIR)/%/$(GPP_NAME),/%.c,$(GPP_BENCH_DIRS))
+GPP_SRC = $(join $(GPP_BENCH_DIRS), $(GPP_BENCH_NAMES))
 GPP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%, $(GPP_SRC))
 
 #-----------------------------------------------------
@@ -56,7 +58,9 @@ LIBS :=
 
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
-LUP_SRC = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*/*.c)
+LUP_BENCH_DIRS = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*)
+LUP_BENCH_NAMES=$(patsubst  $(SRC_DIR)/%/$(LUP_NAME)/,/%.c,$(dir $(LUP_BENCH_DIRS)))
+LUP_SRC = $(join $(LUP_BENCH_DIRS), $(LUP_BENCH_NAMES))
 LUP_OBJ = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
 LUP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.dummy, $(LUP_SRC))
 LUP_MAKEFILE = $(LUP_NAME).make
