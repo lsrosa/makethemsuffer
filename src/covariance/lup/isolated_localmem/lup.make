@@ -2,7 +2,6 @@ NAME=covariance
 SRCS=covariance.c
 
 LEVEL = /home/leandro/legup/4.0/examples
-include $(LEVEL)/Makefile.common
 
 ifeq ($(NO_OPT),)
 	NO_OPT=1
