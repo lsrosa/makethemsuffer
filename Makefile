@@ -64,8 +64,24 @@ $(LUP_BIN):$(BUILD_DIR)%.dummy:$(BUILD_DIR)%.v
 		make q -f $(LUP_MAKEFILE) -C $(dir $@)
 		quartus_fit $(dir $@)top
 		echo "dummy" > $@
+
 #-----------------------------------------------------
-#------------- utils------ ---------------------------
+#------------- Plots ---------------------------------
+plots:
+	mkdir -p $(BUILD_DIR)/$(PLOTS_DIR)
+	cp $(PLOTS_DIR)/*.m $(BUILD_DIR)/$(PLOTS_DIR)
+	#@echo $(BUILD_DIR)/*/lup/base
+	#@echo $(BUILD_DIR)/*/lup/isolated
+	#@echo $(BUILD_DIR)/*/lup/isolated_inline_localmem
+	#@echo $(BUILD_DIR)/*/lup/isolated_localmem
+	# individual execution for each script, might automate this later
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/base/DetailedLegUPTiming
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated/DetailedLegUPTiming
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
+
+#-----------------------------------------------------
+#------------- utils----------------------------------
 #make directory for objects if they are dont exist
 $(BUILD_DIRS):
 	mkdir -p $(BUILD_DIRS)
@@ -75,4 +91,5 @@ clean:
 
 .SILENT: .obj_dir $(BUILD_DIRS)
 
+.PHONY: plots
 #.PHONY: $(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN))

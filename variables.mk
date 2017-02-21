@@ -4,6 +4,7 @@ CXX=g++
 GPP_NAME=gpp
 IOC_NAME=ioc
 LUP_NAME=lup
+PLOTS_DIR=plots
 
 SRC_DIR = src
 BUILD_DIR = ../build
