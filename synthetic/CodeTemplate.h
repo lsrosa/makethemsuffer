@@ -14,10 +14,12 @@ class CodeTemplate{
     bool alreadyVariable(string snew);
 
     string code;
+    string name;
 
   public:
     CodeTemplate();
 
+    void setName(string s);
     void addInput(string s);
     void addOutput(string s);
     void addVariable(string s);
@@ -27,6 +29,6 @@ class CodeTemplate{
 
     void appendCode(string s);
     string getCode();
-    
+
   friend class CodeManipulator;
 };

@@ -3,6 +3,7 @@
 #include "Loop2.h"
 #include "CodeManipulator.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -20,4 +21,10 @@ int main(){
   std::cout << "Loop1:\noutputs: "<< c1->outputListSize() << "\ninputs:" << c1->inputListSize() << "\n\n";
 
   std::cout << c1->getCode() << '\n';
+
+  ofstream myfile;
+  myfile.open ("output.c");
+  myfile << c1->getCode();
+  myfile.close();
+  return 0;
 }
