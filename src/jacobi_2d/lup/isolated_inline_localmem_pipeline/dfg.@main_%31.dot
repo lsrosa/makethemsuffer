@@ -1,8 +1,0 @@
-digraph {
-Node0x335f8d0[label="  %32 = getelementptr inbounds [10000 x ..."];
-Node0x335f8d0 -> Node0x335f8d0[label="D:0.00ns L:0",color=blue];
-Node0x335fa30[label="  %33 = load float* %32, align 4, !tbaa ..."];
-Node0x335fa30 -> Node0x335fa30[label="D:0.00ns L:1",color=blue];
-Node0x335fb10[label="  %34 = fptosi float %33 to i32"];
-Node0x335fb10 -> Node0x335fb10[label="D:3.12ns L:6",color=blue];
-}

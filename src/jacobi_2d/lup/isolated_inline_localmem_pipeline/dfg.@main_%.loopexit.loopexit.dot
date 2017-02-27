@@ -1,4 +1,0 @@
-digraph {
-Node0x41bded0[label="  %indvar.next5 = add i32 %indvar4, 1"];
-Node0x41bded0 -> Node0x41bded0[label="D:2.50ns L:0",color=blue];
-}
