@@ -1,0 +1,15 @@
+void Loop1(float * vi1, float * vi2, float * vo1, float * vo2, float * vo3, int n1, int n2){
+  float temp;
+
+  for(int i=0; i<=n1; i++){
+    for(int j=0; j<=n2; j++){
+      temp = 0;
+      for(int k=0; k<=n2; k++){
+        temp += vi1[i*n2+k]*vi2[k+j*n1];
+      }
+      vo1[i*n2+j] = temp;
+    }
+  }
+  vo2 = vi1;
+  vo3 = vi2;
+}

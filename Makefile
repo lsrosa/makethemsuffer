@@ -16,6 +16,9 @@ lup: $(BUILD_DIRS) $(LUP_BIN)
 
 test: $(BUILD_DIRS) $(LUP_OBJ)
 
+synthetic:
+	mkdir -p $(BUILD_DIR)/synthetic
+	cmake synthetic/ -B$(BUILD_DIR)/synthetic
 #-----------------------------------------------------
 #------------- GPP compilation -----------------------
 $(GPP_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.c
@@ -91,5 +94,5 @@ clean:
 
 .SILENT: .obj_dir $(BUILD_DIRS)
 
-.PHONY: plots
+.PHONY: plots synthetic
 #.PHONY: $(patsubst %.aoco,%.cl,$(IOC_KERNEL_BIN))

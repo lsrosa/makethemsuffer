@@ -1,0 +1,46 @@
+#include <vector>
+#include <string>
+
+#include <llvm/IR/Module.h>
+#include <llvm/IRReader/IRReader.h>
+#include <llvm/IR/LLVMContext.h>
+#include <llvm/Support/SourceMgr.h>
+#include <llvm/ADT/StringRef.h>
+
+class CodeTemplate{
+  private:
+    std::vector<std::string> inputList;
+    std::vector<std::string> outputList;
+    std::vector<std::string> variableList;
+
+    bool alreadyInput(std::string snew);
+    bool alreadyOutput(std::string snew);
+    bool alreadyVariable(std::string snew);
+
+    std::string code;
+    std::string name;
+    std::string sourceName;
+
+    llvm::LLVMContext &context = llvm::getGlobalContext();
+    llvm::SMDiagnostic error;
+    llvm::Module* module;
+
+
+  public:
+    CodeTemplate(std::string sn);
+
+    void setName(std::string s);
+    void addInput(std::string s);
+    void addOutput(std::string s);
+    void addVariable(std::string s);
+
+    int inputListSize();
+    int outputListSize();
+
+    void appendCode(std::string s);
+    std::string getCode();
+
+    std::string getSourceName();
+
+  friend class CodeManipulator;
+};

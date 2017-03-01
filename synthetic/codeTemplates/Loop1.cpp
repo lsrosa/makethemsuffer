@@ -3,8 +3,9 @@
 #include <iostream>
 #include <sstream>
 
-Loop1::Loop1(){
+Loop1::Loop1() : CodeTemplate("Loop1"){
   setName("Loop1");
+  //setSourceName("Loop1code");
 
   std::stringstream sst;
   for(int i = 0; i < inputsize; i++){

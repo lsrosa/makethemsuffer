@@ -1,0 +1,89 @@
+#include "CodeTemplate.h"
+#include <iostream>
+#include <assert.h>
+
+
+//template <class T> class CodeTemplate{
+//basic empty constructor
+CodeTemplate::CodeTemplate(std::string sn){
+    std::cout << "/* constructing code template for " << sn << " *\n";
+    sourceName = std::string("${CMAKE_BINARY_DIR}/codeTemplates/"+sn+".ll");
+
+    std::cout << sourceName << '\n';
+    // Parse the input LLVM IR file into a module.
+    module = llvm::ParseIRFile(sourceName, error, context);
+
+    if(module == NULL) std::cout << "aaaaaaaaaaaaaaaaaaaaaaa" << '\n';
+    std::cout << module << '\n';
+}
+
+void CodeTemplate::setName(std::string s){
+  name = s;
+  return;
+}
+
+void CodeTemplate::addInput(std::string s){
+  assert(!(alreadyInput(s) || alreadyOutput(s)));
+  inputList.push_back(s);
+  return;
+}
+
+void CodeTemplate::addOutput(std::string s){
+  assert(!(alreadyInput(s) || alreadyOutput(s)));
+  outputList.push_back(s);
+  return;
+}
+
+void CodeTemplate::addVariable(std::string s){
+  assert(!(alreadyVariable(s)));
+  variableList.push_back(s);
+  return;
+}
+
+int CodeTemplate::inputListSize(){
+  return inputList.size();
+}
+
+int CodeTemplate::outputListSize(){
+  return outputList.size();
+}
+
+bool CodeTemplate::alreadyInput(std::string snew){
+  for (std::vector<std::string>::iterator i = inputList.begin(), ie = inputList.end(); i != ie; ++i) {
+    if(!i->compare(snew))
+      return true;
+  }
+
+  return false;
+}
+
+bool CodeTemplate::alreadyOutput(std::string snew){
+  for (std::vector<std::string>::iterator i = outputList.begin(), ie = outputList.end(); i != ie; ++i) {
+    if(!i->compare(snew))
+      return true;
+  }
+
+  return false;
+}
+
+bool CodeTemplate::alreadyVariable(std::string snew){
+  for (std::vector<std::string>::iterator i = variableList.begin(), ie = variableList.end(); i != ie; ++i) {
+    if(!i->compare(snew))
+      return true;
+  }
+
+  return false;
+}
+
+void CodeTemplate::appendCode(std::string s){
+  code = code + s;
+  return;
+}
+
+std::string CodeTemplate::getCode(){
+  return code;
+}
+
+std::string CodeTemplate::getSourceName(){
+  return sourceName;
+}
