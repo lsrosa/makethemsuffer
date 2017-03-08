@@ -1,4 +1,4 @@
-void loop2(float * v2i1, float * v2i2, float * v2o1, float * v2o2){
+void loop2(float * v2i0, float * v2i1, float * v2i2, float * v2o0, float * v2o1){
 
   float temp;
   int n21 = 21;
@@ -8,10 +8,12 @@ void loop2(float * v2i1, float * v2i2, float * v2o1, float * v2o2){
     for(int j=0; j<=n22; j++){
       temp = 0;
       for(int k=0; k<=n22; k++){
-        temp += v2i1[i*n22+k]*v2i2[k+j*n21];
+        temp += v2i0[i*n22+k]*v2i1[k+j*n21]+v2i2[i*n22+j];
       }
       v2o1[i*n22+j] = temp;
     }
   }
-  v2o2 = v2i1;
+  v2o1 = v2i1;
+
+  return;
 }

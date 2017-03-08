@@ -51,5 +51,7 @@ set_target_properties(${TRGT} PROPERTIES
 
 #applies the optmizarion we made on passes/loop1
 add_custom_command(TARGET ${TRGT}
+	#COMMAND rm output.bc
 	COMMAND ./${TRGT}
+	COMMAND llvm-dis output.bc
 )

@@ -1,7 +1,11 @@
 #include "CodeTemplate.h"
 #include <iostream>
 #include <assert.h>
-
+#include <sstream>
+#include <stdio.h>
+#include <fcntl.h>
+#include <llvm/Support/raw_ostream.h>
+#include <llvm/Bitcode/ReaderWriter.h>
 
 //template <class T> class CodeTemplate{
 //basic empty constructor
@@ -10,11 +14,20 @@ CodeTemplate::CodeTemplate(std::string sn){
     sourceName = std::string("${CMAKE_BINARY_DIR}/codeTemplates/"+sn+".ll");
 
     std::cout << sourceName << '\n';
-    // Parse the input LLVM IR file into a module.
-    module = llvm::ParseIRFile(sourceName, error, context);
 
-    if(module == NULL) std::cout << "aaaaaaaaaaaaaaaaaaaaaaa" << '\n';
-    std::cout << module << '\n';
+}
+
+void CodeTemplate::loadModule(llvm::LLVMContext& context){
+  FILE *file = fopen(sourceName.c_str(), "r");
+  assert(file!=NULL);
+
+  module = llvm::ParseIRFile(sourceName.c_str(), error, context);
+  assert(module);
+
+  if(module == NULL) std::cout << "aaaaaaaaaaaaaaaaaaaaaaa" << '\n';
+  //else module->dump();
+
+  std::cout << module << '\n';
 }
 
 void CodeTemplate::setName(std::string s){
@@ -80,10 +93,14 @@ void CodeTemplate::appendCode(std::string s){
   return;
 }
 
-std::string CodeTemplate::getCode(){
-  return code;
-}
+void CodeTemplate::printCode(std::string fname){
+  FILE *f = fopen(fname.c_str(), "w");
+  fclose(f);
+   
+  int fd = open (fname.c_str(), O_RDWR | O_CREAT);
+  llvm::raw_fd_ostream OS(fd, true);
+  llvm::WriteBitcodeToFile(module, OS);
+  OS.flush();
 
-std::string CodeTemplate::getSourceName(){
-  return sourceName;
+  return;
 }

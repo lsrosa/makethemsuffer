@@ -28,7 +28,7 @@ include_directories(${CMAKE_BINARY_DIR}/codeTemplates)
 
 #this line compiles the .cpp file into a system object file (.so)
 add_library(${LIB_NAME} ${CMAKE_CURRENT_BINARY_DIR}/${PASS_NAME}.cpp)
-target_link_libraries(${LIB_NAME} LLVMCore LLVMIRReader)
+target_link_libraries(${LIB_NAME} LLVMCore LLVMIRReader LLVMTransformUtils LLVMBitWriter)
 # Use C++11 to compile our pass (i.e., supply -std=c++11).
 target_compile_features(${LIB_NAME} PRIVATE cxx_range_for cxx_auto_type)
 

@@ -3,40 +3,162 @@
 #include <assert.h>
 #include <iostream>
 
+#include "llvm/IR/Argument.h"
 #include "llvm/IR/Module.h"
-#include "llvm/IR/Function.h"
-
-#include "llvm/Pass.h"
-#include "llvm/Analysis/LoopPass.h"
-#include "llvm/ADT/Statistic.h"
-#include "llvm/Support/raw_ostream.h"
-#include "llvm/Transforms/IPO/PassManagerBuilder.h"
-
-#include "clang/Basic/Module.h"
-#include "llvm/Transforms/Scalar.h"
-
-using namespace llvm;
-using namespace std;
+#include "llvm/IR/BasicBlock.h"
+#include "llvm/Transforms/Utils/CodeExtractor.h"
+#include "llvm/Transforms/Utils/Cloning.h"
+#include "llvm/IR/Instructions.h"
+#include "llvm/IR/Dominators.h"
+#include "llvm/IR/CFG.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/ValueSymbolTable.h"
 
 CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
+  //we need to give the same context to the two modules (idk why but ...)
+  c1->loadModule(context);
+  c2->loadModule(context);
+  assert(c1->module);
+  assert(c2->module);
+
+  llvm::Module * m1 = c1->module;
+  llvm::Module * m2 = c2->module;
+  llvm::StringRef joinName = llvm::StringRef(c1->name+c2->name);
+  llvm::Module * mr = new llvm::Module(joinName, context);
+  mr->setDataLayout(m1->getDataLayout());
+  mr->setTargetTriple(m1->getTargetTriple());
+
+  std::vector<llvm::Function*> worklist1, worklist2;
+  worklist1.reserve(m1->size());
+  worklist2.reserve(m2->size());
+  for(llvm::Module::iterator f = m1->begin(), fe = m1->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist1.push_back(f);
+    }
+  }
+  for(llvm::Module::iterator f = m2->begin(), fe = m2->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist2.push_back(f);
+    }
+  }
+
+  llvm::Type * voidType = llvm::Type::getVoidTy(context);
+
+  llvm::Constant * c = mr->getOrInsertFunction("main", voidType);
+  llvm::Function * fr = llvm::dyn_cast<llvm::Function>(c);
+
+  //create a basic block to add the function call in
+  llvm::BasicBlock * frbb = llvm::BasicBlock::Create(context, "entry", fr);
+  assert(frbb);
+  llvm::IRBuilder<> builder(frbb);
+
+  //Registes for IO and for connection
+  std::vector<llvm::Value *> IRegs, ORegs;
+  std::vector<llvm::Argument *> out1Regs, in2Regs;
+
+  llvm::Function * f1copy;
+  llvm::Function * f2copy;
+
+  //get the functions on m1
+  while (!worklist1.empty()) {
+    llvm::Function* currFunc = worklist1.back();
+    worklist1.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f1copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+
+    //add the coppied function on the first function
+    // if the code has more than one function (sub-fuctions), this will add
+    // I guess them all to c1
+    std::cout << "adding " << f1copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_back(f1copy);
+
+    //get the arguments in a list
+    for(llvm::Function::arg_iterator i = f1copy->arg_begin(), ie = f1copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c1->inputList){
+        //std::cout << "trying " << arg->getName().str() << " and " << inputname << '\n';
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 input " << '\n';
+          IRegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(arg->getType())));
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c1->outputList){
+        if(!inputname.compare(arg->getName())){
+          std::cout << "adding out1 reg "<< arg->getName().str() << '\n';
+          out1Regs.push_back(arg);
+        }
+      }
+    }
+  }
+
+  //same as before
+  while (!worklist2.empty()) {
+    llvm::Function* currFunc = worklist2.back();
+    worklist2.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f2copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+    std::cout << "adding " << f2copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_back(f2copy);
+
+    std::vector<llvm::Value *> regsForArgs;
+    for(llvm::Function::arg_iterator i = f2copy->arg_begin(), ie = f2copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c2->inputList){
+        if(!inputname.compare(arg->getName())){
+          std::cout << "adding in2 reg " << arg->getName().str() << '\n';
+          in2Regs.push_back(arg);
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c2->outputList){
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 output " << '\n';
+          ORegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(arg->getType())));
+        }
+      }
+    }
+  }
+
+  std::vector<llvm::Value *> connectorRegs;
   assert(c1->outputList.size() == c2->inputList.size());
+  assert(out1Regs.size() == in2Regs.size());
+  //wil create only one register for the connetions
+  while(!out1Regs.empty()){
+    llvm::Type * outTy = out1Regs.back()->getType();
+    llvm::Type * inTy = in2Regs.back()->getType();
+    out1Regs.pop_back();
+    in2Regs.pop_back();
 
-  for(std::vector<std::string>::iterator c2i=c2->inputList.begin(), c2ie=c2->inputList.end(), c1i=c1->outputList.begin(); c2i!=c2ie; ++c2i, ++c1i){
-    //append code in_c2 = out_c1 in c1 code
-    std::cout << "c2 input = "<< *c2i << " -- c1 output = " << *c1i << '\n';
-    c1->appendCode(*c2i+" = "+*c1i+";\n");
+    assert(outTy == inTy);
+    connectorRegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(outTy)));
   }
 
-  //append c2 code in c1 code
-  c1->appendCode(c2->code);
+  //concatenate the argument lists
+  //TODO note that this makes an sortening of the inputs and outputs
+  // we need to define a connection map and sort as defined in the argument list order
+  std::vector<llvm::Value *> argsf1, argsf2;
+  argsf1.insert(argsf1.end(), IRegs.begin(), IRegs.end());
+  argsf1.insert(argsf1.end(), connectorRegs.begin(), connectorRegs.end());
 
-  //remove out_c1 from outputList
-  c1->outputList.clear();
+  argsf2.insert(argsf2.end(), ORegs.begin(), ORegs.end());
+  argsf2.insert(argsf2.end(), connectorRegs.begin(), connectorRegs.end());
 
-  //add out_c2 to out_c2 in outputLists
-  for(std::vector<std::string>::iterator i=c2->outputList.begin(), ie=c2->outputList.end(); i!=ie; ++i){
-    c1->addOutput(*i);
-  }
+  //add the instruction call
+  llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf1);
+  //add the instruction call
+  llvm::CallInst * calltof2 = builder.CreateCall(f2copy, argsf2);
+
+  llvm::ReturnInst * ret = 	builder.CreateRetVoid();
+  frbb->dump();
+  mr->dump();
+
 
   return c1;
 }

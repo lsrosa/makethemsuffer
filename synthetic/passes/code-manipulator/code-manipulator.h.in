@@ -3,4 +3,5 @@ class CodeManipulator{
     CodeTemplate * serial(CodeTemplate * c1, CodeTemplate * c2);
 
   private:
+    llvm::LLVMContext &context = llvm::getGlobalContext();
 };

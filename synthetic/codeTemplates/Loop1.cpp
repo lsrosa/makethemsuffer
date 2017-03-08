@@ -9,19 +9,19 @@ Loop1::Loop1() : CodeTemplate("Loop1"){
 
   std::stringstream sst;
   for(int i = 0; i < inputsize; i++){
-    sst << "v1i" << i;
+    sst << "vi" << i;
     addInput(sst.str());
     sst.str("");
   }
 
   for(int i = 0; i < outputsize; i++){
-    sst << "v1o" << i;
+    sst << "vo" << i;
     addOutput(sst.str());
     sst.str("");;
   }
 
-  addVariable("n1");
-  addVariable("n2");
+  addInput("n1");
+  addInput("n2");
 
   appendCode(
     "for(int i=0; i<=n1; i++){\n"

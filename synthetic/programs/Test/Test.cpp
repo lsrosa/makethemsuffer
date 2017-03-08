@@ -10,20 +10,17 @@ int main(){
   Loop1 *c1 = new Loop1();
   Loop2 *c2 = new Loop2();
 
-  std::cout << "Loop1:\noutputs: "<< c1->outputListSize() << "\ninputs:" << c1->inputListSize() << "\n\n";
+  std::cout << "Loop1:\ninputs: "<< c1->inputListSize() << "\noutputs:" << c1->outputListSize() << "\n\n";
 
-  std::cout << "Loop2 :\noutputs: "<< c2->outputListSize() << "\ninputs:" << c2->inputListSize() << "\n\n";
+  std::cout << "Loop2 :\ninputs: "<< c2->inputListSize() << "\noutputs:" << c2->outputListSize() << "\n\n";
 
   CodeManipulator *cm = new CodeManipulator();
 
-  cm->serial(c1,c2);
-  std::cout << "Loop1:\noutputs: "<< c1->outputListSize() << "\ninputs:" << c1->inputListSize() << "\n\n";
+  CodeTemplate * cr = cm->serial(c1,c2);
+  std::cout << "LoopR:\noutputs: "<< cr->outputListSize() << "\ninputs:" << cr->inputListSize() << "\n\n";
 
-  std::cout << c1->getCode() << '\n';
+  //std::cout << cr->getCode() << '\n';
 
-  ofstream myfile;
-  myfile.open ("output.c");
-  myfile << c1->getCode();
-  myfile.close();
+  cr->printCode("output.bc");
   return 0;
 }

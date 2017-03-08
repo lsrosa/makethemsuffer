@@ -6,6 +6,7 @@
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/Support/SourceMgr.h>
 #include <llvm/ADT/StringRef.h>
+#include <llvm/Support/MemoryBuffer.h>
 
 class CodeTemplate{
   private:
@@ -19,9 +20,9 @@ class CodeTemplate{
 
     std::string code;
     std::string name;
+    llvm::MemoryBuffer* buff;
     std::string sourceName;
 
-    llvm::LLVMContext &context = llvm::getGlobalContext();
     llvm::SMDiagnostic error;
     llvm::Module* module;
 
@@ -38,9 +39,8 @@ class CodeTemplate{
     int outputListSize();
 
     void appendCode(std::string s);
-    std::string getCode();
+    void printCode(std::string fname);
 
-    std::string getSourceName();
-
+    void loadModule(llvm::LLVMContext& context);
   friend class CodeManipulator;
 };
