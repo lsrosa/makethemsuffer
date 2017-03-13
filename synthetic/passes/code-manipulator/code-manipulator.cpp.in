@@ -13,6 +13,11 @@
 #include "llvm/IR/CFG.h"
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/ValueSymbolTable.h"
+#include "llvm/IR/Verifier.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/PassManager.h"
+#include "llvm/Transforms/IPO.h"
+
 
 CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
   //we need to give the same context to the two modules (idk why but ...)
@@ -42,9 +47,9 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
     }
   }
 
-  llvm::Type * voidType = llvm::Type::getVoidTy(context);
+  llvm::Type * intType = llvm::Type::getInt32Ty(context);
 
-  llvm::Constant * c = mr->getOrInsertFunction("main", voidType);
+  llvm::Constant * c = mr->getOrInsertFunction("main", intType);
   llvm::Function * fr = llvm::dyn_cast<llvm::Function>(c);
 
   //create a basic block to add the function call in
@@ -53,7 +58,7 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
   llvm::IRBuilder<> builder(frbb);
 
   //Registes for IO and for connection
-  std::vector<llvm::Value *> IRegs, ORegs;
+  std::vector<llvm::AllocaInst *> IRegs, ORegs;
   std::vector<llvm::Argument *> out1Regs, in2Regs;
 
   llvm::Function * f1copy;
@@ -71,7 +76,8 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
     // if the code has more than one function (sub-fuctions), this will add
     // I guess them all to c1
     std::cout << "adding " << f1copy->getName().str() << " to resulting module" << '\n';
-    mr->getFunctionList().push_back(f1copy);
+    mr->getFunctionList().push_front(f1copy);
+    f1copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
 
     //get the arguments in a list
     for(llvm::Function::arg_iterator i = f1copy->arg_begin(), ie = f1copy->arg_end(); i != ie; ++i){
@@ -81,7 +87,14 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
         //std::cout << "trying " << arg->getName().str() << " and " << inputname << '\n';
         if(!inputname.compare(arg->getName())){
           //std::cout << "adding reg for " << arg->getName().str() << " c2 input " << '\n';
-          IRegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(arg->getType())));
+
+          llvm::Twine & aa = *new llvm::Twine("inputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          IRegs.push_back(newloocInst);
         }
       }
 
@@ -103,7 +116,8 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
     llvm::ValueToValueMapTy VMap;
     f2copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
     std::cout << "adding " << f2copy->getName().str() << " to resulting module" << '\n';
-    mr->getFunctionList().push_back(f2copy);
+    mr->getFunctionList().push_front(f2copy);
+    f2copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
 
     std::vector<llvm::Value *> regsForArgs;
     for(llvm::Function::arg_iterator i = f2copy->arg_begin(), ie = f2copy->arg_end(); i != ie; ++i){
@@ -120,13 +134,20 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
       for(std::string & inputname : c2->outputList){
         if(!inputname.compare(arg->getName())){
           //std::cout << "adding reg for " << arg->getName().str() << " c2 output " << '\n';
-          ORegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(arg->getType())));
+          llvm::Twine & aa = *new llvm::Twine("outputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          ORegs.push_back(newloocInst);
         }
       }
     }
   }
 
-  std::vector<llvm::Value *> connectorRegs;
+  //verifies the types of the connection arguments and allocates registers
+  std::vector<llvm::AllocaInst *> connectorRegs;
   assert(c1->outputList.size() == c2->inputList.size());
   assert(out1Regs.size() == in2Regs.size());
   //wil create only one register for the connetions
@@ -137,28 +158,254 @@ CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
     in2Regs.pop_back();
 
     assert(outTy == inTy);
-    connectorRegs.push_back(llvm::dyn_cast<llvm::Value>(builder.CreateAlloca(outTy)));
+    llvm::Twine & aa = *new llvm::Twine("connectorReg");
+    llvm::AllocaInst * newloocInst = builder.CreateAlloca(outTy, nullptr,aa);
+    //the type of the allocated instruction is *(outTy) = float**
+    //we create a new value with type outTy
+    //the name is annoying but I did not found another way
+    //llvm::Argument * newarg = new llvm::Argument(outTy, newloocInst->getName());
+    connectorRegs.push_back(newloocInst);
   }
 
   //concatenate the argument lists
   //TODO note that this makes an sortening of the inputs and outputs
   // we need to define a connection map and sort as defined in the argument list order
-  std::vector<llvm::Value *> argsf1, argsf2;
-  argsf1.insert(argsf1.end(), IRegs.begin(), IRegs.end());
-  argsf1.insert(argsf1.end(), connectorRegs.begin(), connectorRegs.end());
 
-  argsf2.insert(argsf2.end(), ORegs.begin(), ORegs.end());
-  argsf2.insert(argsf2.end(), connectorRegs.begin(), connectorRegs.end());
+  //creates load instructions and new arguments for input
+  std::vector<llvm::Value *> argsf1, argsf2;
+  for(auto allocInst : IRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf1.push_back(newload);
+  }
+
+  //creates loads on reg, to be argument of f1
+  for(auto allocInst : connectorRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf1.push_back(newload);
+  }
 
   //add the instruction call
   llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf1);
+
+  //creates loads on reg, to be argument of f2
+  for(auto allocInst : connectorRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf2.push_back(newload);
+  }
+
+  //creates load instructions and new arguments for output
+  for(auto allocInst : ORegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf2.push_back(newload);
+  }
+
   //add the instruction call
   llvm::CallInst * calltof2 = builder.CreateCall(f2copy, argsf2);
 
-  llvm::ReturnInst * ret = 	builder.CreateRetVoid();
-  frbb->dump();
-  mr->dump();
+  //TODO chenge the return in the wrapper
+  llvm::ReturnInst * ret = 	builder.CreateRet(llvm::ConstantInt::get(context, llvm::APInt(/*nbits*/32, 42, /*is_signed*/true)));
+  //frbb->dump();
+  //fr->dump();
+  //mr->dump();
 
+  std::string &s = *new std::string();
+  llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+  llvm::Module &verifyModule = *mr;
+  llvm::verifyModule(verifyModule, verifyMessage);
 
+  std::cout << verifyMessage->str() << '\n';
+
+  llvm::PassManager pm;
+  pm.add(llvm::createAlwaysInlinerPass());
+  llvm::Module &mrref = *mr;
+  pm.run(mrref);
+
+  //fr->dump();
+  //fr->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+  fr->dump();
+  delete c1->module;
+  c1->module = mr;
+  return c1;
+}
+
+CodeTemplate * CodeManipulator::repeatSerial(CodeTemplate * c1, unsigned repetitions){
+  //we need to give the same context to the two modules (idk why but ...)
+  c1->loadModule(context);
+  assert(c1->module);
+
+  llvm::Module * m1 = c1->module;
+  llvm::StringRef name = llvm::StringRef("repeat"+c1->name+std::to_string(repetitions));
+  llvm::Module * mr = new llvm::Module(name, context);
+  mr->setDataLayout(m1->getDataLayout());
+  mr->setTargetTriple(m1->getTargetTriple());
+
+  std::vector<llvm::Function*> worklist1;
+  worklist1.reserve(m1->size());
+  for(llvm::Module::iterator f = m1->begin(), fe = m1->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist1.push_back(f);
+    }
+  }
+
+  llvm::Type * intType = llvm::Type::getInt32Ty(context);
+
+  llvm::Constant * c = mr->getOrInsertFunction("main", intType);
+  llvm::Function * fr = llvm::dyn_cast<llvm::Function>(c);
+
+  //create a basic block to add the function call in
+  llvm::BasicBlock * frbb = llvm::BasicBlock::Create(context, "entry", fr);
+  assert(frbb);
+  llvm::IRBuilder<> builder(frbb);
+
+  //Registes for IO and for connection
+  std::vector<llvm::AllocaInst *> IRegs, ORegs;
+  std::vector<llvm::Argument *> out1Regs, in2Regs;
+
+  llvm::Function * f1copy;
+
+  //get the functions on m1
+  while (!worklist1.empty()) {
+    llvm::Function* currFunc = worklist1.back();
+    worklist1.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f1copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+
+    //add the coppied function on the first function
+    // if the code has more than one function (sub-fuctions), this will add
+    // I guess them all to c1
+    std::cout << "adding " << f1copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_front(f1copy);
+    f1copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+
+    //get the arguments in a list
+    for(llvm::Function::arg_iterator i = f1copy->arg_begin(), ie = f1copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c1->inputList){
+        //std::cout << "trying " << arg->getName().str() << " and " << inputname << '\n';
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 input " << '\n';
+
+          llvm::Twine & aa = *new llvm::Twine("inputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          IRegs.push_back(newloocInst);
+          in2Regs.push_back(arg);
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c1->outputList){
+        if(!inputname.compare(arg->getName())){
+          llvm::Twine & aa = *new llvm::Twine("outputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          ORegs.push_back(newloocInst);
+          out1Regs.push_back(arg);
+        }
+      }
+    }
+  }
+
+  //verifies the types of the connection arguments and allocates registers
+  std::vector<llvm::AllocaInst *> connectorRegs;
+  assert(c1->outputList.size() == c1->inputList.size());
+  //std::cout << c1->outputList.size() << c1->inputList.size() << '\n';
+  assert(out1Regs.size() == in2Regs.size());
+  //wil create only one register for the connetions
+  for(int i=0; i < repetitions-1; i++){
+    for(int j=0; j < out1Regs.size(); j++){
+      llvm::Type * outTy = out1Regs[j]->getType();
+      llvm::Type * inTy = in2Regs[j]->getType();
+
+      assert(outTy == inTy);
+      llvm::Twine & aa = *new llvm::Twine("connectorReg");
+
+      //the type of the allocated instruction is *(outTy) = float**
+      //we create a new value with type outTy
+      //the name is annoying but I did not found another way
+      //llvm::Argument * newarg = new llvm::Argument(outTy, newloocInst->getName());
+      llvm::AllocaInst * newloocInst = builder.CreateAlloca(outTy, nullptr,aa);
+      connectorRegs.push_back(newloocInst);
+    }
+  }
+
+  //concatenate the argument lists
+  //TODO note that this makes an sortening of the inputs and outputs
+  // we need to define a connection map and sort as defined in the argument list order
+
+  //creates load instructions and new arguments for input for the first function
+  std::vector<llvm::Value *> argsf;
+  for(auto allocInst : IRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf.push_back(newload);
+  }
+
+  llvm::AllocaInst * allocInst;
+  //while(!connectorRegs.empty()){
+  for(int j=0; j < connectorRegs.size(); j+=c1->outputList.size()){
+    for(int i=0; i < c1->outputList.size(); i++){
+      allocInst = connectorRegs[i+j];
+      llvm::Instruction * newload = builder.CreateLoad(allocInst);
+      llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+      argsf.push_back(newload);
+    }
+    //add the instruction call
+    llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf);
+
+    //clear the list to start refilling it with the inner instaces
+    argsf.clear();
+
+    for(int i=0; i < c1->inputList.size(); i++){
+      allocInst = connectorRegs[i+j];
+      llvm::Instruction * newload = builder.CreateLoad(allocInst);
+      llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+      argsf.push_back(newload);
+    }
+  }
+
+  //creates load instructions autputs in the last instance
+  for(auto allocInst : ORegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf.push_back(newload);
+  }
+
+  //create final call
+  llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf);
+
+  //TODO chenge the return in the wrapper
+  llvm::ReturnInst * ret = 	builder.CreateRet(llvm::ConstantInt::get(context, llvm::APInt(/*nbits*/32, 42, /*is_signed*/true)));
+  //frbb->dump();
+  //fr->dump();
+  //mr->dump();
+
+  //apply the inline
+  llvm::PassManager pm;
+  pm.add(llvm::createAlwaysInlinerPass());
+  llvm::Module &mrref = *mr;
+  pm.run(mrref);
+
+  //verification before returning
+  std::string &s = *new std::string();
+  llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+  llvm::Module &verifyModule = *mr;
+  llvm::verifyModule(verifyModule, verifyMessage);
+
+  std::cout << verifyMessage->str() << '\n';
+
+  //fr->dump();
+  //fr->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+  //fr->dump();
+  delete c1->module;
+  c1->module = mr;
   return c1;
 }

@@ -1,6 +1,7 @@
 class CodeManipulator{
   public:
     CodeTemplate * serial(CodeTemplate * c1, CodeTemplate * c2);
+    CodeTemplate * repeatSerial(CodeTemplate * c1, unsigned repetitions);
 
   private:
     llvm::LLVMContext &context = llvm::getGlobalContext();

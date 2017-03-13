@@ -12,6 +12,10 @@ funcsizes = [];
 alloctime = [];
 schedtime = [];
 binditime = [];
+schedmaptime = [];
+schedslvtime = [];
+schedfsmtime = [];
+schedovhtime = [];
 
 %nfiles = 1
 for file=1:nfiles
@@ -29,6 +33,11 @@ for file=1:nfiles
   bt = zeros(n/nfunc, nfunc);
   fs = zeros(1, nfunc);
 
+  smt = zeros(n/nfunc, nfunc);
+  sst = zeros(n/nfunc, nfunc);
+  sft = zeros(n/nfunc, nfunc);
+  sot = zeros(n/nfunc, nfunc);
+
   %jindex maps to which position in "name" the position in the original vector
   % refers to. Used as map
   for i=1:nfunc
@@ -36,6 +45,10 @@ for file=1:nfiles
     at(:,i) = a.data(jindex==i,2);
     st(:,i) = a.data(jindex==i,3);
     bt(:,i) = a.data(jindex==i,4);
+    smt(:,i) = a.data(jindex==i, 5);
+    sst(:,i) = a.data(jindex==i, 6);
+    sft(:,i) = a.data(jindex==i, 7);
+    sot(:,i) = a.data(jindex==i, 8);
   end
   %fs
 
@@ -49,6 +62,10 @@ for file=1:nfiles
   alloctime = [alloctime, at];
   schedtime = [schedtime, st];
   binditime = [binditime, bt];
+  schedmaptime = [schedmaptime, smt];
+  schedslvtime = [schedslvtime, sst];
+  schedfsmtime = [schedfsmtime, sft];
+  schedovhtime = [schedovhtime, sot];
 end
 
 %sorts according to the code size, not necessary now but helps to plot
@@ -59,13 +76,26 @@ funcnames = funcnames(sizeindex);
 alloctime = alloctime(:,sizeindex);
 schedtime = schedtime(:,sizeindex);
 binditime = binditime(:,sizeindex);
+schedmaptime = schedmaptime(:,sizeindex);
+schedslvtime = schedslvtime(:,sizeindex);
+schedfsmtime = schedfsmtime(:,sizeindex);
+schedovhtime = schedovhtime(:,sizeindex);
 
 allocmean = mean(alloctime);
 schedmean = mean(schedtime);
 bindimean = mean(binditime);
+schedmapmean = mean(schedmaptime);
+schedslvmean = mean(schedslvtime);
+schedfsmmean = mean(schedfsmtime);
+schedovhmean = mean(schedovhtime);
+
 allocstd = std(alloctime);
 schedstd = std(schedtime);
 bindistd = std(binditime);
+schedmapstd = std(schedmaptime);
+schedslvstd = std(schedslvtime);
+schedfsmstd = std(schedfsmtime);
+schedovhstd = std(schedovhtime);
 
 %consider all point in the approximation
 %polyx = repmat(funcsizes, n/nfunc, 1);
@@ -75,52 +105,71 @@ bindistd = std(binditime);
 
 %considers only the average values in the approximation
 polyx = funcsizes;
-allocP = polyfit(polyx, allocmean, 3);
-schedP = polyfit(polyx, schedmean, 3);
-bindiP = polyfit(polyx, bindimean, 3);
+degree = 2;
+allocP = polyfit(polyx, allocmean, degree);
+schedP = polyfit(polyx, schedmean, degree);
+bindiP = polyfit(polyx, bindimean, degree);
+schedmapP = polyfit(polyx, schedmapmean, degree);
+schedslvP = polyfit(polyx, schedslvmean, degree);
+schedfsmP = polyfit(polyx, schedfsmmean, degree);
+schedovhP = polyfit(polyx, schedovhmean, degree);
 
-interpolx = linspace(funcsizes(1), funcsizes(end));
+interpolx = linspace(funcsizes(1), funcsizes(end), 10);
 alloc_interpoly = polyval(allocP, interpolx);
 sched_interpoly = polyval(schedP, interpolx);
 bindi_interpoly = polyval(bindiP, interpolx);
+schedmap_interpoly = polyval(schedmapP, interpolx);
+schedslv_interpoly = polyval(schedslvP, interpolx);
+schedfsm_interpoly = polyval(schedfsmP, interpolx);
+schedovh_interpoly = polyval(schedovhP, interpolx);
 
 %get the version of the benchmark
 parts = strsplit(char(arg_list(1)), '/');
 partname = parts(end-1);
 
-
 %plotting values (note that we plot the mean and standard variation)
-fighandle = figure(1);
-errorbar(funcsizes, allocmean, allocstd, '-s');
-text(funcsizes, allocmean, funcnames, 'rotation', 90);
-hold on;
-plot(interpolx, alloc_interpoly, '-r');
-xlabel ("Number of LLVM IR instructions");
-ylabel ("Time (s)");
-graphname = strcat('../build/plots/', partname,'_alloctime.jpg');
-print(fighandle, char(graphname), '-djpg');
-hold off;
+%fighandle = figure(1);
+%errorbar(funcsizes, allocmean, allocstd, '-s');
+%text(funcsizes, allocmean, funcnames, 'rotation', 90);
+%hold on;
+%plot(interpolx, alloc_interpoly, '-r');
+%xlabel ("Number of LLVM IR instructions");
+%ylabel ("Time (s)");
+%graphname = strcat('../build/plots/', partname,'_alloctime.jpg');
+%print(fighandle, char(graphname), '-djpg');
+%hold off;
 
-fighandle = figure(2);
-errorbar(funcsizes, schedmean, schedstd, '-s');
-text(funcsizes, schedmean, funcnames, 'rotation', 90);
-hold on;
-plot(interpolx, sched_interpoly, '-r');
+%fighandle = figure(3);
+%errorbar(funcsizes, bindimean, bindistd, '-s');
+%text(funcsizes, bindimean, funcnames, 'rotation', 90);
+%hold on;
+%plot(interpolx, bindi_interpoly, '-r');
+%xlabel ("Number of LLVM IR instructions");
+%ylabel ("Time (s)");
+%graphname = strcat('../build/plots/', partname,'_binditime.jpg');
+%print(fighandle, char(graphname), '-djpg');
+%hold off;
+
+fighandle = figure(2); hold on;
+errorbar(funcsizes, schedmean, schedstd, '-o');
+%text(funcsizes, schedmean, funcnames, 'rotation', 90);
+errorbar(funcsizes, schedmapmean, schedmapstd, '-+');
+%text(funcsizes, schedmapmean, funcnames, 'rotation', 90);
+errorbar(funcsizes, schedslvmean, schedslvstd, '-*');
+%text(funcsizes, schedslvmean, funcnames, 'rotation', 90);
+errorbar(funcsizes, schedfsmmean, schedfsmstd, '-s');
+%text(funcsizes, schedfsmmean, funcnames, 'rotation', 90);
+errorbar(funcsizes, schedovhmean, schedovhstd, '-d');
+%text(funcsizes, schedovhmean, funcnames, 'rotation', 90);
+legend('sched', 'map', 'solv', 'fsm', 'overhead');
+plot(interpolx, sched_interpoly, '-ro');
+plot(interpolx, schedmap_interpoly, '-r+');
+plot(interpolx, schedslv_interpoly, '-r*');
+plot(interpolx, schedfsm_interpoly, '-rs');
+plot(interpolx, schedovh_interpoly, '-rd');
 xlabel ("Number of LLVM IR instructions");
 ylabel ("Time (s)");
 graphname = strcat('../build/plots/', partname,'_schedtime.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
-
-fighandle = figure(3);
-errorbar(funcsizes, bindimean, bindistd, '-s');
-text(funcsizes, bindimean, funcnames, 'rotation', 90);
-hold on;
-plot(interpolx, bindi_interpoly, '-r');
-xlabel ("Number of LLVM IR instructions");
-ylabel ("Time (s)");
-graphname = strcat('../build/plots/', partname,'_binditime.jpg');
-print(fighandle, char(graphname), '-djpg');
-hold off;
-
 %pause();

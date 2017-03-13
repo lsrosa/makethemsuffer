@@ -48,10 +48,10 @@ set_target_properties(${TRGT} PROPERTIES
     COMPILE_FLAGS "-fno-rtti"
 )
 
-
+SET(dis_files *.bc)
 #applies the optmizarion we made on passes/loop1
 add_custom_command(TARGET ${TRGT}
 	#COMMAND rm output.bc
 	COMMAND ./${TRGT}
-	COMMAND llvm-dis output.bc
+	#COMMAND for f in ${dis_files}"\;" do llvm-dis ${f}"\;" done
 )
