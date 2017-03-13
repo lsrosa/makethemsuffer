@@ -20,8 +20,16 @@ endforeach()
 message(STATUS ${codes_ll})
 #applies the optmizarion we made on passes/loop1
 add_custom_command(OUTPUT ${codes_ll}
-	COMMAND clang++ -x c++ -c ${codes_srcs} -S -emit-llvm
+	COMMAND cp ${codes_srcs} ${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/compileIRs.make ${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND make -f ${CMAKE_CURRENT_SOURCE_DIR}/compileIRs.make
 )
+
+message(STATUS ${codes_ll})
+#applies the optmizarion we made on passes/loop1
+#add_custom_command(OUTPUT ${codes_ll}
+#	COMMAND clang++ -x c++ -c ${codes_srcs} -S -emit-llvm
+#)
 
 add_custom_target(ll_files ALL
   DEPENDS ${codes_ll}
