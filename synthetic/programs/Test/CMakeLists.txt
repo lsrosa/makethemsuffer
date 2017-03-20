@@ -48,10 +48,13 @@ set_target_properties(${TRGT} PROPERTIES
     COMPILE_FLAGS "-fno-rtti"
 )
 
-SET(dis_files *.bc)
 #applies the optmizarion we made on passes/loop1
 add_custom_command(TARGET ${TRGT}
 	#COMMAND rm output.bc
 	COMMAND ./${TRGT}
-	#COMMAND for f in ${dis_files}"\;" do llvm-dis ${f}"\;" done
+	COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/insertOnTestBenches.make ${CMAKE_CURRENT_BINARY_DIR}/insertOnTestBenches.make
+	COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/config.tcl ${CMAKE_CURRENT_BINARY_DIR}/config.tcl
+	COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/lup.make ${CMAKE_CURRENT_BINARY_DIR}/lup.make
+	COMMAND make -f ${CMAKE_CURRENT_BINARY_DIR}/insertOnTestBenches.make
+
 )

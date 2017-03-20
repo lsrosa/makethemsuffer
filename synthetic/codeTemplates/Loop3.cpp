@@ -7,13 +7,11 @@ Loop3::Loop3() : CodeTemplate("Loop3"){
   setName("Loop3");
   //setSourceName("Loop1code");
 
-addInput("a");
-addInput("p");
+  addInput("a");
+  addInput("p");
 
-addOutput("b");
-addOutput("m");
+  addOutput("b");
+  addOutput("m");
 
-  appendCode(
-    "alforria"
-  );
+
 }

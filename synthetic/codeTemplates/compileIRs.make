@@ -17,9 +17,12 @@ $(OVERRIDE)all: $(OBJS)
 
 $(OBJS):%.bc:%.code
 	@echo $^ $@
-	$(LEVEL)/mark_labels.pl $^ > $(basename $^)_labeled.code
-	$(FRONT_END) -x c $(basename $^)_labeled.code -emit-llvm -c $(CFLAG) $(CLANG_FLAG) -o $@
+ifndef LINK
+	# annotate loop labels
+	$(LEVEL)/mark_labels.pl $^ > $(basename $^).labeled
+endif
+	@echo 	$(FRONT_END) -x c $(basename $^).labeled -emit-llvm -c $(CFLAG) $(CLANG_FLAG) -o $@
+	$(FRONT_END) -x c $(basename $^).labeled -emit-llvm -c $(CFLAG) $(CLANG_FLAG) -o $@
 	$(LLVM_HOME)llvm-dis $@
-
 clean:
-	rm -rf *_labeled.code *.ll *.bc
+	rm -rf *.labeled *.ll *.bc

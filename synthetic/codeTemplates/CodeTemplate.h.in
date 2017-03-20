@@ -1,5 +1,5 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 #include <llvm/IR/Module.h>
 #include <llvm/IRReader/IRReader.h>
@@ -13,12 +13,13 @@ class CodeTemplate{
     std::vector<std::string> inputList;
     std::vector<std::string> outputList;
     std::vector<std::string> variableList;
+    std::vector<unsigned> inputSizes;
+    std::vector<unsigned> outputSizes;
 
     bool alreadyInput(std::string snew);
     bool alreadyOutput(std::string snew);
     bool alreadyVariable(std::string snew);
 
-    std::string code;
     std::string name;
     llvm::MemoryBuffer* buff;
     std::string sourceName;
@@ -26,6 +27,12 @@ class CodeTemplate{
     llvm::SMDiagnostic error;
     llvm::Module* module;
 
+    void addInput(std::vector<std::string> v);
+    void addOutput(std::vector<std::string> v);
+
+    //this structure means to save which allocations are used in which functions, which is filled during the joining code operations and used to create a legup wrap
+    std::map<std::string, std::vector<std::string>> alloca_func_map;
+    std::map<std::string, std::vector<int>> func_argsize_map;
 
   public:
     CodeTemplate(std::string sn);
@@ -38,9 +45,11 @@ class CodeTemplate{
     int inputListSize();
     int outputListSize();
 
-    void appendCode(std::string s);
     void printCode(std::string fname);
 
     void loadModule(llvm::LLVMContext& context);
+
+    void setFuncArgSizes(std::string funcname, std::vector<int> vec);
+    void printFuncArgSizeMap();
   friend class CodeManipulator;
 };

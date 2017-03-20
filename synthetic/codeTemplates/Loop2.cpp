@@ -23,16 +23,4 @@ Loop2::Loop2() : CodeTemplate("Loop2"){
   addVariable("n21");
   addVariable("n22");
 
-  appendCode(
-    "for(int i=0; i<=n21; i++){\n"
-    "  for(int j=0; j<=n22; j++){\n"
-    "    temp = 0;"
-    "    for(int k=0; k<=n22; k++){\n"
-    "      temp += v2i1[i][k]*v2i2[k][j];\n"
-    "    }"
-    "    v2o1[i][j] = temp;\n"
-    "  }\n"
-    "}\n"
-    "v2o2 = v2i1;\n"
-  );
 }

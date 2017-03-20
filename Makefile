@@ -1,4 +1,5 @@
 include variables.mk
+include tests.mk
 #-----------------------------------------------------
 #------------- compilation ---------------------------
 void:
@@ -14,7 +15,9 @@ ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_KERNEL_OBJ)
 
 lup: $(BUILD_DIRS) $(LUP_BIN)
 
-test: $(BUILD_DIRS) $(LUP_OBJ)
+test: $(BUILD_DIRS) $(SYN_OBJS)
+	@echo $(SYN_SRCS)
+	@echo $(SYN_OBJS)
 
 synthetic:
 	mkdir -p $(BUILD_DIR)/synthetic

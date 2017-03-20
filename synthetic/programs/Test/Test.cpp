@@ -19,14 +19,31 @@ int main(){
   CodeManipulator *cm = new CodeManipulator();
 
   //CodeTemplate * cserial = cm->serial(c1,c2);
+  //cserial->printFuncArgSizeMap();
   //cserial->printCode("output_serial.bc");
   //std::cout << "LoopR:\noutputs: "<< cserial->outputListSize() << "\ninputs:" << cserial->inputListSize() << "\n\n";
 
   CodeTemplate * crepeat;
-  for (int i = 100; i < 101; i++) {
-    std::cout << "making serial repeat " << 10*i << '\n';
-    crepeat = cm->repeatSerial (c3,10*i);
-    crepeat->printCode("output_"+std::to_string(i)+".bc");
+  int step = 5;
+  for (int i = 1; i < 101; i++) {
+    std::cout << "making serial repeat - " << step*i << '\n';
+    crepeat = cm->repeatSerial (c3, step*i);
+    //crepeat->printCode("output_"+std::to_string(step*i)+".bc");
+    //crepeat->printCode("repeated.bc");
+    crepeat->printFuncArgSizeMap();
+    crepeat->setFuncArgSizes("loop3", {23, 1, 23, 1});
+    crepeat->printFuncArgSizeMap();
+    //I really do not want to do this
+    //You can create your own vector of vector to iterate and so something like
+    //i->second = vecvec[i]
+    std::cout << "wrapping as LegUp - " << step*i << '\n';
+    CodeTemplate * cwrap = cm->wrapAsLegUP(crepeat);
+    //cwrap->printCode("wrap.bc");
+
+    std::cout << "Applying Inline - " << step*i << '\n';
+    cm->applyInline(cwrap);
+    cwrap->printCode("wrap_inline_"+std::to_string(step*i)+".bc");
   }
+
   return 0;
 }

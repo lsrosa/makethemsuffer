@@ -41,10 +41,20 @@ void CodeTemplate::addInput(std::string s){
   return;
 }
 
+void CodeTemplate::addInput(std::vector<std::string> v){
+  assert(inputList.empty()); //just to be shure
+  inputList.insert(inputList.begin(), v.begin(), v.end());
+}
+
 void CodeTemplate::addOutput(std::string s){
   assert(!(alreadyInput(s) || alreadyOutput(s)));
   outputList.push_back(s);
   return;
+}
+
+void CodeTemplate::addOutput(std::vector<std::string> v){
+  assert(outputList.empty()); //just to be shure
+  outputList.insert(outputList.begin(), v.begin(), v.end());
 }
 
 void CodeTemplate::addVariable(std::string s){
@@ -88,19 +98,36 @@ bool CodeTemplate::alreadyVariable(std::string snew){
   return false;
 }
 
-void CodeTemplate::appendCode(std::string s){
-  code = code + s;
-  return;
-}
-
 void CodeTemplate::printCode(std::string fname){
   FILE *f = fopen(fname.c_str(), "w");
   fclose(f);
-   
+
   int fd = open (fname.c_str(), O_RDWR | O_CREAT);
   llvm::raw_fd_ostream OS(fd, true);
   llvm::WriteBitcodeToFile(module, OS);
   OS.flush();
 
   return;
+}
+
+void CodeTemplate::setFuncArgSizes(std::string funcname, std::vector<int> vec){
+  func_argsize_map[funcname] = vec;
+  return;
+}
+
+void CodeTemplate::printFuncArgSizeMap(){
+  for(std::map<std::string, std::vector<int>>::iterator i=func_argsize_map.begin(), ie=func_argsize_map.end(); i!=ie; ++i){
+    std::cout << i->first << " ";
+    std::vector<int> vec = i->second;
+    if(vec.empty())
+      std::cout << "- should have " << vec.size() << "elements" << '\n';
+    else{
+      for(std::vector<int>::iterator i=vec.begin(), ie=vec.end(); i!=ie; ++i){
+        std::cout << " size=" << *i;
+      }
+      std::cout << '\n';
+    }
+
+  }
+
 }
