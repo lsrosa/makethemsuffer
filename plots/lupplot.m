@@ -54,7 +54,11 @@ for file=1:nfiles
 
   %get the name of the benchmark
   parts = strsplit(char(arg_list(file)), '/');
-  benchname = parts(end-3);
+  if(numel(parts) > 3)
+    benchname = parts(end-3);
+  else
+    benchname = 'nothing/';
+  end
   funcnames = [funcnames; strcat(benchname, ':', name)]  ;
 
   %concatenate all files in one array
@@ -70,9 +74,9 @@ end
 
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
-funcnames = funcnames(2:end); %remove the initial empty string
-[funcsizes sizeindex] = sort(funcsizes);
-funcnames = funcnames(sizeindex);
+funcnames = funcnames(2:end) %remove the initial empty string
+[funcsizes sizeindex] = sort(funcsizes)
+funcnames = funcnames(sizeindex)
 alloctime = alloctime(:,sizeindex);
 schedtime = schedtime(:,sizeindex);
 binditime = binditime(:,sizeindex);
