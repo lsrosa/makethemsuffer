@@ -1,0 +1,12 @@
+digraph {
+Node0x36c8730[label="  %temp.0.i.i8 = phi i32 [ 0, %legup_mem..."];
+Node0x36c8730 -> Node0x36c8730[label="D:0.00ns L:0",color=blue];
+Node0x36c8730 -> Node0x36c8730[label="D:0.00ns L:0",color=blue];
+Node0x36c8810[label="  %40 = phi i32 [ 0, %legup_memcpy_1.exi..."];
+Node0x36c8810 -> Node0x36c8810[label="D:0.00ns L:0",color=blue];
+Node0x36c8810 -> Node0x36c8810[label="D:0.00ns L:0",color=blue];
+Node0x36c8810 -> Node0x36c8810[label="D:0.00ns L:0",color=blue];
+Node0x36c8810 -> Node0x36c8810[label="D:0.00ns L:0",color=blue];
+Node0x36cc190[label="  %exitcond12 = icmp eq i32 %40, 8"];
+Node0x36cc190 -> Node0x36cc190[label="D:2.49ns L:0",color=blue];
+}

@@ -1,0 +1,9 @@
+digraph {
+Node0x33854b0[label="  %temp.1.2 = phi i32 [ %15, %13 ], [ %t..."];
+Node0x33854b0 -> Node0x33854b0[label="D:0.00ns L:0",color=blue];
+Node0x33854b0 -> Node0x33854b0[label="D:0.00ns L:0",color=blue];
+Node0x3385590[label="  %17 = and i32 %1, 8"];
+Node0x3385590 -> Node0x3385590[label="D:0.00ns L:0",color=blue];
+Node0x3385670[label="  %18 = icmp eq i32 %17, 0"];
+Node0x3385670 -> Node0x3385670[label="D:2.49ns L:0",color=blue];
+}

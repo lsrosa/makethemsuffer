@@ -1,0 +1,4 @@
+digraph {
+Node0x36e8a90[label="  %254 = xor i32 %temp.0.i.i, %alphainv...."];
+Node0x36e8a90 -> Node0x36e8a90[label="D:0.91ns L:0",color=blue];
+}

@@ -1,0 +1,13 @@
+digraph {
+Node0x25cef60[label="  %data = alloca [2500 x float], align 4"];
+Node0x25cef60 -> Node0x25cef60[label="D:0.00ns L:0",color=blue];
+Node0x25cef60 -> Node0x25cef60[label="D:0.00ns L:0",color=blue];
+Node0x25cef60 -> Node0x25cef60[label="D:0.00ns L:0",color=blue];
+Node0x25cf0b0[label="  %mean = alloca [50 x float], align 4"];
+Node0x25cf0b0 -> Node0x25cf0b0[label="D:0.00ns L:0",color=blue];
+Node0x25cf0b0 -> Node0x25cf0b0[label="D:0.00ns L:0",color=blue];
+Node0x25cf0b0 -> Node0x25cf0b0[label="D:0.00ns L:0",color=blue];
+Node0x25d65d0[label="  %stddev = alloca [50 x float], align 4"];
+Node0x25d65d0 -> Node0x25d65d0[label="D:0.00ns L:0",color=blue];
+Node0x25d65d0 -> Node0x25d65d0[label="D:0.00ns L:0",color=blue];
+}

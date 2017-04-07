@@ -1,0 +1,10 @@
+digraph {
+Node0x36e5e90[label="  %225 = add nsw i32 %218, 1"];
+Node0x36e5e90 -> Node0x36e5e90[label="D:2.50ns L:0",color=blue];
+Node0x36e5f70[label="  %226 = load i8* %scevgep132, align 1"];
+Node0x36e5f70 -> Node0x36e5f70[label="D:0.00ns L:1",color=blue];
+Node0x36e6050[label="  %227 = zext i8 %226 to i32"];
+Node0x36e6050 -> Node0x36e6050[label="D:0.00ns L:0",color=blue];
+Node0x36e6130[label="  %228 = zext i8 %221 to i32"];
+Node0x36e6130 -> Node0x36e6130[label="D:0.00ns L:0",color=blue];
+}

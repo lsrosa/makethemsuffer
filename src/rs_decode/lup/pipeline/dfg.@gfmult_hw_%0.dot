@@ -1,0 +1,31 @@
+digraph {
+Node0x33ef060[label="  %1 = zext i8 %b to i32"];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef060 -> Node0x33ef060[label="D:0.00ns L:0",color=blue];
+Node0x33ef180[label="  %2 = zext i8 %a to i32"];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x33ef180 -> Node0x33ef180[label="D:0.00ns L:0",color=blue];
+Node0x3384530[label="  %3 = and i32 %1, 1"];
+Node0x3384530 -> Node0x3384530[label="D:0.00ns L:0",color=blue];
+Node0x3384610[label="  %4 = icmp eq i32 %3, 0"];
+Node0x3384610 -> Node0x3384610[label="D:2.49ns L:0",color=blue];
+Node0x33847f0[label="  %. = select i1 %4, i32 0, i32 %2"];
+Node0x33847f0 -> Node0x33847f0[label="D:3.99ns L:0",color=blue];
+Node0x33847f0 -> Node0x33847f0[label="D:3.99ns L:0",color=blue];
+Node0x3384950[label="  %5 = and i32 %1, 2"];
+Node0x3384950 -> Node0x3384950[label="D:0.00ns L:0",color=blue];
+Node0x3384a30[label="  %6 = icmp eq i32 %5, 0"];
+Node0x3384a30 -> Node0x3384a30[label="D:2.49ns L:0",color=blue];
+}

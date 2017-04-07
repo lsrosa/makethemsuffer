@@ -1,0 +1,16 @@
+digraph {
+Node0x36e6750[label="  %232 = shl i32 1, %230"];
+Node0x36e6750 -> Node0x36e6750[label="D:3.33ns L:0",color=blue];
+Node0x36e6870[label="  %233 = and i32 %227, %232"];
+Node0x36e6870 -> Node0x36e6870[label="D:0.87ns L:0",color=blue];
+Node0x36e6950[label="  %234 = icmp eq i32 %233, 0"];
+Node0x36e6950 -> Node0x36e6950[label="D:2.49ns L:0",color=blue];
+Node0x36e6a30[label="  %235 = shl i32 %228, %230"];
+Node0x36e6a30 -> Node0x36e6a30[label="D:3.33ns L:0",color=blue];
+Node0x36e6b10[label="  %236 = select i1 %234, i32 0, i32 %235"];
+Node0x36e6b10 -> Node0x36e6b10[label="D:3.99ns L:0",color=blue];
+Node0x36e6bf0[label="  %temp.1.i3.i = xor i32 %temp.0.i1.i, %..."];
+Node0x36e6bf0 -> Node0x36e6bf0[label="D:0.91ns L:0",color=blue];
+Node0x36e6cd0[label="  %237 = add nsw i32 %230, 1"];
+Node0x36e6cd0 -> Node0x36e6cd0[label="D:2.50ns L:0",color=blue];
+}

@@ -1,0 +1,20 @@
+digraph {
+Node0x36d48d0[label="  %k.0.i.i.i = sub i32 15, %indvar42"];
+Node0x36d48d0 -> Node0x36d48d0[label="D:2.40ns L:0",color=blue];
+Node0x36d49b0[label="  %88 = sub i32 7, %indvar42"];
+Node0x36d49b0 -> Node0x36d49b0[label="D:2.40ns L:0",color=blue];
+Node0x36d4a90[label="  %89 = shl i32 1, %k.0.i.i.i"];
+Node0x36d4a90 -> Node0x36d4a90[label="D:3.33ns L:0",color=blue];
+Node0x36d4b70[label="  %90 = and i32 %temp.2.i.i.i, %89"];
+Node0x36d4b70 -> Node0x36d4b70[label="D:0.87ns L:0",color=blue];
+Node0x36d4c50[label="  %91 = icmp eq i32 %90, 0"];
+Node0x36d4c50 -> Node0x36d4c50[label="D:2.49ns L:0",color=blue];
+Node0x36d4d30[label="  %92 = shl i32 29, %88"];
+Node0x36d4d30 -> Node0x36d4d30[label="D:3.33ns L:0",color=blue];
+Node0x36d4e10[label="  %93 = select i1 %91, i32 0, i32 %92"];
+Node0x36d4e10 -> Node0x36d4e10[label="D:3.99ns L:0",color=blue];
+Node0x36d4f20[label="  %temp.3.i.i.i = xor i32 %temp.2.i.i.i,..."];
+Node0x36d4f20 -> Node0x36d4f20[label="D:0.91ns L:0",color=blue];
+Node0x36d5000[label="  %indvar.next43 = add i32 %indvar42, 1"];
+Node0x36d5000 -> Node0x36d5000[label="D:2.50ns L:0",color=blue];
+}

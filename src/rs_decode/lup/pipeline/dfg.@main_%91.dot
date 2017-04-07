@@ -1,0 +1,5 @@
+digraph {
+Node0x340e8a0[label="  %92 = load i8* %scevgep56, align 1, !t..."];
+Node0x340e8a0 -> Node0x340e8a0[label="D:0.00ns L:1",color=blue];
+Node0x340e8a0 -> Node0x340e8a0[label="D:0.00ns L:1",color=blue];
+}

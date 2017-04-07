@@ -1,0 +1,8 @@
+digraph {
+Node0x36f1f80[label="  %333 = getelementptr inbounds [256 x i..."];
+Node0x36f1f80 -> Node0x36f1f80[label="D:20.00ns L:0",color=blue];
+Node0x36f20a0[label="  %334 = load i8* %333, align 1"];
+Node0x36f20a0 -> Node0x36f20a0[label="D:0.00ns L:1",color=blue];
+Node0x36f2180[label="  %335 = zext i8 %334 to i32"];
+Node0x36f2180 -> Node0x36f2180[label="D:0.00ns L:0",color=blue];
+}

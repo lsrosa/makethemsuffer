@@ -1,0 +1,16 @@
+digraph {
+Node0x36ddb40[label="  %scevgep183 = getelementptr [223 x i8]..."];
+Node0x36ddb40 -> Node0x36ddb40[label="D:20.00ns L:0",color=blue];
+Node0x36ddc60[label="  %scevgep182 = getelementptr [223 x i8]..."];
+Node0x36ddc60 -> Node0x36ddc60[label="D:20.00ns L:0",color=blue];
+Node0x36ddd40[label="  %scevgep181 = getelementptr [223 x i8]..."];
+Node0x36ddd40 -> Node0x36ddd40[label="D:20.00ns L:0",color=blue];
+Node0x36dde20[label="  %369 = load i8* %scevgep183, align 1"];
+Node0x36dde20 -> Node0x36dde20[label="D:0.00ns L:1",color=blue];
+Node0x36ddf60[label="  %370 = load i8* %scevgep182, align 1"];
+Node0x36ddf60 -> Node0x36ddf60[label="D:0.00ns L:1",color=blue];
+Node0x36de040[label="  %371 = xor i8 %369, %370"];
+Node0x36de040 -> Node0x36de040[label="D:0.92ns L:0",color=blue];
+Node0x36de240[label="  %372 = add nsw i32 %367, 1"];
+Node0x36de240 -> Node0x36de240[label="D:2.50ns L:0",color=blue];
+}

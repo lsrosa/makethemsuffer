@@ -1,0 +1,13 @@
+digraph {
+Node0x342b4c0[label="  %245 = trunc i32 %temp.3.6..i.i to i8"];
+Node0x342b4c0 -> Node0x342b4c0[label="D:0.00ns L:0",color=blue];
+Node0x342b680[label="  %246 = zext i8 %err_cnt.012.i to i32"];
+Node0x342b680 -> Node0x342b680[label="D:0.00ns L:0",color=blue];
+Node0x342b680 -> Node0x342b680[label="D:0.00ns L:0",color=blue];
+Node0x342b760[label="  %247 = getelementptr inbounds [16 x i8..."];
+Node0x342b760 -> Node0x342b760[label="D:20.00ns L:0",color=blue];
+Node0x342b960[label="  %248 = getelementptr inbounds [16 x i8..."];
+Node0x342b960 -> Node0x342b960[label="D:20.00ns L:0",color=blue];
+Node0x342bb60[label="  %249 = add i8 %err_cnt.012.i, 1"];
+Node0x342bb60 -> Node0x342bb60[label="D:1.88ns L:0",color=blue];
+}

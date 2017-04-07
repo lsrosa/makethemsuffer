@@ -1,0 +1,12 @@
+digraph {
+Node0x341bac0[label="  %67 = phi i32 [ %68, %rs_fifo.exit ], ..."];
+Node0x341bac0 -> Node0x341bac0[label="D:0.00ns L:0",color=blue];
+Node0x341bac0 -> Node0x341bac0[label="D:0.00ns L:0",color=blue];
+Node0x341bba0[label="  %scevgep5 = getelementptr [32 x i8]* %..."];
+Node0x341bba0 -> Node0x341bba0[label="D:20.00ns L:0",color=blue];
+Node0x3409d20[label="  %68 = add nsw i32 %67, 1"];
+Node0x3409d20 -> Node0x3409d20[label="D:2.50ns L:0",color=blue];
+Node0x3409d20 -> Node0x3409d20[label="D:2.50ns L:0",color=blue];
+Node0x3409e90[label="  %exitcond = icmp eq i32 %68, 32"];
+Node0x3409e90 -> Node0x3409e90[label="D:2.49ns L:0",color=blue];
+}

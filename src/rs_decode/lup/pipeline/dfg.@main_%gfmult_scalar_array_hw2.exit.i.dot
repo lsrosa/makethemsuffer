@@ -1,0 +1,24 @@
+digraph {
+Node0x34216c0[label="  %170 = phi i32 [ %174, %gfmult_scalar_..."];
+Node0x34216c0 -> Node0x34216c0[label="D:0.00ns L:0",color=blue];
+Node0x34216c0 -> Node0x34216c0[label="D:0.00ns L:0",color=blue];
+Node0x34216c0 -> Node0x34216c0[label="D:0.00ns L:0",color=blue];
+Node0x34217a0[label="  %scevgep53 = getelementptr [18 x i8]* ..."];
+Node0x34217a0 -> Node0x34217a0[label="D:20.00ns L:0",color=blue];
+Node0x34218c0[label="  %scevgep54 = getelementptr [18 x i8]* ..."];
+Node0x34218c0 -> Node0x34218c0[label="D:20.00ns L:0",color=blue];
+Node0x34218c0 -> Node0x34218c0[label="D:20.00ns L:0",color=blue];
+Node0x34219a0[label="  %171 = load i8* %scevgep54, align 1, !..."];
+Node0x34219a0 -> Node0x34219a0[label="D:0.00ns L:1",color=blue];
+Node0x3421c80[label="  store i8 %173, i8* %scevgep54, align 1..."];
+Node0x34219a0 -> Node0x3421c80[label="D:0.00ns L:1",color=red];
+Node0x3421a80[label="  %172 = load i8* %scevgep53, align 1, !..."];
+Node0x3421a80 -> Node0x3421a80[label="D:0.00ns L:1",color=blue];
+Node0x3421b60[label="  %173 = xor i8 %172, %171"];
+Node0x3421b60 -> Node0x3421b60[label="D:0.92ns L:0",color=blue];
+Node0x3421d60[label="  %174 = add nsw i32 %170, 1"];
+Node0x3421d60 -> Node0x3421d60[label="D:2.50ns L:0",color=blue];
+Node0x3421d60 -> Node0x3421d60[label="D:2.50ns L:0",color=blue];
+Node0x3421e80[label="  %exitcond52 = icmp eq i32 %174, 18"];
+Node0x3421e80 -> Node0x3421e80[label="D:2.49ns L:0",color=blue];
+}

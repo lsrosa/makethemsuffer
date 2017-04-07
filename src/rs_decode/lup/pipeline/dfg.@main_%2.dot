@@ -1,0 +1,10 @@
+digraph {
+Node0x36c6d20[label="  %st.i.0 = getelementptr [255 x i8]* @m..."];
+Node0x36c6d20 -> Node0x36c6d20[label="D:20.00ns L:0",color=blue];
+Node0x36c6e80[label="  %dt.i.0 = getelementptr [255 x i8]* %i..."];
+Node0x36c6e80 -> Node0x36c6e80[label="D:20.00ns L:0",color=blue];
+Node0x36c6f60[label="  %3 = load i8* %st.i.0, align 1"];
+Node0x36c6f60 -> Node0x36c6f60[label="D:0.00ns L:1",color=blue];
+Node0x36c7120[label="  %indvar.next186 = add i32 %indvar185, ..."];
+Node0x36c7120 -> Node0x36c7120[label="D:2.50ns L:0",color=blue];
+}

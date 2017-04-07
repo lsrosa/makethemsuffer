@@ -1,0 +1,12 @@
+digraph {
+Node0x36f10c0[label="  %326 = load i8* %scevgep165, align 1"];
+Node0x36f10c0 -> Node0x36f10c0[label="D:0.00ns L:1",color=blue];
+Node0x36f11a0[label="  %327 = and i32 %temp.2.i.i.i4.i, 255"];
+Node0x36f11a0 -> Node0x36f11a0[label="D:0.00ns L:0",color=blue];
+Node0x36f1280[label="  %328 = zext i8 %326 to i32"];
+Node0x36f1280 -> Node0x36f1280[label="D:0.00ns L:0",color=blue];
+Node0x36f1360[label="  %329 = xor i32 %327, %328"];
+Node0x36f1360 -> Node0x36f1360[label="D:0.91ns L:0",color=blue];
+Node0x36f1480[label="  %indvar.next163 = add i32 %indvar162, ..."];
+Node0x36f1480 -> Node0x36f1480[label="D:2.50ns L:0",color=blue];
+}

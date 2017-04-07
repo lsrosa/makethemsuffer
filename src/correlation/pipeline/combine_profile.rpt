@@ -1,0 +1,48 @@
+(combine == 1) Function: main - Number of BasicBlocks: 14 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+Basic block %120: store instruction
+Basic block %120: store instruction
+Basic block %120: store instruction
+Pattern A structure detected
+Basic block %181: store instruction
+Pattern A structure detected
+CombineList A1: %114 - %120 - %128
+CombineList A2: %174 - %181 - %184
+(combine == 1) Function: __ieee754_sqrt - Number of BasicBlocks: 71 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 6
+(combine == 1) Function: sqrt - Number of BasicBlocks: 72 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 6
+(combine == 1) Function: main - Number of BasicBlocks: 14 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+Basic block %120: store instruction
+Basic block %120: store instruction
+Basic block %120: store instruction
+Pattern A structure detected
+Basic block %181: store instruction
+Pattern A structure detected
+CombineList A1: %114 - %120 - %128
+CombineList A2: %174 - %181 - %184
+(combine == 1) Function: __ieee754_sqrt - Number of BasicBlocks: 71 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 6
+(combine == 1) Function: sqrt - Number of BasicBlocks: 72 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 6
+(combine == 1) Function: main - Number of BasicBlocks: 14 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+(combine == 1) Function: __ieee754_rem_pio2 - Number of BasicBlocks: 63 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+(combine == 1) Function: __kernel_cos - Number of BasicBlocks: 78 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+Pattern B structure detected
+Basic block %161: store instruction
+Pattern A structure detected
+Basic block %182: store instruction
+Basic block %182: store instruction
+Pattern A structure detected
+Basic block %223: call instruction
+Basic block %223: store instruction
+Pattern A structure detected
+Pattern A structure contains call instruction
+Pattern A structure detected
+CombineList B1: %29 - %32 - %33 - %39
+CombineList A2: %158 - %161 - %162
+CombineList A3: %179 - %182 - %187
+CombineList A4: %382 - %385 - %391
+(combine == 1) Function: __kernel_rem_pio2 - Number of BasicBlocks: 213 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: __kernel_sin - Number of BasicBlocks: 223 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: fabs - Number of BasicBlocks: 228 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: floor - Number of BasicBlocks: 269 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: scalbn - Number of BasicBlocks: 295 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: sin - Number of BasicBlocks: 307 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 13
+(combine == 1) Function: main - Number of BasicBlocks: 14 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
+(combine == 1) Function: main - Number of BasicBlocks: 14 Number of BasicBlocks found to be contained in a pattern structure that is mergeable (no mem): 0
