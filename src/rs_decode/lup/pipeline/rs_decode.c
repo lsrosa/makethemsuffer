@@ -24,10 +24,11 @@ void syndrome (unsigned char k, unsigned char t, unsigned char r[nn], unsigned c
 }
 
 
-void rs_fifo(unsigned char k, unsigned char in_d[nn], unsigned char out_d[kk])
+void rs_fifo(unsigned char k, unsigned char *in_d, unsigned char *out_d)
 {
-   for (int i = 0; i < kk; i++)
-      out_d[i] = (i < k) ? in_d[i] : 0;
+   rs_fifo: for (int i = 0; i < kk; i++){
+     out_d[i] = (i < k) ? in_d[i] : 0;
+   }
 }
 
 
@@ -40,16 +41,22 @@ unsigned char gfmult_hw(unsigned char a, unsigned char b)
 {
 
    unsigned int temp = 0;
+   unsigned int temp2 = 0;
 
    // Directive: Unroll loop maximally
-   for (int i = 0; i < 8; i++)
-      if (b & (1 << i))
-         temp ^= (unsigned int)(a << i);
+   for (int i = 0; i < 8; i++){
+      if (b & (1 << i)){
+        temp2 ^= (unsigned int) a << i;
+        //temp ^= c;
+      }
+    }
 
    // Directive: Unroll loop maximally
-   for (int k = 15; k > 7; k--)
-      if (temp & (1 << k))
+   for (int k = 15; k > 7; k--){
+      if (temp & (1 << k)){
 	     temp ^= (unsigned int)(pp_char << (k - 8));
+     }
+   }
 
    return (temp & 255);
 
@@ -85,8 +92,9 @@ unsigned char gfdiv_lut (unsigned char dividend, unsigned char divisor)
 void compute_deriv (unsigned char lambda[tt], unsigned char lambda_deriv[tt])
 {
    // Directive: Unroll loop maximally
-   for (int i = 0; i < tt; i++)
-        lambda_deriv[i] = (i % 2 == 0) ? lambda[i] : 0;
+   compute_deriv: for (int i = 0; i < tt; i++){
+     lambda_deriv[i] = (i % 2 == 0) ? lambda[i] : 0;
+   }
 }
 
 
@@ -95,8 +103,7 @@ unsigned char poly_eval (unsigned char poly[tt], unsigned char alpha_inv)
    unsigned char val = 0;
 
    // Directive: Unroll loop maximally
-   for (int j = tt-1; j >= 0; j--)
-   {
+   for (int j = tt-1; j >= 0; j--) {
       val = gfadd_hw(gfmult_hw(val, alpha_inv), poly[j]);
    }
    return val;
@@ -138,14 +145,14 @@ void error_mag(unsigned char k, unsigned char lambda[tt], unsigned char omega[tt
     unsigned char err_temp[tt];
 
     compute_deriv(lambda, lambda_deriv);
-    for (int i = 0; i < tt; i++)
+    error_mag: for (int i = 0; i < tt; i++)
     {
         lambda_val  = poly_eval_inst1(lambda_deriv, alpha_inv[i]);
         omega_val   = poly_eval_inst2(omega, alpha_inv[i]);
         err_temp[i] = gfdiv_lut_inst(omega_val, lambda_val);
     }
 
-    for (int i = 0; i < kk; i++)
+    error_mag2: for (int i = 0; i < kk; i++)
     {
         if ((err_loc[loc_idx] == kk-1-i) && (loc_idx < err_no))
         {
@@ -164,55 +171,58 @@ void error_mag(unsigned char k, unsigned char lambda[tt], unsigned char omega[tt
 void error_correct( unsigned char k, unsigned char in_data[kk], unsigned char err[kk],
                     unsigned char out_data[kk])
 {
-    for (int i = 0; i < kk; i++)
-        out_data[i] = gfadd_hw(in_data[i],err[i]);
+    error_correct: for (int i = 0; i < kk; i++){
+      out_data[i] = gfadd_hw(in_data[i],err[i]);
+
+    }
 }
 
-void gfmult_array_array_hw (unsigned char res_vec[tt+2], unsigned char in_vec0[tt+2], unsigned char in_vec1[tt+2])
+void gfmult_array_array_hw (unsigned char *res_vec, unsigned char *in_vec0, unsigned char *in_vec1)
 {
-  for (int i = 0; i < tt+2; ++i)
+  gfmult_array_array_hw: for (int i = 0; i < tt+2; ++i){
     res_vec[i] = gfmult_hw(in_vec0[i],in_vec1[i]);
+  }
 }
 
 // Directive: Synthesize independently
 // Directive: Unroll loop maximally
-void gfmult_scalar_array_hw1 (unsigned char res_vec[tt+2], unsigned char val, unsigned char in_vec[tt+2])
+void gfmult_scalar_array_hw1 (unsigned char *res_vec, unsigned char val, unsigned char *in_vec)
 {
-  for (int i = 0; i < tt+2; ++i)
+  gfmult_scalar_array_hw1: for (int i = 0; i < tt+2; ++i)
     res_vec[i] = gfmult_hw(val,in_vec[i]);
 }
 
 // Directive: Synthesize independently
 // Directive: Unroll loop maximally
-void gfmult_scalar_array_hw2 (unsigned char res_vec[tt+2], unsigned char val, unsigned char in_vec[tt+2])
+void gfmult_scalar_array_hw2 (unsigned char *res_vec, unsigned char val, unsigned char *in_vec)
 {
-  for (int i = 0; i < tt+2; ++i)
+  gfmult_scalar_array_hw2: for (int i = 0; i < tt+2; ++i)
     res_vec[i] = gfmult_hw(val,in_vec[i]);
 }
 
 // Directive: Synthesize independently
 // Directive: Unroll loop maximally
-void gfadd_array_array_hw1 (unsigned char in_vec0[tt+2], unsigned char in_vec1[tt+2])
+void gfadd_array_array_hw1 (unsigned char *in_vec0, unsigned char *in_vec1)
 {
-  for (int i = 0; i < tt+2; ++i)
+  gfadd_array_array_hw1: for (int i = 0; i < tt+2; ++i)
     in_vec0[i] = gfadd_hw(in_vec0[i], in_vec1[i]);
 }
 
 // Directive: Synthesize independently
 // Directive: Unroll loop maximally
-void gfadd_array_array_hw2 (unsigned char in_vec0[tt+2], unsigned char in_vec1[tt+2])
+void gfadd_array_array_hw2 (unsigned char *in_vec0, unsigned char *in_vec1)
 {
-  for (int i = 0; i < tt+2; ++i)
+  gfadd_array_array_hw2: for (int i = 0; i < tt+2; ++i)
     in_vec0[i] = gfadd_hw(in_vec0[i], in_vec1[i]);
 }
 
 // Directive: Synthesize independently
-unsigned char gfsum_array_hw (unsigned char in_vec[tt+2])
+unsigned char gfsum_array_hw (unsigned char *in_vec)
 {
   unsigned char res = 0;
 
   // Directive: Unroll loop maximally
-  for (int i = 0; i < tt+2; ++i)
+  gfsum_array_hw: for (int i = 0; i < tt+2; ++i)
     res = gfadd_hw(res, in_vec[i]);
 
   return res;
@@ -254,8 +264,7 @@ void berlekamp (unsigned char t, unsigned char s[2*tt], unsigned char c_out[tt],
   unsigned char dstar = 1;
   unsigned char d = 0;
   unsigned char ddstar = 1;
-   BerlOuter:
-   for (int i = 0; i < 2*tt; i++ )
+   BerlOuter: for (int i = 0; i < 2*tt; i++ )
    {
       // Directive: Unroll loop maximally
       BerlShift: for (int k = tt+1; k > 0; --k)
@@ -369,22 +378,22 @@ int main ()
    unsigned char k = 0;
    unsigned char out_d[kk];
 
+   unsigned char temp_k = n - 2*t;
+   unsigned char s[2*tt];
+   unsigned char c[tt+2];
+   unsigned char w[tt+2];
+   unsigned char lambda[tt];
+   unsigned char omega[tt];
+   unsigned char err_no;
+   unsigned char err_loc[kk];
+   unsigned char alpha_inv[tt];
+   unsigned char err[kk];
+   unsigned char in_data[kk];
+   unsigned char in_d_2[nn];
   for (j = 0; j < 3; ++j){
     //rs_decode(n, t, r, &k, out_d);
     // Top level decoder module
     //void rs_decode (unsigned char n, unsigned char t, unsigned char in_d[nn], unsigned char *k, unsigned char out_d[kk])
-       unsigned char temp_k = n - 2*t;
-       unsigned char s[2*tt];
-       unsigned char c[tt+2];
-       unsigned char w[tt+2];
-       unsigned char lambda[tt];
-       unsigned char omega[tt];
-       unsigned char err_no;
-       unsigned char err_loc[kk];
-       unsigned char alpha_inv[tt];
-       unsigned char err[kk];
-       unsigned char in_data[kk];
-       unsigned char in_d_2[nn];
 
        // Create copy of input to pass to fifo to error corrector
        // Directive: Unroll loop maximally
@@ -402,7 +411,7 @@ int main ()
 
 
     //for (i = 0; i < k; ++ i)
-    //printf("out[%d]=%d\n",i,(int)out_d[i]);
+    printf("out[%d]=%d\n",i,(int)out_d[i]);
   }
 
   return (int)out_d[i];
