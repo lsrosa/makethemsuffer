@@ -86,6 +86,7 @@ plots:
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
 
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/looppipeline/DetailedModuleSDCSchedulingTime
 #-----------------------------------------------------
 #------------- utils----------------------------------
 #make directory for objects if they are dont exist

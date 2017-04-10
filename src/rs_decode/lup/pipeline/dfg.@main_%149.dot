@@ -1,8 +1,0 @@
-digraph {
-Node0x36db320[label="  %scevgep100 = getelementptr [18 x i8]*..."];
-Node0x36db320 -> Node0x36db320[label="D:20.00ns L:0",color=blue];
-Node0x36db400[label="  %150 = load i8* %scevgep100, align 1"];
-Node0x36db400 -> Node0x36db400[label="D:0.00ns L:1",color=blue];
-Node0x36db4e0[label="  %151 = zext i8 %150 to i32"];
-Node0x36db4e0 -> Node0x36db4e0[label="D:0.00ns L:0",color=blue];
-}

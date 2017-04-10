@@ -1,4 +1,0 @@
-digraph {
-Node0x36ec960[label="  %287 = zext i8 %err_cnt.0.i to i32"];
-Node0x36ec960 -> Node0x36ec960[label="D:0.00ns L:0",color=blue];
-}

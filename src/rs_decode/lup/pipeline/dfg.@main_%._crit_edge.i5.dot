@@ -1,8 +1,0 @@
-digraph {
-Node0x342b100[label="  %243 = add nsw i32 %239, 1"];
-Node0x342b100 -> Node0x342b100[label="D:2.50ns L:0",color=blue];
-Node0x342b1e0[label="  %.phi.trans.insert.i3 = getelementptr ..."];
-Node0x342b1e0 -> Node0x342b1e0[label="D:20.00ns L:0",color=blue];
-Node0x342b300[label="  %.pre.i4 = load i8* %.phi.trans.insert..."];
-Node0x342b300 -> Node0x342b300[label="D:0.00ns L:2",color=blue];
-}

@@ -1,9 +1,0 @@
-digraph {
-Node0x36dab00[label="  %dstar.1.i = phi i8 [ %144, %legup_mem..."];
-Node0x36dab00 -> Node0x36dab00[label="D:0.00ns L:0",color=blue];
-Node0x36dabe0[label="  %l.1.i = phi i8 [ %142, %legup_memcpy_..."];
-Node0x36dabe0 -> Node0x36dabe0[label="D:0.00ns L:0",color=blue];
-Node0x36dacc0[label="  %146 = and i32 %temp.2.i.i20, 255"];
-Node0x36dacc0 -> Node0x36dacc0[label="D:0.00ns L:0",color=blue];
-Node0x36dacc0 -> Node0x36dacc0[label="D:0.00ns L:0",color=blue];
-}

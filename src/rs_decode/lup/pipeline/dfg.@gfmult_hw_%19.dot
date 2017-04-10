@@ -1,6 +1,0 @@
-digraph {
-Node0x3385830[label="  %20 = shl nuw nsw i32 %2, 3"];
-Node0x3385830 -> Node0x3385830[label="D:0.00ns L:0",color=blue];
-Node0x3385910[label="  %21 = xor i32 %20, %temp.1.2"];
-Node0x3385910 -> Node0x3385910[label="D:0.91ns L:0",color=blue];
-}

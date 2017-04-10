@@ -1,9 +1,0 @@
-digraph {
-Node0x36d9e00[label="  %indvar89 = phi i32 [ %indvar.next90, ..."];
-Node0x36d9e00 -> Node0x36d9e00[label="D:0.00ns L:0",color=blue];
-Node0x36d9e00 -> Node0x36d9e00[label="D:0.00ns L:0",color=blue];
-Node0x36d9e00 -> Node0x36d9e00[label="D:0.00ns L:0",color=blue];
-Node0x36d9e00 -> Node0x36d9e00[label="D:0.00ns L:0",color=blue];
-Node0x36d9ee0[label="  %exitcond91 = icmp eq i32 %indvar89, 2..."];
-Node0x36d9ee0 -> Node0x36d9ee0[label="D:2.49ns L:0",color=blue];
-}

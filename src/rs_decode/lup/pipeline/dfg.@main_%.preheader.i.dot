@@ -1,9 +1,0 @@
-digraph {
-Node0x340a160[label="  %69 = phi i32 [ %80, %79 ], [ 0, %.pre..."];
-Node0x340a160 -> Node0x340a160[label="D:0.00ns L:0",color=blue];
-Node0x340a160 -> Node0x340a160[label="D:0.00ns L:0",color=blue];
-Node0x340a240[label="  %scevgep10 = getelementptr [255 x i8]*..."];
-Node0x340a240 -> Node0x340a240[label="D:20.00ns L:0",color=blue];
-Node0x340a400[label="  %70 = load i8* %scevgep10, align 1, !t..."];
-Node0x340a400 -> Node0x340a400[label="D:0.00ns L:1",color=blue];
-}

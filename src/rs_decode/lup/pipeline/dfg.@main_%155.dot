@@ -1,6 +1,0 @@
-digraph {
-Node0x341f740[label="  %l.1.i = phi i8 [ %154, %150 ], [ %l.0..."];
-Node0x341f740 -> Node0x341f740[label="D:0.00ns L:0",color=blue];
-Node0x341f820[label="  %dstar.1.i = phi i8 [ %153, %150 ], [ ..."];
-Node0x341f820 -> Node0x341f820[label="D:0.00ns L:0",color=blue];
-}
