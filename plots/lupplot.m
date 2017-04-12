@@ -74,9 +74,9 @@ end
 
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
-funcnames = funcnames(2:end) %remove the initial empty string
-[funcsizes sizeindex] = sort(funcsizes)
-funcnames = funcnames(sizeindex)
+funcnames = funcnames(2:end); %remove the initial empty string
+[funcsizes sizeindex] = sort(funcsizes);
+funcnames = funcnames(sizeindex);
 alloctime = alloctime(:,sizeindex);
 schedtime = schedtime(:,sizeindex);
 binditime = binditime(:,sizeindex);

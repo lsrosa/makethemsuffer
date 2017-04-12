@@ -9,35 +9,40 @@ nfiles = numel(arg_list);
 % files or how many functions each one has, even though it is possible to get
 % the n/nloops values from ../variables.mk file and derive nloops from there
 looplabels = [];
-loopsizes = [];
-nsdcs = [];
-totaltime = [];
-solvetime = [];
+loopsizes = cell();
+nsdcs = cell();
+totaltime = cell();
+solvetime = cell();
 
 %nfiles = 1
 for file=1:nfiles
-  %a = importdata(char(arg_list(file)), '\t', 1);
-  a = importdata('DetailedModuleSDCSchedulingTime', '\t', 1);
+  arg_list(file);
+  %we could had it allllll, rolling in the deeeeeeepppp
+  a = importdata(char(arg_list(file)), '\t', 1);
+
+  %a = importdata('DetailedModuleSDCSchedulingTime', '\t', 1);
   %selec the functions by name since this is the one unique identifier
   [labels, iindex, jindex] = unique(a.textdata(2:end));
   %name
   [nloops, ~] = size(labels);
   [n, ~] = size(a.data);
   %one line for each function
-  ns = zeros(n/nloops, nloops);
-  tt = zeros(n/nloops, nloops);
-  st = zeros(n/nloops, nloops);
-  ls = zeros(1, nloops); %loop n inst
+  ns = cell();%zeros(n/nloops, nloops);
+  tt = cell();%zeros(n/nloops, nloops);
+  st = cell();%zeros(n/nloops, nloops);
+  lps = cell(); %loop n inst
 
   %jindex maps to which position in "name" the position in the original vector
   % refers to. Used as map
   for i=1:nloops
-    ls(i) = a.data(iindex(i), 1);
+    lps(i) = a.data(iindex(i), 1);
+    size(a.data(jindex==i,2));
+
     ns(:,i) = a.data(jindex==i,2);
     tt(:,i) = a.data(jindex==i,3);
     st(:,i) = a.data(jindex==i,4);
   end
-  %fs
+
   %get the name of the benchmark
   parts = strsplit(char(arg_list(file)), '/');
   if(numel(parts) > 3)
@@ -49,7 +54,7 @@ for file=1:nfiles
 
   %concatenate all files in one array
   nsdcs = [nsdcs, ns];
-  loopsizes = [loopsizes, ls];
+  loopsizes = [loopsizes, lps];
   totaltime = [totaltime, tt];
   solvetime = [solvetime, st];
 end
@@ -57,20 +62,31 @@ end
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
 looplabels = looplabels(2:end); %remove the initial empty string
-[loopsizes sizeindex] = sort(loopsizes);
-loopx = loopsizes;
+temp = cell2mat(loopsizes);
+[temp sizeindex] = sort(temp);
+loopsizes = temp;
 looplabels = looplabels(sizeindex);
 nsdcs = nsdcs(:,sizeindex);
 totaltime = totaltime(:,sizeindex);
 solvetime = solvetime(:,sizeindex);
 
-nsdcsmean = mean(nsdcs);
-totalmean = mean(totaltime);
-solvemean = mean(solvetime);
+nsdcsmean = zeros(size(nsdcs));
+totalmean = zeros(size(totaltime));
+solvemean = zeros(size(solvetime));
+nsdcsstd = zeros(size(nsdcs));
+totalstd = zeros(size(totaltime));
+solvestd = zeros(size(solvetime));
+loopx = loopsizes;
 
-nsdcsstd = std(nsdcs);
-totalstd = std(totaltime);
-solvestd = std(solvetime);
+for i=1:numel(nsdcs)
+  nsdcsmean(i) = mean(nsdcs{i});
+  totalmean(i) = mean(totaltime{i});
+  solvemean(i) = mean(solvetime{i});
+
+  nsdcsstd(i) = std(nsdcs{i});
+  totalstd(i) = std(totaltime{i});
+  solvestd(i) = std(solvetime{i});
+end
 
 %considers only the average values in the approximation
 polyx = loopx;
@@ -79,7 +95,7 @@ nsdcsP = polyfit(polyx, nsdcsmean, degree);
 totalP = polyfit(polyx, totalmean, degree);
 solveP = polyfit(polyx, solvemean, degree);
 
-interpolx = linspace(nsdcs(1), nsdcs(end), 10);
+interpolx = linspace(polyx(1), polyx(end), 10);
 nsdcs_interpoly = polyval(nsdcsP, interpolx);
 total_interpoly = polyval(totalP, interpolx);
 solve_interpoly = polyval(solveP, interpolx);
@@ -99,14 +115,14 @@ errorbar(loopx, totalmean, totalstd);
 errorbar(loopx, solvemean, solvestd);
 %errorbar(loopx, nsdcsmean, nsdcsstd);
 legend('total', 'solve','Location','northwest');
-%plot(interpolx, total_interpoly, '-r+');
-%plot(interpolx, solve_interpoly, '-r*');
+plot(interpolx, total_interpoly, '-r+');
+plot(interpolx, solve_interpoly, '-r*');
 text(loopx, totalmean,  num2cell(nsdcsmean));
 xlim([min(interpolx) max(interpolx)]);
 xlabel ("\# LLVM IR instruction in loop body");
 ylabel ("Time (s)");
 graphname = strcat('../build/plots/', partname,'_sdcschedtimes.jpg');
-graphname = strcat('./', partname,'_sdcschedtimes.jpg');
+%graphname = strcat('./', partname,'_sdcschedtimes.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
 
@@ -115,8 +131,9 @@ plot(loopx, 100*solvemean./totalmean);
 legend('solv');
 xlabel ("\# LLVM IR instruction in loop body");
 ylabel ("Percentage of solving time");
-%graphname = strcat('../build/plots/', partname,'_sdcschedtimes_percentages.jpg');
-graphname = strcat('./', partname,'_sdcschedtimes_percentages.jpg');
+graphname = strcat('../build/plots/', partname,'_sdcschedtimes_percentages.jpg');
+%graphname = strcat('./', partname,'_sdcschedtimes_percentages.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
-pause();
+
+return;
