@@ -17,7 +17,7 @@ BENCHS = $(sort $(dir $(wildcard $(SRC_DIR)/*/*/*/)))
 #name of directories for the object, intermediate and binary files
 BUILD_DIRS = $(patsubst $(SRC_DIR)%, $(BUILD_DIR)%, $(BENCHS))
 
-REPETITIONS=100
+REPETITIONS=20
 
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------

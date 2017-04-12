@@ -13,7 +13,7 @@ gpp: $(BUILD_DIRS) $(GPP_BIN)
 
 ioc: $(BUILD_DIRS) $(IOC_KERNEL_BIN) #$(IOC_KERNEL_OBJ)
 
-lup: $(BUILD_DIRS) $(LUP_BIN)
+lup: $(BUILD_DIRS) $(LUP_OBJ) #$(LUP_BIN)
 
 test: $(BUILD_DIRS) $(SYN_OBJS)
 	@echo $(SYN_SRCS)
@@ -86,7 +86,7 @@ plots:
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
 
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/looppipeline/DetailedModuleSDCSchedulingTime
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
 #-----------------------------------------------------
 #------------- utils----------------------------------
 #make directory for objects if they are dont exist

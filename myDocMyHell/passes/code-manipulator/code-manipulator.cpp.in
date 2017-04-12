@@ -1,0 +1,844 @@
+#define DEBUG_LEVEL  0
+#include "CodeTemplate.h"
+#include "code-manipulator.h"
+#include <assert.h>
+#include <iostream>
+
+#include "llvm/IR/InstIterator.h"
+#include "llvm/IR/Argument.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/BasicBlock.h"
+#include "llvm/Transforms/Utils/CodeExtractor.h"
+#include "llvm/Transforms/Utils/Cloning.h"
+#include "llvm/IR/Instructions.h"
+#include "llvm/IR/Instruction.h"
+#include "llvm/IR/Dominators.h"
+#include "llvm/IR/CFG.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/ValueSymbolTable.h"
+#include "llvm/IR/Verifier.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/PassManager.h"
+#include "llvm/Transforms/IPO.h"
+#include "llvm/Transforms/Utils/BasicBlockUtils.h"
+
+CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
+  //we need to give the same context to the two modules (idk why but ...)
+  c1->loadModule(context);
+  c2->loadModule(context);
+  assert(c1->module);
+  assert(c2->module);
+
+  llvm::Module * m1 = c1->module;
+  llvm::Module * m2 = c2->module;
+  llvm::StringRef name = llvm::StringRef(c1->name+c2->name);
+
+  CodeTemplate *cr = new CodeTemplate(name);
+  llvm::Module * mr = new llvm::Module(name, context);
+
+  mr->setDataLayout(m1->getDataLayout());
+  mr->setTargetTriple(m1->getTargetTriple());
+
+  std::vector<llvm::Function*> worklist1, worklist2;
+  worklist1.reserve(m1->size());
+  worklist2.reserve(m2->size());
+  for(llvm::Module::iterator f = m1->begin(), fe = m1->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist1.push_back(f);
+    }
+  }
+  for(llvm::Module::iterator f = m2->begin(), fe = m2->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist2.push_back(f);
+    }
+  }
+
+  llvm::Type * intType = llvm::Type::getInt32Ty(context);
+
+  llvm::Constant * c = mr->getOrInsertFunction("main", intType);
+  llvm::Function * fr = llvm::dyn_cast<llvm::Function>(c);
+
+  //create a basic block to add the function call in
+  llvm::BasicBlock * frbb = llvm::BasicBlock::Create(context, "entry", fr);
+  assert(frbb);
+  llvm::IRBuilder<> builder(frbb);
+
+  //Registes for IO and for connection
+  std::vector<llvm::AllocaInst *> IRegs, ORegs;
+  std::vector<llvm::Argument *> out1Regs, in2Regs;
+
+  llvm::Function * f1copy;
+  llvm::Function * f2copy;
+
+  //get the functions on m1
+  while (!worklist1.empty()) {
+    llvm::Function* currFunc = worklist1.back();
+    worklist1.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f1copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+
+    //add the coppied function on the first function
+    // if the code has more than one function (sub-fuctions), this will add
+    // I guess them all to c1
+    std::cout << "adding " << f1copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_front(f1copy);
+    f1copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+
+    //get the arguments in a list
+    for(llvm::Function::arg_iterator i = f1copy->arg_begin(), ie = f1copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c1->inputList){
+        //std::cout << "trying " << arg->getName().str() << " and " << inputname << '\n';
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 input " << '\n';
+
+          llvm::Twine & aa = *new llvm::Twine("inputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          IRegs.push_back(newloocInst);
+          cr->addInput(newloocInst->getName());
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c1->outputList){
+        if(!inputname.compare(arg->getName())){
+          std::cout << "adding out1 reg "<< arg->getName().str() << '\n';
+          out1Regs.push_back(arg);
+        }
+      }
+    }
+  }
+
+  //same as before
+  while (!worklist2.empty()) {
+    llvm::Function* currFunc = worklist2.back();
+    worklist2.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f2copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+    std::cout << "adding " << f2copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_front(f2copy);
+    f2copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+
+    std::vector<llvm::Value *> regsForArgs;
+    for(llvm::Function::arg_iterator i = f2copy->arg_begin(), ie = f2copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c2->inputList){
+        if(!inputname.compare(arg->getName())){
+          std::cout << "adding in2 reg " << arg->getName().str() << '\n';
+          in2Regs.push_back(arg);
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c2->outputList){
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 output " << '\n';
+          llvm::Twine & aa = *new llvm::Twine("outputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          ORegs.push_back(newloocInst);
+          cr->addOutput(newloocInst->getName());
+        }
+      }
+    }
+  }
+
+  //verifies the types of the connection arguments and allocates registers
+  std::vector<llvm::AllocaInst *> connectorRegs;
+  assert(c1->outputListSize() == c2->inputListSize());
+  assert(out1Regs.size() == in2Regs.size());
+  //wil create only one register for the connetions
+  while(!out1Regs.empty()){
+    llvm::Type * outTy = out1Regs.back()->getType();
+    llvm::Type * inTy = in2Regs.back()->getType();
+    out1Regs.pop_back();
+    in2Regs.pop_back();
+
+    assert(outTy == inTy);
+    llvm::Twine & aa = *new llvm::Twine("connectorReg");
+    llvm::AllocaInst * newloocInst = builder.CreateAlloca(outTy, nullptr,aa);
+    //the type of the allocated instruction is *(outTy) = float**
+    //we create a new value with type outTy
+    //the name is annoying but I did not found another way
+    //llvm::Argument * newarg = new llvm::Argument(outTy, newloocInst->getName());
+    connectorRegs.push_back(newloocInst);
+  }
+
+  //concatenate the argument lists
+  //TODO note that this makes an sortening of the inputs and outputs
+  // we need to define a connection map and sort as defined in the argument list order
+
+  //creates load instructions and new arguments for input
+  std::vector<llvm::Value *> argsf1, argsf2;
+  for(auto allocInst : IRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf1.push_back(newload);
+  }
+
+  //creates loads on reg, to be argument of f1
+  for(auto allocInst : connectorRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf1.push_back(newload);
+  }
+
+  //add the instruction call
+  llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf1);
+
+  //creates loads on reg, to be argument of f2
+  for(auto allocInst : connectorRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf2.push_back(newload);
+  }
+
+  //creates load instructions and new arguments for output
+  for(auto allocInst : ORegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf2.push_back(newload);
+  }
+
+  //add the instruction call
+  llvm::CallInst * calltof2 = builder.CreateCall(f2copy, argsf2);
+
+  //TODO chenge the return in the wrapper
+  llvm::ReturnInst * ret = 	builder.CreateRet(llvm::ConstantInt::get(context, llvm::APInt(/*nbits*/32, 42, /*is_signed*/true)));
+  //frbb->dump();
+  //fr->dump();
+  //mr->dump();
+
+  std::string &s = *new std::string();
+  llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+  llvm::Module &verifyModule = *mr;
+  llvm::verifyModule(verifyModule, verifyMessage);
+
+  std::cout << verifyMessage->str() << '\n';
+
+  //inline moved to separated function
+  //llvm::PassManager pm;
+  //pm.add(llvm::createAlwaysInlinerPass());
+  //llvm::Module &mrref = *mr;
+  //pm.run(mrref);
+
+  //fr->dump();
+  //fr->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+  //fr->dump();
+
+  //cr->addInput(c1->inputList);
+  //cr->addOutput(c2->outputList);
+  cr->module = mr;
+  fillAllocToFunctionMaps(cr);
+  return cr;
+}
+
+CodeTemplate * CodeManipulator::repeatSerial(CodeTemplate * c1, unsigned repetitions){
+  //we need to give the same context to the two modules (idk why but ...)
+  c1->loadModule(context);
+  assert(c1->module);
+  llvm::Module * m1 = c1->module;
+  llvm::StringRef name = llvm::StringRef("repeat_"+c1->name+"_"+std::to_string(repetitions));
+
+  CodeTemplate *cr = new CodeTemplate(name);
+  llvm::Module * mr = new llvm::Module(name, context);
+
+  mr->setDataLayout(m1->getDataLayout());
+  mr->setTargetTriple(m1->getTargetTriple());
+  //std::cout << m1->getTargetTriple() << '\n';
+
+  std::vector<llvm::Function*> worklist1;
+  worklist1.reserve(m1->size());
+  for(llvm::Module::iterator f = m1->begin(), fe = m1->end(); f != fe; f++){
+    if(!f->isDeclaration()){
+      worklist1.push_back(f);
+    }
+  }
+
+  llvm::Type * intType = llvm::Type::getInt32Ty(context);
+
+  llvm::Constant * c = mr->getOrInsertFunction("main", intType);
+  llvm::Function * fr = llvm::dyn_cast<llvm::Function>(c);
+
+  //create a basic block to add the function call in
+  llvm::BasicBlock * frbb = llvm::BasicBlock::Create(context, "entry", fr);
+  assert(frbb);
+  llvm::IRBuilder<> builder(frbb);
+
+  //Registes for IO and for connection
+  std::vector<llvm::AllocaInst *> IRegs, ORegs;
+  std::vector<llvm::Argument *> out1Regs, in2Regs;
+
+  llvm::Function * f1copy;
+
+  //get the functions on m1
+  while (!worklist1.empty()) {
+    llvm::Function* currFunc = worklist1.back();
+    worklist1.pop_back();
+
+    llvm::ValueToValueMapTy VMap;
+    f1copy = llvm::CloneFunction(currFunc, VMap, /*ModuleLevelChanges=*/true);
+
+    //add the coppied function on the first function
+    // if the code has more than one function (sub-fuctions), this will add
+    // I guess them all to c1
+    std::cout << "adding " << f1copy->getName().str() << " to resulting module" << '\n';
+    mr->getFunctionList().push_front(f1copy);
+    f1copy->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+
+    //get the arguments in a list
+    for(llvm::Function::arg_iterator i = f1copy->arg_begin(), ie = f1copy->arg_end(); i != ie; ++i){
+      llvm::Argument * arg = i;
+      //if the argument is marked as an input
+      for(std::string & inputname : c1->inputList){
+        //std::cout << "trying " << arg->getName().str() << " and " << inputname << '\n';
+        if(!inputname.compare(arg->getName())){
+          //std::cout << "adding reg for " << arg->getName().str() << " c2 input " << '\n';
+
+          llvm::Twine & aa = *new llvm::Twine("inputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          //the type of the allocated instruction is *(outTy) = float**
+          //we create a new value with type outTy
+          //the name is annoying but I did not found another way
+          //llvm::Argument * newarg = new llvm::Argument(arg->getType(), newloocInst->getName());
+          IRegs.push_back(newloocInst);
+          in2Regs.push_back(arg);
+          cr->addInput(newloocInst->getName().str());
+        }
+      }
+
+      //if the argument is marked as output
+      for(std::string & inputname : c1->outputList){
+        if(!inputname.compare(arg->getName())){
+          llvm::Twine & aa = *new llvm::Twine("outputReg");
+          llvm::AllocaInst * newloocInst = builder.CreateAlloca(arg->getType(), nullptr,aa);
+          ORegs.push_back(newloocInst);
+          out1Regs.push_back(arg);
+          cr->addOutput(newloocInst->getName().str());
+        }
+      }
+    }
+  }
+
+  //verifies the types of the connection arguments and allocates registers
+  std::vector<llvm::AllocaInst *> connectorRegs;
+  assert(c1->outputListSize() == c1->inputListSize());
+  //std::cout << c1->outputListSize() << c1->inputListSize() << '\n';
+  assert(out1Regs.size() == in2Regs.size());
+  //wil create only one register for the connetions
+  for(int i=0; i < repetitions-1; i++){
+    for(int j=0; j < out1Regs.size(); j++){
+      llvm::Type * outTy = out1Regs[j]->getType();
+      llvm::Type * inTy = in2Regs[j]->getType();
+
+      assert(outTy == inTy);
+      llvm::Twine & aa = *new llvm::Twine("connectorReg");
+
+      //the type of the allocated instruction is *(outTy) = float**
+      //we create a new value with type outTy
+      //the name is annoying but I did not found another way
+      //llvm::Argument * newarg = new llvm::Argument(outTy, newloocInst->getName());
+      llvm::AllocaInst * newloocInst = builder.CreateAlloca(outTy, nullptr,aa);
+      connectorRegs.push_back(newloocInst);
+    }
+  }
+
+  //concatenate the argument lists
+  //TODO note that this makes an sortening of the inputs and outputs
+  // we need to define a connection map and sort as defined in the argument list order
+
+  //creates load instructions and new arguments for input for the first function
+  std::vector<llvm::Value *> argsf;
+  for(auto allocInst : IRegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf.push_back(newload);
+  }
+
+  llvm::AllocaInst * allocInst;
+  //while(!connectorRegs.empty()){
+  for(int j=0; j < connectorRegs.size(); j+=c1->outputListSize()){
+    for(int i=0; i < c1->outputListSize(); i++){
+      allocInst = connectorRegs[i+j];
+      llvm::Instruction * newload = builder.CreateLoad(allocInst);
+      llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+      argsf.push_back(newload);
+    }
+    //add the instruction call
+    llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf);
+
+    //clear the list to start refilling it with the inner instaces
+    argsf.clear();
+
+    for(int i=0; i < c1->inputListSize(); i++){
+      allocInst = connectorRegs[i+j];
+      llvm::Instruction * newload = builder.CreateLoad(allocInst);
+      llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+      argsf.push_back(newload);
+    }
+  }
+
+  //creates load instructions autputs in the last instance
+  for(auto allocInst : ORegs){
+    llvm::Instruction * newload = builder.CreateLoad(allocInst);
+    llvm::Argument * newarg = new llvm::Argument(allocInst->getAllocatedType(), allocInst->getName());
+    argsf.push_back(newload);
+  }
+
+  //create final call
+  llvm::CallInst * calltof1 = builder.CreateCall(f1copy, argsf);
+
+  //TODO chenge the return in the wrapper
+  llvm::ReturnInst * ret = 	builder.CreateRet(llvm::ConstantInt::get(context, llvm::APInt(/*nbits*/32, 42, /*is_signed*/true)));
+
+  //inline moved to separated function
+  //llvm::PassManager pm;
+  //pm.add(llvm::createAlwaysInlinerPass());
+  //llvm::Module &mrref = *mr;
+  //pm.run(mrref);
+
+  //verification before returning
+  std::string &s = *new std::string();
+  llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+  llvm::Module &verifyModule = *mr;
+  llvm::verifyModule(verifyModule, verifyMessage);
+
+  std::cout << verifyMessage->str() << '\n';
+
+  //fr->dump();
+  //fr->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+  //fr->dump();
+
+  //cr->addInput(c1->inputList);
+  //cr->addOutput(c1->outputList);
+  cr->module = mr;
+  fillAllocToFunctionMaps(cr);
+  return cr;
+}
+
+CodeTemplate * CodeManipulator::wrapAsLegUP(CodeTemplate * c){
+  //TODO copy module and crteate a new CodeTemplate
+  llvm::Module *m = c->module;
+
+  std::vector<llvm::Function*> worklist;
+
+  for(llvm::Module::iterator i = m->begin(), ie = m->end(); i!=ie; ++i){
+    llvm::Function * f = i;
+    //std::cout << f->getName().str() << '\n';
+    if(!f->isDeclaration() && !f->getName().compare("main")){
+
+      //count how many building blocks the main function has
+      int bbcnt = 0;
+      for(llvm::Function::iterator i = f->begin(), ie = f->end(); i!=ie; ++i){
+          bbcnt++;
+      }
+
+      assert(bbcnt == 1 && "There is something strange with this main(), it should have only one building block");
+
+      worklist.push_back(f);
+    }
+  }
+
+  while(!worklist.empty()){
+    llvm::Function * f = worklist.back();
+    assert(c->inputListSize() > 0 && "Are you really trying to make a module without inputs?");
+    assert(c->outputListSize() > 0 && "Are you really trying to make a module without outputs?");
+    //removing an instruction from a parent invalidates the iterators, thats why we save which pointers to change on vectors to replaceFor and toReplace
+    std::vector<llvm::Instruction*> toReplaceAlloca, replaceForAlloca, toReplaceLoad, replaceForLoad, toRemoveLoad;
+    unsigned last_arg_size=0;
+    llvm::Instruction * last_out_alloca = nullptr;
+
+    for(llvm::inst_iterator i=llvm::inst_begin(f), ie=llvm::inst_end(f); i!=ie; ++i){
+      llvm::Instruction *curr_inst = &*i;
+      llvm::AllocaInst *curr_alloca_inst;
+      //check if the current instruction is an allocation
+      #if DEBUG_LEVEL == 1
+        std::cout << "select alloca instructions" << '\n';
+      #endif
+      if(curr_alloca_inst = llvm::dyn_cast<llvm::AllocaInst>(curr_inst)){
+        //std::cout << "allocations instruction " << curr_alloca_inst->getName().str() << '\n';
+
+        bool found_in_IO = true;
+        /*
+        bool found_in_IO = false;
+        //look for all inputrs and outputs
+        for(std::string curr_input_str : c->inputList){
+          if(!curr_input_str.compare(curr_alloca_inst->getName().str())){
+            found_in_IO = true;
+          }
+        }
+        //look for all outputs as well
+        if(!found_in_IO){
+          for(std::string curr_input_str : c->outputList){
+            if(!curr_input_str.compare(curr_alloca_inst->getName().str())){
+              found_in_IO = true;
+            }
+          }
+        }
+        */
+        //do the stuff
+        if(found_in_IO){
+          //std::cout << "I need to replace input " << curr_input_str << '\n';
+          //assert(curr_alloca_inst->hasOneUse() && "Inputs and Outputs should be used only once");
+
+          /*
+          for(llvm::inst_iterator i=llvm::inst_begin(f), ie=llvm::inst_end(f); i!=ie; ++i){
+            llvm::Instruction * curr_inst = &*i;
+            llvm::CallInst * curr_call_inst;
+            //check if the current instruction is an allocation
+            if(curr_call_inst = llvm::dyn_cast<llvm::CallInst>(curr_inst)){
+              //std::cout << curr_call_inst->getNumArgOperands()<< '\n';
+
+              curr_call_inst->dump();
+              curr_call_inst->getArgOperand(0)->dump();
+              llvm::Instruction * anoying_operand = llvm::dyn_cast<llvm::Instruction>(curr_call_inst->getArgOperand(0));
+              anoying_operand->getOperand(0)->dump();
+              std::cout << anoying_operand->getOperand(0)->getName().str() << '\n';
+
+            }
+          }//while(!worklist.empty())
+          */
+          llvm::ArrayType * vec_type;
+          llvm::Type * scalar_type;
+          llvm::AllocaInst * new_alloca_inst;
+          int size;
+
+          //this flag is used to ensure that we will only create one allocation for variables that are used more than once (a.k.a. connectors)
+          bool already_allocated=false;
+          new_alloca_inst = nullptr;//this is probably unnecessary
+
+          #if DEBUG_LEVEL == 1
+            std::cout << "select load instructions" << '\n';
+          #endif
+          for(llvm::Use & alloca_use : curr_alloca_inst->uses()){
+            llvm::User * alloca_user = alloca_use.getUser();
+            //alloca_user->dump();
+
+            //this is the load instruction
+            llvm::Instruction * alloca_user_inst = llvm::cast<llvm::Instruction>(alloca_user);
+            assert(alloca_user_inst);
+
+            //this iterate through the use of the user, which is the call instruction to get the function name and vector size
+            std::string called_func_name;
+            #if DEBUG_LEVEL == 1
+              std::cout << "Look for size in CodeTemplate func_argsize_map" << '\n';
+            #endif
+            for(llvm::Use & alloca_user_inst_use : alloca_user_inst->uses()){
+              llvm::User * alloca_user_inst_user = alloca_user_inst_use.getUser();
+              llvm::CallInst * alloca_user_inst_user_inst = llvm::dyn_cast<llvm::CallInst>(alloca_user_inst_user);
+
+              //alloca_user_inst_user_inst->dump();
+              called_func_name = alloca_user_inst_user_inst->getCalledFunction()->getName();
+
+              //iterato to discover which arg
+              for(int argi=0; argi<alloca_user_inst_user_inst->getNumArgOperands(); argi++){
+                llvm::Value * argi_value = alloca_user_inst_user_inst->getArgOperand(argi);
+                //if the two pointer are the same, means that alloca_user_inst is the ith argument
+                if(argi_value == alloca_user_inst){
+                  //argi_value->dump();
+                  //std::cout << argi << '\n';
+
+                  //now look in the map to see what is the size of the argument
+                  for(std::map<std::string, std::vector<int>>::iterator mapi=c->func_argsize_map.begin(), mape=c->func_argsize_map.end(); mapi!=mape; ++mapi){
+                    //if the name is equal
+                    if(!called_func_name.compare(mapi->first)){
+                      size = mapi->second[argi];
+                    }
+                  }
+                }
+              }
+            }//for(llvm::Use & alloca_user_inst_use : alloca_user_inst->uses()){
+
+            assert(!(size <= 0) && "plese arrays sizes should be greater than zero");
+            assert(size > 0 && "there may be a bug in the search for the arguments numbers and functions, sorry!");
+
+            llvm::Instruction * replaceForInst;
+            if(size > 1){
+              #if DEBUG_LEVEL == 1
+                std::cout << "it is an array" << '\n';
+              #endif
+              vec_type = llvm::ArrayType::get(curr_alloca_inst->getAllocatedType()->getContainedType(0), size);
+
+              if(!already_allocated){
+                new_alloca_inst = new llvm::AllocaInst(vec_type, curr_alloca_inst->getName());
+                already_allocated = true;
+                //std::cout << "aaaaaaaaaaaaaaaaa array";
+                //std::cout << curr_alloca_inst->getName().str() << '\n';
+                //std::cout << new_alloca_inst->getName().str() << '\n';
+
+                //to use to connect the return value
+                last_out_alloca = new_alloca_inst;
+                last_arg_size = size;
+                //last_out_alloca->dump();
+              }
+              //get the first element of the array
+              llvm::Constant * zero = llvm::ConstantInt::get(llvm::Type::getInt32Ty(context),0);
+              std::vector<llvm::Value*> idx_list;
+              idx_list.push_back(zero);
+              idx_list.push_back(zero);
+              llvm::Instruction	* getptr_inst  = llvm::GetElementPtrInst::CreateInBounds(new_alloca_inst, idx_list);
+              //finally set it to save
+              replaceForInst = getptr_inst;
+              //this is the load instruction that will be replaced by the load from vector
+              //replaceForInst->insertBefore(alloca_user_inst);
+              //alloca_user_inst->replaceAllUsesWith(replaceForInst);
+              //alloca_user_inst->eraseFromParent();
+              toReplaceLoad.push_back(alloca_user_inst);
+              replaceForLoad.push_back(replaceForInst);
+            }
+            else{
+              #if DEBUG_LEVEL == 1
+                std::cout << "it is a scalar" << '\n';
+              #endif
+              scalar_type = curr_alloca_inst->getAllocatedType()->getContainedType(0);
+
+              #if DEBUG_LEVEL == 2
+                std::cout << curr_alloca_inst->getName().str() << '\n';
+              #endif
+
+              if(!already_allocated){
+                new_alloca_inst = new llvm::AllocaInst(scalar_type, curr_alloca_inst->getName());
+                already_allocated = true;
+                #if DEBUG_LEVEL == 2
+                  std::cout << "aaaaaaaaaaaaaaaaa scalar" <<'\n';
+                  std::cout << curr_alloca_inst->getName().str() << '\n';
+                  std::cout << new_alloca_inst->getName().str() << '\n';
+                #endif
+              }
+
+              replaceForInst = new_alloca_inst;
+              //here we need to remove the old load instruction manually
+              //replaceForInst->insertBefore(alloca_user_inst);
+              alloca_user_inst->replaceAllUsesWith(replaceForInst);
+              alloca_user_inst->eraseFromParent();
+              //toRemoveLoad.push_back(alloca_user_inst);
+            }
+            //new_alloca_inst->dump();
+          }//for(llvm::Use & alloca_use : curr_alloca_inst->uses())
+
+          #if DEBUG_LEVEL == 2
+            curr_alloca_inst->dump();
+            new_alloca_inst->dump();
+          #endif
+          //new_alloca_inst->insertAfter(curr_alloca_inst);
+          //curr_alloca_inst->replaceAllUsesWith(new_alloca_inst);
+          //curr_alloca_inst->eraseFromParent();
+
+          toReplaceAlloca.push_back(curr_alloca_inst);
+          replaceForAlloca.push_back(new_alloca_inst);
+        }//if(found_in_IO)
+      } //  if(curr_alloca_inst = llvm::dyn_cast<llvm::AllocaInst>(curr_inst))
+    }//for(llvm::inst_iterator i=llvm::inst_begin(f), ie=llvm::inst_end(f); i!=ie; ++i)
+
+    //removing an instruction from a parent invalidates the iterators, thats why we save which pointers to change on vectors to replaceFor and toReplace
+    #if DEBUG_LEVEL >= 2
+      f->dump();
+    #endif
+
+    #if DEBUG_LEVEL == 1
+      std::cout << "replacing loads" << '\n';
+    #endif
+    assert(toReplaceLoad.size() == replaceForLoad.size());
+    while(!toReplaceLoad.empty() && !replaceForLoad.empty()){
+      /*
+      std::cout << "users before" << '\n';
+      toReplaceLoad.back()->dump();
+      for(llvm::Use & use : toReplaceLoad.back()->uses()){
+      llvm::User * user = use.getUser();
+      user->dump();
+      //replaceForLoad.back()->addUse(use);
+      }
+      */
+      //toReplaceLoad.back()->replaceAllUsesWith(replaceForLoad.back());
+      ReplaceInstWithInst(toReplaceLoad.back(), replaceForLoad.back());
+
+      /*
+      std::cout << "users after" << '\n';
+      replaceForLoad.back()->dump();
+      for(llvm::Use & use : replaceForLoad.back()->uses()){
+      llvm::User * user = use.getUser();
+      user->dump();
+      //replaceForLoad.back()->addUse(use);
+      }
+      */
+      toReplaceLoad.pop_back();
+      replaceForLoad.pop_back();
+      }
+
+    #if DEBUG_LEVEL == 1
+      std::cout << "replacing allocas" << '\n';
+    #endif
+    assert(toReplaceAlloca.size() == replaceForAlloca.size());
+    while(!toReplaceAlloca.empty() && !replaceForAlloca.empty()){
+      /*
+      std::cout << "\n--------in substitution------" << '\n';
+      std::cout << "used inst" << '\n';
+      toReplaceAlloca.back()->dump();
+      std::cout << "users" << '\n';
+      for(llvm::Use & use : toReplaceAlloca.back()->uses()){
+        llvm::User * user = use.getUser();
+        user->dump();
+      }
+      */
+      //replaceForAlloca.back()->insertAfter(toReplaceAlloca.back());
+      //toReplaceAlloca.back()->replaceAllUsesWith(replaceForAlloca.back());
+      //toReplaceAlloca.back()->eraseFromParent();
+      ReplaceInstWithInst(toReplaceAlloca.back(), replaceForAlloca.back());
+      /*
+      std::cout << "new used inst  - " << replaceForAlloca.back()->getName().str() << '\n';
+      replaceForAlloca.back()->dump();
+          std::cout << "users" << '\n';
+      for(llvm::Use & use : toReplaceAlloca.back()->uses()){
+        llvm::User * user = use.getUser();
+        user->dump();
+      }
+      */
+      toReplaceAlloca.pop_back();
+      replaceForAlloca.pop_back();
+    }
+
+
+    //connect the return
+    //get the last array
+    //TODO we already asserted that the function has only one building block
+    //which is going to fail if the function is inlines...
+    //TODO in case of no output array, use an scalar output...this makes legup fail since we are not passing values all scalars are constant zeros, unless they are written at some point in the code. Thus, we need to check the code to see if the scalar is written
+    assert(last_out_alloca!=nullptr && "Please, have at least one array output, otherwise LegUP Dead Code Elimination will trim out your whole code");
+    //last_out_alloca->dump();
+    llvm::Instruction * get_return_ptr;
+
+
+    //I really hate these pointers
+    llvm::inst_iterator annoying_iterator = llvm::inst_end(f);
+    --annoying_iterator;
+    llvm::Instruction * old_ret_inst  = &*annoying_iterator;
+    //old_ret_inst->dump();
+    llvm::IRBuilder<> builder(old_ret_inst);
+
+    llvm::AllocaInst * last_alloca;
+    assert(last_alloca = llvm::dyn_cast<llvm::AllocaInst>(last_out_alloca));
+    //last_alloca->getAllocatedType()->dump();
+    if(last_alloca->getAllocatedType()->isArrayTy()){
+      #if DEBUG_LEVEL == 1
+        std::cout << "getting last output element for result" << '\n';
+      #endif
+      //std::cout << "aaaaaaaaaaaa" << '\n'; //Yes, I was screaming
+      llvm::Constant * zero = llvm::ConstantInt::get(llvm::Type::getInt32Ty(context),0);
+      llvm::Constant * max = llvm::ConstantInt::get(llvm::Type::getInt32Ty(context),last_arg_size-1);
+      std::vector<llvm::Value*> idx_list;
+      idx_list.push_back(zero);
+      idx_list.push_back(max);
+      llvm::Instruction	* getptr_inst  = llvm::GetElementPtrInst::CreateInBounds(last_out_alloca, idx_list);
+      //getptr_inst->dump();
+      get_return_ptr = builder.Insert(getptr_inst);
+    }else{
+      #if DEBUG_LEVEL == 1
+        std::cout << "This should not be executed since only arrays are supposed to make to the return value" << '\n';
+      #endif
+      get_return_ptr = last_out_alloca;
+    }
+    //llvm::BasicBlock * lastbb = f->end();
+    //lastbb->dump();
+
+    llvm::Instruction * return_reg = builder.CreateLoad(get_return_ptr);
+    llvm::Type * return_type = return_reg->getType();
+    //we will try to create the corret cast according to the register type to int
+    llvm::Instruction * return_cast;
+    #if DEBUG_LEVEL == 1
+      std::cout << "casting result" << '\n';
+    #endif
+    if(return_type->isFloatingPointTy()){
+      return_cast = new llvm::FPToSIInst(return_reg, llvm::Type::getInt32Ty(context));
+    }else if(!return_type->isIntegerTy(32)){
+      return_cast  = llvm::CastInst::CreateIntegerCast(return_reg, llvm::Type::getInt32Ty(context), true);
+    }else{
+      return_cast = return_reg;
+    }
+    //return_cast->dump();
+
+    #if DEBUG_LEVEL == 1
+      std::cout << "updating return" << '\n';
+    #endif
+    llvm::Instruction  * return_cast_inserted = builder.Insert(return_cast);
+    //return_cast_inserted->dump();
+    ReplaceInstWithInst(old_ret_inst, llvm::ReturnInst::Create(context, return_cast_inserted));
+
+    //verification before returning
+    #if DEBUG_LEVEL == 1
+      std::cout << "Module verification" << '\n';
+    #endif
+    std::string &s = *new std::string();
+    llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+    llvm::Module &verifyModule = *m;
+    llvm::verifyModule(verifyModule, verifyMessage);
+    if(verifyMessage->str().compare(""))std::cout << "\n\n ------------------- error msg ------------\n" << '\n';
+    std::cout << verifyMessage->str() << '\n';
+
+    worklist.pop_back();
+    //f->dump();
+  }
+
+  //m->dump();
+  return c;
+}
+
+CodeTemplate * CodeManipulator::applyInline(CodeTemplate * c){
+  //TODO create a new CodeTemplate and return it
+  llvm::Module *m = c->module;
+  llvm::PassManager pm;
+  pm.add(llvm::createAlwaysInlinerPass());
+  llvm::Module &mrref = *m;
+  pm.run(mrref);
+
+  //m->dump();
+  return c;
+}
+
+void CodeManipulator::fillAllocToFunctionMaps(CodeTemplate * c){
+  llvm::Module *m = c->module;
+  //delete previour maps to avoid conflicts
+  if(!c->alloca_func_map.empty() || !c->func_argsize_map.empty()){
+    std::cout << "I'm deleting any previous map that might have been created" << '\n';
+    c->alloca_func_map.clear();
+    c->func_argsize_map.clear();
+  }
+
+  std::vector<llvm::Function*> worklist;
+  for(llvm::Module::iterator i = m->begin(), ie = m->end(); i!=ie; ++i){
+    llvm::Function * f = i;
+    //std::cout << f->getName().str() << '\n';
+    //get all functions that are not the main
+    //this works since the functions codes are still in the main code. (even after inlining I guess)
+    //DO NOT perform DCA
+    if(!f->isDeclaration() && f->getName().compare("main")){
+      worklist.push_back(f);
+    }
+  }
+
+  while(!worklist.empty()){
+    llvm::Function * f = worklist.back();
+    worklist.pop_back();
+
+    std::string func_name = std::string(f->getName().str());
+    //create a int vector with the exact capacity to the number or args
+    std::vector<int> call_args(f->arg_size());
+
+    //TODO we should add only functions that contain inputs and outputs and derive the rest of the sizes from there, each function call can have different sizes. But if functions have different outputs and inputs sizes is wont work, but is the outputs can be represented as a function of the inputs this would work.
+
+    //for each alloca inst we will create a map element and save it
+    c->func_argsize_map.emplace(std::pair<std::string, std::vector<int>>(func_name, call_args));
+  }//while(!worklist.empty())
+  //++(m->begin())->dump();
+  return;
+}
