@@ -1,0 +1,7 @@
+digraph {
+Node0x4170890[label="  %indvar.next34 = add i32 %indvar33, 1"];
+Node0x4170890 -> Node0x4170890[label="D:2.50ns L:0",color=blue];
+Node0x4170890 -> Node0x4170890[label="D:2.50ns L:0",color=blue];
+Node0x4170970[label="  %exitcond35 = icmp eq i32 %indvar.next..."];
+Node0x4170970 -> Node0x4170970[label="D:2.49ns L:0",color=blue];
+}

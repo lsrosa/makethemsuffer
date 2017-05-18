@@ -11,3 +11,5 @@ loop_pipeline "loop8"
 loop_pipeline "loop9"
 #set_parameter "processor" "host"
 set_parameter LOCAL_RAMS 1
+#set_parameter ILP_DEBUG 1
+#set_parameter MODULO_SCHEDULER "ILP"

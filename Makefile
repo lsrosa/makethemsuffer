@@ -22,6 +22,10 @@ test: $(BUILD_DIRS) $(SYN_OBJS)
 synthetic:
 	mkdir -p $(BUILD_DIR)/synthetic
 	cmake synthetic/ -B$(BUILD_DIR)/synthetic
+
+mydocmyhell:
+	mkdir -p $(BUILD_DIR)/myDocMyHell
+	cmake myDocMyHell/ -B$(BUILD_DIR)/myDocMyHell
 #-----------------------------------------------------
 #------------- GPP compilation -----------------------
 $(GPP_BIN): $(BUILD_DIR)/%:$(SRC_DIR)/%.c
@@ -81,12 +85,16 @@ plots:
 	#@echo $(BUILD_DIR)/*/lup/isolated_inline_localmem
 	#@echo $(BUILD_DIR)/*/lup/isolated_localmem
 	# individual execution for each script, might automate this later
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/base/DetailedLegUPTiming
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated/DetailedLegUPTiming
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/base/DetailedLegUPTiming
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated/DetailedLegUPTiming
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
+
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
+
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
 #-----------------------------------------------------
 #------------- utils----------------------------------
 #make directory for objects if they are dont exist
@@ -95,6 +103,13 @@ $(BUILD_DIRS):
 
 clean:
 	rm -rf	$(BUILD_DIR)
+
+cleansynthetic:
+	rm -rf $(BUILD_DIR)/synthetic
+
+cleanmydocmyhell:
+	rm -rf $(BUILD_DIR)/myDocMyHell/*
+
 
 .SILENT: .obj_dir $(BUILD_DIRS)
 
