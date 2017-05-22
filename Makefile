@@ -90,11 +90,16 @@ plots:
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
 
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
+	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/pipeline.mat
 
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
+	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ilp_pipeline.mat
 
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
+	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ga_pipeline.mat
+
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/compareGA.m
 #-----------------------------------------------------
 #------------- utils----------------------------------
 #make directory for objects if they are dont exist

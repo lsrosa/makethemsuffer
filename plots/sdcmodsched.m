@@ -45,8 +45,7 @@ for file=1:nfiles
   tc = cell();
   %jindex maps to which position in "name" the position in the original vector
   % refers to. Used as map
-  size(a.data)
-  
+
   for i=1:nloops
     lps(i) = a.data(iindex(i), 2);
     %size(a.data(jindex==i,2));
@@ -133,7 +132,7 @@ for i=1:numel(nsolves)
   latencymean(i) = mean(latency{i});
   IImean(i) = mean(II{i});
   TripCntmean(i) = mean(TripCnt{i});
-
+  
   nsdcsstd(i) = std(nsolves{i});
   totalstd(i) = std(totaltime{i});
   solvestd(i) = std(solvetime{i});
@@ -226,7 +225,9 @@ print(fighandle, char(graphname), '-djpg');
 hold off;
 
 fighandle = figure(5); hold on;
-errorbar(loopx, TripCntmean.*IImean.+latencymean, TripCntstd.*IIstd.+latencystd, '-b^');
+totaltime_mean = TripCntmean.*IImean.+latencymean;
+totaltime_std  = TripCntstd.*IIstd.+latencystd;
+errorbar(loopx, totaltime_mean, totaltime_std, '-b^');
 legend('total \# cycles','Location','northwest');
 xlim([min(interpolx) max(interpolx)]);
 xlabel ("\# LLVM IR instruction in loop body");
@@ -234,4 +235,8 @@ graphname = strcat('../build/plots/', partname,'_cycles.jpg');
 %graphname = strcat('./', partname,'_sdcschedtimes.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
+
+%dataname = strcat("../build/plots/", partname, ".mat");
+save("../build/plots/data.mat", 'loopx', 'totalmean', 'totalstd', 'nsdcsmean', 'nsdcsstd', 'solvemean', 'solvestd', 'nvariablesmean', 'nvariablesstd', 'nconstraintsmean', 'nconstraintsstd', 'latencymean', 'latencystd', 'IImean', 'IIstd', 'totaltime_mean', 'totaltime_std');
+
 return;
