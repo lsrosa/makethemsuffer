@@ -17,8 +17,7 @@ BENCHS = $(sort $(dir $(wildcard $(SRC_DIR)/*/*/*/)))
 #name of directories for the object, intermediate and binary files
 BUILD_DIRS = $(patsubst $(SRC_DIR)%, $(BUILD_DIR)%, $(BENCHS))
 
-REPETITIONS=2
-
+REPETITIONS=30
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
 GPP_BENCH_DIRS = $(wildcard $(SRC_DIR)/*/$(GPP_NAME))
@@ -61,9 +60,17 @@ LIBS :=
 
 #-----------------------------------------------------
 #------------- GPP sources and binaries names --------
-LUP_BENCH_DIRS = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*)
+LUP_ALL_BENCH_DIRS = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/*)
+LUP_DEGRADE_DIRS = $(wildcard $(SRC_DIR)/*/$(LUP_NAME)/degrade)
+LUP_BENCH_DIRS = $(filter-out $(LUP_DEGRADE_DIRS), $(LUP_ALL_BENCH_DIRS))
+
 LUP_BENCH_NAMES=$(patsubst  $(SRC_DIR)/%/$(LUP_NAME)/,/%.c,$(dir $(LUP_BENCH_DIRS)))
 LUP_SRC = $(join $(LUP_BENCH_DIRS), $(LUP_BENCH_NAMES))
 LUP_OBJ = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(LUP_SRC))
 LUP_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.dummy, $(LUP_SRC))
 LUP_MAKEFILE = $(LUP_NAME).make
+
+DEGRADE_BENCH_NAMES=$(patsubst  $(SRC_DIR)/%/$(LUP_NAME)/,/%.c,$(dir $(LUP_DEGRADE_DIRS)))
+DEGRADE_SRC = $(join $(LUP_DEGRADE_DIRS), $(DEGRADE_BENCH_NAMES))
+DEGRADE_OBJ = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.v, $(DEGRADE_SRC))
+DEGRADE_BIN = $(patsubst $(SRC_DIR)%.c, $(BUILD_DIR)%.dummy, $(DEGRADE_SRC))

@@ -1,7 +1,0 @@
-digraph {
-Node0x41705f0[label="  %indvar.next3 = add i32 %indvar2, 1"];
-Node0x41705f0 -> Node0x41705f0[label="D:2.50ns L:0",color=blue];
-Node0x41705f0 -> Node0x41705f0[label="D:2.50ns L:0",color=blue];
-Node0x41706d0[label="  %exitcond = icmp eq i32 %indvar.next3,..."];
-Node0x41706d0 -> Node0x41706d0[label="D:2.49ns L:0",color=blue];
-}

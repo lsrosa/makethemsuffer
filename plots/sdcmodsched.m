@@ -132,7 +132,7 @@ for i=1:numel(nsolves)
   latencymean(i) = mean(latency{i});
   IImean(i) = mean(II{i});
   TripCntmean(i) = mean(TripCnt{i});
-  
+
   nsdcsstd(i) = std(nsolves{i});
   totalstd(i) = std(totaltime{i});
   solvestd(i) = std(solvetime{i});

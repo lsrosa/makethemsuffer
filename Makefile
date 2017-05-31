@@ -76,6 +76,14 @@ $(LUP_BIN):$(BUILD_DIR)%.dummy:$(BUILD_DIR)%.v
 		echo "dummy" > $@
 
 #-----------------------------------------------------
+#------------- LUP compilation -----------------------
+degrade:$(BUILD_DIRS) $(DEGRADE_OBJ)
+
+$(DEGRADE_OBJ):$(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
+	cp $(dir $^)*	 $(dir  $@)
+	make -f $(LUP_MAKEFILE) -C $(dir $@); \
+
+#-----------------------------------------------------
 #------------- Plots ---------------------------------
 plots:
 	mkdir -p $(BUILD_DIR)/$(PLOTS_DIR)
@@ -90,16 +98,21 @@ plots:
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
 
-	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
-	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/pipeline.mat
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/pipeline.mat
 
-	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
-	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ilp_pipeline.mat
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ilp_pipeline.mat
 
-	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
-	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ga_pipeline.mat
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ga_pipeline.mat
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/compareGA.m
+
+degrade_plot:
+	mkdir -p $(BUILD_DIR)/$(PLOTS_DIR)
+	cp $(PLOTS_DIR)/*.m $(BUILD_DIR)/$(PLOTS_DIR)
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/degrade.m $(BUILD_DIR)/*/lup/degrade/DegradedModuleSchedulerTimes
 #-----------------------------------------------------
 #------------- utils----------------------------------
 #make directory for objects if they are dont exist
