@@ -1,0 +1,13 @@
+#define tam 64
+
+int array() {
+  double acca=0;
+  volatile double a[tam];
+
+  pipeme: for (int i = 0; i < tam-1; i++) {
+    a[i+1] = acca+a[i];
+    acca += i;
+  }
+
+  return (int)acca;
+}

@@ -16,9 +16,12 @@ schedmaptime = [];
 schedslvtime = [];
 schedfsmtime = [];
 schedovhtime = [];
-
+totaltime = zeros(30, nfiles);
+filesizes = zeros(1, nfiles);
+names = cell();
 %nfiles = 1
 for file=1:nfiles
+  names(file) = arg_list(file);
   a = importdata(char(arg_list(file)), '\t', 1);
   %a = importdata('DetailedLegUPTiming2', '\t', 1);
 
@@ -40,6 +43,7 @@ for file=1:nfiles
 
   %jindex maps to which position in "name" the position in the original vector
   % refers to. Used as map
+
   for i=1:nfunc
     fs(i) = a.data(iindex(i), 1);
     at(:,i) = a.data(jindex==i,2);
@@ -49,8 +53,9 @@ for file=1:nfiles
     sst(:,i) = a.data(jindex==i, 6);
     sft(:,i) = a.data(jindex==i, 7);
     sot(:,i) = a.data(jindex==i, 8);
+    totaltime(:,file) = totaltime(:,file)+a.data(jindex==i,2)+a.data(jindex==i,3)+a.data(jindex==i,4);
+    filesizes(file) = filesizes(file)+fs(i);
   end
-  %fs
 
   %get the name of the benchmark
   parts = strsplit(char(arg_list(file)), '/');
@@ -59,7 +64,7 @@ for file=1:nfiles
   else
     benchname = 'nothing/';
   end
-  funcnames = [funcnames; strcat(benchname, ':', name)]  ;
+  funcnames = [funcnames; strcat(benchname, ':', name)];
 
   %concatenate all files in one array
   funcsizes = [funcsizes, fs];
@@ -71,6 +76,9 @@ for file=1:nfiles
   schedfsmtime = [schedfsmtime, sft];
   schedovhtime = [schedovhtime, sot];
 end
+
+totaltime = mean(totaltime);
+save("../build/plots/verilogGen.mat", 'names', 'filesizes', 'totaltime')
 
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
@@ -100,6 +108,7 @@ schedmapstd = std(schedmaptime);
 schedslvstd = std(schedslvtime);
 schedfsmstd = std(schedfsmtime);
 schedovhstd = std(schedovhtime);
+
 
 %consider all point in the approximation
 %polyx = repmat(funcsizes, n/nfunc, 1);

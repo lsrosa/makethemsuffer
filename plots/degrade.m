@@ -15,7 +15,7 @@ latency = cell();
 II = cell();
 TripCnt = cell();
 steps = cell();
-
+loopcnt = 0;
 %nfiles = 1
 for file=1:nfiles
   arg_list(file);
@@ -27,6 +27,7 @@ for file=1:nfiles
   [labels, iindex, jindex] = unique(a.textdata(2:end));
   %name
   [nloops, ~] = size(labels);
+  loopcnt = loopcnt + nloops;
   [n, ~] = size(a.data);
   %one line for each function
   ns = cell();%zeros(n/nloops, nloops);
@@ -42,7 +43,6 @@ for file=1:nfiles
   sp = cell();
   %jindex maps to which position in "name" the position in the original vector
   % refers to. Used as map
-
   for i=1:nloops
     lps(i) = a.data(iindex(i), 3);
     %size(a.data(jindex==i,2));
@@ -103,7 +103,7 @@ II = II(:, sizeindex);
 TripCnt = TripCnt(:, sizeindex);
 
 
-for i=1:numel(nsolves)
+for i=1:loopcnt
   scheduler = schedulerID{i};
   temp = nsolves{i};
   nsdcs_SDC(:,i) = temp(scheduler==0);
@@ -147,40 +147,13 @@ end
 totalcycles_sdc = latency_SDC + II_SDC.*TripCnt_SDC;
 totalcycles_ILP = latency_ILP + II_ILP.*TripCnt_ILP;
 totalcycles_GA = latency_GA + II_GA.*TripCnt_GA;
-[~, ncol] = size(total_SDC);
-
-for i=1:ncol
-  maxim = max(steps_SDC(:,i));
-  minim = min(steps_SDC(:,i));
-  steps_SDC(:,i) = 100*(steps_SDC(:,i)-minim)/(maxim-minim);
-  maxim = max(steps_ILP(:,i));
-  minim = min(steps_ILP(:,i));
-  steps_ILP(:,i) = 100*(steps_ILP(:,i)-minim)/(maxim-minim);
-  maxim = max(steps_GA(:,i));
-  minim = min(steps_GA(:,i));
-  steps_GA(:,i) = 100*(steps_GA(:,i)-minim)/(maxim-minim);
-
-  maxim = max([totalcycles_sdc(:,i); totalcycles_ILP(:,i); totalcycles_GA(:,i)]);
-  minim = min([totalcycles_sdc(:,i); totalcycles_ILP(:,i); totalcycles_GA(:,i)]);
-
-  savemax(i) = maxim;
-
-  savemin(i) = min([totalcycles_sdc(II_SDC(:, i)>0, i); totalcycles_ILP(:,i); totalcycles_GA(:,i)]);
-
-  if(maxim-minim == 0)
-    totalcycles_sdc(:,i) = zeros(size(totalcycles_sdc(:,i)));
-    totalcycles_ILP(:,i) = zeros(size(totalcycles_ILP(:,i)));
-    totalcycles_GA(:,i) = zeros(size(totalcycles_GA(:,i)));
-  else
-    totalcycles_sdc(:,i) = 100*(totalcycles_sdc(:,i))/(maxim);
-    totalcycles_ILP(:,i) = 100*(totalcycles_ILP(:,i))/(maxim);
-    totalcycles_GA(:,i) = 100*(totalcycles_GA(:,i))/(maxim);
-  end
-end
 
 totalcycles_sdc(II_SDC == 0) = inf;
 totalcycles_ILP(II_ILP == 0) = inf;
 totalcycles_GA(II_GA == 0) = inf;
+total_SDC(II_SDC == 0) = 0;
+total_ILP(II_ILP == 0) = 0;
+total_GA(II_GA == 0) = 0;
 
 %get the version of the benchmark
 parts = strsplit(char(arg_list(1)), '/');
@@ -190,16 +163,112 @@ else
   partname = 'emptypart'
 end
 
-for i=1:numel(nsolves)
+
+%plot(loopsizes(1:end-2),total_ILP(end,1:end-2), '*');
+%pause();
+%return;
+%total_SDC
+%total_ILP
+%total_GA
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+[nbudgets, ~] = size(total_SDC);
+sdc_total_time = sum(total_SDC);
+sdc_total_cycles = totalcycles_sdc(end, :);
+
+%calculates the average considering the points where the scheduler fails
+for i=1:loopcnt
+  nsucs = sum(II_SDC(:, i) ~= 0);
+  sdc_total_time(:,i) = sdc_total_time(:,i)/nsucs;
+end
+
+for i=1:nbudgets
+  GAtime_SDCtime(i, :) = 100*total_GA(i, :)./sdc_total_time;
+  GAcycles_SDCcycles(i, :) = totalcycles_GA(i, :)./sdc_total_cycles;
+end
+%GAtime_SDCtime
+%GAcycles_SDCcycles
+leg = cell()
+for i=1:numel(looplabels)
+  parts = strsplit(looplabels{i}, ':');
+  leg(i) = strrep(strcat(parts{1}, ':', num2str(loopsizes(i))), '_', ' ')
+end
+
+%sdc_total_cycles
+
+fighandle = figure(1); hold on;
+styles = {'r*','ks','bo','m^','m+','kx','kd','bv','r>','g<','bp','rh','m*','ks','ko','b^','r+','gx','bd','rv','m>','k<','kp','bh'}';
+hdlY = plot(GAtime_SDCtime, GAcycles_SDCcycles, styles);
+%text(loopx, nvariablesmean,  num2cell(timeoutmean));
+[hleg1, hobj1] = legend(cellstr(leg), 'location','northeast');
+legend boxoff
+h=findobj(gcf,'type','axes','tag','legend');
+Pos=get(h,'position')
+ly = Pos(4);
+scale = 0.55;
+Pos(4)=scale*ly; % half the hight
+Pos(2)=(1-scale)*ly+Pos(2); % half the hight
+set(h,'position',Pos) % Implement it
+
+legtitle = get(hleg1,'title');
+set(legtitle, 'string','benchmark:# instructions');
+xlabel("GA scheduler time / SDC scheduler time (\%)");
+ylabel("Total \# cycles for GA scheduler / Total \# cycles for SDC scheduler");
+
+set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', partname,'_speedup_x_proptime_ga_x_sdc.jpg');
+print(fighandle, char(graphname), '-djpg');
+hold off;
+
+pause();
+return;
+
+speedup = 100./mean(GAtime_SDCtime)
+%plot(loopsizes, speedup, styles(1));
+
+GAcycles_SDCcycles
+qualitymean = 10*mean(GAcycles_SDCcycles)
+lo = floor(min(qualitymean))
+up = ceil(max(qualitymean))
+dist = ceil(up-lo)
+
+leg = cell();
+fighandle = figure(2); hold on;
+for i=1:dist
+  indexes = qualitymean>lo+i-1 & qualitymean<=lo+i
+  plot(loopsizes(indexes), speedup(indexes), styles(i));
+  leg(i) = strcat(num2str(10*(lo+i-1)), '% to ',num2str(10*(lo+i)), '%');
+end
+
+ylabel("SDC scheduler time/ GA scheduler time");
+xlabel ("\# LLVM IR instruction in loop body");
+[hleg1, hobj1] = legend(leg, 'location', 'northwest');
+legtitle = get(hleg1,'title');
+set(legtitle, 'string','GAxSDC quality');
+set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', partname,'_nIR_x_speedUP.jpg');
+print(fighandle, char(graphname), '-djpg');
+hold off;
+pause();
+return;
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+for i=1:loopcnt
   fighandle = figure(i);hold on;
-  plot(steps_SDC(:,i), totalcycles_sdc(:,i), '-k*');
-  plot(steps_ILP(:,i), totalcycles_ILP(:,i), '-r^');
-  plot(steps_GA(:,i), totalcycles_GA(:,i), '-bs');
-  title(looplabels(i));
+  plot(total_SDC(:,i), totalcycles_sdc(:,i), '-k*');
+  plot(total_ILP(:,i), totalcycles_ILP(:,i), '-r^');
+  plot(total_GA(:,i), totalcycles_GA(:,i), '-bs');
+  xlim([min([total_SDC(:,i); total_ILP(:,i); total_GA(:,i)]) max([total_SDC(:,i); total_ILP(:,i); total_GA(:,i)])]);
+  title(strcat(looplabels(i), ' - ', num2str(loopsizes(i)), ' instructions'));
 
   legend('SDC', 'ILP', 'GA');
-  xlabel('Time (%)');
-  ylabel(strcat('Total number os cycles (%) - min: ', num2str(savemin(i)), ' max: ', num2str(savemax(i))));
+  xlabel('Time (s)');
+  ylabel('Total number os cycles');
+  %ylabel(strcat('Total number os cycles (%) - min: ', num2str(savemin(i)), ' max: ', num2str(savemax(i))));
   graphname = strcat('../build/plots/', partname, '_', looplabels(i), '.jpg');
   print(fighandle, char(graphname), '-djpg');
   hold off;

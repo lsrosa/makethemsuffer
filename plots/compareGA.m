@@ -1,162 +1,571 @@
-load('../build/plots/pipeline.mat');
-fighandle = figure(1); hold on;
-errorbar(loopx, totalmean, totalstd, '-b+');
-errorbar(loopx, solvemean, solvestd, '-b+');
-ysize = max(totalmean);
-hold off;
+load('../build/plots/verilogGen.mat');
+%totaltime = totaltime;
+load('../build/plots/sdcpipelinetotaltime.mat');
+benchs = names;
+sdctotalpipelinetime = totalpipelinetime;
+pipelinensolve(1,:) = totalpipelinensolve;
+pipelinenvar(1,:) = totalpipelinenvar;
+pipelinencons(1,:) = totalpipelinencons;
+pipelinelatency(1,:) = totalpipelinelatency;
+pipelinetotalcycles(1,:) = totalpipelinetotalcycles;
+pipelinetotaltime(1,:) = totalpipelinetime;
+pipelinesolvetime(1,:) = solvepipelinetime;
+load('../build/plots/ilppipelinetotaltime.mat');
+ilptotalpipelinetime = totalpipelinetime;
+pipelinensolve(2,:) = totalpipelinensolve;
+pipelinenvar(2,:) = totalpipelinenvar;
+pipelinencons(2,:) = totalpipelinencons;
+pipelinelatency(2,:) = totalpipelinelatency;
+pipelinetotalcycles(2,:) = totalpipelinetotalcycles;
+pipelinetotaltime(2,:) = totalpipelinetime;
+pipelinesolvetime(2,:) = solvepipelinetime;
+load('../build/plots/gapipelinetotaltime.mat');
+gatotalpipelinetime = totalpipelinetime;
+pipelinensolve(3,:) = totalpipelinensolve;
+pipelinenvar(3,:) = totalpipelinenvar;
+pipelinencons(3,:) = totalpipelinencons;
+pipelinelatency(3,:) = totalpipelinelatency;
+pipelinetotalcycles(3,:) = totalpipelinetotalcycles;
+pipelinetotaltime(3,:) = totalpipelinetime;
+pipelinesolvetime(3,:) = solvepipelinetime;
 
-fighandle = figure(2); hold on;
-errorbar(loopx, nsdcsmean, nsdcsstd, '-b+');
-hold off;
+loopsizes
+looplabels = looplabels(2:end,:)
 
-fighandle = figure(3); hold on;
-errorbar(loopx, nvariablesmean, nvariablesstd, '-b+');
-hold off;
+benchnames = cell();
+for i=1:numel(benchs)
+  parts = strsplit(char(benchs(i)), '/');
+  benchnames(i) = parts(3);
+end
 
-fighandle = figure(4); hold on;
-errorbar(loopx, nconstraintsmean, nconstraintsstd, '-b+');
-hold off;
+benchnames;
+[~, fileindex] = sort(ilptotalpipelinetime);
+totalloopsizes = totalloopsizes(fileindex);
+benchnames = benchnames(fileindex);
+benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'ai'};
+filesizes = filesizes(fileindex);
+totaltime = totaltime(fileindex);
+sdctotalpipelinetime = sdctotalpipelinetime(fileindex);
+ilptotalpipelinetime = ilptotalpipelinetime(fileindex);
+gatotalpipelinetime = gatotalpipelinetime(fileindex);
 
-fighandle = figure(5); hold on;
-errorbar(loopx, latencymean, latencystd, '-b+');
-hold off;
+pipelinensolve(1,:) = pipelinensolve(1,fileindex);
+pipelinenvar(1,:) = pipelinenvar(1,fileindex);
+pipelinencons(1,:) = pipelinencons(1,fileindex);
+pipelinelatency(1,:) = pipelinelatency(1,fileindex);
+pipelinetotalcycles(1,:) = pipelinetotalcycles(1,fileindex);
+pipelinetotaltime(1,:) = pipelinetotaltime(1,fileindex);
+pipelinesolvetime(1,:) = pipelinesolvetime(1,fileindex);
 
-fighandle = figure(6); hold on;
-errorbar(loopx, IImean, IIstd, '-b+');
-hold off;
+pipelinensolve(2,:) = pipelinensolve(2,fileindex);
+pipelinenvar(2,:) = pipelinenvar(2,fileindex);
+pipelinencons(2,:) = pipelinencons(2,fileindex);
+pipelinelatency(2,:) = pipelinelatency(2,fileindex);
+pipelinetotalcycles(2,:) = pipelinetotalcycles(2,fileindex);
+pipelinetotaltime(2,:) = pipelinetotaltime(2,fileindex);
+pipelinesolvetime(2,:) = pipelinesolvetime(2,fileindex);
 
-fighandle = figure(7); hold on;
-errorbar(loopx, totaltime_mean, totaltime_std, '-b+');
-totalcycles_sdc = totaltime_mean;
-hold off;
+pipelinensolve(3,:) = pipelinensolve(3,fileindex);
+pipelinenvar(3,:) = pipelinenvar(3,fileindex);
+pipelinencons(3,:) = pipelinencons(3,fileindex);
+pipelinelatency(3,:) = pipelinelatency(3,fileindex);
+pipelinetotalcycles(3,:) = pipelinetotalcycles(3,fileindex);
+pipelinetotaltime(3,:) = pipelinetotaltime(3,fileindex);
+pipelinesolvetime(3,:) = pipelinesolvetime(3,fileindex);
 
-load('../build/plots/ilp_pipeline.mat');
-fighandle = figure(1); hold on;
-errorbar(loopx, totalmean, totalstd, '-b*');
-errorbar(loopx, solvemean, solvestd, '-b*');
-hold off;
-
-fighandle = figure(2); hold on;
-errorbar(loopx, nsdcsmean, nsdcsstd, '-b*');
-hold off;
-
-fighandle = figure(3); hold on;
-errorbar(loopx, nvariablesmean, nvariablesstd, '-b*');
-hold off;
-
-fighandle = figure(4); hold on;
-errorbar(loopx, nconstraintsmean, nconstraintsstd, '-b*');
-hold off;
-
-fighandle = figure(5); hold on;
-errorbar(loopx, latencymean, latencystd, '-b*');
-hold off;
-
-fighandle = figure(6); hold on;
-errorbar(loopx, IImean, IIstd, '-b*');
-hold off;
-
-fighandle = figure(7); hold on;
-errorbar(loopx, totaltime_mean, totaltime_std, '-b*');
-totalcycles_ilp = totaltime_mean;
-hold off;
-
-load('../build/plots/ga_pipeline.mat');
-fighandle = figure(1); hold on;
-errorbar(loopx, totalmean, totalstd, '-b^');
-errorbar(loopx, solvemean, solvestd, '-b^');
-ysize = max(ysize, totalmean);
-hold off;
-
-fighandle = figure(2); hold on;
-errorbar(loopx, nsdcsmean, nsdcsstd, '-b^');
-hold off;
-
-fighandle = figure(3); hold on;
-errorbar(loopx, nvariablesmean, nvariablesstd, '-b^');
-hold off;
-
-fighandle = figure(4); hold on;
-errorbar(loopx, nconstraintsmean, nconstraintsstd, '-b^');
-hold off;
-
-fighandle = figure(5); hold on;
-errorbar(loopx, latencymean, latencystd, '-b^');
-hold off;
-
-fighandle = figure(6); hold on;
-errorbar(loopx, IImean, IIstd, '-b^');
-hold off;
-
-fighandle = figure(7); hold on;
-errorbar(loopx, totaltime_mean, totaltime_std, '-b^');
-totalcycles_ga = totaltime_mean;
-hold off;
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
+sdct = (totaltime + sdctotalpipelinetime)./totaltime;
+ilpt = (totaltime + ilptotalpipelinetime)./totaltime;
+gat = (totaltime + gatotalpipelinetime)./totaltime;
 
 fighandle = figure(1); hold on;
-legend('SDC total', 'SDC solve', 'ILP total', 'ILP solve', 'GA total', 'GA solve');
-xlabel ("\# LLVM IR instruction in loop body");
-ylabel ("Time (s)");
-ylim([0 ysize]);
-graphname = strcat('../build/plots/', 'compare','_sdcschedtimes.jpg');
+bar([sdct;ilpt;gat]');
+plot([0 numel(ilpt)+1], [1 1], '-k');
+%ysize = max(totalmean);
+legend('SDCS', 'ILPS', 'GAS', 'no pipeline', 'location', 'northwest');
+%xlabel ("\# LLVM IR instruction in loop body");
+ylabel ('pipeline+compilation time (s)');
+ylim([0 10]);
+xlim([0 numel(ilpt)+1]);
+%text([1:numel(ilpt)]-0.275, sdct+0.05, benchnames, 'rotation', 90, 'fontsize', 12, 'interpreter', 'none');
+axis("tic", "labely");
+set(gca, 'XTick', 1:numel(ilpt));
+set(gca, 'XTickLabel', benchnames);
+set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', 'compare','_pipe_verilog.jpg');
 print(fighandle, char(graphname), '-djpg');
+%clf(fighandle);
 hold off;
+%pause();
+%return;
 
-fighandle = figure(2); hold on;
-legend('SDC', 'ILP', 'GA');
+[~,files] = size(pipelinensolve);
+pipelinensolve(2,:) = pipelinensolve(2,:)./pipelinensolve(1,:);
+pipelinenvar(2,:) = pipelinenvar(2,:)./pipelinenvar(1,:);
+pipelinencons(2,:) = pipelinencons(2,:)./pipelinencons(1,:);
+pipelinelatency(2,:) = pipelinelatency(2,:)./pipelinelatency(1,:);
+pipelinetotalcycles(2,:) = pipelinetotalcycles(2,:)./pipelinetotalcycles(1,:);
+pipelinetotaltime(2,:) = pipelinetotaltime(2,:)./pipelinetotaltime(1,:);
+pipelinesolvetime(2,:) = pipelinesolvetime(2,:)./pipelinesolvetime(1,:);
+
+pipelinensolve(3,:) = pipelinensolve(3,:)./pipelinensolve(1,:);
+pipelinenvar(3,:) = pipelinenvar(3,:)./pipelinenvar(1,:);
+pipelinencons(3,:) = pipelinencons(3,:)./pipelinencons(1,:);
+pipelinelatency(3,:) = pipelinelatency(3,:)./pipelinelatency(1,:);
+pipelinetotalcycles(3,:) = pipelinetotalcycles(3,:)./pipelinetotalcycles(1,:);
+pipelinetotaltime(3,:) = pipelinetotaltime(3,:)./pipelinetotaltime(1,:);
+pipelinesolvetime(3,:) = pipelinesolvetime(3,:)./pipelinesolvetime(1,:);
+
+pipelinensolve(1,:) = ones(1, files);
+pipelinenvar(1,:) = ones(1, files);
+pipelinencons(1,:) = ones(1, files);
+pipelinelatency(1,:) = ones(1, files);
+pipelinetotalcycles(1,:) = ones(1, files);
+pipelinetotaltime(1,:) = ones(1, files);
+pipelinesolvetime(1,:) = ones(1, files);
+
+fighandle = figure(2); %hold on;
+
+subplot(3,1,1);
+bar(pipelinensolve(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+xlim([0 files+1]);
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
+%text([1:files]-0.275, pipelinensolve(3,:)+0.05, benchnames, 'rotation', 45, 'fontsize', 12, 'interpreter', 'none');
 ylabel("\# solves");
-xlabel ("\# LLVM IR instruction in loop body");
-graphname = strcat('../build/plots/', 'compare','_nsolves.jpg');
-print(fighandle, char(graphname), '-djpg');
+hold on;
+plot([0 files+1], [1 1], 'k-');
 hold off;
+gca1 = gca;
 
-fighandle = figure(3); hold on;
-legend('SDC', 'ILP', 'GA');
-ylabel("\# variables in formulation");
-xlabel ("\# LLVM IR instruction in loop body");
+subplot(3,1,2);
+bar(pipelinenvar(2:3,:)');
+ylabel("\# variables");
+xlim([0 files+1]);
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
+%text([1:files]-0.275, pipelinenvar(2,:)+0.05, benchnames, 'rotation', 90, 'fontsize', 12, 'interpreter', 'none');
+legend('ILPS', 'GAS', 'location', 'northwest');
+hold on;
+plot([0 files+1], [1 1], 'k-');
+hold off;
+gca2 = gca;
+
+subplot(3,1,3);
+bar(pipelinencons(2:3,:)');
+ylabel("\# constraints");
+xlim([0 files+1]);
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
+%text([1:files]-0.275, zeros(1,files)-0.05, benchnames, 'rotation', -90, 'fontsize', 12, 'interpreter', 'none');
+legend('ILPS', 'GAS', 'location', 'northwest');
+hold on;
+plot([0 files+1], [1 1], 'k-');
+hold off;
+gca3 = gca;
+
+in1 = get(gca1, 'TightInset');
+in2 = get(gca2, 'TightInset');
+in3 = get(gca3, 'TightInset');
+
+newin1 = [in3(1) in1(2) in3(3) in1(4)];
+newin2 = [in3(1) in2(2) in3(3) in2(4)];
+newin3 = [in3(1) in3(2) in3(3) in3(4)];
+
+set(gca1, 'LooseInset', newin1);
+set(gca2, 'LooseInset', newin2);
+set(gca3, 'LooseInset', newin3);
+
+%newinset = [in1(1) in2(2) in2(3) in1(4)]
+%set(gca, 'LooseInset', get(gca,'TightInset'));
 graphname = strcat('../build/plots/', 'compare','_nvars.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
 
-fighandle = figure(4); hold on;
-legend('SDC', 'ILP', 'GA');
-ylabel("\# constraints in formulation");
-xlabel ("\# LLVM IR instruction in loop body");
-graphname = strcat('../build/plots/', 'compare','_nconstr.jpg');
-print(fighandle, char(graphname), '-djpg');
-hold off;
-
-fighandle = figure(5); hold on;
-legend('SDC', 'ILP', 'GA');
+pipelinelatency
+fighandle = figure(3);
+subplot(2, 1, 1);
+bar(pipelinelatency(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
 ylabel("pipeline latency");
-xlabel ("\# LLVM IR instruction in loop body");
-graphname = strcat('../build/plots/', 'compare','_latency.jpg');
-print(fighandle, char(graphname), '-djpg');
+xlim([0 files+1]);
+hold on;
+plot([0 files+1], [1 1], 'k-');
 hold off;
+gca1 = gca;
 
-fighandle = figure(6); hold on;
-legend('SDC', 'ILP', 'GA');
-ylabel("II");
-xlabel ("\# LLVM IR instruction in loop body");
-graphname = strcat('../build/plots/', 'compare','_II.jpg');
-print(fighandle, char(graphname), '-djpg');
+
+subplot(2, 1, 2);
+bar(pipelinetotalcycles(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
+ylabel("total \# cycles");
+xlim([0 files+1]);
+hold on;
+plot([0 files+1], [1 1], 'k-');
 hold off;
+gca2 = gca;
 
-fighandle = figure(7); hold on;
-legend('SDC', 'ILP', 'GA');
-ylabel("total cycles");
-xlabel ("\# LLVM IR instruction in loop body");
+in1 = get(gca1, 'TightInset');
+in2 = get(gca2, 'TightInset');
+
+newin1 = [in2(1) in1(2) in2(3) in1(4)]
+newin2 = [in2(1) in2(2) in2(3) in2(4)]
+
+set(gca1, 'LooseInset', newin1);
+set(gca2, 'LooseInset', newin2);
+
+%set(gca, 'LooseInset', get(gca,'TightInset'));
 graphname = strcat('../build/plots/', 'compare','_cycles.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
 
-fighandle = figure(8);hold on;
-plot(loopx, 100*(totalcycles_ilp-totalcycles_sdc)./totalcycles_sdc, '-+', loopx, 100*(totalcycles_ga-totalcycles_sdc)./totalcycles_sdc, '-s');
-plot(loopx, zeros(size(loopx)), '-k');
-legend('ilp x sdc', 'ga x sdc');
-graphname = strcat('../build/plots/', 'compare','_diffs.jpg');
+aaa = (pipelinetotaltime(3,:)./pipelinetotaltime(1,:)).^-1
+pipelinetotaltime
+pipelinesolvetime
+fighandle = figure(4); hold on;
+bar([pipelinetotaltime(2,:);pipelinesolvetime(2,:);pipelinetotaltime(3,:);pipelinesolvetime(3,:)]');
+%ysize = max(totalmean);
+legend('ILPS total', 'ILPS solve', 'GAS total', 'GAS solve', 'location', 'northwest');
+ylabel ('time (s)');
+%ylim([0 10]);
+xlim([0 files+1]);
+axis("tic", "labely");
+set(gca, 'XTick', 1:files);
+set(gca, 'XTickLabel', benchnames);
+hold on;
+plot([0 files+1], [1 1], 'k-');
+hold off;
+set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', 'compare','_sched_times.jpg');
+print(fighandle, char(graphname), '-djpg');
+%clf(fighandle);
+hold off;
+%pause();
+%return;
+
+pause();
+return;
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%------------the next plots are per loop
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+
+load('../build/plots/pipeline.mat');
+totaltime = zeros(6, numel(totalmean));
+totalnsdcs = zeros(3, numel(nsdcsmean));
+totalnvar = zeros(3, numel(nvariablesmean));
+totalncons = zeros(3, numel(nconstraintsmean));
+totallatency = zeros(3, numel(latencymean));
+totalII = zeros(3, numel(IImean));
+totaltotaltime = zeros(3, numel(totaltime_mean));
+
+totaltime(1,:) = totalmean;
+totaltime(2,:) = solvemean;
+ysize = max(totalmean);
+totalnsdcs(1,:) = nsdcsmean;
+totalnvar(1,:) = nvariablesmean;
+totalncons(1,:) = nconstraintsmean;
+totallatency(1,:) = latencymean;
+totalII(1,:) = IImean;
+totaltotaltime(1,:) = totaltime_mean;
+totalcycles_sdc = totaltime_mean;
+
+load('../build/plots/ilp_pipeline.mat');
+totaltime(3,:) = totalmean;
+totaltime(4,:) = solvemean;
+totalnsdcs(2,:) = nsdcsmean;
+totalnvar(2,:) = nvariablesmean;
+totalncons(2,:) = nconstraintsmean;
+totallatency(2,:) = latencymean;
+totalII(2,:) = IImean;
+totaltotaltime(2,:) = totaltime_mean;
+totalcycles_ilp = totaltime_mean;
+
+load('../build/plots/ga_pipeline.mat');
+totaltime(5,:) = totalmean;
+totaltime(6,:) = solvemean;
+ysize = max(ysize, totalmean);
+totalnsdcs(3,:) = nsdcsmean;
+totalnvar(3,:) = nvariablesmean;
+totalncons(3,:) = nconstraintsmean;
+totallatency(3,:) = latencymean;
+totalII(3,:) = IImean;
+totaltotaltime(3,:) = totaltime_mean;
+totalcycles_ga = totaltime_mean;
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%ilpprop = geomean(totaltime(1,:)./totaltime(3,:))
+%gaprop = geomean(totaltime(1,:)./totaltime(5,:))
+
+[~, cols] = size(totaltime);
+nsplit = 2
+ly = 400;
+lx = 2*400;
+fighandle = figure(1, 'Position',[0,0,lx,ly]); hold on;
+
+
+totaltime
+totaltime(3,:) = totaltime(3,:)./totaltime(1,:);
+totaltime(4,:) = totaltime(4,:)./totaltime(2,:);
+totaltime(5,:) = totaltime(5,:)./totaltime(1,:);
+totaltime(6,:) = totaltime(6,:)./totaltime(2,:);
+totaltime
+
+bar(totaltime(3:6, 1:end-nsplit)');
+
+divx = cols-nsplit+0.5;
+y1ticks = get(gca, 'YTick');
+plot([divx, divx], [y1ticks(1) y1ticks(end)], 'r--', "linewidth", 1.5);
+xlim([0 cols+1]);
+set(gca, 'XTick', []);
+ylabel ("Time (s)");
+hold on;
+plot([0 cols-nsplit+.5], [1 1], 'k-');
+hold off;
+ax1 = gca
+
+hax = axes();
+v = cols-nsplit+1:cols;
+bar(v, totaltime(3:6, end-nsplit+1:end)');
+set (hax, "yaxislocation", "right", "color", "none", "xtick", [])
+
+legend('ILPS total', 'ILPS solve', 'GAS total', 'GAS solve', 'location', 'northwest');
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx(1:cols));
+xlabel ("\# LLVM IR instruction in loop body");
+ylabel ("Time (s)");
+%ylim([0 max(max(totaltime(:, end-nsplit+1:end)))]);
+xlim([0 cols+1]);
+
+ax2 = gca
+in1 = get(ax1,'TightInset')
+in2 = get(ax2,'TightInset')
+newinset = [in1(1) in2(2) in2(3) in1(4)]
+set(ax1, 'LooseInset', newinset)
+set(ax2, 'LooseInset', newinset)
+
+graphname = strcat('../build/plots/', 'compare','_sdcschedtimes.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
+
+
+%ly = 10*100;
+%lx = 5*100;
+%fighandle = figure(2, 'Position',[0,0,lx,ly]); %hold on;
+fighandle = figure(2); %hold on;
+subplot(3,1,1);
+%[ax, h1, h2] = plotyy(loopx, totalnsdcs, loopx, totalnvar)
+totalnsdcs
+totalnsdcs(2,:) = totalnsdcs(2,:)./totalnsdcs(1,:);
+totalnsdcs(3,:) = totalnsdcs(3,:)./totalnsdcs(1,:);
+totalnsdcs(1,:) = ones(1,cols);
+totalnsdcs
+bar(totalnsdcs(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx(1:cols));
+ylabel("\# solves");
+xlabel ("\# LLVM IR instruction in loop body");
+hold on;
+plot([0 cols+1], [1 1], 'k-');
+hold off;
+gca1 = gca;
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+%graphname = strcat('../build/plots/', 'compare','_nsolves.jpg');
+%print(fighandle, char(graphname), '-djpg');
+
+
+totalnvar
+totalncons
+totalnvar(2,:) = totalnvar(2,:)./totalnvar(1,:);
+totalnvar(3,:) = totalnvar(3,:)./totalnvar(1,:);
+totalnvar(1,:) = ones(1, cols);
+totalncons(2,:) = totalncons(2,:)./totalncons(1,:);
+totalncons(3,:) = totalncons(3,:)./totalncons(1,:);
+totalncons(1,:) = ones(1, cols);
+totalnvar
+totalncons
+
+%fighandle = figure(3);
+
+subplot(3,1,2);
+bar(totalnvar(2:3,:)');
+ylabel("\# variables");
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx);
+legend('ILPS', 'GAS', 'location', 'northwest');
+hold on;
+plot([0 cols+1], [1 1], 'k-');
+hold off;
+xlabel ("\# LLVM IR instruction in loop body");
+gca2 = gca;
+
+subplot(3,1,3);
+bar(totalncons(2:3,:)');
+ylabel("\# constraints");
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx);
+legend('ILPS', 'GAS', 'location', 'northwest');
+hold on;
+plot([0 cols+1], [1 1], 'k-');
+hold off;
+xlabel ("\# LLVM IR instruction in loop body");
+gca3 = gca;
+
+%set(gca1, 'LooseInset', get(gca2,'TightInset'));
+%set(gca2, 'LooseInset', get(gca2,'TightInset'));
+
+%[ax, h1, h2] = plotyy(loopx, totalnvar, loopx, totalncons)
+%set(h1(1), "marker", '*', 'color', 'b');
+%set(h1(2), "marker", 's', 'color', 'b');
+%set(h1(3), "marker", 'o', 'color', 'b');
+%set(h2(1), "marker", '*', 'color', 'r');
+%set(h2(2), "marker", 's', 'color', 'r');
+%set(h2(3), "marker", 'o', 'color', 'r');
+%set(h1(1), "linestyle", '--', 'color', 'b');
+%set(h1(2), "linestyle", '-', 'color', 'b');
+%set(h1(3), "linestyle", '-.', 'color', 'b');
+%set(h2(1), "linestyle", '--', 'color', 'r');
+%set(h2(2), "linestyle", '-', 'color', 'r');
+%set(h2(3), "linestyle", '-.', 'color', 'r');
+%set(ax,{'ycolor'},{'b';'r'})
+%legend('GAS \# variables', 'ILPS \# variables', 'SDCS \# variables', 'GAS \# constraints', 'ILPS \# constraints', 'SDCS \# constraints', 'location', 'northwest');
+%ylabel("\# variables in formulation");
+
+%ylabel (ax(1), "\# variables");
+%ylabel (ax(2), "\# constraints");
+
+%in1 = get(ax(1),'TightInset')
+%in2 = get(ax(2),'TightInset')
+%newinset = [in1(1) in2(2) in2(3) in1(4)]
+
+%set(ax(1), 'LooseInset', newinset)
+%set(ax(2), 'LooseInset', newinset)
+
+in1 = get(gca1, 'TightInset');
+in2 = get(gca2, 'TightInset');
+in3 = get(gca3, 'TightInset');
+
+newin1 = [in3(1) in1(2) in3(3) in1(4)];
+newin2 = [in3(1) in2(2) in3(3) in2(4)];
+newin3 = [in3(1) in3(2) in3(3) in3(4)];
+
+set(gca1, 'LooseInset', newin1);
+set(gca2, 'LooseInset', newin2);
+set(gca3, 'LooseInset', newin3);
+
+%newinset = [in1(1) in2(2) in2(3) in1(4)]
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', 'compare','_nvars.jpg');
+print(fighandle, char(graphname), '-djpg');
+hold off;
+
+
+%fighandle = figure(4); hold on;
+%plot(loopx, totalncons(1,:), '-k*', loopx, totalncons(2,:), '-^r', loopx, totalncons(3,:), '-bs');
+%bar(totalncons');
+%legend('SDCS', 'ILPS', 'GAS', 'location', 'northwest');
+%ylabel("\# constraints in formulation");
+%xlabel ("\# LLVM IR instruction in loop body");
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+%graphname = strcat('../build/plots/', 'compare','_nconstr.jpg');
+%print(fighandle, char(graphname), '-djpg');
+%hold off;
+
+fighandle = figure(5);
+subplot(2, 1, 1);
+%errorbar(loopx, latencymean, latencystd, '-b+');
+totallatency(totallatency==0) = 1;
+totallatency(2,:) = totallatency(2,:)./totallatency(1,:);
+totallatency(3,:) = totallatency(3,:)./totallatency(1,:);
+totallatency(1,:) = ones(1,cols);
+totallatency
+bar(totallatency(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx);
+%axis tight
+ylabel("pipeline latency");
+xlabel ("\# LLVM IR instruction in loop body");
+hold on;
+plot([0 cols+1], [1 1], 'k-');
+hold off;
+gca1 = gca;
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+%graphname = strcat('../build/plots/', 'compare','_latency.jpg');
+%print(fighandle, char(graphname), '-djpg');
+
+%fighandle = figure(7); hold on;
+%errorbar(loopx, totaltime_mean, totaltime_std, '-b+');
+subplot(2, 1, 2);
+totaltotaltime
+totaltotaltime(2,:) = totaltotaltime(2,:)./totaltotaltime(1,:);
+totaltotaltime(3,:) = totaltotaltime(3,:)./totaltotaltime(1,:);
+totaltotaltime(1,:) = ones(1,cols);
+totaltotaltime
+bar(totaltotaltime(2:3,:)');
+legend('ILPS', 'GAS', 'location', 'northwest');
+set(gca, 'XTick', 1:cols);
+set(gca, 'XTickLabel', loopx);
+ylabel("total \# cycles");
+xlabel ("\# LLVM IR instruction in loop body");
+hold on;
+plot([0 cols+1], [1 1], 'k-');
+hold off;
+gca2 = gca;
+
+in1 = get(gca1, 'TightInset')
+in2 = get(gca2, 'TightInset')
+
+newin1 = [in2(1) in1(2) in2(3) in1(4)];
+newin2 = [in2(1) in2(2) in2(3) in2(4)];
+
+set(gca1, 'LooseInset', newin1)
+set(gca2, 'LooseInset', newin2)
+
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+graphname = strcat('../build/plots/', 'compare','_cycles.jpg');
+print(fighandle, char(graphname), '-djpg');
+hold off;
+
+
+%fighandle = figure(6); hold on;
+%errorbar(loopx, IImean, IIstd, '-b+');
+%bar(totalII');
+%legend('SDC', 'ILP', 'GA', 'location', 'northwest');
+%set(gca, 'XTick', 1:cols);
+%set(gca, 'XTickLabel', loopx);
+%ylabel("II");
+%xlabel ("\# LLVM IR instruction in loop body");
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+%graphname = strcat('../build/plots/', 'compare','_II.jpg');
+%print(fighandle, char(graphname), '-djpg');
+%hold off;
+
+
+%fighandle = figure(9);hold on;
+%plot(loopx, 100*(totalcycles_ilp-totalcycles_sdc)./totalcycles_sdc, '-+', loopx, 100*(totalcycles_ga-totalcycles_sdc)./totalcycles_sdc, '-s');
+%plot(loopx, zeros(size(loopx)), '-k');
+%legend('ilp x sdc', 'ga x sdc', 'location', 'northwest');
+%set(gca, 'LooseInset', get(gca,'TightInset'));
+%graphname = strcat('../build/plots/', 'compare','_diffs.jpg');
+%print(fighandle, char(graphname), '-djpg');
+%hold off;
+
+pause();
+return;

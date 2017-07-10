@@ -20,9 +20,18 @@ latency = cell();
 II = cell();
 TripCnt = cell();
 
+totalpipelinetime = zeros(30, nfiles);
+solvepipelinetime = zeros(30, nfiles);
+totalpipelinensolve = zeros(30, nfiles);
+totalpipelinenvar = zeros(30, nfiles);
+totalpipelinencons = zeros(30, nfiles);
+totalpipelinelatency = zeros(30, nfiles);
+totalpipelinetotalcycles = zeros(30, nfiles);
+totalloopsizes = zeros(1, nfiles);
+names = cell();
 %nfiles = 1
 for file=1:nfiles
-  arg_list(file);
+  names(file) = arg_list(file);
   %we could had it allllll, rolling in the deeeeeeepppp
   a = importdata(char(arg_list(file)), '\t', 1);
 
@@ -47,6 +56,7 @@ for file=1:nfiles
   % refers to. Used as map
 
   for i=1:nloops
+    loopfile(i) = file;
     lps(i) = a.data(iindex(i), 2);
     %size(a.data(jindex==i,2));
 
@@ -60,6 +70,14 @@ for file=1:nfiles
     ns(:,i) = a.data(jindex==i,8);
     tt(:,i) = a.data(jindex==i,9);
     st(:,i) = a.data(jindex==i,10);
+    totalpipelinetime(:,file) = totalpipelinetime(:,file)+a.data(jindex==i,9);
+    solvepipelinetime(:,file) = solvepipelinetime(:,file)+a.data(jindex==i,10);
+    totalpipelinensolve(:,file) = totalpipelinensolve(:,file)+a.data(jindex==i,8);
+    totalpipelinenvar(:,file) = totalpipelinenvar(:,file)+a.data(jindex==i,3);
+    totalpipelinencons(:,file) = totalpipelinencons(:,file)+a.data(jindex==i,4);
+    totalpipelinelatency(:,file) = totalpipelinelatency(:,file)+a.data(jindex==i,5);
+    totalpipelinetotalcycles(:,file) = totalpipelinetotalcycles(:,file)+a.data(jindex==i,5)+a.data(jindex==i,6).*a.data(jindex==i,7);
+    totalloopsizes(file) = totalloopsizes(file)+a.data(iindex(i), 2)/nloops;
   end
 
   %get the name of the benchmark
@@ -83,6 +101,15 @@ for file=1:nfiles
   II = [II, ii];
   TripCnt = [TripCnt, tc];
 end
+
+totalpipelinetime = mean(totalpipelinetime)
+solvepipelinetime = mean(solvepipelinetime)
+totalpipelinensolve = mean(totalpipelinensolve);
+totalpipelinenvar = mean(totalpipelinenvar);
+totalpipelinencons = mean(totalpipelinencons);
+totalpipelinelatency = mean(totalpipelinelatency);
+totalpipelinetotalcycles = mean(totalpipelinetotalcycles);
+save("../build/plots/pipedata.mat", 'names', 'totalloopsizes','totalpipelinetime', 'solvepipelinetime', 'looplabels', 'loopsizes', 'loopfile', 'totalpipelinensolve', 'totalpipelinenvar', 'totalpipelinencons', 'totalpipelinelatency', 'totalpipelinetotalcycles', 'totalpipelinetotalcycles');
 
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex

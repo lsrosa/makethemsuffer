@@ -1,26 +1,6 @@
 #define DEBUG_LEVEL  0
 #include "CodeTemplate.h"
 #include "code-manipulator.h"
-#include <assert.h>
-#include <iostream>
-
-#include "llvm/IR/InstIterator.h"
-#include "llvm/IR/Argument.h"
-#include "llvm/IR/Module.h"
-#include "llvm/IR/BasicBlock.h"
-#include "llvm/Transforms/Utils/CodeExtractor.h"
-#include "llvm/Transforms/Utils/Cloning.h"
-#include "llvm/IR/Instructions.h"
-#include "llvm/IR/Instruction.h"
-#include "llvm/IR/Dominators.h"
-#include "llvm/IR/CFG.h"
-#include "llvm/IR/IRBuilder.h"
-#include "llvm/IR/ValueSymbolTable.h"
-#include "llvm/IR/Verifier.h"
-#include "llvm/Support/raw_ostream.h"
-#include "llvm/PassManager.h"
-#include "llvm/Transforms/IPO.h"
-#include "llvm/Transforms/Utils/BasicBlockUtils.h"
 
 CodeTemplate * CodeManipulator::serial(CodeTemplate * c1, CodeTemplate * c2){
   //we need to give the same context to the two modules (idk why but ...)
@@ -841,4 +821,176 @@ void CodeManipulator::fillAllocToFunctionMaps(CodeTemplate * c){
   }//while(!worklist.empty())
   //++(m->begin())->dump();
   return;
+}
+
+llvm::Instruction * CodeManipulator::copyInstAndUsers(llvm::Instruction *inst){
+    llvm Instruction * ret;
+    if(!coppiedInsts[inst]){
+      std::cout << "need to copy:" << '\n';
+      for(llvm::Use & op : inst->operands()){
+        //if(llvm::dyn_cast<llvm::PHINode>(op) || llvm::dyn_cast<llvm::Constant>(op))
+        //std::cout << "aaaaaaaaaa" << dontCopyInsts[inst] << '\n';
+        if(dontCopyInsts[inst] || llvm::dyn_cast<llvm::Constant>(op))
+          continue;
+
+        op->dump();
+        copyInstAndUsers(llvm::dyn_cast<llvm::Instruction>(op));
+      }
+
+      llvm::Instruction * newInst = inst->clone();
+      newInst->insertAfter(inst);
+      coppiedInsts[inst] = newInst;
+      return newInst;
+    }
+    return
+}
+
+CodeTemplate * CodeManipulator::repeatLoopBody(CodeTemplate * c, unsigned repetitions){
+  c->loadModule(context);
+  assert(c->module);
+  llvm::Module * m = c->module;
+  llvm::StringRef name = llvm::StringRef("repeatLoopBody_"+c->name+"_"+std::to_string(repetitions));
+
+  CodeTemplate *cr = new CodeTemplate(name);
+  llvm::Module *mr = llvm::CloneModule(m);//new llvm::Module(name, context);
+
+  //mr->setDataLayout(m->getDataLayout());
+  //mr->setTargetTriple(m->getTargetTriple());
+  //std::cout << m1->getTargetTriple() << '\n';
+
+  mr->dump();
+  for(llvm::Module::iterator f=mr->begin(), fe=mr->end(); f!=fe; ++f){
+    //skip the non-functions added by compiler
+    if(f->isDeclaration())
+      continue;
+
+    //get the dominatortree of the current function
+    llvm::DominatorTree DT = llvm::DominatorTree();
+    DT.recalculate(*f);
+    //generate the LoopInfoBase for the current function
+    llvm::LoopInfoBase<llvm::BasicBlock, llvm::Loop> li = llvm::LoopInfoBase<llvm::BasicBlock, llvm::Loop>();
+    //li.releaseMemory();
+    li.Analyze(DT);
+
+    std::vector<llvm::Instruction*> loopInsts = std::vector<llvm::Instruction*>();
+
+    //all loops
+    for(llvm::LoopInfoBase<llvm::BasicBlock, llvm::Loop>::iterator lit=li.begin(), lite=li.end(); lit!=lite; ++lit){
+      llvm::Loop & l = **lit;
+      llvm::PHINode * ind_var = l.getCanonicalInductionVariable();
+      assert(ind_var != NULL && "Loops should be canonical");
+      //phin->dump();
+
+      for(llvm::Loop::block_iterator bbit=l.block_begin(), bbite=l.block_end(); bbit!=bbite; ++bbit){
+        llvm::BasicBlock * bb = *bbit;
+        //bb->dump();
+        //all instructions in the bbs
+        for(llvm::BasicBlock::iterator iit=bb->begin(), iite=bb->end(); iit!=iite; ++iit){
+          llvm::Instruction * i = iit;
+
+          //do not copy the loop tail call
+          if(llvm::dyn_cast<llvm::CallInst>(i)){
+            if(((llvm::CallInst*)i)->isTailCall()){
+              dontCopyInsts[i]=true;
+              continue;
+            }
+          }
+
+          //do not copy phi nodes of induction variable
+          if(llvm::dyn_cast<llvm::PHINode>(i)){
+            if(i == ind_var){
+              dontCopyInsts[i] = true;
+              continue;
+            }
+          }
+
+          //do not copy exit
+          if(llvm::BranchInst * bri = llvm::dyn_cast<llvm::BranchInst>(i)){
+            //do not copy exit condition as well
+            llvm::Instruction * cond = llvm::dyn_cast<llvm::Instruction>(bri->getCondition());
+            std::vector<llvm::Instruction*>::iterator it = std::find(loopInsts.begin(), loopInsts.end(), cond);
+            if( it != loopInsts.end() ){
+              loopInsts.erase(it);
+              dontCopyInsts[*it] = true;
+            }
+            continue;
+            dontCopyInsts[bri] = true;
+          }
+          //add the instruction to the be copied
+          loopInsts.push_back(i);
+          //dontCopyInsts[i] = false;
+        }//each inst in a basic block
+        //remove instructions that use only the induction variable
+        //std::cout << "\nusers of induction:" << '\n';
+        for(auto user:ind_var->users()){
+          //remove unary instructions, which depends only on the ind_var
+          if(llvm::dyn_cast<llvm::UnaryInstruction>(user)){
+            std::vector<llvm::Instruction*>::iterator it = std::find(loopInsts.begin(), loopInsts.end(), (llvm::Instruction*)user);
+            if( it != loopInsts.end() ){
+              loopInsts.erase(it);
+              dontCopyInsts[*it] = true;
+            }
+            continue;
+          }
+
+          //std::cout << "user:" << '\n';
+          //user->dump();
+          //std::cout << "uses:" << '\n';
+          //if a instruction uses only the ind_var, and constants, this flag is true
+          bool only_ind = false;
+          for(llvm::Use & op : user->operands()){
+          //for(llvm::Use & op : user->uses()){
+            //op.getUser()->dump();
+            if(!llvm::dyn_cast<llvm::Constant>(op) && op!=ind_var){
+              only_ind = true;
+            }
+          }
+          if(!only_ind){
+            //std::cout << "removing:" << '\n';
+            //user->dump();
+            std::vector<llvm::Instruction*>::iterator it = std::find(loopInsts.begin(), loopInsts.end(), (llvm::Instruction*)user);
+            if( it != loopInsts.end() ){
+              loopInsts.erase(it);
+              dontCopyInsts[*it] = true;
+            }
+          }
+        }
+      }//each BasicBlock in a loop
+
+      std::cout << "\ncopy insts:" << '\n';
+      for(auto inst:loopInsts){
+        inst->dump();
+      }
+      std::cout << "\ndo not copy insts:" << '\n';
+      for(auto inst:dontCopyInsts){
+        inst.first->dump();
+      }
+
+      //copy instructions uses and its users (who they depend on and who depends on who they depend on)
+
+      for(auto inst : loopInsts){
+        std::cout << "for inst:" << '\n';
+        inst->dump();
+        copyInstAndUsers(inst);
+      }
+
+
+    }//for each loop
+    mr->dump();
+  }
+
+
+  //verification before returning
+  std::string &s = *new std::string();
+  llvm::raw_string_ostream *verifyMessage = new llvm::raw_string_ostream(s);
+  llvm::Module &verifyModule = *mr;
+  llvm::verifyModule(verifyModule, verifyMessage);
+
+  std::cout << verifyMessage->str() << '\n';
+
+  //fr->dump();
+  //fr->addAttribute(llvm::AttributeSet::FunctionIndex,llvm::Attribute::AlwaysInline);
+  //fr->dump();
+  cr->module = mr;
+  return cr;
 }

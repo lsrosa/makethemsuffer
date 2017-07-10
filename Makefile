@@ -95,18 +95,23 @@ plots:
 	# individual execution for each script, might automate this later
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/base/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated/DetailedLegUPTiming
-	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/pipeline.mat
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/pipedata.mat $(BUILD_DIR)/$(PLOTS_DIR)/sdcpipelinetotaltime.mat
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ilp_pipeline/DetailedModuleSDCSchedulingTime
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ilp_pipeline.mat
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/pipedata.mat $(BUILD_DIR)/$(PLOTS_DIR)/ilppipelinetotaltime.mat
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/ga_pipeline/DetailedModuleSDCSchedulingTime
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ga_pipeline.mat
+	mv $(BUILD_DIR)/$(PLOTS_DIR)/pipedata.mat $(BUILD_DIR)/$(PLOTS_DIR)/gapipelinetotaltime.mat
 
+compareGA_plot:
+	cp $(PLOTS_DIR)/*.m $(BUILD_DIR)/$(PLOTS_DIR)
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/compareGA.m
 
 degrade_plot:
