@@ -31,7 +31,7 @@ totalloopsizes = zeros(1, nfiles);
 names = cell();
 %nfiles = 1
 for file=1:nfiles
-  names(file) = arg_list(file);
+  names(file) = arg_list(file)
   %we could had it allllll, rolling in the deeeeeeepppp
   a = importdata(char(arg_list(file)), '\t', 1);
 

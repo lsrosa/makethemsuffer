@@ -1,4 +1,5 @@
 load('../build/plots/verilogGen.mat');
+nschedulers = 4;
 %totaltime = totaltime;
 load('../build/plots/sdcpipelinetotaltime.mat');
 benchs = names;
@@ -28,9 +29,23 @@ pipelinelatency(3,:) = totalpipelinelatency;
 pipelinetotalcycles(3,:) = totalpipelinetotalcycles;
 pipelinetotaltime(3,:) = totalpipelinetime;
 pipelinesolvetime(3,:) = solvepipelinetime;
+load('../build/plots/nipipelinetotaltime.mat');
+nitotalpipelinetime = totalpipelinetime;
+pipelinensolve(4,:) = totalpipelinensolve;
+pipelinenvar(4,:) = totalpipelinenvar;
+pipelinencons(4,:) = totalpipelinencons;
+pipelinelatency(4,:) = totalpipelinelatency;
+pipelinetotalcycles(4,:) = totalpipelinetotalcycles;
+pipelinetotaltime(4,:) = totalpipelinetime;
+pipelinesolvetime(4,:) = solvepipelinetime;
 
-loopsizes
-looplabels = looplabels(2:end,:)
+
+afterReading = 1
+pipelinetotaltime
+pipelinesolvetime
+
+loopsizes;
+looplabels = looplabels(2:end,:);
 
 benchnames = cell();
 for i=1:numel(benchs)
@@ -42,7 +57,7 @@ benchnames;
 [~, fileindex] = sort(ilptotalpipelinetime);
 totalloopsizes = totalloopsizes(fileindex);
 benchnames = benchnames(fileindex);
-benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'ai'};
+benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'ai', '2x ai', '4x ai'};
 filesizes = filesizes(fileindex);
 totaltime = totaltime(fileindex);
 sdctotalpipelinetime = sdctotalpipelinetime(fileindex);
@@ -73,47 +88,73 @@ pipelinetotalcycles(3,:) = pipelinetotalcycles(3,fileindex);
 pipelinetotaltime(3,:) = pipelinetotaltime(3,fileindex);
 pipelinesolvetime(3,:) = pipelinesolvetime(3,fileindex);
 
+pipelinensolve(4,:) = pipelinensolve(4,fileindex);
+pipelinenvar(4,:) = pipelinenvar(4,fileindex);
+pipelinencons(4,:) = pipelinencons(4,fileindex);
+pipelinelatency(4,:) = pipelinelatency(4,fileindex);
+pipelinetotalcycles(4,:) = pipelinetotalcycles(4,fileindex);
+pipelinetotaltime(4,:) = pipelinetotaltime(4,fileindex);
+pipelinesolvetime(4,:) = pipelinesolvetime(4,fileindex);
+
+afterSorting = 1
+pipelinetotaltime
+pipelinesolvetime
+(pipelinetotaltime-pipelinesolvetime)>0
+
 sdct = (totaltime + sdctotalpipelinetime)./totaltime;
 ilpt = (totaltime + ilptotalpipelinetime)./totaltime;
 gat = (totaltime + gatotalpipelinetime)./totaltime;
+nit = (totaltime + nitotalpipelinetime)./totaltime;
+
+ga_speed_up = sdct./gat
+ni_speed_up = sdct./nit
+nsplit = 2;
+nbenches = numel(sdct);
 
 fighandle = figure(1); hold on;
-bar([sdct;ilpt;gat]');
-plot([0 numel(ilpt)+1], [1 1], '-k');
+bar(1:nbenches-nsplit, [sdct(1:end-nsplit);ilpt(1:end-nsplit);gat(1:end-nsplit);nit(1:end-nsplit)]');
+plot([0 nbenches-nsplit+.5], [1 1], '-k');
+xlim([0 nbenches+1]);
+set(gca, 'XTick', []);
+ylabel ('pipeline+compilation scale');
+ax1 = gca
+
+hax = axes();
+bar(nbenches-nsplit+1:nbenches, [sdct(end-nsplit+1:end);ilpt(end-nsplit+1:end);gat(end-nsplit+1:end);nit(end-nsplit+1:end)]');
+hold on;
+plot([nbenches-nsplit+.5, nbenches+1], [1 1], '-k');
+plot([nbenches-nsplit+.5 nbenches-nsplit+.5],[0 1.025*max(max([sdct;ilpt;gat;nit]))], 'r--');
+axis("tight")
+set (hax, "yaxislocation", "right", "color", "none", "xtick", []);
+xlim([0 nbenches+1]);
+ax2 = gca
+
 %ysize = max(totalmean);
-legend('SDCS', 'ILPS', 'GAS', 'no pipeline', 'location', 'northwest');
+legend('SDCS', 'ILPS', 'GAS', 'NIS', 'no pipeline', 'location', 'northwest');
 %xlabel ("\# LLVM IR instruction in loop body");
-ylabel ('pipeline+compilation time (s)');
-ylim([0 10]);
+ylabel ('pipeline+compilation scale');
+%ylim([0 10]);
 xlim([0 numel(ilpt)+1]);
 %text([1:numel(ilpt)]-0.275, sdct+0.05, benchnames, 'rotation', 90, 'fontsize', 12, 'interpreter', 'none');
 axis("tic", "labely");
 set(gca, 'XTick', 1:numel(ilpt));
 set(gca, 'XTickLabel', benchnames);
-set(gca, 'LooseInset', get(gca,'TightInset'));
+%set(gca, 'LooseInset', get(gca,'TightInset'));
 graphname = strcat('../build/plots/', 'compare','_pipe_verilog.jpg');
 print(fighandle, char(graphname), '-djpg');
 %clf(fighandle);
 hold off;
-%pause();
-%return;
 
 [~,files] = size(pipelinensolve);
-pipelinensolve(2,:) = pipelinensolve(2,:)./pipelinensolve(1,:);
-pipelinenvar(2,:) = pipelinenvar(2,:)./pipelinenvar(1,:);
-pipelinencons(2,:) = pipelinencons(2,:)./pipelinencons(1,:);
-pipelinelatency(2,:) = pipelinelatency(2,:)./pipelinelatency(1,:);
-pipelinetotalcycles(2,:) = pipelinetotalcycles(2,:)./pipelinetotalcycles(1,:);
-pipelinetotaltime(2,:) = pipelinetotaltime(2,:)./pipelinetotaltime(1,:);
-pipelinesolvetime(2,:) = pipelinesolvetime(2,:)./pipelinesolvetime(1,:);
-
-pipelinensolve(3,:) = pipelinensolve(3,:)./pipelinensolve(1,:);
-pipelinenvar(3,:) = pipelinenvar(3,:)./pipelinenvar(1,:);
-pipelinencons(3,:) = pipelinencons(3,:)./pipelinencons(1,:);
-pipelinelatency(3,:) = pipelinelatency(3,:)./pipelinelatency(1,:);
-pipelinetotalcycles(3,:) = pipelinetotalcycles(3,:)./pipelinetotalcycles(1,:);
-pipelinetotaltime(3,:) = pipelinetotaltime(3,:)./pipelinetotaltime(1,:);
-pipelinesolvetime(3,:) = pipelinesolvetime(3,:)./pipelinesolvetime(1,:);
+for i=2:nschedulers
+  pipelinensolve(i,:) = pipelinensolve(i,:)./pipelinensolve(1,:);
+  pipelinenvar(i,:) = pipelinenvar(i,:)./pipelinenvar(1,:);
+  pipelinencons(i,:) = pipelinencons(i,:)./pipelinencons(1,:);
+  pipelinelatency(i,:) = pipelinelatency(i,:)./pipelinelatency(1,:);
+  pipelinetotalcycles(i,:) = pipelinetotalcycles(i,:)./pipelinetotalcycles(1,:);
+  pipelinetotaltime(i,:) = pipelinetotaltime(i,:)./pipelinetotaltime(1,:);
+  pipelinesolvetime(i,:) = pipelinesolvetime(i,:)./pipelinesolvetime(1,:);
+end
 
 pipelinensolve(1,:) = ones(1, files);
 pipelinenvar(1,:) = ones(1, files);
@@ -126,8 +167,8 @@ pipelinesolvetime(1,:) = ones(1, files);
 fighandle = figure(2); %hold on;
 
 subplot(3,1,1);
-bar(pipelinensolve(2:3,:)');
-legend('ILPS', 'GAS', 'location', 'northwest');
+bar(pipelinensolve(2:nschedulers,:)');
+legend('ILPS', 'GAS', 'NIS', 'location', 'northwest');
 xlim([0 files+1]);
 axis("tic", "labely");
 set(gca, 'XTick', 1:files);
@@ -140,28 +181,28 @@ hold off;
 gca1 = gca;
 
 subplot(3,1,2);
-bar(pipelinenvar(2:3,:)');
+bar(pipelinenvar(2:nschedulers,:)');
 ylabel("\# variables");
 xlim([0 files+1]);
 axis("tic", "labely");
 set(gca, 'XTick', 1:files);
 set(gca, 'XTickLabel', benchnames);
 %text([1:files]-0.275, pipelinenvar(2,:)+0.05, benchnames, 'rotation', 90, 'fontsize', 12, 'interpreter', 'none');
-legend('ILPS', 'GAS', 'location', 'northwest');
+legend('ILPS', 'GAS', 'NIS', 'location', 'northwest');
 hold on;
 plot([0 files+1], [1 1], 'k-');
 hold off;
 gca2 = gca;
 
 subplot(3,1,3);
-bar(pipelinencons(2:3,:)');
+bar(pipelinencons(2:nschedulers,:)');
 ylabel("\# constraints");
 xlim([0 files+1]);
 axis("tic", "labely");
 set(gca, 'XTick', 1:files);
 set(gca, 'XTickLabel', benchnames);
 %text([1:files]-0.275, zeros(1,files)-0.05, benchnames, 'rotation', -90, 'fontsize', 12, 'interpreter', 'none');
-legend('ILPS', 'GAS', 'location', 'northwest');
+legend('ILPS', 'GAS', 'NIS', 'location', 'northwest');
 hold on;
 plot([0 files+1], [1 1], 'k-');
 hold off;
@@ -185,11 +226,11 @@ graphname = strcat('../build/plots/', 'compare','_nvars.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
 
-pipelinelatency
+quality_of_results = 1-mean(pipelinelatency')
 fighandle = figure(3);
 subplot(2, 1, 1);
-bar(pipelinelatency(2:3,:)');
-legend('ILPS', 'GAS', 'location', 'northwest');
+bar(pipelinelatency(2:nschedulers,:)');
+legend('ILPS', 'GAS', 'NIS', 'location', 'northwest');
 axis("tic", "labely");
 set(gca, 'XTick', 1:files);
 set(gca, 'XTickLabel', benchnames);
@@ -202,8 +243,8 @@ gca1 = gca;
 
 
 subplot(2, 1, 2);
-bar(pipelinetotalcycles(2:3,:)');
-legend('ILPS', 'GAS', 'location', 'northwest');
+bar(pipelinetotalcycles(2:nschedulers,:)');
+legend('ILPS', 'GAS', 'NIS', 'location', 'northwest');
 axis("tic", "labely");
 set(gca, 'XTick', 1:files);
 set(gca, 'XTickLabel', benchnames);
@@ -228,13 +269,14 @@ graphname = strcat('../build/plots/', 'compare','_cycles.jpg');
 print(fighandle, char(graphname), '-djpg');
 hold off;
 
-aaa = (pipelinetotaltime(3,:)./pipelinetotaltime(1,:)).^-1
+totaltimeGAspeedup = (pipelinetotaltime(3,:)./pipelinetotaltime(1,:)).^-1
+totaltimeNIspeedup = (pipelinetotaltime(4,:)./pipelinetotaltime(1,:)).^-1
 pipelinetotaltime
-pipelinesolvetime
+
 fighandle = figure(4); hold on;
-bar([pipelinetotaltime(2,:);pipelinesolvetime(2,:);pipelinetotaltime(3,:);pipelinesolvetime(3,:)]');
+bar([pipelinetotaltime(2,:);pipelinesolvetime(2,:);pipelinetotaltime(3,:);pipelinesolvetime(3,:);pipelinetotaltime(4,:);pipelinesolvetime(4,:)]');
 %ysize = max(totalmean);
-legend('ILPS total', 'ILPS solve', 'GAS total', 'GAS solve', 'location', 'northwest');
+legend('ILPS total', 'ILPS solve', 'GAS total', 'GAS solve', 'NIS total', 'NIS solve', 'location', 'northwest');
 ylabel ('time (s)');
 %ylim([0 10]);
 xlim([0 files+1]);
@@ -249,9 +291,6 @@ graphname = strcat('../build/plots/', 'compare','_sched_times.jpg');
 print(fighandle, char(graphname), '-djpg');
 %clf(fighandle);
 hold off;
-%pause();
-%return;
-
 pause();
 return;
 
@@ -316,7 +355,7 @@ totalcycles_ga = totaltime_mean;
 nsplit = 2
 ly = 400;
 lx = 2*400;
-fighandle = figure(1, 'Position',[0,0,lx,ly]); hold on;
+fighandle = figure(5, 'Position',[0,0,lx,ly]); hold on;
 
 
 totaltime
@@ -367,7 +406,7 @@ hold off;
 %ly = 10*100;
 %lx = 5*100;
 %fighandle = figure(2, 'Position',[0,0,lx,ly]); %hold on;
-fighandle = figure(2); %hold on;
+fighandle = figure(6); %hold on;
 subplot(3,1,1);
 %[ax, h1, h2] = plotyy(loopx, totalnsdcs, loopx, totalnvar)
 totalnsdcs
@@ -487,7 +526,7 @@ hold off;
 %print(fighandle, char(graphname), '-djpg');
 %hold off;
 
-fighandle = figure(5);
+fighandle = figure(7);
 subplot(2, 1, 1);
 %errorbar(loopx, latencymean, latencystd, '-b+');
 totallatency(totallatency==0) = 1;
