@@ -2,7 +2,6 @@
 arg_list = argv();
 nfiles = numel(arg_list);
 
-
 %initialized arrays
 %I know that this is inneficient but there is no way to know the number of
 % files or how many functions each one has, even though it is possible to get

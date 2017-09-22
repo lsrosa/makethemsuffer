@@ -57,7 +57,8 @@ benchnames;
 [~, fileindex] = sort(ilptotalpipelinetime);
 totalloopsizes = totalloopsizes(fileindex);
 benchnames = benchnames(fileindex);
-benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'ai', '2x ai', '4x ai'};
+benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'mt', 'dv', 'ai', 'ac', 'cp', 'fat', '2x ai', '4x ai'};
+
 filesizes = filesizes(fileindex);
 totaltime = totaltime(fileindex);
 sdctotalpipelinetime = sdctotalpipelinetime(fileindex);

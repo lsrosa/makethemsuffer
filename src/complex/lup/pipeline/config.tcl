@@ -7,4 +7,4 @@ set_parameter SDC_PRIORITY 0
 set_combine_basicblock 2
 loop_pipeline "loop"
 #set_parameter "processor" "host"
-set_parameter LOCAL_RAMS 1
+#set_parameter LOCAL_RAMS 1

@@ -4,5 +4,8 @@ loop_pipeline "loop1"
 loop_pipeline "loop2"
 loop_pipeline "loop3"
 #set_parameter "processor" "host"
-set_parameter LOCAL_RAMS 1
+#set_parameter LOCAL_RAMS 1
 set_parameter MODULO_SCHEDULER "DEGRADE"
+
+set_resource_constraint altfp_add 1
+set_resource_constraint altfp_multiply 1

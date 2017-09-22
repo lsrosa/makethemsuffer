@@ -30,4 +30,14 @@ loop_pipeline "rs_fifo"
 loop_pipeline "Error_Correct"
 loop_pipeline "Simple_rs1"
 #set_parameter "processor" "host"
-set_parameter LOCAL_RAMS 1
+#set_parameter LOCAL_RAMS 1
+
+set_resource_constraint altfp_add 3
+set_resource_constraint multiply 1
+set_resource_constraint divide 3
+#set_resource_constraint mem_dual_port 2
+#set_resource_constraint modulus 1
+#set_resource_constraint altfp_subtract 3
+set_resource_constraint altfp_add 3
+set_resource_constraint altfp_multiply 3
+set_resource_constraint altfp_divide 3

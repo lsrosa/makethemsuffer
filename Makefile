@@ -60,7 +60,7 @@ $(LUP_OBJ):$(BUILD_DIR)/%.v:$(SRC_DIR)/%.c
 	cp $(dir $^)*	 $(dir  $@)
 	cloc $(dir  $@)*.c > $(dir  $@)source_lines_number.txt
 ifdef REPETITIONS
-	make clear -f $(LUP_MAKEFILE) -C $(dir $@); \
+	- make clear -f $(LUP_MAKEFILE) -C $(dir $@); \
 	for i in $(shell seq 1 $(REPETITIONS)); \
 	do \
 		make -f $(LUP_MAKEFILE) -C $(dir $@); \
@@ -96,7 +96,7 @@ plots:
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/base/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated/DetailedLegUPTiming
 	#octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_localmem/DetailedLegUPTiming
-	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/isolated_inline_localmem/DetailedLegUPTiming
+	octave $(BUILD_DIR)/$(PLOTS_DIR)/lupplot.m $(BUILD_DIR)/*/lup/pipeline/DetailedLegUPTiming
 
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/pipeline/DetailedModuleSDCSchedulingTime
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/pipeline.mat
