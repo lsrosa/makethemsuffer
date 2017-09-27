@@ -5,8 +5,12 @@ loop_pipeline "loop1"
 #set_parameter LOCAL_RAMS 1
 set_parameter MODULO_SCHEDULER "NI"
 
+set_resource_constraint add 3
+set_resource_constraint multiply 3
+set_resource_constraint divide 3
 set_resource_constraint altfp_add 3
 set_resource_constraint altfp_multiply 3
-set_resource_constraint altfp_subtract 3
+set_resource_constraint altfp_divide 3
 
 #set_parameter NI_DEBUG 1
+set_parameter SOLVER "GUROBI"

@@ -14,3 +14,13 @@ loop_pipeline "loop9"
 #set_parameter ILP_DEBUG 1
 #set_parameter MODULO_SCHEDULER "ILP"
 set_parameter MODULO_SCHEDULER "DEGRADE"
+
+set_resource_constraint add 3
+set_resource_constraint multiply 3
+set_resource_constraint divide 3
+#set_resource_constraint mem_dual_port 2
+#set_resource_constraint modulus 1
+#set_resource_constraint altfp_subtract 3
+set_resource_constraint altfp_add 3
+set_resource_constraint altfp_multiply 3
+set_resource_constraint altfp_divide 3

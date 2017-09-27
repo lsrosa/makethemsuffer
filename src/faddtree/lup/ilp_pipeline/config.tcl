@@ -4,7 +4,12 @@ loop_pipeline "loop"
 #set_parameter LOCAL_RAMS 1
 
 # resource constraints to make modulo scheduling difficult
+set_resource_constraint add 3
+set_resource_constraint multiply 3
+set_resource_constraint divide 3
 set_resource_constraint altfp_add 3
+set_resource_constraint altfp_multiply 3
+set_resource_constraint altfp_divide 3
 set_operation_latency altfp_add 13
 
 # Runtime analysis - incremental SDC
@@ -12,3 +17,4 @@ set_parameter INCREMENTAL_SDC 0
 
 set_parameter GA_DEBUG 0
 set_parameter MODULO_SCHEDULER "ILP"
+set_parameter SOLVER "GUROBI"

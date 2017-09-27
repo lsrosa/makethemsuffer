@@ -7,7 +7,7 @@ loop_pipeline "loop4"
 #set_parameter "processor" "host"
 #set_parameter LOCAL_RAMS 1
 
-set_resource_constraint altfp_add 3
+set_resource_constraint add 3
 set_resource_constraint multiply 3
 set_resource_constraint divide 3
 #set_resource_constraint mem_dual_port 2
@@ -16,3 +16,4 @@ set_resource_constraint divide 3
 set_resource_constraint altfp_add 1
 set_resource_constraint altfp_multiply 1
 set_resource_constraint altfp_divide 1
+set_parameter SOLVER "GUROBI"
