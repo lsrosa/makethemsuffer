@@ -1,6 +1,7 @@
 %get the name of the files as a list via command line
 arg_list = argv();
 nfiles = numel(arg_list);
+rep = 30;
 
 %initialized arrays
 %I know that this is inneficient but there is no way to know the number of

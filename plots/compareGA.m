@@ -5,6 +5,7 @@ load('../build/plots/sdcpipelinetotaltime.mat');
 benchs = names;
 sdctotalpipelinetime = totalpipelinetime;
 pipelinensolve(1,:) = totalpipelinensolve;
+pipelineii(1,:) = totalpipelineii;
 pipelinenvar(1,:) = totalpipelinenvar;
 pipelinencons(1,:) = totalpipelinencons;
 pipelinelatency(1,:) = totalpipelinelatency;
@@ -14,6 +15,7 @@ pipelinesolvetime(1,:) = solvepipelinetime;
 load('../build/plots/ilppipelinetotaltime.mat');
 ilptotalpipelinetime = totalpipelinetime;
 pipelinensolve(2,:) = totalpipelinensolve;
+pipelineii(2,:) = totalpipelineii;
 pipelinenvar(2,:) = totalpipelinenvar;
 pipelinencons(2,:) = totalpipelinencons;
 pipelinelatency(2,:) = totalpipelinelatency;
@@ -23,6 +25,7 @@ pipelinesolvetime(2,:) = solvepipelinetime;
 load('../build/plots/gapipelinetotaltime.mat');
 gatotalpipelinetime = totalpipelinetime;
 pipelinensolve(3,:) = totalpipelinensolve;
+pipelineii(3,:) = totalpipelineii;
 pipelinenvar(3,:) = totalpipelinenvar;
 pipelinencons(3,:) = totalpipelinencons;
 pipelinelatency(3,:) = totalpipelinelatency;
@@ -32,6 +35,7 @@ pipelinesolvetime(3,:) = solvepipelinetime;
 load('../build/plots/nipipelinetotaltime.mat');
 nitotalpipelinetime = totalpipelinetime;
 pipelinensolve(4,:) = totalpipelinensolve;
+pipelineii(4,:) = totalpipelineii;
 pipelinenvar(4,:) = totalpipelinenvar;
 pipelinencons(4,:) = totalpipelinencons;
 pipelinelatency(4,:) = totalpipelinelatency;
@@ -39,10 +43,9 @@ pipelinetotalcycles(4,:) = totalpipelinetotalcycles;
 pipelinetotaltime(4,:) = totalpipelinetime;
 pipelinesolvetime(4,:) = solvepipelinetime;
 
-
-afterReading = 1
-pipelinetotaltime
-pipelinesolvetime
+afterReading = 1;
+pipelinetotaltime;
+pipelinesolvetime;
 
 loopsizes;
 looplabels = looplabels(2:end,:);
@@ -54,10 +57,12 @@ for i=1:numel(benchs)
 end
 
 benchnames;
-[~, fileindex] = sort(ilptotalpipelinetime);
+[~, fileindex] = sort(totalloopsizes);
 totalloopsizes = totalloopsizes(fileindex);
-benchnames = benchnames(fileindex);
-benchnames = {'cv', 'rs', 'sh', 'rc', 'ft', 'j2', 'gp', 'mt', 'dv', 'ai', 'ac', 'cp', 'fat', '2x ai', '4x ai'};
+
+benchnames
+benchnames = {'ac', 'ai', '2x ai', '4x ai', 'cp', 'cv', 'dv', 'fat', 'ft', 'gp', 'j2', 'mt', 'rc', 'rs', 'sh'};
+benchnames = benchnames(fileindex)
 
 filesizes = filesizes(fileindex);
 totaltime = totaltime(fileindex);
@@ -66,6 +71,7 @@ ilptotalpipelinetime = ilptotalpipelinetime(fileindex);
 gatotalpipelinetime = gatotalpipelinetime(fileindex);
 
 pipelinensolve(1,:) = pipelinensolve(1,fileindex);
+pipelineii(1,:) = pipelineii(1,fileindex);
 pipelinenvar(1,:) = pipelinenvar(1,fileindex);
 pipelinencons(1,:) = pipelinencons(1,fileindex);
 pipelinelatency(1,:) = pipelinelatency(1,fileindex);
@@ -74,6 +80,7 @@ pipelinetotaltime(1,:) = pipelinetotaltime(1,fileindex);
 pipelinesolvetime(1,:) = pipelinesolvetime(1,fileindex);
 
 pipelinensolve(2,:) = pipelinensolve(2,fileindex);
+pipelineii(2,:) = pipelineii(2,fileindex);
 pipelinenvar(2,:) = pipelinenvar(2,fileindex);
 pipelinencons(2,:) = pipelinencons(2,fileindex);
 pipelinelatency(2,:) = pipelinelatency(2,fileindex);
@@ -82,6 +89,7 @@ pipelinetotaltime(2,:) = pipelinetotaltime(2,fileindex);
 pipelinesolvetime(2,:) = pipelinesolvetime(2,fileindex);
 
 pipelinensolve(3,:) = pipelinensolve(3,fileindex);
+pipelineii(3,:) = pipelineii(3,fileindex);
 pipelinenvar(3,:) = pipelinenvar(3,fileindex);
 pipelinencons(3,:) = pipelinencons(3,fileindex);
 pipelinelatency(3,:) = pipelinelatency(3,fileindex);
@@ -90,6 +98,7 @@ pipelinetotaltime(3,:) = pipelinetotaltime(3,fileindex);
 pipelinesolvetime(3,:) = pipelinesolvetime(3,fileindex);
 
 pipelinensolve(4,:) = pipelinensolve(4,fileindex);
+pipelineii(14,:) = pipelineii(4,fileindex);
 pipelinenvar(4,:) = pipelinenvar(4,fileindex);
 pipelinencons(4,:) = pipelinencons(4,fileindex);
 pipelinelatency(4,:) = pipelinelatency(4,fileindex);
@@ -97,18 +106,65 @@ pipelinetotalcycles(4,:) = pipelinetotalcycles(4,fileindex);
 pipelinetotaltime(4,:) = pipelinetotaltime(4,fileindex);
 pipelinesolvetime(4,:) = pipelinesolvetime(4,fileindex);
 
-afterSorting = 1
-pipelinetotaltime
-pipelinesolvetime
-(pipelinetotaltime-pipelinesolvetime)>0
+%-------------------------------------------------------------------------------
+%-------------------------------print tables for latex -------------------------
+%-------------------------------------------------------------------------------
+ns = 3;
+bn = [benchnames "geomean" "ratio"];
+tab1 = fopen('../build/plots/tab1.txt', 'w');
+t1values = [pipelinensolve(1:ns,:)', pipelinenvar(1:ns,:)', pipelinencons(1:ns,:)'];
+%add geomean
+t1values(end+1,:) = geomean(t1values);
+t1values(end+1,1:3) = t1values(end,1:3)/t1values(end,1);
+t1values(end,4:6) = t1values(end-1,4:6)/t1values(end-1,4);
+t1values(end,7:9) = t1values(end-1,7:9)/t1values(end-1,7)
+
+for row=1:numel(bn)
+  fprintf(tab1, "%s", bn{row});
+  for col=1:3*ns
+    fprintf(tab1, " & %.2f", t1values(row, col));
+  end
+  fprintf(tab1, " \\\\\\hline\n");
+end
+
+tab2 = fopen('../build/plots/tab2.txt', 'w');
+t2values = [pipelineii(1:ns,:)', pipelinelatency(1:ns,:)', pipelinetotalcycles(1:ns,:)', pipelinesolvetime(1:ns,:)']
+
+t2values(end+1,:) = geomean(t2values);
+t2values(end+1,1:3) = t2values(end,1:3)/t2values(end,1);
+t2values(end,4:6) = t2values(end-1,4:6)/t2values(end-1,4);
+t2values(end,7:9) = t2values(end-1,7:9)/t2values(end-1,7);
+t2values(end,10:12) = t2values(end-1,10:12)/t2values(end-1,10)
+
+for row=1:numel(bn)
+  fprintf(tab2, "%s", bn{row});
+  for col=1:4*ns
+    fprintf(tab2, " & %.2f", t2values(row, col));
+  end
+  fprintf(tab2, " \\\\\\hline\n");
+end
+
+fclose(tab1);
+fclose(tab2);
+return;
+%pipelinetotaltime
+
+%-------------------------------------------------------------------------------
+%-------------------------------print useless plots ----------------------------
+%-------------------------------------------------------------------------------
+
+afterSorting = 1;
+pipelinetotaltime;
+pipelinesolvetime;
+(pipelinetotaltime-pipelinesolvetime)>0;
 
 sdct = (totaltime + sdctotalpipelinetime)./totaltime;
 ilpt = (totaltime + ilptotalpipelinetime)./totaltime;
 gat = (totaltime + gatotalpipelinetime)./totaltime;
 nit = (totaltime + nitotalpipelinetime)./totaltime;
 
-ga_speed_up = sdct./gat
-ni_speed_up = sdct./nit
+ga_speed_up = sdct./gat;
+ni_speed_up = sdct./nit;
 nsplit = 2;
 nbenches = numel(sdct);
 
@@ -272,7 +328,7 @@ hold off;
 
 totaltimeGAspeedup = (pipelinetotaltime(3,:)./pipelinetotaltime(1,:)).^-1
 totaltimeNIspeedup = (pipelinetotaltime(4,:)./pipelinetotaltime(1,:)).^-1
-pipelinetotaltime
+pipelinetotaltime;
 
 fighandle = figure(4); hold on;
 bar([pipelinetotaltime(2,:);pipelinesolvetime(2,:);pipelinetotaltime(3,:);pipelinesolvetime(3,:);pipelinetotaltime(4,:);pipelinesolvetime(4,:)]');
@@ -305,6 +361,7 @@ return;
 
 load('../build/plots/pipeline.mat');
 totaltime = zeros(6, numel(totalmean));
+solvetime =  zeros(3, numel(nsdcsmean));
 totalnsdcs = zeros(3, numel(nsdcsmean));
 totalnvar = zeros(3, numel(nvariablesmean));
 totalncons = zeros(3, numel(nconstraintsmean));
@@ -315,6 +372,7 @@ totaltotaltime = zeros(3, numel(totaltime_mean));
 totaltime(1,:) = totalmean;
 totaltime(2,:) = solvemean;
 ysize = max(totalmean);
+solvetime(1,:) = solvemean;
 totalnsdcs(1,:) = nsdcsmean;
 totalnvar(1,:) = nvariablesmean;
 totalncons(1,:) = nconstraintsmean;
@@ -326,6 +384,7 @@ totalcycles_sdc = totaltime_mean;
 load('../build/plots/ilp_pipeline.mat');
 totaltime(3,:) = totalmean;
 totaltime(4,:) = solvemean;
+solvetime(2,:) = solvemean;
 totalnsdcs(2,:) = nsdcsmean;
 totalnvar(2,:) = nvariablesmean;
 totalncons(2,:) = nconstraintsmean;
@@ -338,6 +397,7 @@ load('../build/plots/ga_pipeline.mat');
 totaltime(5,:) = totalmean;
 totaltime(6,:) = solvemean;
 ysize = max(ysize, totalmean);
+solvetime(3,:) = solvemean;
 totalnsdcs(3,:) = nsdcsmean;
 totalnvar(3,:) = nvariablesmean;
 totalncons(3,:) = nconstraintsmean;
@@ -351,6 +411,7 @@ totalcycles_ga = totaltime_mean;
 %-----------------------------------------------------------------------
 %ilpprop = geomean(totaltime(1,:)./totaltime(3,:))
 %gaprop = geomean(totaltime(1,:)./totaltime(5,:))
+
 
 [~, cols] = size(totaltime);
 nsplit = 2

@@ -3,6 +3,7 @@ arg_list = argv();
 %arg_list = 'DetailedModuleSDCSchedulingTime';
 nfiles = numel(arg_list);
 
+rep = 30;
 
 %initialized arrays
 %I know that this is inneficient but there is no way to know the number of
@@ -20,13 +21,14 @@ latency = cell();
 II = cell();
 TripCnt = cell();
 
-totalpipelinetime = zeros(30, nfiles);
-solvepipelinetime = zeros(30, nfiles);
-totalpipelinensolve = zeros(30, nfiles);
-totalpipelinenvar = zeros(30, nfiles);
-totalpipelinencons = zeros(30, nfiles);
-totalpipelinelatency = zeros(30, nfiles);
-totalpipelinetotalcycles = zeros(30, nfiles);
+totalpipelinetime = zeros(rep, nfiles);
+solvepipelinetime = zeros(rep, nfiles);
+totalpipelinensolve = zeros(rep, nfiles);
+totalpipelineii = zeros(rep, nfiles);
+totalpipelinenvar = zeros(rep, nfiles);
+totalpipelinencons = zeros(rep, nfiles);
+totalpipelinelatency = zeros(rep, nfiles);
+totalpipelinetotalcycles = zeros(rep, nfiles);
 totalloopsizes = zeros(1, nfiles);
 names = cell();
 %nfiles = 1
@@ -73,6 +75,7 @@ for file=1:nfiles
     totalpipelinetime(:,file) = totalpipelinetime(:,file)+a.data(jindex==i,9);
     solvepipelinetime(:,file) = solvepipelinetime(:,file)+a.data(jindex==i,10);
     totalpipelinensolve(:,file) = totalpipelinensolve(:,file)+a.data(jindex==i,8);
+    totalpipelineii(:,file) = totalpipelineii(:,file)+a.data(jindex==i,6);
     totalpipelinenvar(:,file) = totalpipelinenvar(:,file)+a.data(jindex==i,3);
     totalpipelinencons(:,file) = totalpipelinencons(:,file)+a.data(jindex==i,4);
     totalpipelinelatency(:,file) = totalpipelinelatency(:,file)+a.data(jindex==i,5);
@@ -105,11 +108,12 @@ end
 totalpipelinetime = mean(totalpipelinetime)
 solvepipelinetime = mean(solvepipelinetime)
 totalpipelinensolve = mean(totalpipelinensolve);
+totalpipelineii = mean(totalpipelineii);
 totalpipelinenvar = mean(totalpipelinenvar);
 totalpipelinencons = mean(totalpipelinencons);
 totalpipelinelatency = mean(totalpipelinelatency);
 totalpipelinetotalcycles = mean(totalpipelinetotalcycles);
-save("../build/plots/pipedata.mat", 'names', 'totalloopsizes','totalpipelinetime', 'solvepipelinetime', 'looplabels', 'loopsizes', 'loopfile', 'totalpipelinensolve', 'totalpipelinenvar', 'totalpipelinencons', 'totalpipelinelatency', 'totalpipelinetotalcycles', 'totalpipelinetotalcycles');
+save("../build/plots/pipedata.mat", 'names', 'totalloopsizes','totalpipelinetime', 'solvepipelinetime', 'looplabels', 'loopsizes', 'loopfile', 'totalpipelinensolve', 'totalpipelineii', 'totalpipelinenvar', 'totalpipelinencons', 'totalpipelinelatency', 'totalpipelinetotalcycles', 'totalpipelinetotalcycles');
 
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
