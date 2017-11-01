@@ -14,4 +14,3 @@ set_operation_latency altfp_add 13
 
 # Runtime analysis - incremental SDC
 set_parameter INCREMENTAL_SDC 0
-set_parameter SOLVER "GUROBI"

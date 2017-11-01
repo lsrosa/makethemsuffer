@@ -98,7 +98,7 @@ pipelinetotaltime(3,:) = pipelinetotaltime(3,fileindex);
 pipelinesolvetime(3,:) = pipelinesolvetime(3,fileindex);
 
 pipelinensolve(4,:) = pipelinensolve(4,fileindex);
-pipelineii(14,:) = pipelineii(4,fileindex);
+pipelineii(4,:) = pipelineii(4,fileindex);
 pipelinenvar(4,:) = pipelinenvar(4,fileindex);
 pipelinencons(4,:) = pipelinencons(4,fileindex);
 pipelinelatency(4,:) = pipelinelatency(4,fileindex);
@@ -109,15 +109,16 @@ pipelinesolvetime(4,:) = pipelinesolvetime(4,fileindex);
 %-------------------------------------------------------------------------------
 %-------------------------------print tables for latex -------------------------
 %-------------------------------------------------------------------------------
-ns = 3;
+ns = nschedulers;
 bn = [benchnames "geomean" "ratio"];
 tab1 = fopen('../build/plots/tab1.txt', 'w');
 t1values = [pipelinensolve(1:ns,:)', pipelinenvar(1:ns,:)', pipelinencons(1:ns,:)'];
 %add geomean
 t1values(end+1,:) = geomean(t1values);
-t1values(end+1,1:3) = t1values(end,1:3)/t1values(end,1);
-t1values(end,4:6) = t1values(end-1,4:6)/t1values(end-1,4);
-t1values(end,7:9) = t1values(end-1,7:9)/t1values(end-1,7)
+t1values(end+1,1:ns) = t1values(end,1:ns)/t1values(end,1);
+t1values(end,ns+1:2*ns) = t1values(end-1,ns+1:2*ns)/t1values(end-1,ns+1);
+t1values(end,2*ns+1:3*ns) = t1values(end-1,2*ns+1:3*ns)/t1values(end-1,2*ns+1);
+%t1values(end,10:12) = t1values(end-1,10:12)/t1values(end-1,10)
 
 for row=1:numel(bn)
   fprintf(tab1, "%s", bn{row});
@@ -131,15 +132,20 @@ tab2 = fopen('../build/plots/tab2.txt', 'w');
 t2values = [pipelineii(1:ns,:)', pipelinelatency(1:ns,:)', pipelinetotalcycles(1:ns,:)', pipelinesolvetime(1:ns,:)']
 
 t2values(end+1,:) = geomean(t2values);
-t2values(end+1,1:3) = t2values(end,1:3)/t2values(end,1);
-t2values(end,4:6) = t2values(end-1,4:6)/t2values(end-1,4);
-t2values(end,7:9) = t2values(end-1,7:9)/t2values(end-1,7);
-t2values(end,10:12) = t2values(end-1,10:12)/t2values(end-1,10)
+t2values(end+1,1:ns) = t2values(end,1:ns)/t2values(end,1);
+t2values(end,ns+1:2*ns) = t2values(end-1,ns+1:2*ns)/t2values(end-1,ns+1);
+t2values(end,2*ns+1:3*ns) = t2values(end-1,2*ns+1:3*ns)/t2values(end-1,2*ns+1);
+t2values(end,3*ns+1:4*ns) = t2values(end-1,3*ns+1:4*ns)/t2values(end-1,3*ns+1);
+%t2values(end,13:15) = t2values(end-1,13:15)/t2values(end-1,13)
 
 for row=1:numel(bn)
   fprintf(tab2, "%s", bn{row});
   for col=1:4*ns
-    fprintf(tab2, " & %.2f", t2values(row, col));
+    if(col == 4*ns)
+      fprintf(tab2, " & %.2e", t2values(row, col));
+    else
+      fprintf(tab2, " & %.2f", t2values(row, col));
+    end
   end
   fprintf(tab2, " \\\\\\hline\n");
 end

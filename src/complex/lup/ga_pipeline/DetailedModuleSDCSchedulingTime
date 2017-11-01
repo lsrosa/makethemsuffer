@@ -1,0 +1,4 @@
+label	timeout	n_IRlines	#vars	#constraints	latency	II	TripCnt	n_solves	Total	Solving
+loop	0	98	98	159	138	20	85	236	0.215196	0.162973
+loop	0	98	98	159	134	20	85	229	0.259808	0.167790
+loop	0	98	98	159	132	20	85	222	0.251854	0.156949

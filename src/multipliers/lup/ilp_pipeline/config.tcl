@@ -12,4 +12,3 @@ set_operation_latency signed_multiply 18
 # Runtime analysis - incremental SDC
 #set_parameter INCREMENTAL_SDC 1
 set_parameter MODULO_SCHEDULER "ILP"
-set_parameter SOLVER "GUROBI"

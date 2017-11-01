@@ -105,8 +105,8 @@ for file=1:nfiles
   TripCnt = [TripCnt, tc];
 end
 
-totalpipelinetime = mean(totalpipelinetime)
-solvepipelinetime = mean(solvepipelinetime)
+totalpipelinetime = mean(totalpipelinetime);
+solvepipelinetime = mean(solvepipelinetime);
 totalpipelinensolve = mean(totalpipelinensolve);
 totalpipelineii = mean(totalpipelineii);
 totalpipelinenvar = mean(totalpipelinenvar);
