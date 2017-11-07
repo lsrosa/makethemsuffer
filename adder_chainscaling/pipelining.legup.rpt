@@ -1,0 +1,3026 @@
+--------------------------------------------------------------------------------
+Optimal objective: 2.930000e+02
+sol: C1 = 0.000000e+00
+sol: C2 = 0.000000e+00
+sol: C3 = 0.000000e+00
+sol: C4 = 0.000000e+00
+sol: C5 = 0.000000e+00
+sol: C6 = 0.000000e+00
+sol: C7 = 0.000000e+00
+sol: C8 = 0.000000e+00
+sol: C9 = 0.000000e+00
+sol: C10 = 1.000000e+00
+sol: C11 = 1.000000e+00
+sol: C12 = 1.000000e+00
+sol: C13 = 0.000000e+00
+sol: C14 = 0.000000e+00
+sol: C15 = 1.000000e+00
+sol: C16 = 0.000000e+00
+sol: C17 = 1.000000e+00
+sol: C18 = 0.000000e+00
+sol: C19 = 1.000000e+00
+sol: C20 = 0.000000e+00
+sol: C21 = 1.000000e+00
+sol: C22 = 0.000000e+00
+sol: C23 = 1.000000e+00
+sol: C24 = 1.000000e+00
+sol: C25 = 1.000000e+00
+sol: C26 = 1.000000e+00
+sol: C27 = 0.000000e+00
+sol: C28 = 1.000000e+00
+sol: C29 = 1.000000e+00
+sol: C30 = 1.000000e+00
+sol: C31 = 1.000000e+00
+sol: C32 = 0.000000e+00
+sol: C33 = 1.000000e+00
+sol: C34 = 0.000000e+00
+sol: C35 = 1.000000e+00
+sol: C36 = 0.000000e+00
+sol: C37 = 1.000000e+00
+sol: C38 = 2.000000e+00
+sol: C39 = 1.000000e+00
+sol: C40 = 2.000000e+00
+sol: C41 = 1.000000e+00
+sol: C42 = 2.000000e+00
+sol: C43 = 1.000000e+00
+sol: C44 = 2.000000e+00
+sol: C45 = 1.000000e+00
+sol: C46 = 2.000000e+00
+sol: C47 = 1.000000e+00
+sol: C48 = 2.000000e+00
+sol: C49 = 1.000000e+00
+sol: C50 = 2.000000e+00
+sol: C51 = 1.000000e+00
+sol: C52 = 2.000000e+00
+sol: C53 = 0.000000e+00
+sol: C54 = 1.000000e+00
+sol: C55 = 0.000000e+00
+sol: C56 = 1.000000e+00
+sol: C57 = 2.000000e+00
+sol: C58 = 1.000000e+00
+sol: C59 = 2.000000e+00
+sol: C60 = 1.000000e+00
+sol: C61 = 2.000000e+00
+sol: C62 = 0.000000e+00
+sol: C63 = 1.000000e+00
+sol: C64 = 1.000000e+00
+sol: C65 = 2.000000e+00
+sol: C66 = 1.000000e+00
+sol: C67 = 2.000000e+00
+sol: C68 = 1.000000e+00
+sol: C69 = 2.000000e+00
+sol: C70 = 0.000000e+00
+sol: C71 = 1.000000e+00
+sol: C72 = 1.000000e+00
+sol: C73 = 2.000000e+00
+sol: C74 = 1.000000e+00
+sol: C75 = 2.000000e+00
+sol: C76 = 2.000000e+00
+sol: C77 = 2.000000e+00
+sol: C78 = 2.000000e+00
+sol: C79 = 2.000000e+00
+sol: C80 = 2.000000e+00
+sol: C81 = 2.000000e+00
+sol: C82 = 2.000000e+00
+sol: C83 = 2.000000e+00
+sol: C84 = 3.000000e+00
+sol: C85 = 2.000000e+00
+sol: C86 = 3.000000e+00
+sol: C87 = 3.000000e+00
+sol: C88 = 3.000000e+00
+sol: C89 = 3.000000e+00
+sol: C90 = 3.000000e+00
+sol: C91 = 3.000000e+00
+sol: C92 = 3.000000e+00
+sol: C93 = 3.000000e+00
+sol: C94 = 4.000000e+00
+sol: C95 = 3.000000e+00
+sol: C96 = 4.000000e+00
+sol: C97 = 4.000000e+00
+sol: C98 = 4.000000e+00
+sol: C99 = 5.000000e+00
+sol: C100 = 3.000000e+00
+sol: C101 = 4.000000e+00
+sol: C102 = 2.000000e+00
+sol: C103 = 2.000000e+00
+sol: C104 = 2.000000e+00
+sol: C105 = 2.000000e+00
+sol: C106 = 2.000000e+00
+sol: C107 = 2.000000e+00
+sol: C108 = 2.000000e+00
+sol: C109 = 2.000000e+00
+sol: C110 = 3.000000e+00
+sol: C111 = 3.000000e+00
+sol: C112 = 3.000000e+00
+sol: C113 = 3.000000e+00
+sol: C114 = 3.000000e+00
+sol: C115 = 3.000000e+00
+sol: C116 = 3.000000e+00
+sol: C117 = 3.000000e+00
+sol: C118 = 4.000000e+00
+sol: C119 = 4.000000e+00
+sol: C120 = 4.000000e+00
+sol: C121 = 4.000000e+00
+sol: C122 = 4.000000e+00
+sol: C123 = 5.000000e+00
+sol: C124 = 1.000000e+00
+sol: C125 = 2.000000e+00
+sol: C126 = 1.000000e+00
+sol: C127 = 2.000000e+00
+sol: C128 = 1.000000e+00
+sol: C129 = 2.000000e+00
+sol: C130 = 1.000000e+00
+sol: C131 = 2.000000e+00
+sol: C132 = 1.000000e+00
+sol: C133 = 2.000000e+00
+sol: C134 = 1.000000e+00
+sol: C135 = 2.000000e+00
+sol: C136 = 1.000000e+00
+sol: C137 = 2.000000e+00
+sol: C138 = 1.000000e+00
+sol: C139 = 2.000000e+00
+sol: C140 = 0.000000e+00
+sol: C141 = 1.000000e+00
+sol: C142 = 1.000000e+00
+sol: C143 = 2.000000e+00
+sol: C144 = 1.000000e+00
+sol: C145 = 2.000000e+00
+sol: C146 = 1.000000e+00
+sol: C147 = 2.000000e+00
+sol: C148 = 0.000000e+00
+sol: C149 = 1.000000e+00
+sol: C150 = 1.000000e+00
+sol: C151 = 2.000000e+00
+sol: C152 = 1.000000e+00
+sol: C153 = 2.000000e+00
+sol: C154 = 1.000000e+00
+sol: C155 = 2.000000e+00
+sol: C156 = 0.000000e+00
+sol: C157 = 1.000000e+00
+sol: C158 = 1.000000e+00
+sol: C159 = 2.000000e+00
+sol: C160 = 1.000000e+00
+sol: C161 = 2.000000e+00
+sol: C162 = 2.000000e+00
+sol: C163 = 2.000000e+00
+sol: C164 = 2.000000e+00
+sol: C165 = 2.000000e+00
+sol: C166 = 2.000000e+00
+sol: C167 = 2.000000e+00
+sol: C168 = 2.000000e+00
+sol: C169 = 3.000000e+00
+sol: C170 = 4.000000e+00
+sol: C171 = 2.000000e+00
+sol: C172 = 3.000000e+00
+sol: C173 = 3.000000e+00
+sol: C174 = 3.000000e+00
+sol: C175 = 3.000000e+00
+sol: C176 = 3.000000e+00
+sol: C177 = 3.000000e+00
+sol: C178 = 3.000000e+00
+sol: C179 = 4.000000e+00
+sol: C180 = 5.000000e+00
+sol: C181 = 3.000000e+00
+sol: C182 = 4.000000e+00
+sol: C183 = 4.000000e+00
+sol: C184 = 5.000000e+00
+sol: C185 = 6.000000e+00
+sol: C186 = 3.000000e+00
+sol: C187 = 4.000000e+00
+sol: C188 = 2.000000e+00
+sol: C189 = 2.000000e+00
+sol: C190 = 2.000000e+00
+sol: C191 = 2.000000e+00
+sol: C192 = 2.000000e+00
+sol: C193 = 2.000000e+00
+sol: C194 = 2.000000e+00
+sol: C195 = 2.000000e+00
+sol: C196 = 3.000000e+00
+sol: C197 = 3.000000e+00
+sol: C198 = 3.000000e+00
+sol: C199 = 3.000000e+00
+sol: C200 = 3.000000e+00
+sol: C201 = 3.000000e+00
+sol: C202 = 3.000000e+00
+sol: C203 = 3.000000e+00
+sol: C204 = 4.000000e+00
+sol: C205 = 4.000000e+00
+sol: C206 = 4.000000e+00
+sol: C207 = 4.000000e+00
+sol: C208 = 5.000000e+00
+sol: C209 = 6.000000e+00
+sol: C210 = 0.000000e+00
+sol: C211 = 0.000000e+00
+Initial II = 4
+Start Index: 1 delay: 0 I:   %2 = phi i32 [ 0, %0 ], [ %21, %1 ], !legup.canonical_induction !1
+Start Index: 2 delay: 0 I:   %scevgep = getelementptr [100 x i32]* @dd, i32 0, i32 %2
+Start Index: 3 delay: 0 I:   %scevgep2 = getelementptr [100 x i32]* @cc, i32 0, i32 %2
+Start Index: 4 delay: 0 I:   %scevgep3 = getelementptr [100 x i32]* @aa, i32 0, i32 %2
+Start Index: 5 delay: 0 I:   %scevgep4 = getelementptr [100 x i32]* @bb, i32 0, i32 %2
+Start Index: 6 delay: 0 I:   %scevgep5 = getelementptr [100 x i32]* @ii, i32 0, i32 %2
+Start Index: 7 delay: 0 I:   %scevgep6 = getelementptr [100 x i32]* @g, i32 0, i32 %2
+Start Index: 8 delay: 0 I:   %3 = add i32 %2, 1
+Start Index: 9 delay: 0 I:   %scevgep7 = getelementptr [100 x i32]* @dd, i32 0, i32 %3
+Start Index: 10 delay: 0 I:   %scevgep8 = getelementptr [100 x i32]* @g, i32 0, i32 %3
+Start Index: 11 delay: 0 I:   %scevgep9 = getelementptr [100 x i32]* @e, i32 0, i32 %3
+Start Index: 12 delay: 0 I:   %scevgep10 = getelementptr [100 x i32]* @e, i32 0, i32 %2
+Start Index: 13 delay: 0 I:   %4 = add i32 %2, 7
+Start Index: 14 delay: 0 I:   %scevgep11 = getelementptr [100 x i32]* @d, i32 0, i32 %4
+Start Index: 15 delay: 0 I:   %5 = add i32 %2, 6
+Start Index: 16 delay: 0 I:   %scevgep12 = getelementptr [100 x i32]* @d, i32 0, i32 %5
+Start Index: 17 delay: 0 I:   %6 = add i32 %2, 5
+Start Index: 18 delay: 0 I:   %scevgep13 = getelementptr [100 x i32]* @c, i32 0, i32 %6
+Start Index: 19 delay: 0 I:   %7 = add i32 %2, 4
+Start Index: 20 delay: 0 I:   %scevgep14 = getelementptr [100 x i32]* @c, i32 0, i32 %7
+Start Index: 21 delay: 0 I:   %8 = add i32 %2, 3
+Start Index: 22 delay: 0 I:   %scevgep15 = getelementptr [100 x i32]* @j, i32 0, i32 %8
+Start Index: 23 delay: 0 I:   %scevgep16 = getelementptr [100 x i32]* @h, i32 0, i32 %8
+Start Index: 24 delay: 0 I:   %scevgep17 = getelementptr [100 x i32]* @f, i32 0, i32 %8
+Start Index: 25 delay: 0 I:   %scevgep18 = getelementptr [100 x i32]* @b, i32 0, i32 %8
+Start Index: 26 delay: 0 I:   %9 = add i32 %2, 2
+Start Index: 27 delay: 0 I:   %scevgep19 = getelementptr [100 x i32]* @j, i32 0, i32 %9
+Start Index: 28 delay: 0 I:   %scevgep20 = getelementptr [100 x i32]* @h, i32 0, i32 %9
+Start Index: 29 delay: 0 I:   %scevgep21 = getelementptr [100 x i32]* @f, i32 0, i32 %9
+Start Index: 30 delay: 0 I:   %scevgep22 = getelementptr [100 x i32]* @b, i32 0, i32 %9
+Start Index: 31 delay: 0 I:   %10 = add i32 %2, 8
+Start Index: 32 delay: 0 I:   %scevgep23 = getelementptr [100 x i32]* @dd, i32 0, i32 %10
+Start Index: 33 delay: 0 I:   %11 = add i32 %2, 9
+Start Index: 34 delay: 0 I:   %scevgep24 = getelementptr [100 x i32]* @dd, i32 0, i32 %11
+Start Index: 35 delay: 0 I:   tail call void @__legup_label(i8* getelementptr inbounds ([5 x i8]* @.str, i32 0, i32 0)) #2
+Start Index: 36 delay: 1 I:   %12 = load volatile i32* %scevgep24, align 4, !tbaa !2
+adding constrained_inst C36
+Start Index: 37 delay: 1 I:   %13 = load volatile i32* %scevgep23, align 4, !tbaa !2
+adding constrained_inst C37
+Start Index: 38 delay: 1 I:   %14 = load volatile i32* %scevgep22, align 4, !tbaa !2
+adding constrained_inst C38
+Start Index: 39 delay: 1 I:   %15 = load volatile i32* %scevgep18, align 4, !tbaa !2
+adding constrained_inst C39
+Start Index: 40 delay: 1 I:   %16 = load volatile i32* %scevgep14, align 4, !tbaa !2
+adding constrained_inst C40
+Start Index: 41 delay: 1 I:   %17 = load volatile i32* %scevgep13, align 4, !tbaa !2
+adding constrained_inst C41
+Start Index: 42 delay: 1 I:   %18 = load volatile i32* %scevgep12, align 4, !tbaa !2
+adding constrained_inst C42
+Start Index: 43 delay: 1 I:   %19 = load volatile i32* %scevgep11, align 4, !tbaa !2
+adding constrained_inst C43
+Start Index: 44 delay: 1 I:   %20 = load volatile i32* %scevgep10, align 4, !tbaa !2
+adding constrained_inst C44
+Start Index: 45 delay: 0 I:   %21 = add nsw i32 %2, 1
+Start Index: 46 delay: 1 I:   %22 = load volatile i32* %scevgep9, align 4, !tbaa !2
+adding constrained_inst C46
+Start Index: 47 delay: 1 I:   %23 = load volatile i32* %scevgep21, align 4, !tbaa !2
+adding constrained_inst C47
+Start Index: 48 delay: 1 I:   %24 = load volatile i32* %scevgep17, align 4, !tbaa !2
+adding constrained_inst C48
+Start Index: 49 delay: 1 I:   %25 = load volatile i32* %scevgep6, align 4, !tbaa !2
+adding constrained_inst C49
+Start Index: 50 delay: 1 I:   %26 = load volatile i32* %scevgep8, align 4, !tbaa !2
+adding constrained_inst C50
+Start Index: 51 delay: 1 I:   %27 = load volatile i32* %scevgep20, align 4, !tbaa !2
+adding constrained_inst C51
+Start Index: 52 delay: 1 I:   %28 = load volatile i32* %scevgep16, align 4, !tbaa !2
+adding constrained_inst C52
+Start Index: 53 delay: 1 I:   %29 = load volatile i32* %scevgep5, align 4, !tbaa !2
+adding constrained_inst C53
+Start Index: 54 delay: 1 I:   %30 = load volatile i32* %scevgep19, align 4, !tbaa !2
+adding constrained_inst C54
+Start Index: 55 delay: 1 I:   %31 = load volatile i32* %scevgep15, align 4, !tbaa !2
+adding constrained_inst C55
+Start Index: 56 delay: 0 I:   %32 = add i32 %13, %12
+Start Index: 57 delay: 0 I:   %33 = add i32 %32, %14
+Start Index: 58 delay: 0 I:   %34 = add i32 %33, %15
+Start Index: 59 delay: 0 I:   %35 = add i32 %34, %16
+Start Index: 60 delay: 0 I:   %36 = add i32 %35, %17
+Start Index: 61 delay: 0 I:   %37 = add i32 %36, %18
+Start Index: 62 delay: 0 I:   %38 = add i32 %37, %19
+Start Index: 63 delay: 1 I:   store volatile i32 %38, i32* %scevgep4, align 4, !tbaa !2
+adding constrained_inst C63
+Start Index: 64 delay: 0 I:   %39 = add i32 %38, %20
+Start Index: 65 delay: 0 I:   %40 = add i32 %39, %22
+Start Index: 66 delay: 0 I:   %41 = add i32 %40, %23
+Start Index: 67 delay: 0 I:   %42 = add i32 %41, %24
+Start Index: 68 delay: 0 I:   %43 = add i32 %42, %25
+Start Index: 69 delay: 0 I:   %44 = add i32 %43, %26
+Start Index: 70 delay: 0 I:   %45 = add i32 %44, %27
+Start Index: 71 delay: 0 I:   %46 = add i32 %45, %28
+Start Index: 72 delay: 1 I:   store volatile i32 %46, i32* %scevgep3, align 4, !tbaa !2
+adding constrained_inst C72
+Start Index: 73 delay: 0 I:   %47 = add i32 %46, %29
+Start Index: 74 delay: 0 I:   %48 = add i32 %47, %30
+Start Index: 75 delay: 0 I:   %49 = add i32 %48, %31
+Start Index: 76 delay: 1 I:   store volatile i32 %49, i32* %scevgep2, align 4, !tbaa !2
+adding constrained_inst C76
+Start Index: 77 delay: 1 I:   %50 = load volatile i32* %scevgep, align 4, !tbaa !2
+adding constrained_inst C77
+Start Index: 78 delay: 0 I:   %51 = add i32 %13, %12
+Start Index: 79 delay: 0 I:   %52 = add i32 %51, %14
+Start Index: 80 delay: 0 I:   %53 = add i32 %52, %15
+Start Index: 81 delay: 0 I:   %54 = add i32 %53, %16
+Start Index: 82 delay: 0 I:   %55 = add i32 %54, %17
+Start Index: 83 delay: 0 I:   %56 = add i32 %55, %18
+Start Index: 84 delay: 0 I:   %57 = add i32 %56, %19
+Start Index: 85 delay: 0 I:   %58 = add i32 %57, %20
+Start Index: 86 delay: 0 I:   %59 = add i32 %58, %22
+Start Index: 87 delay: 0 I:   %60 = add i32 %59, %23
+Start Index: 88 delay: 0 I:   %61 = add i32 %60, %24
+Start Index: 89 delay: 0 I:   %62 = add i32 %61, %25
+Start Index: 90 delay: 0 I:   %63 = add i32 %62, %26
+Start Index: 91 delay: 0 I:   %64 = add i32 %63, %27
+Start Index: 92 delay: 0 I:   %65 = add i32 %64, %28
+Start Index: 93 delay: 0 I:   %66 = add i32 %65, %29
+Start Index: 94 delay: 0 I:   %67 = add i32 %66, %30
+Start Index: 95 delay: 0 I:   %68 = add i32 %67, %31
+Start Index: 96 delay: 0 I:   %69 = add i32 %68, %50
+Start Index: 97 delay: 0 I:   %70 = add i32 %69, %2
+Start Index: 98 delay: 1 I:   store volatile i32 %70, i32* %scevgep7, align 4, !tbaa !2
+adding constrained_inst C98
+Start Index: 99 delay: 1 I:   %71 = load volatile i32* %scevgep24, align 4, !tbaa !2
+adding constrained_inst C99
+Start Index: 100 delay: 1 I:   %72 = load volatile i32* %scevgep23, align 4, !tbaa !2
+adding constrained_inst C100
+Start Index: 101 delay: 1 I:   %73 = load volatile i32* %scevgep22, align 4, !tbaa !2
+adding constrained_inst C101
+Start Index: 102 delay: 1 I:   %74 = load volatile i32* %scevgep18, align 4, !tbaa !2
+adding constrained_inst C102
+Start Index: 103 delay: 1 I:   %75 = load volatile i32* %scevgep14, align 4, !tbaa !2
+adding constrained_inst C103
+Start Index: 104 delay: 1 I:   %76 = load volatile i32* %scevgep13, align 4, !tbaa !2
+adding constrained_inst C104
+Start Index: 105 delay: 1 I:   %77 = load volatile i32* %scevgep12, align 4, !tbaa !2
+adding constrained_inst C105
+Start Index: 106 delay: 1 I:   %78 = load volatile i32* %scevgep11, align 4, !tbaa !2
+adding constrained_inst C106
+Start Index: 107 delay: 1 I:   %79 = load volatile i32* %scevgep10, align 4, !tbaa !2
+adding constrained_inst C107
+Start Index: 108 delay: 1 I:   %80 = load volatile i32* %scevgep9, align 4, !tbaa !2
+adding constrained_inst C108
+Start Index: 109 delay: 1 I:   %81 = load volatile i32* %scevgep21, align 4, !tbaa !2
+adding constrained_inst C109
+Start Index: 110 delay: 1 I:   %82 = load volatile i32* %scevgep17, align 4, !tbaa !2
+adding constrained_inst C110
+Start Index: 111 delay: 1 I:   %83 = load volatile i32* %scevgep6, align 4, !tbaa !2
+adding constrained_inst C111
+Start Index: 112 delay: 1 I:   %84 = load volatile i32* %scevgep8, align 4, !tbaa !2
+adding constrained_inst C112
+Start Index: 113 delay: 1 I:   %85 = load volatile i32* %scevgep20, align 4, !tbaa !2
+adding constrained_inst C113
+Start Index: 114 delay: 1 I:   %86 = load volatile i32* %scevgep16, align 4, !tbaa !2
+adding constrained_inst C114
+Start Index: 115 delay: 1 I:   %87 = load volatile i32* %scevgep5, align 4, !tbaa !2
+adding constrained_inst C115
+Start Index: 116 delay: 1 I:   %88 = load volatile i32* %scevgep19, align 4, !tbaa !2
+adding constrained_inst C116
+Start Index: 117 delay: 1 I:   %89 = load volatile i32* %scevgep15, align 4, !tbaa !2
+adding constrained_inst C117
+Start Index: 118 delay: 0 I:   %90 = add i32 %72, %71
+Start Index: 119 delay: 0 I:   %91 = add i32 %90, %73
+Start Index: 120 delay: 0 I:   %92 = add i32 %91, %74
+Start Index: 121 delay: 0 I:   %93 = add i32 %92, %75
+Start Index: 122 delay: 0 I:   %94 = add i32 %93, %76
+Start Index: 123 delay: 0 I:   %95 = add i32 %94, %77
+Start Index: 124 delay: 0 I:   %96 = add i32 %95, %78
+Start Index: 125 delay: 1 I:   store volatile i32 %96, i32* %scevgep4, align 4, !tbaa !2
+adding constrained_inst C125
+Start Index: 126 delay: 0 I:   %97 = add i32 %96, %79
+Start Index: 127 delay: 0 I:   %98 = add i32 %97, %80
+Start Index: 128 delay: 0 I:   %99 = add i32 %98, %81
+Start Index: 129 delay: 0 I:   %100 = add i32 %99, %82
+Start Index: 130 delay: 0 I:   %101 = add i32 %100, %83
+Start Index: 131 delay: 0 I:   %102 = add i32 %101, %84
+Start Index: 132 delay: 0 I:   %103 = add i32 %102, %85
+Start Index: 133 delay: 0 I:   %104 = add i32 %103, %86
+Start Index: 134 delay: 1 I:   store volatile i32 %104, i32* %scevgep3, align 4, !tbaa !2
+adding constrained_inst C134
+Start Index: 135 delay: 0 I:   %105 = add i32 %104, %87
+Start Index: 136 delay: 0 I:   %106 = add i32 %105, %88
+Start Index: 137 delay: 0 I:   %107 = add i32 %106, %89
+Start Index: 138 delay: 1 I:   store volatile i32 %107, i32* %scevgep2, align 4, !tbaa !2
+adding constrained_inst C138
+Start Index: 139 delay: 1 I:   %108 = load volatile i32* %scevgep, align 4, !tbaa !2
+adding constrained_inst C139
+Start Index: 140 delay: 0 I:   %109 = add i32 %72, %71
+Start Index: 141 delay: 0 I:   %110 = add i32 %109, %73
+Start Index: 142 delay: 0 I:   %111 = add i32 %110, %74
+Start Index: 143 delay: 0 I:   %112 = add i32 %111, %75
+Start Index: 144 delay: 0 I:   %113 = add i32 %112, %76
+Start Index: 145 delay: 0 I:   %114 = add i32 %113, %77
+Start Index: 146 delay: 0 I:   %115 = add i32 %114, %78
+Start Index: 147 delay: 0 I:   %116 = add i32 %115, %79
+Start Index: 148 delay: 0 I:   %117 = add i32 %116, %80
+Start Index: 149 delay: 0 I:   %118 = add i32 %117, %81
+Start Index: 150 delay: 0 I:   %119 = add i32 %118, %82
+Start Index: 151 delay: 0 I:   %120 = add i32 %119, %83
+Start Index: 152 delay: 0 I:   %121 = add i32 %120, %84
+Start Index: 153 delay: 0 I:   %122 = add i32 %121, %85
+Start Index: 154 delay: 0 I:   %123 = add i32 %122, %86
+Start Index: 155 delay: 0 I:   %124 = add i32 %123, %87
+Start Index: 156 delay: 0 I:   %125 = add i32 %124, %88
+Start Index: 157 delay: 0 I:   %126 = add i32 %125, %89
+Start Index: 158 delay: 0 I:   %127 = add i32 %126, %108
+Start Index: 159 delay: 0 I:   %128 = add i32 %127, %2
+Start Index: 160 delay: 1 I:   store volatile i32 %128, i32* %scevgep7, align 4, !tbaa !2
+adding constrained_inst C160
+Start Index: 161 delay: 0 I:   %exitcond1 = icmp eq i32 %21, 90
+Start Index: 162 delay: 0 I:   br i1 %exitcond1, label %129, label %1
+Cross-iteration constraint: start of 'j' >= end of 'i' + chaining - II*distance(i, j)+latency
+  chaining: 0 II: 4 distance: 1 latency: 0
+  i: C45
+  j: C1
+Cross-iteration constraint: start of 'j' >= end of 'i' + chaining - II*distance(i, j)+latency
+  chaining: 0 II: 4 distance: 1 latency: 1
+  i: C98
+  j: C77
+Cross-iteration constraint: start of 'j' >= end of 'i' + chaining - II*distance(i, j)+latency
+  chaining: 0 II: 4 distance: 1 latency: 1
+  i: C98
+  j: C139
+Cross-iteration constraint: start of 'j' >= end of 'i' + chaining - II*distance(i, j)+latency
+  chaining: 0 II: 4 distance: 1 latency: 1
+  i: C160
+  j: C77
+Cross-iteration constraint: start of 'j' >= end of 'i' + chaining - II*distance(i, j)+latency
+  chaining: 0 II: 4 distance: 1 latency: 1
+  i: C160
+  j: C139
+Optimal objective: 8.800000e+01
+Optimal objective: 1.490000e+02
+
+
+ ----- calculating loop slacks---
+
+cycle with slack:4
+insts: C1-0, C45-0, 
+cycle with slack:2
+insts: C77-1, C96-0, C97-0, C98-1, 
+cycle with slack:2
+insts: C77-1, C98-1, 
+cycle with slack:2
+insts: C139-1, C98-1, 
+cycle with slack:1
+insts: C77-1, C96-0, C97-0, C98-1, C160-1, 
+cycle with slack:1
+insts: C77-1, C98-1, C160-1, 
+cycle with slack:2
+insts: C77-1, C160-1, 
+cycle with slack:2
+insts: C139-1, C158-0, C159-0, C160-1, 
+cycle with slack:1
+insts: C139-1, C98-1, C160-1, 
+cycle with slack:2
+insts: C139-1, C160-1, 
+-------- slacks -------
+C45 - slack: 4
+C1 - slack: 4
+C96 - slack: 1
+C97 - slack: 1
+C98 - slack: 1
+C77 - slack: 1
+C139 - slack: 1
+C158 - slack: 2
+C159 - slack: 2
+C160 - slack: 1
+-------- ordered slacks -------
+C77 - slack: 1
+C96 - slack: 1
+C97 - slack: 1
+C98 - slack: 1
+C160 - slack: 1
+C139 - slack: 1
+C158 - slack: 2
+C159 - slack: 2
+C1 - slack: 4
+C45 - slack: 4
+-------- topologically ordered insts with slack preference-------
+C77 - slack: 1
+C96 - slack: 1
+C1 - slack: 4
+C97 - slack: 1
+C139 - slack: 1
+C98 - slack: 1
+C158 - slack: 2
+C159 - slack: 2
+C160 - slack: 1
+C45 - slack: 4
+
+
+ ----- calculating path lengths---
+
+-------- lenghts -------
+C41 - lenght: 2
+C42 - lenght: 2
+C43 - lenght: 2
+C44 - lenght: 2
+C45 - lenght: 0
+C46 - lenght: 2
+C47 - lenght: 2
+C52 - lenght: 2
+C53 - lenght: 2
+C54 - lenght: 2
+C55 - lenght: 2
+C56 - lenght: 2
+C64 - lenght: 2
+C57 - lenght: 2
+C48 - lenght: 2
+C49 - lenght: 2
+C50 - lenght: 2
+C51 - lenght: 2
+C1 - lenght: 2
+C2 - lenght: 2
+C3 - lenght: 1
+C4 - lenght: 1
+C5 - lenght: 1
+C6 - lenght: 2
+C7 - lenght: 2
+C8 - lenght: 2
+C9 - lenght: 2
+C10 - lenght: 2
+C11 - lenght: 2
+C12 - lenght: 2
+C13 - lenght: 2
+C14 - lenght: 2
+C15 - lenght: 2
+C16 - lenght: 2
+C17 - lenght: 2
+C18 - lenght: 2
+C19 - lenght: 2
+C20 - lenght: 2
+C21 - lenght: 2
+C22 - lenght: 2
+C23 - lenght: 2
+C24 - lenght: 2
+C25 - lenght: 2
+C26 - lenght: 2
+C27 - lenght: 2
+C28 - lenght: 2
+C29 - lenght: 2
+C30 - lenght: 2
+C31 - lenght: 2
+C32 - lenght: 2
+C33 - lenght: 2
+C34 - lenght: 2
+C35 - lenght: 0
+C36 - lenght: 2
+C37 - lenght: 2
+C38 - lenght: 2
+C39 - lenght: 2
+C40 - lenght: 2
+C96 - lenght: 2
+C97 - lenght: 2
+C98 - lenght: 2
+C107 - lenght: 1
+C108 - lenght: 1
+C109 - lenght: 1
+C110 - lenght: 1
+C111 - lenght: 1
+C112 - lenght: 1
+C113 - lenght: 1
+C114 - lenght: 1
+C115 - lenght: 1
+C116 - lenght: 1
+C117 - lenght: 1
+C118 - lenght: 1
+C126 - lenght: 1
+C119 - lenght: 1
+C99 - lenght: 1
+C100 - lenght: 1
+C101 - lenght: 1
+C102 - lenght: 1
+C103 - lenght: 1
+C58 - lenght: 2
+C59 - lenght: 2
+C60 - lenght: 2
+C61 - lenght: 2
+C62 - lenght: 2
+C63 - lenght: 2
+C73 - lenght: 2
+C65 - lenght: 2
+C66 - lenght: 2
+C67 - lenght: 2
+C68 - lenght: 2
+C69 - lenght: 2
+C70 - lenght: 2
+C71 - lenght: 2
+C72 - lenght: 2
+C74 - lenght: 2
+C75 - lenght: 2
+C76 - lenght: 2
+C77 - lenght: 2
+C78 - lenght: 2
+C79 - lenght: 2
+C80 - lenght: 2
+C81 - lenght: 2
+C82 - lenght: 2
+C83 - lenght: 2
+C84 - lenght: 2
+C85 - lenght: 2
+C86 - lenght: 2
+C87 - lenght: 2
+C88 - lenght: 2
+C89 - lenght: 2
+C90 - lenght: 2
+C91 - lenght: 2
+C92 - lenght: 2
+C93 - lenght: 2
+C94 - lenght: 2
+C95 - lenght: 2
+C104 - lenght: 1
+C105 - lenght: 1
+C106 - lenght: 1
+C120 - lenght: 1
+C121 - lenght: 1
+C122 - lenght: 1
+C123 - lenght: 1
+C124 - lenght: 1
+C125 - lenght: 2
+C127 - lenght: 1
+C128 - lenght: 1
+C129 - lenght: 1
+C130 - lenght: 1
+C131 - lenght: 1
+C132 - lenght: 1
+C133 - lenght: 1
+C134 - lenght: 2
+C135 - lenght: 1
+C136 - lenght: 1
+C137 - lenght: 1
+C138 - lenght: 2
+C139 - lenght: 2
+C140 - lenght: 1
+C141 - lenght: 1
+C142 - lenght: 1
+C143 - lenght: 1
+C144 - lenght: 1
+C145 - lenght: 1
+C146 - lenght: 1
+C147 - lenght: 1
+C148 - lenght: 1
+C149 - lenght: 1
+C150 - lenght: 1
+C151 - lenght: 1
+C152 - lenght: 1
+C153 - lenght: 1
+C154 - lenght: 1
+C155 - lenght: 1
+C156 - lenght: 1
+C157 - lenght: 1
+C158 - lenght: 1
+C159 - lenght: 1
+C160 - lenght: 2
+C161 - lenght: 0
+C162 - lenght: 0
+-------- ordered lenghts -------
+C1 - lenght: 2 - width: 0
+C35 - lenght: 0 - width: 0
+C8 - lenght: 2 - width: 1
+C33 - lenght: 2 - width: 1
+C31 - lenght: 2 - width: 1
+C26 - lenght: 2 - width: 1
+C21 - lenght: 2 - width: 1
+C19 - lenght: 2 - width: 1
+C17 - lenght: 2 - width: 1
+C15 - lenght: 2 - width: 1
+C13 - lenght: 2 - width: 1
+C12 - lenght: 2 - width: 1
+C7 - lenght: 2 - width: 1
+C6 - lenght: 2 - width: 1
+C2 - lenght: 2 - width: 1
+C3 - lenght: 1 - width: 1
+C4 - lenght: 1 - width: 1
+C5 - lenght: 1 - width: 1
+C45 - lenght: 0 - width: 1
+C27 - lenght: 2 - width: 2
+C18 - lenght: 2 - width: 2
+C20 - lenght: 2 - width: 2
+C22 - lenght: 2 - width: 2
+C23 - lenght: 2 - width: 2
+C24 - lenght: 2 - width: 2
+C25 - lenght: 2 - width: 2
+C44 - lenght: 2 - width: 2
+C16 - lenght: 2 - width: 2
+C28 - lenght: 2 - width: 2
+C29 - lenght: 2 - width: 2
+C30 - lenght: 2 - width: 2
+C32 - lenght: 2 - width: 2
+C77 - lenght: 2 - width: 2
+C49 - lenght: 2 - width: 2
+C34 - lenght: 2 - width: 2
+C14 - lenght: 2 - width: 2
+C53 - lenght: 2 - width: 2
+C139 - lenght: 2 - width: 2
+C11 - lenght: 2 - width: 2
+C10 - lenght: 2 - width: 2
+C9 - lenght: 2 - width: 2
+C107 - lenght: 1 - width: 2
+C115 - lenght: 1 - width: 2
+C111 - lenght: 1 - width: 2
+C161 - lenght: 0 - width: 2
+C42 - lenght: 2 - width: 3
+C38 - lenght: 2 - width: 3
+C37 - lenght: 2 - width: 3
+C39 - lenght: 2 - width: 3
+C40 - lenght: 2 - width: 3
+C36 - lenght: 2 - width: 3
+C50 - lenght: 2 - width: 3
+C43 - lenght: 2 - width: 3
+C46 - lenght: 2 - width: 3
+C47 - lenght: 2 - width: 3
+C51 - lenght: 2 - width: 3
+C52 - lenght: 2 - width: 3
+C54 - lenght: 2 - width: 3
+C55 - lenght: 2 - width: 3
+C41 - lenght: 2 - width: 3
+C48 - lenght: 2 - width: 3
+C100 - lenght: 1 - width: 3
+C99 - lenght: 1 - width: 3
+C102 - lenght: 1 - width: 3
+C103 - lenght: 1 - width: 3
+C117 - lenght: 1 - width: 3
+C116 - lenght: 1 - width: 3
+C101 - lenght: 1 - width: 3
+C114 - lenght: 1 - width: 3
+C113 - lenght: 1 - width: 3
+C112 - lenght: 1 - width: 3
+C110 - lenght: 1 - width: 3
+C109 - lenght: 1 - width: 3
+C108 - lenght: 1 - width: 3
+C104 - lenght: 1 - width: 3
+C105 - lenght: 1 - width: 3
+C106 - lenght: 1 - width: 3
+C162 - lenght: 0 - width: 3
+C56 - lenght: 2 - width: 4
+C78 - lenght: 2 - width: 4
+C140 - lenght: 1 - width: 4
+C118 - lenght: 1 - width: 4
+C57 - lenght: 2 - width: 5
+C79 - lenght: 2 - width: 5
+C141 - lenght: 1 - width: 5
+C119 - lenght: 1 - width: 5
+C58 - lenght: 2 - width: 6
+C80 - lenght: 2 - width: 6
+C120 - lenght: 1 - width: 6
+C142 - lenght: 1 - width: 6
+C81 - lenght: 2 - width: 7
+C59 - lenght: 2 - width: 7
+C121 - lenght: 1 - width: 7
+C143 - lenght: 1 - width: 7
+C60 - lenght: 2 - width: 8
+C82 - lenght: 2 - width: 8
+C144 - lenght: 1 - width: 8
+C122 - lenght: 1 - width: 8
+C83 - lenght: 2 - width: 9
+C61 - lenght: 2 - width: 9
+C145 - lenght: 1 - width: 9
+C123 - lenght: 1 - width: 9
+C62 - lenght: 2 - width: 10
+C84 - lenght: 2 - width: 10
+C124 - lenght: 1 - width: 10
+C146 - lenght: 1 - width: 10
+C63 - lenght: 2 - width: 11
+C85 - lenght: 2 - width: 11
+C64 - lenght: 2 - width: 11
+C147 - lenght: 1 - width: 11
+C126 - lenght: 1 - width: 11
+C86 - lenght: 2 - width: 12
+C65 - lenght: 2 - width: 12
+C125 - lenght: 2 - width: 12
+C148 - lenght: 1 - width: 12
+C127 - lenght: 1 - width: 12
+C66 - lenght: 2 - width: 13
+C87 - lenght: 2 - width: 13
+C149 - lenght: 1 - width: 13
+C128 - lenght: 1 - width: 13
+C67 - lenght: 2 - width: 14
+C88 - lenght: 2 - width: 14
+C150 - lenght: 1 - width: 14
+C129 - lenght: 1 - width: 14
+C89 - lenght: 2 - width: 15
+C68 - lenght: 2 - width: 15
+C151 - lenght: 1 - width: 15
+C130 - lenght: 1 - width: 15
+C69 - lenght: 2 - width: 16
+C90 - lenght: 2 - width: 16
+C131 - lenght: 1 - width: 16
+C152 - lenght: 1 - width: 16
+C70 - lenght: 2 - width: 17
+C91 - lenght: 2 - width: 17
+C153 - lenght: 1 - width: 17
+C132 - lenght: 1 - width: 17
+C92 - lenght: 2 - width: 18
+C71 - lenght: 2 - width: 18
+C133 - lenght: 1 - width: 18
+C154 - lenght: 1 - width: 18
+C73 - lenght: 2 - width: 19
+C93 - lenght: 2 - width: 19
+C72 - lenght: 2 - width: 19
+C135 - lenght: 1 - width: 19
+C155 - lenght: 1 - width: 19
+C74 - lenght: 2 - width: 20
+C94 - lenght: 2 - width: 20
+C134 - lenght: 2 - width: 20
+C136 - lenght: 1 - width: 20
+C156 - lenght: 1 - width: 20
+C75 - lenght: 2 - width: 21
+C95 - lenght: 2 - width: 21
+C137 - lenght: 1 - width: 21
+C157 - lenght: 1 - width: 21
+C76 - lenght: 2 - width: 22
+C96 - lenght: 2 - width: 22
+C158 - lenght: 1 - width: 22
+C97 - lenght: 2 - width: 23
+C138 - lenght: 2 - width: 23
+C159 - lenght: 1 - width: 23
+C98 - lenght: 2 - width: 24
+C160 - lenght: 2 - width: 25
+-------- topologically ordered insts with critical path preference-------
+C1
+C35
+C8
+C33
+C31
+C26
+C21
+C19
+C17
+C15
+C13
+C12
+C7
+C6
+C2
+C3
+C4
+C5
+C45
+C27
+C18
+C20
+C22
+C23
+C24
+C25
+C44
+C16
+C28
+C29
+C30
+C32
+C77
+C49
+C34
+C14
+C53
+C139
+C11
+C10
+C9
+C107
+C115
+C111
+C161
+C42
+C38
+C37
+C39
+C40
+C36
+C50
+C43
+C46
+C47
+C51
+C52
+C54
+C55
+C41
+C48
+C100
+C99
+C102
+C103
+C117
+C116
+C101
+C114
+C113
+C112
+C110
+C109
+C108
+C104
+C105
+C106
+C162
+C56
+C78
+C140
+C118
+C57
+C79
+C141
+C119
+C58
+C80
+C120
+C142
+C81
+C59
+C121
+C143
+C60
+C82
+C144
+C122
+C83
+C61
+C145
+C123
+C62
+C84
+C124
+C146
+C63
+C85
+C64
+C147
+C126
+C86
+C65
+C125
+C148
+C127
+C66
+C87
+C149
+C128
+C67
+C88
+C150
+C129
+C89
+C68
+C151
+C130
+C69
+C90
+C131
+C152
+C70
+C91
+C153
+C132
+C92
+C71
+C133
+C154
+C73
+C93
+C72
+C135
+C155
+C74
+C94
+C134
+C136
+C156
+C75
+C95
+C137
+C157
+C76
+C96
+C158
+C97
+C138
+C159
+C98
+C160
+ -----  filling mrt with cycles ------ 
+
+C77 is a loop head, conflictDelay = 0
+ ----- adding an mrt slot to C77 inst: %50 - M: 0 - delay: 0
+found MRT slot to C77 inst: %50 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+non resource constrained C96 inst: %69 (m, -) = (1,-) - delay: 0
+
+C1 is a loop head, conflictDelay = 0
+non resource constrained C1 inst: %2 (m, -) = (0,-) - delay: 0
+
+non resource constrained C97 inst: %70 (m, -) = (1,-) - delay: 0
+
+C139 is a loop head, conflictDelay = 0
+ ----- adding an mrt slot to C139 inst: %108 - M: 0 - delay: 0
+found MRT slot to C139 inst: %108 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to C98 inst: <badref> - M: 1 - delay: 0
+found MRT slot to C98 inst: <badref> - atdd_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 0
+
+non resource constrained C158 inst: %127 (m, -) = (1,-) - delay: 0
+
+non resource constrained C159 inst: %128 (m, -) = (1,-) - delay: 0
+
+ ----- adding an mrt slot to C160 inst: <badref> - M: 2 - delay: 0
+found MRT slot to C160 inst: <badref> - atdd_local_mem_dual_port with 2 instances -  (m, r) = (2, 0)
+delay: 0
+
+non resource constrained C45 inst: %21 (m, -) = (0,-) - delay: 0
+ -----  filling mrt with insts ------ 
+exiting on C1 - already on MRT
+non resource constrained inst: C35 (m, -) = (0, -)
+non resource constrained inst: C8 (m, -) = (0, -)
+non resource constrained inst: C33 (m, -) = (0, -)
+non resource constrained inst: C31 (m, -) = (0, -)
+non resource constrained inst: C26 (m, -) = (0, -)
+non resource constrained inst: C21 (m, -) = (0, -)
+non resource constrained inst: C19 (m, -) = (0, -)
+non resource constrained inst: C17 (m, -) = (0, -)
+non resource constrained inst: C15 (m, -) = (0, -)
+non resource constrained inst: C13 (m, -) = (0, -)
+non resource constrained inst: C12 (m, -) = (0, -)
+non resource constrained inst: C7 (m, -) = (0, -)
+non resource constrained inst: C6 (m, -) = (0, -)
+non resource constrained inst: C2 (m, -) = (0, -)
+non resource constrained inst: C3 (m, -) = (0, -)
+non resource constrained inst: C4 (m, -) = (0, -)
+non resource constrained inst: C5 (m, -) = (0, -)
+exiting on C45 - already on MRT
+non resource constrained inst: C27 (m, -) = (0, -)
+non resource constrained inst: C18 (m, -) = (0, -)
+non resource constrained inst: C20 (m, -) = (0, -)
+non resource constrained inst: C22 (m, -) = (0, -)
+non resource constrained inst: C23 (m, -) = (0, -)
+non resource constrained inst: C24 (m, -) = (0, -)
+non resource constrained inst: C25 (m, -) = (0, -)
+
+ ----- adding an mrt slot to inst: C44 - M: 0 - delay: 0
+found MRT slot for inst: C44 - ate_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+non resource constrained inst: C16 (m, -) = (0, -)
+non resource constrained inst: C28 (m, -) = (0, -)
+non resource constrained inst: C29 (m, -) = (0, -)
+non resource constrained inst: C30 (m, -) = (0, -)
+non resource constrained inst: C32 (m, -) = (0, -)
+exiting on C77 - already on MRT
+
+ ----- adding an mrt slot to inst: C49 - M: 0 - delay: 0
+found MRT slot for inst: C49 - atg_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+non resource constrained inst: C34 (m, -) = (0, -)
+non resource constrained inst: C14 (m, -) = (0, -)
+
+ ----- adding an mrt slot to inst: C53 - M: 0 - delay: 0
+found MRT slot for inst: C53 - atii_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+exiting on C139 - already on MRT
+non resource constrained inst: C11 (m, -) = (0, -)
+non resource constrained inst: C10 (m, -) = (0, -)
+non resource constrained inst: C9 (m, -) = (0, -)
+
+ ----- adding an mrt slot to inst: C107 - M: 0 - delay: 0
+found MRT slot for inst: C107 - ate_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C115 - M: 0 - delay: 0
+found MRT slot for inst: C115 - atii_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C111 - M: 0 - delay: 0
+found MRT slot for inst: C111 - atg_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+non resource constrained inst: C161 (m, -) = (0, -)
+
+ ----- adding an mrt slot to inst: C42 - M: 0 - delay: 0
+found MRT slot for inst: C42 - atd_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C38 - M: 0 - delay: 0
+found MRT slot for inst: C38 - atb_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C37 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C37 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C37 passing delay: 1 to instr: C56
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %32
+C56 passing delay: 1 to instr: C57
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %33
+C57 passing delay: 1 to instr: C58
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %34
+C58 passing delay: 1 to instr: C59
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %35
+C59 passing delay: 1 to instr: C60
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %36
+C60 passing delay: 1 to instr: C61
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %37
+C61 passing delay: 1 to instr: C62
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %38
+C62 passing delay: 1 to instr: C63
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C63 passing delay: 1 to instr: C125
+mem how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C62 passing delay: 1 to instr: C64
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %39
+C64 passing delay: 1 to instr: C65
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %40
+C65 passing delay: 1 to instr: C66
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %41
+C66 passing delay: 1 to instr: C67
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %42
+C67 passing delay: 1 to instr: C68
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %43
+C68 passing delay: 1 to instr: C69
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %44
+C69 passing delay: 1 to instr: C70
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %45
+C70 passing delay: 1 to instr: C71
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %46
+C71 passing delay: 1 to instr: C72
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C72 passing delay: 1 to instr: C134
+mem how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C71 passing delay: 1 to instr: C73
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %47
+C73 passing delay: 1 to instr: C74
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %48
+C74 passing delay: 1 to instr: C75
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %49
+C75 passing delay: 1 to instr: C76
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C76 passing delay: 1 to instr: C138
+mem how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C37 passing delay: 1 to instr: C78
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %51
+C78 passing delay: 1 to instr: C79
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %52
+C79 passing delay: 1 to instr: C80
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %53
+C80 passing delay: 1 to instr: C81
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %54
+C81 passing delay: 1 to instr: C82
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %55
+C82 passing delay: 1 to instr: C83
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %56
+C83 passing delay: 1 to instr: C84
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %57
+C84 passing delay: 1 to instr: C85
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %58
+C85 passing delay: 1 to instr: C86
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %59
+C86 passing delay: 1 to instr: C87
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %60
+C87 passing delay: 1 to instr: C88
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %61
+C88 passing delay: 1 to instr: C89
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %62
+C89 passing delay: 1 to instr: C90
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %63
+C90 passing delay: 1 to instr: C91
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %64
+C91 passing delay: 1 to instr: C92
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %65
+C92 passing delay: 1 to instr: C93
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %66
+C93 passing delay: 1 to instr: C94
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %67
+C94 passing delay: 1 to instr: C95
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %68
+C95 passing delay: 1 to instr: C96
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %69
+C96 passing delay: 1 to instr: C97
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: %70
+C97 passing delay: 1 to instr: C98
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+C98 passing delay: 1 to instr: C160
+mem how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+new delay: 1 to instr: <badref>
+
+ ----- adding an mrt slot to inst: C39 - M: 0 - delay: 0
+found MRT slot for inst: C39 - atb_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C40 - M: 0 - delay: 0
+found MRT slot for inst: C40 - atc_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C36 - M: 0 - delay: 0
+delay: 1
+delay: 2
+found MRT slot for inst: C36 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (2, 1)
+delay: 2
+C36 passing delay: 2 to instr: C56
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %32
+C56 passing delay: 2 to instr: C57
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %33
+C57 passing delay: 2 to instr: C58
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %34
+C58 passing delay: 2 to instr: C59
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %35
+C59 passing delay: 2 to instr: C60
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %36
+C60 passing delay: 2 to instr: C61
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %37
+C61 passing delay: 2 to instr: C62
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %38
+C62 passing delay: 2 to instr: C63
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C63 passing delay: 2 to instr: C125
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C62 passing delay: 2 to instr: C64
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %39
+C64 passing delay: 2 to instr: C65
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %40
+C65 passing delay: 2 to instr: C66
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %41
+C66 passing delay: 2 to instr: C67
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %42
+C67 passing delay: 2 to instr: C68
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %43
+C68 passing delay: 2 to instr: C69
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %44
+C69 passing delay: 2 to instr: C70
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %45
+C70 passing delay: 2 to instr: C71
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %46
+C71 passing delay: 2 to instr: C72
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C72 passing delay: 2 to instr: C134
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C71 passing delay: 2 to instr: C73
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %47
+C73 passing delay: 2 to instr: C74
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %48
+C74 passing delay: 2 to instr: C75
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %49
+C75 passing delay: 2 to instr: C76
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C76 passing delay: 2 to instr: C138
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C36 passing delay: 2 to instr: C78
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %51
+C78 passing delay: 2 to instr: C79
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %52
+C79 passing delay: 2 to instr: C80
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %53
+C80 passing delay: 2 to instr: C81
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %54
+C81 passing delay: 2 to instr: C82
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %55
+C82 passing delay: 2 to instr: C83
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %56
+C83 passing delay: 2 to instr: C84
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %57
+C84 passing delay: 2 to instr: C85
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %58
+C85 passing delay: 2 to instr: C86
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %59
+C86 passing delay: 2 to instr: C87
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %60
+C87 passing delay: 2 to instr: C88
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %61
+C88 passing delay: 2 to instr: C89
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %62
+C89 passing delay: 2 to instr: C90
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %63
+C90 passing delay: 2 to instr: C91
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %64
+C91 passing delay: 2 to instr: C92
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %65
+C92 passing delay: 2 to instr: C93
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %66
+C93 passing delay: 2 to instr: C94
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %67
+C94 passing delay: 2 to instr: C95
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %68
+C95 passing delay: 2 to instr: C96
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %69
+C96 passing delay: 2 to instr: C97
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: %70
+C97 passing delay: 2 to instr: C98
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+C98 passing delay: 2 to instr: C160
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+new delay: 2 to instr: <badref>
+
+ ----- adding an mrt slot to inst: C50 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C50 - atg_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C50 passing delay: 1 to instr: C69
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+C69 passing delay: 1 to instr: C70
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C70 passing delay: 2 to instr: C71
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C71 passing delay: 2 to instr: C72
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C72 passing delay: 2 to instr: C134
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C71 passing delay: 2 to instr: C73
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C73 passing delay: 2 to instr: C74
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C74 passing delay: 2 to instr: C75
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C75 passing delay: 2 to instr: C76
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C76 passing delay: 2 to instr: C138
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C50 passing delay: 1 to instr: C90
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+C90 passing delay: 1 to instr: C91
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C91 passing delay: 2 to instr: C92
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C92 passing delay: 2 to instr: C93
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C93 passing delay: 2 to instr: C94
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C94 passing delay: 2 to instr: C95
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C95 passing delay: 2 to instr: C96
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C96 passing delay: 2 to instr: C97
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C97 passing delay: 2 to instr: C98
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C98 passing delay: 2 to instr: C160
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+
+ ----- adding an mrt slot to inst: C43 - M: 0 - delay: 0
+found MRT slot for inst: C43 - atd_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C46 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C46 - ate_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C46 passing delay: 1 to instr: C65
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+C65 passing delay: 1 to instr: C66
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C66 passing delay: 2 to instr: C67
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C67 passing delay: 2 to instr: C68
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C68 passing delay: 2 to instr: C69
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C69 passing delay: 2 to instr: C70
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C70 passing delay: 2 to instr: C71
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C71 passing delay: 2 to instr: C72
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C72 passing delay: 2 to instr: C134
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C71 passing delay: 2 to instr: C73
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C73 passing delay: 2 to instr: C74
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C74 passing delay: 2 to instr: C75
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C75 passing delay: 2 to instr: C76
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C76 passing delay: 2 to instr: C138
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C46 passing delay: 1 to instr: C86
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 1 - 0
+C86 passing delay: 1 to instr: C87
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C87 passing delay: 2 to instr: C88
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C88 passing delay: 2 to instr: C89
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C89 passing delay: 2 to instr: C90
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C90 passing delay: 2 to instr: C91
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C91 passing delay: 2 to instr: C92
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C92 passing delay: 2 to instr: C93
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C93 passing delay: 2 to instr: C94
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C94 passing delay: 2 to instr: C95
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C95 passing delay: 2 to instr: C96
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C96 passing delay: 2 to instr: C97
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C97 passing delay: 2 to instr: C98
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+C98 passing delay: 2 to instr: C160
+mem how late = conflictDelay - lateMinusSoonTimes  ---  2 = 2 - 0
+
+ ----- adding an mrt slot to inst: C47 - M: 0 - delay: 0
+found MRT slot for inst: C47 - atf_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C51 - M: 0 - delay: 0
+found MRT slot for inst: C51 - ath_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C52 - M: 0 - delay: 0
+found MRT slot for inst: C52 - ath_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C54 - M: 0 - delay: 0
+found MRT slot for inst: C54 - atj_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+
+ ----- adding an mrt slot to inst: C55 - M: 0 - delay: 0
+found MRT slot for inst: C55 - atj_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C41 - M: 0 - delay: 0
+found MRT slot for inst: C41 - atc_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C48 - M: 0 - delay: 0
+found MRT slot for inst: C48 - atf_local_mem_dual_port with 2 instances -  (m, r) = (0, 1)
+delay: 0
+
+ ----- adding an mrt slot to inst: C100 - M: 0 - delay: 0
+delay: 1
+delay: 2
+delay: 3
+found MRT slot for inst: C100 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (3, 0)
+delay: 3
+C100 passing delay: 3 to instr: C118
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 3 - 1
+new delay: 2 to instr: %90
+C118 passing delay: 2 to instr: C119
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 2 - 1
+new delay: 1 to instr: %91
+C119 passing delay: 1 to instr: C120
+C100 passing delay: 3 to instr: C140
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 3 - 1
+new delay: 2 to instr: %109
+C140 passing delay: 2 to instr: C141
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 2 - 1
+new delay: 1 to instr: %110
+C141 passing delay: 1 to instr: C142
+
+ ----- adding an mrt slot to inst: C99 - M: 0 - delay: 0
+delay: 1
+delay: 2
+delay: 3
+found MRT slot for inst: C99 - atdd_local_mem_dual_port with 2 instances -  (m, r) = (3, 1)
+delay: 3
+C99 passing delay: 3 to instr: C118
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 3 - 1
+C118 passing delay: 2 to instr: C119
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 2 - 1
+C119 passing delay: 1 to instr: C120
+C99 passing delay: 3 to instr: C140
+dep how late = conflictDelay - lateMinusSoonTimes  ---  2 = 3 - 1
+C140 passing delay: 2 to instr: C141
+dep how late = conflictDelay - lateMinusSoonTimes  ---  1 = 2 - 1
+C141 passing delay: 1 to instr: C142
+
+ ----- adding an mrt slot to inst: C102 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C102 - atb_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C102 passing delay: 1 to instr: C120
+C102 passing delay: 1 to instr: C142
+
+ ----- adding an mrt slot to inst: C103 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C103 - atc_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C103 passing delay: 1 to instr: C121
+C103 passing delay: 1 to instr: C143
+
+ ----- adding an mrt slot to inst: C117 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C117 - atj_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C117 passing delay: 1 to instr: C137
+C117 passing delay: 1 to instr: C157
+
+ ----- adding an mrt slot to inst: C116 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C116 - atj_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C116 passing delay: 1 to instr: C136
+C116 passing delay: 1 to instr: C156
+
+ ----- adding an mrt slot to inst: C101 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C101 - atb_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C101 passing delay: 1 to instr: C119
+C101 passing delay: 1 to instr: C141
+
+ ----- adding an mrt slot to inst: C114 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C114 - ath_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C114 passing delay: 1 to instr: C133
+C114 passing delay: 1 to instr: C154
+
+ ----- adding an mrt slot to inst: C113 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C113 - ath_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C113 passing delay: 1 to instr: C132
+C113 passing delay: 1 to instr: C153
+
+ ----- adding an mrt slot to inst: C112 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C112 - atg_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C112 passing delay: 1 to instr: C131
+C112 passing delay: 1 to instr: C152
+
+ ----- adding an mrt slot to inst: C110 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C110 - atf_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C110 passing delay: 1 to instr: C129
+C110 passing delay: 1 to instr: C150
+
+ ----- adding an mrt slot to inst: C109 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C109 - atf_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C109 passing delay: 1 to instr: C128
+C109 passing delay: 1 to instr: C149
+
+ ----- adding an mrt slot to inst: C108 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C108 - ate_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C108 passing delay: 1 to instr: C127
+C108 passing delay: 1 to instr: C148
+
+ ----- adding an mrt slot to inst: C104 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C104 - atc_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C104 passing delay: 1 to instr: C122
+C104 passing delay: 1 to instr: C144
+
+ ----- adding an mrt slot to inst: C105 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C105 - atd_local_mem_dual_port with 2 instances -  (m, r) = (1, 0)
+delay: 1
+C105 passing delay: 1 to instr: C123
+C105 passing delay: 1 to instr: C145
+
+ ----- adding an mrt slot to inst: C106 - M: 0 - delay: 0
+delay: 1
+found MRT slot for inst: C106 - atd_local_mem_dual_port with 2 instances -  (m, r) = (1, 1)
+delay: 1
+C106 passing delay: 1 to instr: C124
+C106 passing delay: 1 to instr: C146
+non resource constrained inst: C162 (m, -) = (0, -)
+non resource constrained inst: C56 (m, -) = (3, -)
+non resource constrained inst: C78 (m, -) = (3, -)
+non resource constrained inst: C140 (m, -) = (3, -)
+non resource constrained inst: C118 (m, -) = (3, -)
+non resource constrained inst: C57 (m, -) = (3, -)
+non resource constrained inst: C79 (m, -) = (3, -)
+non resource constrained inst: C141 (m, -) = (2, -)
+non resource constrained inst: C119 (m, -) = (2, -)
+non resource constrained inst: C58 (m, -) = (3, -)
+non resource constrained inst: C80 (m, -) = (3, -)
+non resource constrained inst: C120 (m, -) = (1, -)
+non resource constrained inst: C142 (m, -) = (1, -)
+non resource constrained inst: C81 (m, -) = (3, -)
+non resource constrained inst: C59 (m, -) = (3, -)
+non resource constrained inst: C121 (m, -) = (1, -)
+non resource constrained inst: C143 (m, -) = (1, -)
+non resource constrained inst: C60 (m, -) = (3, -)
+non resource constrained inst: C82 (m, -) = (3, -)
+non resource constrained inst: C144 (m, -) = (1, -)
+non resource constrained inst: C122 (m, -) = (1, -)
+non resource constrained inst: C83 (m, -) = (3, -)
+non resource constrained inst: C61 (m, -) = (3, -)
+non resource constrained inst: C145 (m, -) = (1, -)
+non resource constrained inst: C123 (m, -) = (1, -)
+non resource constrained inst: C62 (m, -) = (3, -)
+non resource constrained inst: C84 (m, -) = (3, -)
+non resource constrained inst: C124 (m, -) = (1, -)
+non resource constrained inst: C146 (m, -) = (1, -)
+
+ ----- adding an mrt slot to inst: C63 - M: 3 - delay: 2
+found MRT slot for inst: C63 - atbb_local_mem_dual_port with 2 instances -  (m, r) = (3, 0)
+delay: 0
+non resource constrained inst: C85 (m, -) = (3, -)
+non resource constrained inst: C64 (m, -) = (3, -)
+non resource constrained inst: C147 (m, -) = (1, -)
+non resource constrained inst: C126 (m, -) = (1, -)
+non resource constrained inst: C86 (m, -) = (3, -)
+non resource constrained inst: C65 (m, -) = (3, -)
+
+ ----- adding an mrt slot to inst: C125 - M: 0 - delay: 2
+found MRT slot for inst: C125 - atbb_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+non resource constrained inst: C148 (m, -) = (1, -)
+non resource constrained inst: C127 (m, -) = (1, -)
+non resource constrained inst: C66 (m, -) = (3, -)
+non resource constrained inst: C87 (m, -) = (3, -)
+non resource constrained inst: C149 (m, -) = (1, -)
+non resource constrained inst: C128 (m, -) = (1, -)
+non resource constrained inst: C67 (m, -) = (3, -)
+non resource constrained inst: C88 (m, -) = (3, -)
+non resource constrained inst: C150 (m, -) = (1, -)
+non resource constrained inst: C129 (m, -) = (1, -)
+non resource constrained inst: C89 (m, -) = (3, -)
+non resource constrained inst: C68 (m, -) = (3, -)
+non resource constrained inst: C151 (m, -) = (1, -)
+non resource constrained inst: C130 (m, -) = (1, -)
+non resource constrained inst: C69 (m, -) = (3, -)
+non resource constrained inst: C90 (m, -) = (3, -)
+non resource constrained inst: C131 (m, -) = (1, -)
+non resource constrained inst: C152 (m, -) = (1, -)
+non resource constrained inst: C70 (m, -) = (3, -)
+non resource constrained inst: C91 (m, -) = (3, -)
+non resource constrained inst: C153 (m, -) = (1, -)
+non resource constrained inst: C132 (m, -) = (1, -)
+non resource constrained inst: C92 (m, -) = (3, -)
+non resource constrained inst: C71 (m, -) = (3, -)
+non resource constrained inst: C133 (m, -) = (1, -)
+non resource constrained inst: C154 (m, -) = (1, -)
+non resource constrained inst: C73 (m, -) = (3, -)
+non resource constrained inst: C93 (m, -) = (3, -)
+
+ ----- adding an mrt slot to inst: C72 - M: 3 - delay: 2
+found MRT slot for inst: C72 - ataa_local_mem_dual_port with 2 instances -  (m, r) = (3, 0)
+delay: 0
+non resource constrained inst: C135 (m, -) = (1, -)
+non resource constrained inst: C155 (m, -) = (1, -)
+non resource constrained inst: C74 (m, -) = (3, -)
+non resource constrained inst: C94 (m, -) = (3, -)
+
+ ----- adding an mrt slot to inst: C134 - M: 0 - delay: 2
+found MRT slot for inst: C134 - ataa_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+non resource constrained inst: C136 (m, -) = (1, -)
+non resource constrained inst: C156 (m, -) = (1, -)
+non resource constrained inst: C75 (m, -) = (3, -)
+non resource constrained inst: C95 (m, -) = (3, -)
+non resource constrained inst: C137 (m, -) = (1, -)
+non resource constrained inst: C157 (m, -) = (1, -)
+
+ ----- adding an mrt slot to inst: C76 - M: 3 - delay: 2
+found MRT slot for inst: C76 - atcc_local_mem_dual_port with 2 instances -  (m, r) = (3, 0)
+delay: 0
+exiting on C96 - already on MRT
+exiting on C158 - already on MRT
+exiting on C97 - already on MRT
+
+ ----- adding an mrt slot to inst: C138 - M: 0 - delay: 2
+found MRT slot for inst: C138 - atcc_local_mem_dual_port with 2 instances -  (m, r) = (0, 0)
+delay: 0
+exiting on C159 - already on MRT
+exiting on C98 - already on MRT
+exiting on C160 - already on MRT
+
+
+----- banana ---- 
+
+[C41:m=0:r=1] 
+[C42:m=0:r=0] 
+[C43:m=0:r=1] 
+[C44:m=0:r=0] 
+[C45:m=0:r=0] 
+[C46:m=1:r=0] 
+[C47:m=0:r=0] 
+[C52:m=0:r=1] 
+[C53:m=0:r=0] 
+[C54:m=0:r=0] 
+[C55:m=0:r=1] 
+[C56:m=3:r=0] 
+[C64:m=3:r=0] 
+[C57:m=3:r=0] 
+[C48:m=0:r=1] 
+[C49:m=0:r=0] 
+[C50:m=1:r=0] 
+[C51:m=0:r=0] 
+[C1:m=0:r=0] 
+[C2:m=0:r=0] 
+[C3:m=0:r=0] 
+[C4:m=0:r=0] 
+[C5:m=0:r=0] 
+[C6:m=0:r=0] 
+[C7:m=0:r=0] 
+[C8:m=0:r=0] 
+[C9:m=0:r=0] 
+[C10:m=0:r=0] 
+[C11:m=0:r=0] 
+[C12:m=0:r=0] 
+[C13:m=0:r=0] 
+[C14:m=0:r=0] 
+[C15:m=0:r=0] 
+[C16:m=0:r=0] 
+[C17:m=0:r=0] 
+[C18:m=0:r=0] 
+[C19:m=0:r=0] 
+[C20:m=0:r=0] 
+[C21:m=0:r=0] 
+[C22:m=0:r=0] 
+[C23:m=0:r=0] 
+[C24:m=0:r=0] 
+[C25:m=0:r=0] 
+[C26:m=0:r=0] 
+[C27:m=0:r=0] 
+[C28:m=0:r=0] 
+[C29:m=0:r=0] 
+[C30:m=0:r=0] 
+[C31:m=0:r=0] 
+[C32:m=0:r=0] 
+[C33:m=0:r=0] 
+[C34:m=0:r=0] 
+[C35:m=0:r=0] 
+[C36:m=2:r=1] 
+[C37:m=1:r=1] 
+[C38:m=0:r=0] 
+[C39:m=0:r=1] 
+[C40:m=0:r=0] 
+[C96:m=1:r=0] 
+[C97:m=1:r=0] 
+[C98:m=1:r=0] 
+[C107:m=0:r=1] 
+[C108:m=1:r=1] 
+[C109:m=1:r=1] 
+[C110:m=1:r=0] 
+[C111:m=0:r=1] 
+[C112:m=1:r=1] 
+[C113:m=1:r=1] 
+[C114:m=1:r=0] 
+[C115:m=0:r=1] 
+[C116:m=1:r=1] 
+[C117:m=1:r=0] 
+[C118:m=3:r=0] 
+[C126:m=1:r=0] 
+[C119:m=2:r=0] 
+[C99:m=3:r=1] 
+[C100:m=3:r=0] 
+[C101:m=1:r=1] 
+[C102:m=1:r=0] 
+[C103:m=1:r=0] 
+[C58:m=3:r=0] 
+[C59:m=3:r=0] 
+[C60:m=3:r=0] 
+[C61:m=3:r=0] 
+[C62:m=3:r=0] 
+[C63:m=3:r=0] 
+[C73:m=3:r=0] 
+[C65:m=3:r=0] 
+[C66:m=3:r=0] 
+[C67:m=3:r=0] 
+[C68:m=3:r=0] 
+[C69:m=3:r=0] 
+[C70:m=3:r=0] 
+[C71:m=3:r=0] 
+[C72:m=3:r=0] 
+[C74:m=3:r=0] 
+[C75:m=3:r=0] 
+[C76:m=3:r=0] 
+[C77:m=0:r=0] 
+[C78:m=3:r=0] 
+[C79:m=3:r=0] 
+[C80:m=3:r=0] 
+[C81:m=3:r=0] 
+[C82:m=3:r=0] 
+[C83:m=3:r=0] 
+[C84:m=3:r=0] 
+[C85:m=3:r=0] 
+[C86:m=3:r=0] 
+[C87:m=3:r=0] 
+[C88:m=3:r=0] 
+[C89:m=3:r=0] 
+[C90:m=3:r=0] 
+[C91:m=3:r=0] 
+[C92:m=3:r=0] 
+[C93:m=3:r=0] 
+[C94:m=3:r=0] 
+[C95:m=3:r=0] 
+[C104:m=1:r=1] 
+[C105:m=1:r=0] 
+[C106:m=1:r=1] 
+[C120:m=1:r=0] 
+[C121:m=1:r=0] 
+[C122:m=1:r=0] 
+[C123:m=1:r=0] 
+[C124:m=1:r=0] 
+[C125:m=0:r=0] 
+[C127:m=1:r=0] 
+[C128:m=1:r=0] 
+[C129:m=1:r=0] 
+[C130:m=1:r=0] 
+[C131:m=1:r=0] 
+[C132:m=1:r=0] 
+[C133:m=1:r=0] 
+[C134:m=0:r=0] 
+[C135:m=1:r=0] 
+[C136:m=1:r=0] 
+[C137:m=1:r=0] 
+[C138:m=0:r=0] 
+[C139:m=0:r=1] 
+[C140:m=3:r=0] 
+[C141:m=2:r=0] 
+[C142:m=1:r=0] 
+[C143:m=1:r=0] 
+[C144:m=1:r=0] 
+[C145:m=1:r=0] 
+[C146:m=1:r=0] 
+[C147:m=1:r=0] 
+[C148:m=1:r=0] 
+[C149:m=1:r=0] 
+[C150:m=1:r=0] 
+[C151:m=1:r=0] 
+[C152:m=1:r=0] 
+[C153:m=1:r=0] 
+[C154:m=1:r=0] 
+[C155:m=1:r=0] 
+[C156:m=1:r=0] 
+[C157:m=1:r=0] 
+[C158:m=1:r=0] 
+[C159:m=1:r=0] 
+[C160:m=2:r=0] 
+[C161:m=0:r=0] 
+[C162:m=0:r=0] 
+
+
+------conflict solved congruence class:
+inst: C41 - newM: 0
+inst: C42 - newM: 0
+inst: C43 - newM: 0
+inst: C44 - newM: 0
+inst: C45 - newM: 0
+inst: C46 - newM: 1
+inst: C47 - newM: 0
+inst: C52 - newM: 0
+inst: C53 - newM: 0
+inst: C54 - newM: 0
+inst: C55 - newM: 0
+inst: C56 - newM: 3
+inst: C64 - newM: 3
+inst: C57 - newM: 3
+inst: C48 - newM: 0
+inst: C49 - newM: 0
+inst: C50 - newM: 1
+inst: C51 - newM: 0
+inst: C1 - newM: 0
+inst: C2 - newM: 0
+inst: C3 - newM: 0
+inst: C4 - newM: 0
+inst: C5 - newM: 0
+inst: C6 - newM: 0
+inst: C7 - newM: 0
+inst: C8 - newM: 0
+inst: C9 - newM: 0
+inst: C10 - newM: 0
+inst: C11 - newM: 0
+inst: C12 - newM: 0
+inst: C13 - newM: 0
+inst: C14 - newM: 0
+inst: C15 - newM: 0
+inst: C16 - newM: 0
+inst: C17 - newM: 0
+inst: C18 - newM: 0
+inst: C19 - newM: 0
+inst: C20 - newM: 0
+inst: C21 - newM: 0
+inst: C22 - newM: 0
+inst: C23 - newM: 0
+inst: C24 - newM: 0
+inst: C25 - newM: 0
+inst: C26 - newM: 0
+inst: C27 - newM: 0
+inst: C28 - newM: 0
+inst: C29 - newM: 0
+inst: C30 - newM: 0
+inst: C31 - newM: 0
+inst: C32 - newM: 0
+inst: C33 - newM: 0
+inst: C34 - newM: 0
+inst: C35 - newM: 0
+inst: C36 - newM: 2
+inst: C37 - newM: 1
+inst: C38 - newM: 0
+inst: C39 - newM: 0
+inst: C40 - newM: 0
+inst: C96 - newM: 1
+inst: C97 - newM: 1
+inst: C98 - newM: 1
+inst: C107 - newM: 0
+inst: C108 - newM: 1
+inst: C109 - newM: 1
+inst: C110 - newM: 1
+inst: C111 - newM: 0
+inst: C112 - newM: 1
+inst: C113 - newM: 1
+inst: C114 - newM: 1
+inst: C115 - newM: 0
+inst: C116 - newM: 1
+inst: C117 - newM: 1
+inst: C118 - newM: 3
+inst: C126 - newM: 1
+inst: C119 - newM: 2
+inst: C99 - newM: 3
+inst: C100 - newM: 3
+inst: C101 - newM: 1
+inst: C102 - newM: 1
+inst: C103 - newM: 1
+inst: C58 - newM: 3
+inst: C59 - newM: 3
+inst: C60 - newM: 3
+inst: C61 - newM: 3
+inst: C62 - newM: 3
+inst: C63 - newM: 3
+inst: C73 - newM: 3
+inst: C65 - newM: 3
+inst: C66 - newM: 3
+inst: C67 - newM: 3
+inst: C68 - newM: 3
+inst: C69 - newM: 3
+inst: C70 - newM: 3
+inst: C71 - newM: 3
+inst: C72 - newM: 3
+inst: C74 - newM: 3
+inst: C75 - newM: 3
+inst: C76 - newM: 3
+inst: C77 - newM: 0
+inst: C78 - newM: 3
+inst: C79 - newM: 3
+inst: C80 - newM: 3
+inst: C81 - newM: 3
+inst: C82 - newM: 3
+inst: C83 - newM: 3
+inst: C84 - newM: 3
+inst: C85 - newM: 3
+inst: C86 - newM: 3
+inst: C87 - newM: 3
+inst: C88 - newM: 3
+inst: C89 - newM: 3
+inst: C90 - newM: 3
+inst: C91 - newM: 3
+inst: C92 - newM: 3
+inst: C93 - newM: 3
+inst: C94 - newM: 3
+inst: C95 - newM: 3
+inst: C104 - newM: 1
+inst: C105 - newM: 1
+inst: C106 - newM: 1
+inst: C120 - newM: 1
+inst: C121 - newM: 1
+inst: C122 - newM: 1
+inst: C123 - newM: 1
+inst: C124 - newM: 1
+inst: C125 - newM: 0
+inst: C127 - newM: 1
+inst: C128 - newM: 1
+inst: C129 - newM: 1
+inst: C130 - newM: 1
+inst: C131 - newM: 1
+inst: C132 - newM: 1
+inst: C133 - newM: 1
+inst: C134 - newM: 0
+inst: C135 - newM: 1
+inst: C136 - newM: 1
+inst: C137 - newM: 1
+inst: C138 - newM: 0
+inst: C139 - newM: 0
+inst: C140 - newM: 3
+inst: C141 - newM: 2
+inst: C142 - newM: 1
+inst: C143 - newM: 1
+inst: C144 - newM: 1
+inst: C145 - newM: 1
+inst: C146 - newM: 1
+inst: C147 - newM: 1
+inst: C148 - newM: 1
+inst: C149 - newM: 1
+inst: C150 - newM: 1
+inst: C151 - newM: 1
+inst: C152 - newM: 1
+inst: C153 - newM: 1
+inst: C154 - newM: 1
+inst: C155 - newM: 1
+inst: C156 - newM: 1
+inst: C157 - newM: 1
+inst: C158 - newM: 1
+inst: C159 - newM: 1
+inst: C160 - newM: 2
+inst: C161 - newM: 0
+inst: C162 - newM: 0
+foward edges ----
+C2 - C1 >= (0.000000e+00 - (0 - 0))/4
+C3 - C1 >= (0.000000e+00 - (0 - 0))/4
+C4 - C1 >= (0.000000e+00 - (0 - 0))/4
+C5 - C1 >= (0.000000e+00 - (0 - 0))/4
+C6 - C1 >= (0.000000e+00 - (0 - 0))/4
+C7 - C1 >= (0.000000e+00 - (0 - 0))/4
+C8 - C1 >= (0.000000e+00 - (0 - 0))/4
+C9 - C8 >= (0.000000e+00 - (0 - 0))/4
+C10 - C8 >= (0.000000e+00 - (0 - 0))/4
+C11 - C8 >= (0.000000e+00 - (0 - 0))/4
+C12 - C1 >= (0.000000e+00 - (0 - 0))/4
+C13 - C1 >= (0.000000e+00 - (0 - 0))/4
+C14 - C13 >= (0.000000e+00 - (0 - 0))/4
+C15 - C1 >= (0.000000e+00 - (0 - 0))/4
+C16 - C15 >= (0.000000e+00 - (0 - 0))/4
+C17 - C1 >= (0.000000e+00 - (0 - 0))/4
+C18 - C17 >= (0.000000e+00 - (0 - 0))/4
+C19 - C1 >= (0.000000e+00 - (0 - 0))/4
+C20 - C19 >= (0.000000e+00 - (0 - 0))/4
+C21 - C1 >= (0.000000e+00 - (0 - 0))/4
+C22 - C21 >= (0.000000e+00 - (0 - 0))/4
+C23 - C21 >= (0.000000e+00 - (0 - 0))/4
+C24 - C21 >= (0.000000e+00 - (0 - 0))/4
+C25 - C21 >= (0.000000e+00 - (0 - 0))/4
+C26 - C1 >= (0.000000e+00 - (0 - 0))/4
+C27 - C26 >= (0.000000e+00 - (0 - 0))/4
+C28 - C26 >= (0.000000e+00 - (0 - 0))/4
+C29 - C26 >= (0.000000e+00 - (0 - 0))/4
+C30 - C26 >= (0.000000e+00 - (0 - 0))/4
+C31 - C1 >= (0.000000e+00 - (0 - 0))/4
+C32 - C31 >= (0.000000e+00 - (0 - 0))/4
+C33 - C1 >= (0.000000e+00 - (0 - 0))/4
+C34 - C33 >= (0.000000e+00 - (0 - 0))/4
+C36 - C34 >= (0.000000e+00 - (2 - 0))/4
+C37 - C32 >= (0.000000e+00 - (1 - 0))/4
+C38 - C30 >= (0.000000e+00 - (0 - 0))/4
+C39 - C25 >= (0.000000e+00 - (0 - 0))/4
+C40 - C20 >= (0.000000e+00 - (0 - 0))/4
+C41 - C18 >= (0.000000e+00 - (0 - 0))/4
+C42 - C16 >= (0.000000e+00 - (0 - 0))/4
+C43 - C14 >= (0.000000e+00 - (0 - 0))/4
+C44 - C12 >= (0.000000e+00 - (0 - 0))/4
+C45 - C1 >= (0.000000e+00 - (0 - 0))/4
+C46 - C11 >= (0.000000e+00 - (1 - 0))/4
+C47 - C29 >= (0.000000e+00 - (0 - 0))/4
+C48 - C24 >= (0.000000e+00 - (0 - 0))/4
+C49 - C7 >= (0.000000e+00 - (0 - 0))/4
+C50 - C10 >= (0.000000e+00 - (1 - 0))/4
+C51 - C28 >= (0.000000e+00 - (0 - 0))/4
+C52 - C23 >= (0.000000e+00 - (0 - 0))/4
+C53 - C6 >= (0.000000e+00 - (0 - 0))/4
+C54 - C27 >= (0.000000e+00 - (0 - 0))/4
+C55 - C22 >= (0.000000e+00 - (0 - 0))/4
+C56 - C37 >= (1.000000e+00 - (3 - 1))/4
+C56 - C36 >= (1.000000e+00 - (3 - 2))/4
+C57 - C56 >= (0.000000e+00 - (3 - 3))/4
+C57 - C38 >= (1.000000e+00 - (3 - 0))/4
+C58 - C57 >= (0.000000e+00 - (3 - 3))/4
+C58 - C39 >= (1.000000e+00 - (3 - 0))/4
+C59 - C58 >= (0.000000e+00 - (3 - 3))/4
+C59 - C40 >= (1.000000e+00 - (3 - 0))/4
+C60 - C59 >= (0.000000e+00 - (3 - 3))/4
+C60 - C41 >= (1.000000e+00 - (3 - 0))/4
+C61 - C60 >= (0.000000e+00 - (3 - 3))/4
+C61 - C42 >= (1.000000e+00 - (3 - 0))/4
+C62 - C61 >= (0.000000e+00 - (3 - 3))/4
+C62 - C43 >= (1.000000e+00 - (3 - 0))/4
+C63 - C62 >= (0.000000e+00 - (3 - 3))/4
+C63 - C5 >= (0.000000e+00 - (3 - 0))/4
+C64 - C62 >= (0.000000e+00 - (3 - 3))/4
+C64 - C44 >= (1.000000e+00 - (3 - 0))/4
+C65 - C64 >= (0.000000e+00 - (3 - 3))/4
+C65 - C46 >= (1.000000e+00 - (3 - 1))/4
+C66 - C65 >= (0.000000e+00 - (3 - 3))/4
+C66 - C47 >= (1.000000e+00 - (3 - 0))/4
+C67 - C66 >= (0.000000e+00 - (3 - 3))/4
+C67 - C48 >= (1.000000e+00 - (3 - 0))/4
+C68 - C67 >= (0.000000e+00 - (3 - 3))/4
+C68 - C49 >= (1.000000e+00 - (3 - 0))/4
+C69 - C68 >= (0.000000e+00 - (3 - 3))/4
+C69 - C50 >= (1.000000e+00 - (3 - 1))/4
+C70 - C69 >= (0.000000e+00 - (3 - 3))/4
+C70 - C51 >= (1.000000e+00 - (3 - 0))/4
+C71 - C70 >= (0.000000e+00 - (3 - 3))/4
+C71 - C52 >= (1.000000e+00 - (3 - 0))/4
+C72 - C71 >= (0.000000e+00 - (3 - 3))/4
+C72 - C4 >= (0.000000e+00 - (3 - 0))/4
+C73 - C71 >= (0.000000e+00 - (3 - 3))/4
+C73 - C53 >= (1.000000e+00 - (3 - 0))/4
+C74 - C73 >= (0.000000e+00 - (3 - 3))/4
+C74 - C54 >= (1.000000e+00 - (3 - 0))/4
+C75 - C74 >= (0.000000e+00 - (3 - 3))/4
+C75 - C55 >= (1.000000e+00 - (3 - 0))/4
+C76 - C75 >= (0.000000e+00 - (3 - 3))/4
+C76 - C3 >= (0.000000e+00 - (3 - 0))/4
+C77 - C2 >= (0.000000e+00 - (0 - 0))/4
+C78 - C37 >= (1.000000e+00 - (3 - 1))/4
+C78 - C36 >= (1.000000e+00 - (3 - 2))/4
+C79 - C78 >= (0.000000e+00 - (3 - 3))/4
+C79 - C38 >= (1.000000e+00 - (3 - 0))/4
+C80 - C79 >= (0.000000e+00 - (3 - 3))/4
+C80 - C39 >= (1.000000e+00 - (3 - 0))/4
+C81 - C80 >= (0.000000e+00 - (3 - 3))/4
+C81 - C40 >= (1.000000e+00 - (3 - 0))/4
+C82 - C81 >= (0.000000e+00 - (3 - 3))/4
+C82 - C41 >= (1.000000e+00 - (3 - 0))/4
+C83 - C82 >= (0.000000e+00 - (3 - 3))/4
+C83 - C42 >= (1.000000e+00 - (3 - 0))/4
+C84 - C83 >= (0.000000e+00 - (3 - 3))/4
+C84 - C43 >= (1.000000e+00 - (3 - 0))/4
+C85 - C84 >= (0.000000e+00 - (3 - 3))/4
+C85 - C44 >= (1.000000e+00 - (3 - 0))/4
+C86 - C85 >= (0.000000e+00 - (3 - 3))/4
+C86 - C46 >= (1.000000e+00 - (3 - 1))/4
+C87 - C86 >= (0.000000e+00 - (3 - 3))/4
+C87 - C47 >= (1.000000e+00 - (3 - 0))/4
+C88 - C87 >= (0.000000e+00 - (3 - 3))/4
+C88 - C48 >= (1.000000e+00 - (3 - 0))/4
+C89 - C88 >= (0.000000e+00 - (3 - 3))/4
+C89 - C49 >= (1.000000e+00 - (3 - 0))/4
+C90 - C89 >= (0.000000e+00 - (3 - 3))/4
+C90 - C50 >= (1.000000e+00 - (3 - 1))/4
+C91 - C90 >= (0.000000e+00 - (3 - 3))/4
+C91 - C51 >= (1.000000e+00 - (3 - 0))/4
+C92 - C91 >= (0.000000e+00 - (3 - 3))/4
+C92 - C52 >= (1.000000e+00 - (3 - 0))/4
+C93 - C92 >= (0.000000e+00 - (3 - 3))/4
+C93 - C53 >= (1.000000e+00 - (3 - 0))/4
+C94 - C93 >= (0.000000e+00 - (3 - 3))/4
+C94 - C54 >= (1.000000e+00 - (3 - 0))/4
+C95 - C94 >= (0.000000e+00 - (3 - 3))/4
+C95 - C55 >= (1.000000e+00 - (3 - 0))/4
+C96 - C95 >= (0.000000e+00 - (1 - 3))/4
+C96 - C77 >= (1.000000e+00 - (1 - 0))/4
+C97 - C96 >= (0.000000e+00 - (1 - 1))/4
+C97 - C1 >= (0.000000e+00 - (1 - 0))/4
+C98 - C97 >= (0.000000e+00 - (1 - 1))/4
+C98 - C9 >= (0.000000e+00 - (1 - 0))/4
+C98 - C77 >= (1.000000e+00 - (1 - 0))/4
+C98 - C139 >= (1.000000e+00 - (1 - 0))/4
+C99 - C34 >= (0.000000e+00 - (3 - 0))/4
+C100 - C32 >= (0.000000e+00 - (3 - 0))/4
+C101 - C30 >= (0.000000e+00 - (1 - 0))/4
+C102 - C25 >= (0.000000e+00 - (1 - 0))/4
+C103 - C20 >= (0.000000e+00 - (1 - 0))/4
+C104 - C18 >= (0.000000e+00 - (1 - 0))/4
+C105 - C16 >= (0.000000e+00 - (1 - 0))/4
+C106 - C14 >= (0.000000e+00 - (1 - 0))/4
+C107 - C12 >= (0.000000e+00 - (0 - 0))/4
+C108 - C11 >= (0.000000e+00 - (1 - 0))/4
+C109 - C29 >= (0.000000e+00 - (1 - 0))/4
+C110 - C24 >= (0.000000e+00 - (1 - 0))/4
+C111 - C7 >= (0.000000e+00 - (0 - 0))/4
+C112 - C10 >= (0.000000e+00 - (1 - 0))/4
+C113 - C28 >= (0.000000e+00 - (1 - 0))/4
+C114 - C23 >= (0.000000e+00 - (1 - 0))/4
+C115 - C6 >= (0.000000e+00 - (0 - 0))/4
+C116 - C27 >= (0.000000e+00 - (1 - 0))/4
+C117 - C22 >= (0.000000e+00 - (1 - 0))/4
+C118 - C100 >= (1.000000e+00 - (3 - 3))/4
+C118 - C99 >= (1.000000e+00 - (3 - 3))/4
+C119 - C118 >= (0.000000e+00 - (2 - 3))/4
+C119 - C101 >= (1.000000e+00 - (2 - 1))/4
+C120 - C119 >= (0.000000e+00 - (1 - 2))/4
+C120 - C102 >= (1.000000e+00 - (1 - 1))/4
+C121 - C120 >= (0.000000e+00 - (1 - 1))/4
+C121 - C103 >= (1.000000e+00 - (1 - 1))/4
+C122 - C121 >= (0.000000e+00 - (1 - 1))/4
+C122 - C104 >= (1.000000e+00 - (1 - 1))/4
+C123 - C122 >= (0.000000e+00 - (1 - 1))/4
+C123 - C105 >= (1.000000e+00 - (1 - 1))/4
+C124 - C123 >= (0.000000e+00 - (1 - 1))/4
+C124 - C106 >= (1.000000e+00 - (1 - 1))/4
+C125 - C124 >= (0.000000e+00 - (0 - 1))/4
+C125 - C5 >= (0.000000e+00 - (0 - 0))/4
+C125 - C63 >= (1.000000e+00 - (0 - 3))/4
+C126 - C124 >= (0.000000e+00 - (1 - 1))/4
+C126 - C107 >= (1.000000e+00 - (1 - 0))/4
+C127 - C126 >= (0.000000e+00 - (1 - 1))/4
+C127 - C108 >= (1.000000e+00 - (1 - 1))/4
+C128 - C127 >= (0.000000e+00 - (1 - 1))/4
+C128 - C109 >= (1.000000e+00 - (1 - 1))/4
+C129 - C128 >= (0.000000e+00 - (1 - 1))/4
+C129 - C110 >= (1.000000e+00 - (1 - 1))/4
+C130 - C129 >= (0.000000e+00 - (1 - 1))/4
+C130 - C111 >= (1.000000e+00 - (1 - 0))/4
+C131 - C130 >= (0.000000e+00 - (1 - 1))/4
+C131 - C112 >= (1.000000e+00 - (1 - 1))/4
+C132 - C131 >= (0.000000e+00 - (1 - 1))/4
+C132 - C113 >= (1.000000e+00 - (1 - 1))/4
+C133 - C132 >= (0.000000e+00 - (1 - 1))/4
+C133 - C114 >= (1.000000e+00 - (1 - 1))/4
+C134 - C133 >= (0.000000e+00 - (0 - 1))/4
+C134 - C4 >= (0.000000e+00 - (0 - 0))/4
+C134 - C72 >= (1.000000e+00 - (0 - 3))/4
+C135 - C133 >= (0.000000e+00 - (1 - 1))/4
+C135 - C115 >= (1.000000e+00 - (1 - 0))/4
+C136 - C135 >= (0.000000e+00 - (1 - 1))/4
+C136 - C116 >= (1.000000e+00 - (1 - 1))/4
+C137 - C136 >= (0.000000e+00 - (1 - 1))/4
+C137 - C117 >= (1.000000e+00 - (1 - 1))/4
+C138 - C137 >= (0.000000e+00 - (0 - 1))/4
+C138 - C3 >= (0.000000e+00 - (0 - 0))/4
+C138 - C76 >= (1.000000e+00 - (0 - 3))/4
+C139 - C2 >= (0.000000e+00 - (0 - 0))/4
+C140 - C100 >= (1.000000e+00 - (3 - 3))/4
+C140 - C99 >= (1.000000e+00 - (3 - 3))/4
+C141 - C140 >= (0.000000e+00 - (2 - 3))/4
+C141 - C101 >= (1.000000e+00 - (2 - 1))/4
+C142 - C141 >= (0.000000e+00 - (1 - 2))/4
+C142 - C102 >= (1.000000e+00 - (1 - 1))/4
+C143 - C142 >= (0.000000e+00 - (1 - 1))/4
+C143 - C103 >= (1.000000e+00 - (1 - 1))/4
+C144 - C143 >= (0.000000e+00 - (1 - 1))/4
+C144 - C104 >= (1.000000e+00 - (1 - 1))/4
+C145 - C144 >= (0.000000e+00 - (1 - 1))/4
+C145 - C105 >= (1.000000e+00 - (1 - 1))/4
+C146 - C145 >= (0.000000e+00 - (1 - 1))/4
+C146 - C106 >= (1.000000e+00 - (1 - 1))/4
+C147 - C146 >= (0.000000e+00 - (1 - 1))/4
+C147 - C107 >= (1.000000e+00 - (1 - 0))/4
+C148 - C147 >= (0.000000e+00 - (1 - 1))/4
+C148 - C108 >= (1.000000e+00 - (1 - 1))/4
+C149 - C148 >= (0.000000e+00 - (1 - 1))/4
+C149 - C109 >= (1.000000e+00 - (1 - 1))/4
+C150 - C149 >= (0.000000e+00 - (1 - 1))/4
+C150 - C110 >= (1.000000e+00 - (1 - 1))/4
+C151 - C150 >= (0.000000e+00 - (1 - 1))/4
+C151 - C111 >= (1.000000e+00 - (1 - 0))/4
+C152 - C151 >= (0.000000e+00 - (1 - 1))/4
+C152 - C112 >= (1.000000e+00 - (1 - 1))/4
+C153 - C152 >= (0.000000e+00 - (1 - 1))/4
+C153 - C113 >= (1.000000e+00 - (1 - 1))/4
+C154 - C153 >= (0.000000e+00 - (1 - 1))/4
+C154 - C114 >= (1.000000e+00 - (1 - 1))/4
+C155 - C154 >= (0.000000e+00 - (1 - 1))/4
+C155 - C115 >= (1.000000e+00 - (1 - 0))/4
+C156 - C155 >= (0.000000e+00 - (1 - 1))/4
+C156 - C116 >= (1.000000e+00 - (1 - 1))/4
+C157 - C156 >= (0.000000e+00 - (1 - 1))/4
+C157 - C117 >= (1.000000e+00 - (1 - 1))/4
+C158 - C157 >= (0.000000e+00 - (1 - 1))/4
+C158 - C139 >= (1.000000e+00 - (1 - 0))/4
+C159 - C158 >= (0.000000e+00 - (1 - 1))/4
+C159 - C1 >= (0.000000e+00 - (1 - 0))/4
+C160 - C159 >= (0.000000e+00 - (2 - 1))/4
+C160 - C9 >= (0.000000e+00 - (2 - 0))/4
+C160 - C98 >= (1.000000e+00 - (2 - 1))/4
+C160 - C77 >= (1.000000e+00 - (2 - 0))/4
+C160 - C139 >= (1.000000e+00 - (2 - 0))/4
+C161 - C45 >= (0.000000e+00 - (0 - 0))/4
+C162 - C161 >= (0.000000e+00 - (0 - 0))/4
+back edges ----
+C1 - C45 >= (-4.000000e+00 - (0 - 0))/4
+cl: 0 - dist: 1 - latency0
+C77 - C98 >= (-3.000000e+00 - (0 - 1))/4
+cl: 0 - dist: 1 - latency1
+C139 - C98 >= (-3.000000e+00 - (0 - 1))/4
+cl: 0 - dist: 1 - latency1
+C77 - C160 >= (-3.000000e+00 - (0 - 2))/4
+cl: 0 - dist: 1 - latency1
+C139 - C160 >= (-3.000000e+00 - (0 - 2))/4
+cl: 0 - dist: 1 - latency1
+Optimal objective: 1.380000e+02
+sol: C1 = 0.000000e+00
+sol: C2 = 0.000000e+00
+sol: C3 = 0.000000e+00
+sol: C4 = 0.000000e+00
+sol: C5 = 0.000000e+00
+sol: C6 = 0.000000e+00
+sol: C7 = 0.000000e+00
+sol: C8 = 0.000000e+00
+sol: C9 = 0.000000e+00
+sol: C10 = 0.000000e+00
+sol: C11 = 0.000000e+00
+sol: C12 = 0.000000e+00
+sol: C13 = 0.000000e+00
+sol: C14 = 0.000000e+00
+sol: C15 = 0.000000e+00
+sol: C16 = 0.000000e+00
+sol: C17 = 0.000000e+00
+sol: C18 = 0.000000e+00
+sol: C19 = 0.000000e+00
+sol: C20 = 0.000000e+00
+sol: C21 = 0.000000e+00
+sol: C22 = 0.000000e+00
+sol: C23 = 0.000000e+00
+sol: C24 = 0.000000e+00
+sol: C25 = 0.000000e+00
+sol: C26 = 0.000000e+00
+sol: C27 = 0.000000e+00
+sol: C28 = 0.000000e+00
+sol: C29 = 0.000000e+00
+sol: C30 = 0.000000e+00
+sol: C31 = 0.000000e+00
+sol: C32 = 0.000000e+00
+sol: C33 = 0.000000e+00
+sol: C34 = 0.000000e+00
+sol: C35 = 0.000000e+00
+sol: C36 = 0.000000e+00
+sol: C37 = 0.000000e+00
+sol: C38 = 0.000000e+00
+sol: C39 = 0.000000e+00
+sol: C40 = 0.000000e+00
+sol: C41 = 0.000000e+00
+sol: C42 = 0.000000e+00
+sol: C43 = 0.000000e+00
+sol: C44 = 0.000000e+00
+sol: C45 = 0.000000e+00
+sol: C46 = 0.000000e+00
+sol: C47 = 0.000000e+00
+sol: C48 = 0.000000e+00
+sol: C49 = 0.000000e+00
+sol: C50 = 0.000000e+00
+sol: C51 = 0.000000e+00
+sol: C52 = 0.000000e+00
+sol: C53 = 0.000000e+00
+sol: C54 = 0.000000e+00
+sol: C55 = 0.000000e+00
+sol: C56 = 0.000000e+00
+sol: C57 = 0.000000e+00
+sol: C58 = 0.000000e+00
+sol: C59 = 0.000000e+00
+sol: C60 = 0.000000e+00
+sol: C61 = 0.000000e+00
+sol: C62 = 0.000000e+00
+sol: C63 = 0.000000e+00
+sol: C64 = 0.000000e+00
+sol: C65 = 0.000000e+00
+sol: C66 = 0.000000e+00
+sol: C67 = 0.000000e+00
+sol: C68 = 0.000000e+00
+sol: C69 = 0.000000e+00
+sol: C70 = 0.000000e+00
+sol: C71 = 0.000000e+00
+sol: C72 = 0.000000e+00
+sol: C73 = 0.000000e+00
+sol: C74 = 0.000000e+00
+sol: C75 = 0.000000e+00
+sol: C76 = 0.000000e+00
+sol: C77 = 3.000000e+00
+sol: C78 = 0.000000e+00
+sol: C79 = 0.000000e+00
+sol: C80 = 0.000000e+00
+sol: C81 = 0.000000e+00
+sol: C82 = 0.000000e+00
+sol: C83 = 0.000000e+00
+sol: C84 = 0.000000e+00
+sol: C85 = 0.000000e+00
+sol: C86 = 0.000000e+00
+sol: C87 = 0.000000e+00
+sol: C88 = 0.000000e+00
+sol: C89 = 0.000000e+00
+sol: C90 = 0.000000e+00
+sol: C91 = 0.000000e+00
+sol: C92 = 0.000000e+00
+sol: C93 = 0.000000e+00
+sol: C94 = 0.000000e+00
+sol: C95 = 0.000000e+00
+sol: C96 = 3.000000e+00
+sol: C97 = 3.000000e+00
+sol: C98 = 3.000000e+00
+sol: C99 = 0.000000e+00
+sol: C100 = 0.000000e+00
+sol: C101 = 0.000000e+00
+sol: C102 = 0.000000e+00
+sol: C103 = 0.000000e+00
+sol: C104 = 0.000000e+00
+sol: C105 = 0.000000e+00
+sol: C106 = 0.000000e+00
+sol: C107 = 0.000000e+00
+sol: C108 = 0.000000e+00
+sol: C109 = 0.000000e+00
+sol: C110 = 0.000000e+00
+sol: C111 = 0.000000e+00
+sol: C112 = 0.000000e+00
+sol: C113 = 0.000000e+00
+sol: C114 = 0.000000e+00
+sol: C115 = 0.000000e+00
+sol: C116 = 0.000000e+00
+sol: C117 = 0.000000e+00
+sol: C118 = 1.000000e+00
+sol: C119 = 2.000000e+00
+sol: C120 = 3.000000e+00
+sol: C121 = 3.000000e+00
+sol: C122 = 3.000000e+00
+sol: C123 = 3.000000e+00
+sol: C124 = 3.000000e+00
+sol: C125 = 4.000000e+00
+sol: C126 = 3.000000e+00
+sol: C127 = 3.000000e+00
+sol: C128 = 3.000000e+00
+sol: C129 = 3.000000e+00
+sol: C130 = 3.000000e+00
+sol: C131 = 3.000000e+00
+sol: C132 = 3.000000e+00
+sol: C133 = 3.000000e+00
+sol: C134 = 4.000000e+00
+sol: C135 = 3.000000e+00
+sol: C136 = 3.000000e+00
+sol: C137 = 3.000000e+00
+sol: C138 = 4.000000e+00
+sol: C139 = 3.000000e+00
+sol: C140 = 1.000000e+00
+sol: C141 = 2.000000e+00
+sol: C142 = 3.000000e+00
+sol: C143 = 3.000000e+00
+sol: C144 = 3.000000e+00
+sol: C145 = 3.000000e+00
+sol: C146 = 3.000000e+00
+sol: C147 = 3.000000e+00
+sol: C148 = 3.000000e+00
+sol: C149 = 3.000000e+00
+sol: C150 = 3.000000e+00
+sol: C151 = 3.000000e+00
+sol: C152 = 3.000000e+00
+sol: C153 = 3.000000e+00
+sol: C154 = 3.000000e+00
+sol: C155 = 3.000000e+00
+sol: C156 = 3.000000e+00
+sol: C157 = 3.000000e+00
+sol: C158 = 3.000000e+00
+sol: C159 = 3.000000e+00
+sol: C160 = 3.000000e+00
+sol: C161 = 0.000000e+00
+sol: C162 = 0.000000e+00
+inst: C1 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C2 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C3 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C4 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C5 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C6 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C7 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C8 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C9 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C10 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C11 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C12 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C13 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C14 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C15 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C16 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C17 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C18 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C19 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C20 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C21 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C22 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C23 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C24 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C25 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C26 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C27 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C28 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C29 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C30 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C31 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C32 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C33 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C34 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C35 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C36 - variableM: 2 + II*solution: 0.000000e+00 = 2
+inst: C37 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C38 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C39 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C40 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C41 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C42 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C43 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C44 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C45 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C46 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C47 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C48 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C49 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C50 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C51 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C52 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C53 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C54 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C55 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C56 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C57 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C58 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C59 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C60 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C61 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C62 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C63 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C64 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C65 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C66 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C67 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C68 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C69 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C70 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C71 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C72 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C73 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C74 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C75 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C76 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C77 - variableM: 0 + II*solution: 3.000000e+00 = 12
+inst: C78 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C79 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C80 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C81 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C82 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C83 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C84 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C85 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C86 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C87 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C88 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C89 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C90 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C91 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C92 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C93 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C94 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C95 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C96 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C97 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C98 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C99 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C100 - variableM: 3 + II*solution: 0.000000e+00 = 3
+inst: C101 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C102 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C103 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C104 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C105 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C106 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C107 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C108 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C109 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C110 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C111 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C112 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C113 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C114 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C115 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C116 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C117 - variableM: 1 + II*solution: 0.000000e+00 = 1
+inst: C118 - variableM: 3 + II*solution: 1.000000e+00 = 7
+inst: C119 - variableM: 2 + II*solution: 2.000000e+00 = 10
+inst: C120 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C121 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C122 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C123 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C124 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C125 - variableM: 0 + II*solution: 4.000000e+00 = 16
+inst: C126 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C127 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C128 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C129 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C130 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C131 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C132 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C133 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C134 - variableM: 0 + II*solution: 4.000000e+00 = 16
+inst: C135 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C136 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C137 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C138 - variableM: 0 + II*solution: 4.000000e+00 = 16
+inst: C139 - variableM: 0 + II*solution: 3.000000e+00 = 12
+inst: C140 - variableM: 3 + II*solution: 1.000000e+00 = 7
+inst: C141 - variableM: 2 + II*solution: 2.000000e+00 = 10
+inst: C142 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C143 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C144 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C145 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C146 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C147 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C148 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C149 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C150 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C151 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C152 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C153 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C154 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C155 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C156 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C157 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C158 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C159 - variableM: 1 + II*solution: 3.000000e+00 = 13
+inst: C160 - variableM: 2 + II*solution: 3.000000e+00 = 14
+inst: C161 - variableM: 0 + II*solution: 0.000000e+00 = 0
+inst: C162 - variableM: 0 + II*solution: 0.000000e+00 = 0
+sol: C1 = 0.000000e+00
+sol: C2 = 0.000000e+00
+sol: C3 = 0.000000e+00
+sol: C4 = 0.000000e+00
+sol: C5 = 0.000000e+00
+sol: C6 = 0.000000e+00
+sol: C7 = 0.000000e+00
+sol: C8 = 0.000000e+00
+sol: C9 = 0.000000e+00
+sol: C10 = 0.000000e+00
+sol: C11 = 0.000000e+00
+sol: C12 = 0.000000e+00
+sol: C13 = 0.000000e+00
+sol: C14 = 0.000000e+00
+sol: C15 = 0.000000e+00
+sol: C16 = 0.000000e+00
+sol: C17 = 0.000000e+00
+sol: C18 = 0.000000e+00
+sol: C19 = 0.000000e+00
+sol: C20 = 0.000000e+00
+sol: C21 = 0.000000e+00
+sol: C22 = 0.000000e+00
+sol: C23 = 0.000000e+00
+sol: C24 = 0.000000e+00
+sol: C25 = 0.000000e+00
+sol: C26 = 0.000000e+00
+sol: C27 = 0.000000e+00
+sol: C28 = 0.000000e+00
+sol: C29 = 0.000000e+00
+sol: C30 = 0.000000e+00
+sol: C31 = 0.000000e+00
+sol: C32 = 0.000000e+00
+sol: C33 = 0.000000e+00
+sol: C34 = 0.000000e+00
+sol: C35 = 0.000000e+00
+sol: C36 = 0.000000e+00
+sol: C37 = 0.000000e+00
+sol: C38 = 0.000000e+00
+sol: C39 = 0.000000e+00
+sol: C40 = 0.000000e+00
+sol: C41 = 0.000000e+00
+sol: C42 = 0.000000e+00
+sol: C43 = 0.000000e+00
+sol: C44 = 0.000000e+00
+sol: C45 = 0.000000e+00
+sol: C46 = 0.000000e+00
+sol: C47 = 0.000000e+00
+sol: C48 = 0.000000e+00
+sol: C49 = 0.000000e+00
+sol: C50 = 0.000000e+00
+sol: C51 = 0.000000e+00
+sol: C52 = 0.000000e+00
+sol: C53 = 0.000000e+00
+sol: C54 = 0.000000e+00
+sol: C55 = 0.000000e+00
+sol: C56 = 0.000000e+00
+sol: C57 = 0.000000e+00
+sol: C58 = 0.000000e+00
+sol: C59 = 0.000000e+00
+sol: C60 = 0.000000e+00
+sol: C61 = 0.000000e+00
+sol: C62 = 0.000000e+00
+sol: C63 = 0.000000e+00
+sol: C64 = 0.000000e+00
+sol: C65 = 0.000000e+00
+sol: C66 = 0.000000e+00
+sol: C67 = 0.000000e+00
+sol: C68 = 0.000000e+00
+sol: C69 = 0.000000e+00
+sol: C70 = 0.000000e+00
+sol: C71 = 0.000000e+00
+sol: C72 = 0.000000e+00
+sol: C73 = 0.000000e+00
+sol: C74 = 0.000000e+00
+sol: C75 = 0.000000e+00
+sol: C76 = 0.000000e+00
+sol: C77 = 3.000000e+00
+sol: C78 = 0.000000e+00
+sol: C79 = 0.000000e+00
+sol: C80 = 0.000000e+00
+sol: C81 = 0.000000e+00
+sol: C82 = 0.000000e+00
+sol: C83 = 0.000000e+00
+sol: C84 = 0.000000e+00
+sol: C85 = 0.000000e+00
+sol: C86 = 0.000000e+00
+sol: C87 = 0.000000e+00
+sol: C88 = 0.000000e+00
+sol: C89 = 0.000000e+00
+sol: C90 = 0.000000e+00
+sol: C91 = 0.000000e+00
+sol: C92 = 0.000000e+00
+sol: C93 = 0.000000e+00
+sol: C94 = 0.000000e+00
+sol: C95 = 0.000000e+00
+sol: C96 = 3.000000e+00
+sol: C97 = 3.000000e+00
+sol: C98 = 3.000000e+00
+sol: C99 = 0.000000e+00
+sol: C100 = 0.000000e+00
+sol: C101 = 0.000000e+00
+sol: C102 = 0.000000e+00
+sol: C103 = 0.000000e+00
+sol: C104 = 0.000000e+00
+sol: C105 = 0.000000e+00
+sol: C106 = 0.000000e+00
+sol: C107 = 0.000000e+00
+sol: C108 = 0.000000e+00
+sol: C109 = 0.000000e+00
+sol: C110 = 0.000000e+00
+sol: C111 = 0.000000e+00
+sol: C112 = 0.000000e+00
+sol: C113 = 0.000000e+00
+sol: C114 = 0.000000e+00
+sol: C115 = 0.000000e+00
+sol: C116 = 0.000000e+00
+sol: C117 = 0.000000e+00
+sol: C118 = 1.000000e+00
+sol: C119 = 2.000000e+00
+sol: C120 = 3.000000e+00
+sol: C121 = 3.000000e+00
+sol: C122 = 3.000000e+00
+sol: C123 = 3.000000e+00
+sol: C124 = 3.000000e+00
+sol: C125 = 4.000000e+00
+sol: C126 = 3.000000e+00
+sol: C127 = 3.000000e+00
+sol: C128 = 3.000000e+00
+sol: C129 = 3.000000e+00
+sol: C130 = 3.000000e+00
+sol: C131 = 3.000000e+00
+sol: C132 = 3.000000e+00
+sol: C133 = 3.000000e+00
+sol: C134 = 4.000000e+00
+sol: C135 = 3.000000e+00
+sol: C136 = 3.000000e+00
+sol: C137 = 3.000000e+00
+sol: C138 = 4.000000e+00
+sol: C139 = 3.000000e+00
+sol: C140 = 1.000000e+00
+sol: C141 = 2.000000e+00
+sol: C142 = 3.000000e+00
+sol: C143 = 3.000000e+00
+sol: C144 = 3.000000e+00
+sol: C145 = 3.000000e+00
+sol: C146 = 3.000000e+00
+sol: C147 = 3.000000e+00
+sol: C148 = 3.000000e+00
+sol: C149 = 3.000000e+00
+sol: C150 = 3.000000e+00
+sol: C151 = 3.000000e+00
+sol: C152 = 3.000000e+00
+sol: C153 = 3.000000e+00
+sol: C154 = 3.000000e+00
+sol: C155 = 3.000000e+00
+sol: C156 = 3.000000e+00
+sol: C157 = 3.000000e+00
+sol: C158 = 3.000000e+00
+sol: C159 = 3.000000e+00
+sol: C160 = 3.000000e+00
+sol: C161 = 0.000000e+00
+sol: C162 = 0.000000e+00
+Saporradeucerto  -- II: 4
+
+ final sched latency: 17
+Scheduled.
+MII = 4
+II = 4
+results:
+ - %2_0_t=0
+ - %scevgep_0_t=0
+ - %scevgep2_0_t=0
+ - %scevgep3_0_t=0
+ - %scevgep4_0_t=0
+ - %scevgep5_0_t=0
+ - %scevgep6_0_t=0
+ - %3_0_t=0
+ - %scevgep7_0_t=0
+ - %scevgep8_0_t=0
+ - %scevgep9_0_t=0
+ - %scevgep10_0_t=0
+ - %4_0_t=0
+ - %scevgep11_0_t=0
+ - %5_0_t=0
+ - %scevgep12_0_t=0
+ - %6_0_t=0
+ - %scevgep13_0_t=0
+ - %7_0_t=0
+ - %scevgep14_0_t=0
+ - %8_0_t=0
+ - %scevgep15_0_t=0
+ - %scevgep16_0_t=0
+ - %scevgep17_0_t=0
+ - %scevgep18_0_t=0
+ - %9_0_t=0
+ - %scevgep19_0_t=0
+ - %scevgep20_0_t=0
+ - %scevgep21_0_t=0
+ - %scevgep22_0_t=0
+ - %10_0_t=0
+ - %scevgep23_0_t=0
+ - %11_0_t=0
+ - %scevgep24_0_t=0
+ - <badref>_0_t=0
+ - %12_0_t=2
+ - %13_0_t=1
+ - %14_0_t=0
+ - %15_0_t=0
+ - %16_0_t=0
+ - %17_0_t=0
+ - %18_0_t=0
+ - %19_0_t=0
+ - %20_0_t=0
+ - %21_0_t=0
+ - %22_0_t=1
+ - %23_0_t=0
+ - %24_0_t=0
+ - %25_0_t=0
+ - %26_0_t=1
+ - %27_0_t=0
+ - %28_0_t=0
+ - %29_0_t=0
+ - %30_0_t=0
+ - %31_0_t=0
+ - %32_0_t=3
+ - %33_0_t=3
+ - %34_0_t=3
+ - %35_0_t=3
+ - %36_0_t=3
+ - %37_0_t=3
+ - %38_0_t=3
+ - <badref>_0_t=3
+ - %39_0_t=3
+ - %40_0_t=3
+ - %41_0_t=3
+ - %42_0_t=3
+ - %43_0_t=3
+ - %44_0_t=3
+ - %45_0_t=3
+ - %46_0_t=3
+ - <badref>_0_t=3
+ - %47_0_t=3
+ - %48_0_t=3
+ - %49_0_t=3
+ - <badref>_0_t=3
+ - %50_0_t=12
+ - %51_0_t=3
+ - %52_0_t=3
+ - %53_0_t=3
+ - %54_0_t=3
+ - %55_0_t=3
+ - %56_0_t=3
+ - %57_0_t=3
+ - %58_0_t=3
+ - %59_0_t=3
+ - %60_0_t=3
+ - %61_0_t=3
+ - %62_0_t=3
+ - %63_0_t=3
+ - %64_0_t=3
+ - %65_0_t=3
+ - %66_0_t=3
+ - %67_0_t=3
+ - %68_0_t=3
+ - %69_0_t=13
+ - %70_0_t=13
+ - <badref>_0_t=13
+ - %71_0_t=3
+ - %72_0_t=3
+ - %73_0_t=1
+ - %74_0_t=1
+ - %75_0_t=1
+ - %76_0_t=1
+ - %77_0_t=1
+ - %78_0_t=1
+ - %79_0_t=0
+ - %80_0_t=1
+ - %81_0_t=1
+ - %82_0_t=1
+ - %83_0_t=0
+ - %84_0_t=1
+ - %85_0_t=1
+ - %86_0_t=1
+ - %87_0_t=0
+ - %88_0_t=1
+ - %89_0_t=1
+ - %90_0_t=7
+ - %91_0_t=10
+ - %92_0_t=13
+ - %93_0_t=13
+ - %94_0_t=13
+ - %95_0_t=13
+ - %96_0_t=13
+ - <badref>_0_t=16
+ - %97_0_t=13
+ - %98_0_t=13
+ - %99_0_t=13
+ - %100_0_t=13
+ - %101_0_t=13
+ - %102_0_t=13
+ - %103_0_t=13
+ - %104_0_t=13
+ - <badref>_0_t=16
+ - %105_0_t=13
+ - %106_0_t=13
+ - %107_0_t=13
+ - <badref>_0_t=16
+ - %108_0_t=12
+ - %109_0_t=7
+ - %110_0_t=10
+ - %111_0_t=13
+ - %112_0_t=13
+ - %113_0_t=13
+ - %114_0_t=13
+ - %115_0_t=13
+ - %116_0_t=13
+ - %117_0_t=13
+ - %118_0_t=13
+ - %119_0_t=13
+ - %120_0_t=13
+ - %121_0_t=13
+ - %122_0_t=13
+ - %123_0_t=13
+ - %124_0_t=13
+ - %125_0_t=13
+ - %126_0_t=13
+ - %127_0_t=13
+ - %128_0_t=13
+ - <badref>_0_t=14
+ - %exitcond1_0_t=0
+ - <badref>_0_t=0
+
+
+
