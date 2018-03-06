@@ -1,3 +1,4 @@
+#set_parameter INCREMENTAL_SDC 1
 set_combine_basicblock 2
 loop_pipeline "loop"
 #set_parameter "processor" "host"
@@ -11,3 +12,4 @@ set_resource_constraint altfp_add 3
 set_resource_constraint altfp_multiply 3
 set_resource_constraint altfp_divide 3
 set_operation_latency divide 64
+set_parameter SOLVER "GUROBI"

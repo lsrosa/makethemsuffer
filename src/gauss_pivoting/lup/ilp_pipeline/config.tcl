@@ -19,3 +19,4 @@ set_resource_constraint divide 3
 set_resource_constraint altfp_add 1
 set_resource_constraint altfp_multiply 1
 set_resource_constraint altfp_divide 1
+set_parameter SOLVER "GUROBI"

@@ -1,3 +1,4 @@
+#set_parameter INCREMENTAL_SDC 1
 set_accelerator_function "jacobi_2d"
 set_combine_basicblock 2
 loop_pipeline "loop1"

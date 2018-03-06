@@ -1,10 +1,11 @@
+#set_parameter INCREMENTAL_SDC 1
 set_accelerator_function "sha"
 set_combine_basicblock 2
 loop_pipeline "loop1"
 loop_pipeline "loop2"
 loop_pipeline "loop3"
 loop_pipeline "loop4"
-loop_pipeline "loop5"
+#loop_pipeline "loop5"
 loop_pipeline "loop6"
 #loop_pipeline "loop7"
 loop_pipeline "loop8"
@@ -23,3 +24,4 @@ set_resource_constraint divide 3
 set_resource_constraint altfp_add 3
 set_resource_constraint altfp_multiply 3
 set_resource_constraint altfp_divide 3
+set_parameter SOLVER "GUROBI"

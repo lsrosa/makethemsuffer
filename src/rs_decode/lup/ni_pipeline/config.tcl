@@ -32,3 +32,4 @@ set_parameter MODULO_SCHEDULER "NI"
 #set_parameter NI_DEBUG 1
 
 #set_parameter "processor" "host"
+set_parameter SOLVER "GUROBI"

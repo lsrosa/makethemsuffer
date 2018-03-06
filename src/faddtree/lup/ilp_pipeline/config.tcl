@@ -17,3 +17,4 @@ set_parameter INCREMENTAL_SDC 0
 
 set_parameter GA_DEBUG 0
 set_parameter MODULO_SCHEDULER "ILP"
+set_parameter SOLVER "GUROBI"

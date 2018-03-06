@@ -13,3 +13,4 @@ set_resource_constraint altfp_divide 3
 set_operation_latency divide 64
 
 set_parameter MODULO_SCHEDULER "ILP"
+set_parameter SOLVER "GUROBI"

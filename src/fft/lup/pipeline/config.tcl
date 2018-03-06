@@ -1,4 +1,5 @@
-  #set_accelerator_function "fft"
+#set_parameter INCREMENTAL_SDC 1
+#set_accelerator_function "fft"
   set_combine_basicblock 2
   loop_pipeline "loop2"
   loop_pipeline "loop3"

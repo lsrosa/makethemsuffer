@@ -1,5 +1,5 @@
 load('../build/plots/verilogGen.mat');
-nschedulers = 4;
+nschedulers = 3;
 %totaltime = totaltime;
 load('../build/plots/sdcpipelinetotaltime.mat');
 benchs = names;
@@ -12,6 +12,10 @@ pipelinelatency(1,:) = totalpipelinelatency;
 pipelinetotalcycles(1,:) = totalpipelinetotalcycles;
 pipelinetotaltime(1,:) = totalpipelinetime;
 pipelinesolvetime(1,:) = solvepipelinetime;
+pipelinetripcount(1,:) = totaltripcounts;
+pipelinetimestd(1,:) = solvepipelinetimestd;
+pipelinelatencystd(1,:) = totalpipelinelatencystd;
+pipelinetotalcyclesstd(1,:) = totalpipelinetotalcyclesstd;
 load('../build/plots/ilppipelinetotaltime.mat');
 ilptotalpipelinetime = totalpipelinetime;
 pipelinensolve(2,:) = totalpipelinensolve;
@@ -22,6 +26,10 @@ pipelinelatency(2,:) = totalpipelinelatency;
 pipelinetotalcycles(2,:) = totalpipelinetotalcycles;
 pipelinetotaltime(2,:) = totalpipelinetime;
 pipelinesolvetime(2,:) = solvepipelinetime;
+pipelinetripcount(2,:) = totaltripcounts;
+pipelinetimestd(2,:) = solvepipelinetimestd;
+pipelinelatencystd(2,:) = totalpipelinelatencystd;
+pipelinetotalcyclesstd(2,:) = totalpipelinetotalcyclesstd;
 load('../build/plots/gapipelinetotaltime.mat');
 gatotalpipelinetime = totalpipelinetime;
 pipelinensolve(3,:) = totalpipelinensolve;
@@ -32,9 +40,13 @@ pipelinelatency(3,:) = totalpipelinelatency;
 pipelinetotalcycles(3,:) = totalpipelinetotalcycles;
 pipelinetotaltime(3,:) = totalpipelinetime;
 pipelinesolvetime(3,:) = solvepipelinetime;
+pipelinetripcount(3,:) = totaltripcounts;
+pipelinetimestd(3,:) = solvepipelinetimestd;
+pipelinelatencystd(3,:) = totalpipelinelatencystd;
+pipelinetotalcyclesstd(3,:) = totalpipelinetotalcyclesstd;
 load('../build/plots/nipipelinetotaltime.mat');
 nitotalpipelinetime = totalpipelinetime;
-pipelinensolve(4,:) = totalpipelinensolve;
+pipelinensolve(4,:) = totalpipelinensolve
 pipelineii(4,:) = totalpipelineii;
 pipelinenvar(4,:) = totalpipelinenvar;
 pipelinencons(4,:) = totalpipelinencons;
@@ -42,8 +54,12 @@ pipelinelatency(4,:) = totalpipelinelatency;
 pipelinetotalcycles(4,:) = totalpipelinetotalcycles;
 pipelinetotaltime(4,:) = totalpipelinetime;
 pipelinesolvetime(4,:) = solvepipelinetime;
+pipelinetripcount(4,:) = totaltripcounts;
+pipelinetimestd(4,:) = solvepipelinetimestd;
+pipelinelatencystd(4,:) = totalpipelinelatencystd;
+pipelinetotalcyclesstd(4,:) = totalpipelinetotalcyclesstd;
 
-afterReading = 1;
+afterReading = 1
 pipelinetotaltime;
 pipelinesolvetime;
 
@@ -56,55 +72,36 @@ for i=1:numel(benchs)
   benchnames(i) = parts(3);
 end
 
-benchnames;
 [~, fileindex] = sort(totalloopsizes);
 totalloopsizes = totalloopsizes(fileindex);
 
 benchnames
-benchnames = {'ac', 'ai', '2x ai', '4x ai', 'cp', 'cv', 'dv', 'fat', 'ft', 'gp', 'j2', 'mt', 'rc', 'rs', 'sh'};
+benchnames = {'ac', 'ai', 'cp', 'cv', 'dv', 'fat', 'ft', 'gp', 'j2', 'mt', 'rc', 'rs', 'sh'}
 benchnames = benchnames(fileindex)
 
+%totaltime
 filesizes = filesizes(fileindex);
-totaltime = totaltime(fileindex);
-sdctotalpipelinetime = sdctotalpipelinetime(fileindex);
-ilptotalpipelinetime = ilptotalpipelinetime(fileindex);
-gatotalpipelinetime = gatotalpipelinetime(fileindex);
+%totaltime = totaltime(fileindex);
+%sdctotalpipelinetime = sdctotalpipelinetime(fileindex);
+%ilptotalpipelinetime = ilptotalpipelinetime(fileindex);
+%gatotalpipelinetime = gatotalpipelinetime(fileindex);
 
-pipelinensolve(1,:) = pipelinensolve(1,fileindex);
-pipelineii(1,:) = pipelineii(1,fileindex);
-pipelinenvar(1,:) = pipelinenvar(1,fileindex);
-pipelinencons(1,:) = pipelinencons(1,fileindex);
-pipelinelatency(1,:) = pipelinelatency(1,fileindex);
-pipelinetotalcycles(1,:) = pipelinetotalcycles(1,fileindex);
-pipelinetotaltime(1,:) = pipelinetotaltime(1,fileindex);
-pipelinesolvetime(1,:) = pipelinesolvetime(1,fileindex);
+for i=1:nschedulers
+  pipelinensolve(i,:) = pipelinensolve(i,fileindex);
+  pipelineii(i,:) = pipelineii(i,fileindex);
+  pipelinenvar(i,:) = pipelinenvar(i,fileindex);
+  pipelinencons(i,:) = pipelinencons(i,fileindex);
+  pipelinelatency(i,:) = pipelinelatency(i,fileindex);
+  pipelinetotalcycles(i,:) = pipelinetotalcycles(i,fileindex);
+  pipelinetotaltime(i,:) = pipelinetotaltime(i,fileindex);
+  pipelinesolvetime(i,:) = pipelinesolvetime(i,fileindex);
+  pipelinetripcount(i,:) = pipelinetripcount(i,fileindex);
+  pipelinetimestd(i,:) = pipelinetimestd(i,fileindex);
+  pipelinelatencystd(i,:) = pipelinelatencystd(i,fileindex);
+  pipelinetotalcyclesstd(i,:) = pipelinetotalcyclesstd(i,fileindex);
+end
 
-pipelinensolve(2,:) = pipelinensolve(2,fileindex);
-pipelineii(2,:) = pipelineii(2,fileindex);
-pipelinenvar(2,:) = pipelinenvar(2,fileindex);
-pipelinencons(2,:) = pipelinencons(2,fileindex);
-pipelinelatency(2,:) = pipelinelatency(2,fileindex);
-pipelinetotalcycles(2,:) = pipelinetotalcycles(2,fileindex);
-pipelinetotaltime(2,:) = pipelinetotaltime(2,fileindex);
-pipelinesolvetime(2,:) = pipelinesolvetime(2,fileindex);
-
-pipelinensolve(3,:) = pipelinensolve(3,fileindex);
-pipelineii(3,:) = pipelineii(3,fileindex);
-pipelinenvar(3,:) = pipelinenvar(3,fileindex);
-pipelinencons(3,:) = pipelinencons(3,fileindex);
-pipelinelatency(3,:) = pipelinelatency(3,fileindex);
-pipelinetotalcycles(3,:) = pipelinetotalcycles(3,fileindex);
-pipelinetotaltime(3,:) = pipelinetotaltime(3,fileindex);
-pipelinesolvetime(3,:) = pipelinesolvetime(3,fileindex);
-
-pipelinensolve(4,:) = pipelinensolve(4,fileindex);
-pipelineii(4,:) = pipelineii(4,fileindex);
-pipelinenvar(4,:) = pipelinenvar(4,fileindex);
-pipelinencons(4,:) = pipelinencons(4,fileindex);
-pipelinelatency(4,:) = pipelinelatency(4,fileindex);
-pipelinetotalcycles(4,:) = pipelinetotalcycles(4,fileindex);
-pipelinetotaltime(4,:) = pipelinetotaltime(4,fileindex);
-pipelinesolvetime(4,:) = pipelinesolvetime(4,fileindex);
+pipelinetripcount
 
 %-------------------------------------------------------------------------------
 %-------------------------------print tables for latex -------------------------
@@ -138,11 +135,19 @@ t2values(end,2*ns+1:3*ns) = t2values(end-1,2*ns+1:3*ns)/t2values(end-1,2*ns+1);
 t2values(end,3*ns+1:4*ns) = t2values(end-1,3*ns+1:4*ns)/t2values(end-1,3*ns+1);
 %t2values(end,13:15) = t2values(end-1,13:15)/t2values(end-1,13)
 
+pipelinetimestd = [pipelinetimestd'; 0 0 0 0; 0 0 0 0]/2
+pipelinetotalcyclesstd = [pipelinetotalcyclesstd'; 0 0 0 0; 0 0 0 0]/2
+pipelinelatencystd = [pipelinelatencystd'; 0 0 0 0; 0 0 0 0]/2
+
 for row=1:numel(bn)
   fprintf(tab2, "%s", bn{row});
   for col=1:4*ns
-    if(col == 4*ns)
-      fprintf(tab2, " & %.2e", t2values(row, col));
+    if(col == 1*ns+3)
+      fprintf(tab2, " & %.2f $\\pm$ %.2f", t2values(row, col), pipelinelatencystd(row,3));
+    elseif(col == 2*ns+3)
+      fprintf(tab2, " & %.2f $\\pm$ %.2f", t2values(row, col), pipelinetotalcyclesstd(row,3));
+    elseif (col > 3*ns)
+      fprintf(tab2, " & %.2f", t2values(row, col));
     else
       fprintf(tab2, " & %.2f", t2values(row, col));
     end

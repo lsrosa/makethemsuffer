@@ -17,3 +17,4 @@ set_parameter MODULO_SCHEDULER "GA"
 set_parameter GA_POPULATION_SIZE 1
 set_parameter GA_MAXIMUM_GENERATIONS 1
 set_parameter GA_MUTATION_PROB 1
+set_parameter SOLVER "GUROBI"

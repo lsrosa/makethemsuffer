@@ -1,7 +1,7 @@
 %get the name of the files as a list via command line
 arg_list = argv();
 nfiles = numel(arg_list);
-rep = 30;
+rep = 2;
 
 %initialized arrays
 %I know that this is inneficient but there is no way to know the number of
@@ -16,12 +16,12 @@ schedmaptime = [];
 schedslvtime = [];
 schedfsmtime = [];
 schedovhtime = [];
-totaltime = zeros(30, nfiles);
+totaltime = zeros(rep, nfiles);
 filesizes = zeros(1, nfiles);
 names = cell();
 %nfiles = 1
 for file=1:nfiles
-  names(file) = arg_list(file);
+  names(file) = arg_list(file)
   a = importdata(char(arg_list(file)), '\t', 1);
   %a = importdata('DetailedLegUPTiming2', '\t', 1);
 
@@ -80,6 +80,8 @@ end
 totaltime = mean(totaltime);
 save("../build/plots/verilogGen.mat", 'names', 'filesizes', 'totaltime')
 
+return;
+
 %sorts according to the code size, not necessary now but helps to plot
 %sizeindex works as jindex
 funcnames = funcnames(2:end); %remove the initial empty string
@@ -119,6 +121,7 @@ schedovhstd = std(schedovhtime);
 %considers only the average values in the approximation
 polyx = funcsizes;
 degree = 2;
+
 allocP = polyfit(polyx, allocmean, degree);
 schedP = polyfit(polyx, schedmean, degree);
 bindiP = polyfit(polyx, bindimean, degree);

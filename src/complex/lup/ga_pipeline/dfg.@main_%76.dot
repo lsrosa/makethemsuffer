@@ -1,4 +1,0 @@
-digraph {
-Node0x3770b20[label="  %77 = trunc i64 %69 to i32"];
-Node0x3770b20 -> Node0x3770b20[label="D:0.00ns L:0",color=blue];
-}

@@ -114,6 +114,10 @@ plots:
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/ni_pipeline.mat
 	mv $(BUILD_DIR)/$(PLOTS_DIR)/pipedata.mat $(BUILD_DIR)/$(PLOTS_DIR)/nipipelinetotaltime.mat
 
+	#octave $(BUILD_DIR)/$(PLOTS_DIR)/sdcmodsched.m $(BUILD_DIR)/*/lup/sm_pipeline/DetailedModuleSDCSchedulingTime
+	#mv $(BUILD_DIR)/$(PLOTS_DIR)/data.mat $(BUILD_DIR)/$(PLOTS_DIR)/sm_pipeline.mat
+	#mv $(BUILD_DIR)/$(PLOTS_DIR)/pipedata.mat $(BUILD_DIR)/$(PLOTS_DIR)/smpipelinetotaltime.mat
+
 compareGA_plot:
 	cp $(PLOTS_DIR)/*.m $(BUILD_DIR)/$(PLOTS_DIR)
 	octave $(BUILD_DIR)/$(PLOTS_DIR)/compareGA.m

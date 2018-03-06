@@ -1,3 +1,4 @@
+#set_parameter INCREMENTAL_SDC 1
 #set_accelerator_function "rs_decode"
 set_combine_basicblock 2
 

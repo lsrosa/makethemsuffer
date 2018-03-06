@@ -14,8 +14,9 @@ loop_pipeline "loop"
 #set_parameter "processor" "host"
 #set_parameter LOCAL_RAMS 1
 
-set_parameter GA_DEBUG 1
+#set_parameter GA_DEBUG 1
 set_parameter MODULO_SCHEDULER "GA"
 set_parameter GA_POPULATION_SIZE 1
 set_parameter GA_MAXIMUM_GENERATIONS 1
 set_parameter GA_MUTATION_PROB 1
+set_parameter SOLVER "GUROBI"
