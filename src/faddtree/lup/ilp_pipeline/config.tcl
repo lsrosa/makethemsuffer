@@ -1,3 +1,4 @@
+#set_parameter INCREMENTAL_SDC 1
 set_combine_basicblock 2
 loop_pipeline "loop"
 #set_parameter "processor" "host"
@@ -14,7 +15,5 @@ set_operation_latency altfp_add 13
 
 # Runtime analysis - incremental SDC
 set_parameter INCREMENTAL_SDC 0
-
-set_parameter GA_DEBUG 0
-set_parameter MODULO_SCHEDULER "ILP"
 set_parameter SOLVER "GUROBI"
+set_parameter MODULO_SCHEDULER "ILP"

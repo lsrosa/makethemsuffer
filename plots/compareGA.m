@@ -1,5 +1,5 @@
 load('../build/plots/verilogGen.mat');
-nschedulers = 3;
+nschedulers = 4;
 %totaltime = totaltime;
 load('../build/plots/sdcpipelinetotaltime.mat');
 benchs = names;
@@ -115,7 +115,7 @@ t1values(end+1,:) = geomean(t1values);
 t1values(end+1,1:ns) = t1values(end,1:ns)/t1values(end,1);
 t1values(end,ns+1:2*ns) = t1values(end-1,ns+1:2*ns)/t1values(end-1,ns+1);
 t1values(end,2*ns+1:3*ns) = t1values(end-1,2*ns+1:3*ns)/t1values(end-1,2*ns+1);
-%t1values(end,10:12) = t1values(end-1,10:12)/t1values(end-1,10)
+t1values(end,10:12) = t1values(end-1,10:12)/t1values(end-1,10)
 
 for row=1:numel(bn)
   fprintf(tab1, "%s", bn{row});
@@ -133,11 +133,29 @@ t2values(end+1,1:ns) = t2values(end,1:ns)/t2values(end,1);
 t2values(end,ns+1:2*ns) = t2values(end-1,ns+1:2*ns)/t2values(end-1,ns+1);
 t2values(end,2*ns+1:3*ns) = t2values(end-1,2*ns+1:3*ns)/t2values(end-1,2*ns+1);
 t2values(end,3*ns+1:4*ns) = t2values(end-1,3*ns+1:4*ns)/t2values(end-1,3*ns+1);
-%t2values(end,13:15) = t2values(end-1,13:15)/t2values(end-1,13)
+t2values(end,13:15) = t2values(end-1,13:15)/t2values(end-1,13);
 
-pipelinetimestd = [pipelinetimestd'; 0 0 0 0; 0 0 0 0]/2
-pipelinetotalcyclesstd = [pipelinetotalcyclesstd'; 0 0 0 0; 0 0 0 0]/2
-pipelinelatencystd = [pipelinelatencystd'; 0 0 0 0; 0 0 0 0]/2
+t2values
+
+pipelinetimestd = [pipelinetimestd'; 0 0 0 0; 0 0 0 0]/2;
+pipelinetotalcyclesstd = [pipelinetotalcyclesstd'; 0 0 0 0; 0 0 0 0]/2;
+pipelinelatencystd = [pipelinelatencystd'; 0 0 0 0; 0 0 0 0]/2;
+
+for row=1:numel(bn)
+  fprintf(tab2, "%s", bn{row});
+  for col=1:4*ns
+    if( col == 3*ns+2)
+      fprintf(tab2, " & %.2e", 100*t2values(row, col));
+    else
+      fprintf(tab2, " & %.2f", 100*t2values(row, col));
+    end
+  end
+  fprintf(tab2, " \\\\\\hline\n");
+end
+
+fclose(tab1);
+fclose(tab2);
+return;
 
 for row=1:numel(bn)
   fprintf(tab2, "%s", bn{row});
@@ -146,6 +164,8 @@ for row=1:numel(bn)
       fprintf(tab2, " & %.2f $\\pm$ %.2f", t2values(row, col), pipelinelatencystd(row,3));
     elseif(col == 2*ns+3)
       fprintf(tab2, " & %.2f $\\pm$ %.2f", t2values(row, col), pipelinetotalcyclesstd(row,3));
+    elseif(col == 4*ns)
+      fprintf(tab2, " & %.2e $\\pm$ %.2e", t2values(row, col), pipelinetotalcyclesstd(row,4));
     elseif (col > 3*ns)
       fprintf(tab2, " & %.2f", t2values(row, col));
     else
