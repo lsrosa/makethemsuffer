@@ -1,13 +1,16 @@
-BENCHS=adderchain
+BENCHS=adderchain adi_int
 
-FOLDERS=$(wildcard $(BENCHS)/*)
+FOLDERS=$(wildcard $(addsuffix /*, $(BENCHS)))
 TARGETS=$(patsubst %, %/top.map.summary, $(FOLDERS))
 
+#@echo $(FOLDERS)
+#@echo $(TARGETS)
 all:$(TARGETS)
 	@echo done "=)"
 
 %/top.map.summary:%
-	make -C $< -f lup.make
+	@echo $<
+	#make -C $< -f lup.make
 
 
 
