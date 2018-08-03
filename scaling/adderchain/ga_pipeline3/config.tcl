@@ -5,7 +5,7 @@ loop_pipeline "loop"
 
 set_parameter GA_DEBUG 0
 set_parameter MODULO_SCHEDULER "GA"
-set_parameter GA_POPULATION_SIZE 1
+set_parameter GA_POPULATION_SIZE 2
 set_parameter GA_MAXIMUM_GENERATIONS 1
 set_parameter GA_MUTATION_PROB 1
 

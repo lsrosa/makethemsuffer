@@ -10,7 +10,6 @@ set_resource_constraint divide 4
 set_resource_constraint altfp_add 3
 set_resource_constraint altfp_multiply 3
 set_resource_constraint altfp_divide 3
-set_operation_latency divide 64
 
 set_parameter MODULO_SCHEDULER "NI"
 set_parameter SOLVER "GUROBI"

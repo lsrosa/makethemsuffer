@@ -1,0 +1,14 @@
+digraph {
+Node0x3e703e0[label="  %56 = fpext float %52 to double"];
+Node0x3e703e0 -> Node0x3e703e0[label="D:0.71ns L:2",color=blue];
+Node0x3e703e0 -> Node0x3e703e0[label="D:0.71ns L:2",color=blue];
+Node0x3e70760[label="  %60 = fadd float %52, -1.816000e+04"];
+Node0x3e70760 -> Node0x3e70760[label="D:1.62ns L:13",color=blue];
+Node0x3e70760 -> Node0x3e70760[label="D:1.62ns L:13",color=blue];
+Node0x3e70760 -> Node0x3e70760[label="D:1.62ns L:13",color=blue];
+Node0x3e70760 -> Node0x3e70760[label="D:1.62ns L:13",color=blue];
+Node0x3e70840[label="  %61 = bitcast float %60 to i32"];
+Node0x3e70840 -> Node0x3e70840[label="D:0.00ns L:0",color=blue];
+Node0x3e70920[label="  %62 = fcmp ult float %60, 0.000000e+00"];
+Node0x3e70920 -> Node0x3e70920[label="D:1.67ns L:1",color=blue];
+}

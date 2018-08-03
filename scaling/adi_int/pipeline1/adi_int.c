@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define UNR 1
-#define n 10
+#define n 100
 #define loop 2
 
 int main(){

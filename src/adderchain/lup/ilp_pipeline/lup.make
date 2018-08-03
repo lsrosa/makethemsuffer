@@ -3,7 +3,7 @@ SRCS=adderchain.c
 
 CUSTOM_MODULE_SCHEDULING = 1
 
-LEVEL = /home/leandro/legup/4.0/examples
+LEVEL = /home/leandro/myLegUp/4.0/examples
 ifeq ($(NO_OPT),)
 	NO_OPT=0
 endif
@@ -12,4 +12,4 @@ ifeq ($(NO_INLINE),)
 endif
 
 LOCAL_CONFIG = -legup-config=config.tcl
-include $(LEVEL)/Makefile.common
+include $(LEVEL)/Makefile.myDocMyHell

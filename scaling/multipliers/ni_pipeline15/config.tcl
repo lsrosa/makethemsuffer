@@ -7,7 +7,6 @@ loop_pipeline "loop"
 set_resource_constraint divide 3
 set_resource_constraint add 3
 set_resource_constraint multiply 1
-set_operation_latency signed_multiply 18
 
 # Runtime analysis - incremental SDC
 #set_parameter INCREMENTAL_SDC 1

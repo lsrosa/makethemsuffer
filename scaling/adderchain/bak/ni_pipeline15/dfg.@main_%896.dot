@@ -1,0 +1,8 @@
+digraph {
+Node0x2be0250[label="  %897 = load volatile i32* getelementpt..."];
+Node0x2be0250 -> Node0x2be0250[label="D:0.00ns L:2",color=blue];
+Node0x2be0250 -> Node0x2be0250[label="D:0.00ns L:2",color=blue];
+Node0x2be0250 -> Node0x2be0250[label="D:0.00ns L:2",color=blue];
+Node0x2be0410[label="  %899 = icmp eq i32 %897, 87301"];
+Node0x2be0410 -> Node0x2be0410[label="D:1.03ns L:0",color=blue];
+}

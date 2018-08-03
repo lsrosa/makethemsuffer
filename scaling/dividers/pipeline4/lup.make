@@ -11,8 +11,5 @@ ifeq ($(NO_INLINE),)
 NO_INLINE=0
 endif
 
-# don't unroll the loop
-CFLAG += -mllvm -unroll-threshold=0
-
 LOCAL_CONFIG = -legup-config=config.tcl
-include $(LEVEL)/Makefile.common
+include $(LEVEL)/Makefile.myDocMyHell

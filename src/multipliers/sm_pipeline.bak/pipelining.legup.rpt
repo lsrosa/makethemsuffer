@@ -1,0 +1,366 @@
+--------------------------------------------------------------------------------
+Optimal objective: 1.210000e+02
+Optimal objective: 1.020000e+02
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:112
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:112
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:112
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:112
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:112
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:112
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:112
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:112
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 1.010000e+02
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:140
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:140
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:140
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:140
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:140
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:140
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:140
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:140
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 1.000000e+02
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:168
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:168
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:168
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:168
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:168
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:168
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:168
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:168
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.900000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:196
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:196
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:196
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:196
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:196
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:196
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:196
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:196
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.800000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:224
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:224
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:224
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:224
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:224
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:224
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:224
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:224
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.700000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:252
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:252
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:252
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:252
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:252
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:252
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:252
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:252
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.600000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:280
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:280
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:280
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:280
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:280
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:280
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:280
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:280
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:308
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:308
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:308
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:308
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:308
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:308
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:308
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:308
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.400000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:336
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:336
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:336
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:336
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:336
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:336
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:336
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:336
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.300000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:364
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:364
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:364
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:364
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:364
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:364
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:364
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:364
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.200000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:392
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:392
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:392
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:392
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:392
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:392
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:392
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:392
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.100000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:420
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:420
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:420
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:420
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:420
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:420
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:420
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:420
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 9.000000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:448
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:448
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:448
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:448
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:448
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:448
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:448
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:448
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.900000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:476
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:476
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:476
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:476
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:476
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:476
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:476
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:476
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.800000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:504
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:504
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:504
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:504
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:504
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:504
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:504
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:504
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.700000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:532
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:532
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:532
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:532
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:532
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:532
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:532
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:532
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.600000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:560
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:560
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:560
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:560
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:560
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:560
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:560
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:560
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:588
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:588
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:588
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:588
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:588
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:588
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:588
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:588
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:616
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:616
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:616
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:616
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:616
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:616
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:616
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:616
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:644
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:644
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:644
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:644
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:644
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:644
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:644
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:644
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:672
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:672
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:672
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:672
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:672
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:672
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:672
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:672
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:700
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:700
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:700
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:700
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:700
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:700
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:700
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:700
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:728
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:728
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:728
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:728
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:728
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:728
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:728
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:728
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:756
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:756
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:756
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:756
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:756
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:756
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:756
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:756
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:784
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:784
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:784
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:784
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:784
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:784
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:784
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:784
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1
+Optimal objective: 8.500000e+01
+C24 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:812
+C23 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:812
+C24 - predt: 20 - u_latency: 2 - t: 18 - prev lateStart:18
+C14 - predt: 0 - u_latency: 0 - t: 0 - prev lateStart:812
+C22 - t: 18 - pred_latency: 2
+C24 - t: 20 - pred_latency: 1
+C23 - predt: 20 - u_latency: 0 - t: 20 - prev lateStart:812
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:812
+C21 - predt: 20 - u_latency: 18 - t: 2 - prev lateStart:812
+C17 - predt: 2 - u_latency: 2 - t: 0 - prev lateStart:812
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:0
+C20 - predt: 1 - u_latency: 2 - t: -1 - prev lateStart:812
+C26 - predt: 21 - u_latency: 2 - t: 19 - prev lateStart:-1

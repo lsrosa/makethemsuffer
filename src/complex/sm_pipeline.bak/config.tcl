@@ -10,9 +10,9 @@ set_operation_latency multiply 18
 set_parameter SDC_PRIORITY 0
 
 set_combine_basicblock 2
-#set_parameter NI_DEBUG 1
+set_parameter NI_DEBUG 1
 loop_pipeline "loop"
 #set_parameter "processor" "host"
 #set_parameter LOCAL_RAMS 1
 set_parameter MODULO_SCHEDULER "SM"
-set_parameter SOLVER "GUROBI"
+#set_parameter SOLVER "GUROBI"

@@ -12,4 +12,4 @@ ifeq ($(NO_INLINE),)
 endif
 
 LOCAL_CONFIG = -legup-config=config.tcl
-include $(LEVEL)/Makefile.common
+include $(LEVEL)/Makefile.myDocMyHell

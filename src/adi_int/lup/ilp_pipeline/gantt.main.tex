@@ -1,0 +1,117 @@
+\documentclass[landscape]{article}
+\usepackage{gantt}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{5}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%u1 = alloca [2 x [11 x [4 x float]]], align 4}{1}{1}
+\ganttbar{  \%u2 = alloca [2 x [11 x [4 x float]]], align 4}{1}{1}
+\ganttbar{  \%u3 = alloca [2 x [11 x [4 x float]]], align 4}{1}{1}
+\ganttbar{  br label \%.preheader1}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar33 = phi i32 [ \%indvar.next34, \%67 ], [ 0, \%0 ]}{1}{1}
+\ganttbar{  br label \%.preheader}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{17}{7}
+\begin{ganttitle}
+\numtitle{0}{1}{6}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar2 = phi i32 [ \%indvar.next3, \%66 ], [ 0, \%.preheader1 ]}{1}{1}
+\ganttcon{2}{1}{1}{3}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%1 = add i32 \%indvar2, 2}{1}{1}
+\ganttbar{  \%2 = add i32 \%indvar2, 1}{1}{1}
+\ganttcon{2}{3}{2}{10}
+\ganttcon{2}{3}{2}{9}
+\ganttcon{2}{3}{2}{8}
+\ganttcon{2}{3}{2}{7}
+\ganttcon{2}{3}{2}{6}
+\ganttcon{2}{3}{2}{5}
+\ganttbar{  br label \%3}{1}{1}
+\ganttbar{  \%.phi.trans.insert1 = getelementptr [2 x [11 x [4 x float]]]* \%u1, i32 0, i3...}{2}{1}
+\ganttcon{3}{5}{4}{16}
+\ganttbar{  \%.phi.trans.insert14 = getelementptr [2 x [11 x [4 x float]]]* \%u3, i32 0, i...}{2}{1}
+\ganttcon{3}{6}{4}{15}
+\ganttbar{  \%.phi.trans.insert12 = getelementptr [2 x [11 x [4 x float]]]* \%u2, i32 0, i...}{2}{1}
+\ganttcon{3}{7}{3}{14}
+\ganttbar{  \%.phi.trans.insert10 = getelementptr [2 x [11 x [4 x float]]]* \%u3, i32 0, i...}{2}{1}
+\ganttcon{3}{8}{3}{13}
+\ganttbar{  \%.phi.trans.insert8 = getelementptr [2 x [11 x [4 x float]]]* \%u2, i32 0, i3...}{2}{1}
+\ganttcon{3}{9}{2}{12}
+\ganttbar{  \%.phi.trans.insert = getelementptr [2 x [11 x [4 x float]]]* \%u1, i32 0, i32...}{2}{1}
+\ganttcon{3}{10}{2}{11}
+\ganttbar{  \%.pre = load float* \%.phi.trans.insert, align 4, !tbaa !2}{2}{2}
+\ganttbar{  \%.pre9 = load float* \%.phi.trans.insert8, align 4, !tbaa !2}{2}{2}
+\ganttbar{  \%.pre11 = load float* \%.phi.trans.insert10, align 4, !tbaa !2}{3}{2}
+\ganttbar{  \%.pre13 = load float* \%.phi.trans.insert12, align 4, !tbaa !2}{3}{2}
+\ganttbar{  \%.pre15 = load float* \%.phi.trans.insert14, align 4, !tbaa !2}{4}{2}
+\ganttbar{  \%.pre2 = load float* \%.phi.trans.insert1, align 4, !tbaa !2}{4}{2}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{8}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar = phi i32 [ \%indvar.next, \%3 ], [ 0, \%.preheader ], !legup.canonic...}{1}{1}
+\ganttbar{  \%4 = phi float [ \%12, \%3 ], [ \%.pre2, \%.preheader ], !legup.pipeline.star...}{1}{1}
+\ganttcon{2}{2}{1}{7}
+\ganttbar{  \%5 = phi float [ \%16, \%3 ], [ \%.pre15, \%.preheader ], !legup.pipeline.sta...}{1}{1}
+\ganttcon{2}{3}{1}{5}
+\ganttbar{  \%6 = phi float [ \%14, \%3 ], [ \%.pre13, \%.preheader ], !legup.pipeline.sta...}{1}{1}
+\ganttcon{2}{4}{1}{6}
+\ganttbar{  \%7 = phi float [ \%5, \%3 ], [ \%.pre11, \%.preheader ], !legup.pipeline.star...}{1}{1}
+\ganttbar{  \%8 = phi float [ \%6, \%3 ], [ \%.pre9, \%.preheader ], !legup.pipeline.start...}{1}{1}
+\ganttbar{  \%9 = phi float [ \%4, \%3 ], [ \%.pre, \%.preheader ], !legup.pipeline.start\...}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{4}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar.next3 = add i32 \%indvar2, 1}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%exitcond = icmp eq i32 \%indvar.next3, 2}{1}{1}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  br i1 \%exitcond, label \%67, label \%.preheader}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{4}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar.next34 = add i32 \%indvar33, 1}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%exitcond35 = icmp eq i32 \%indvar.next34, 2}{1}{1}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  br i1 \%exitcond35, label \%68, label \%.preheader1}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{5}{10}
+\begin{ganttitle}
+\numtitle{0}{1}{9}{1}
+\end{ganttitle}
+\ganttbar{  \%69 = getelementptr inbounds [2 x [11 x [4 x float]]]* \%u3, i32 0, i32 1, i3...}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%70 = load float* \%69, align 4, !tbaa !2}{1}{2}
+\ganttcon{3}{2}{3}{3}
+\ganttbar{  \%71 = fptosi float \%70 to i32}{3}{6}
+\ganttcon{9}{3}{9}{4}
+\ganttbar{  ret i32 \%71}{9}{1}
+\end{gantt}
+\end{figure}
+\end{document}

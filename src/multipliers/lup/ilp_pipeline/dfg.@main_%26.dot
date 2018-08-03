@@ -1,0 +1,4 @@
+digraph {
+Node0x41cef70[label="  %27 = trunc i64 %19 to i32"];
+Node0x41cef70 -> Node0x41cef70[label="D:0.00ns L:0",color=blue];
+}

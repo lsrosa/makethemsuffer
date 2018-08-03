@@ -1,0 +1,4 @@
+label	n_IRlines	n_sdcs	Total	Solving
+loop1	51	55	0.081722	0.027507
+loop2	50	73	0.121371	0.044558
+loop3	31	22	0.028085	0.007742

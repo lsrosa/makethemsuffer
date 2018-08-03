@@ -1,0 +1,53 @@
+\documentclass[landscape]{article}
+\usepackage{gantt}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{2}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar = phi i32 [ \%indvar.next, \%1 ], [ 0, \%0 ], !legup.canonical\_induc...}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{5}{4}
+\begin{ganttitle}
+\numtitle{0}{1}{3}{1}
+\end{ganttitle}
+\ganttbar{  \%130 = load volatile i32* getelementptr inbounds ([100 x i32]* @dd, i32 0, i3...}{1}{2}
+\ganttcon{3}{1}{3}{3}
+\ganttcon{3}{1}{3}{2}
+\ganttbar{  \%131 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([10 x i8...}{3}{1}
+\ganttbar{  \%132 = icmp eq i32 \%130, 87301}{3}{1}
+\ganttcon{4}{3}{3}{4}
+\ganttbar{  br i1 \%132, label \%133, label \%135}{3}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%134 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([8 x i8]...}{1}{1}
+\ganttbar{  br label \%137}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%136 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([8 x i8]...}{1}{1}
+\ganttbar{  br label \%137}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{2}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  ret i32 \%130}{1}{1}
+\end{gantt}
+\end{figure}
+\end{document}

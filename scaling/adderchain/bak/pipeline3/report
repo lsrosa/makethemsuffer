@@ -1,0 +1,9 @@
+; Logic utilization (in ALMs)     ; 2,482 / 234,720 ( 1 % )                         ;
+; Total registers                 ; 3073                                            ;
+; Total RAM Blocks                ; 26 / 2,560 ( 1 % )                              ;
+; Total block memory bits         ; 41,600 / 52,428,800 ( < 1 % )                   ;
+; Total block memory bits                                          ; 41,600 / 52,428,800   ; < 1 % ;
+; Total block memory bits                                     ; 41600                   ; 0                              ;
+; Total DSP Blocks                ; 0 / 256 ( 0 % )                                 ;
+; Total DSP Blocks                                                 ; 0 / 256               ; 0 %   ;
+; 203.38 MHz ; 203.38 MHz      ; clk        ;      ;

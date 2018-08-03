@@ -1,0 +1,4 @@
+digraph {
+Node0x3e721f0[label="  %80 = fptosi float %52 to i32"];
+Node0x3e721f0 -> Node0x3e721f0[label="D:1.46ns L:6",color=blue];
+}
