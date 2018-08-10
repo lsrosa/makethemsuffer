@@ -1,0 +1,4 @@
+Cluster  & altfp_add_32 & signed_add_32 ///hline
+1314.00 & 15.00 \pm 3.82 & 7.50 \pm 0.51 ///hline 
+1343.00 & 12.76 \pm 5.34 & 4.21 \pm 2.12 ///hline 
+1372.00 & 3.92 \pm 2.02 & 3.33 \pm 1.73 ///hline 
