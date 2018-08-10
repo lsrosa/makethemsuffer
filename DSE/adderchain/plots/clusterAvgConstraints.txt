@@ -1,0 +1,10 @@
+Cluster  & signed_add_32 ///hline
+370.00 & 43.00 \pm 3.32 ///hline 
+374.00 & 24.50 \pm 7.65 ///hline 
+466.00 & 10.00 \pm 0.00 ///hline 
+466.00 & NaN \pm NaN ///hline 
+466.00 & NaN \pm NaN ///hline 
+466.00 & 10.00 \pm 0.00 ///hline 
+629.00 & 7.50 \pm 1.29 ///hline 
+1029.00 & 4.50 \pm 0.71 ///hline 
+1846.00 & 2.50 \pm 0.71 ///hline 

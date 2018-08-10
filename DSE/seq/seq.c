@@ -21,14 +21,18 @@ int main() {
       tmp1 *= e[i];
       tmp1 *= f[i];
 
-      tmp1 /= a[i+1];
-      tmp1 /= b[i+1];
-      tmp1 /= c[i+1];
+      tmp1 *= a[i+1];
+      tmp1 *= b[i+1];
+      tmp1 *= c[i+1];
+      tmp1 *= d[i+1];
+      tmp1 *= e[i+1];
+      tmp1 *= f[i+1];
+
       sum += tmp1;
     }
     printf("sum = %d\n", sum);
 
-    if (sum == 250102) {
+    if (sum == -631291264) {
         printf("PASSED\n");
     } else {
         printf("FAILED\n");

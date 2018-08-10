@@ -1,0 +1,6 @@
+Cluster  & signed_add_32 & signed_add_64 & signed_multiply_64 & signed_subtract_64 & unsigned_divide_64 ///hline
+423.04 & 6.83 \pm 2.36 & 4.50 \pm 1.71 & 4.93 \pm 1.65 & 2.73 \pm 1.02 & 1.64 \pm 0.48 ///hline 
+429.63 & 5.71 \pm 1.89 & 4.50 \pm 1.71 & 3.47 \pm 1.37 & 1.95 \pm 1.15 & 1.16 \pm 0.36 ///hline 
+514.25 & 2.00 \pm 0.00 & 4.50 \pm 1.71 & 4.50 \pm 1.71 & 2.50 \pm 1.12 & 1.50 \pm 0.50 ///hline 
+692.60 & 6.00 \pm 2.58 & 2.62 \pm 2.10 & 2.62 \pm 2.10 & 2.50 \pm 1.12 & 1.50 \pm 0.50 ///hline 
+952.57 & 1.00 \pm 0.00 & 4.00 \pm 2.00 & 4.00 \pm 2.00 & 2.50 \pm 1.12 & 1.50 \pm 0.50 ///hline 
