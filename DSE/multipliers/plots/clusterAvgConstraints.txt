@@ -1,0 +1,3 @@
+Cluster  & signed_add_32 & signed_add_64 & signed_multiply_64 ///hline
+377.00 & 3.50 \pm 1.15 & 1.50 \pm 0.52 & 1.50 \pm 0.52 ///hline 
+470.75 & 1.50 \pm 1.00 & 1.50 \pm 0.58 & 1.75 \pm 0.50 ///hline 
