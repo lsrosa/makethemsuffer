@@ -1,3 +1,11 @@
-Cluster  & signed_add_32 & signed_multiply_32 ///hline
-308.00 & 2.00 \pm 0.85 & 4.00 \pm 1.46 ///hline 
-609.00 & 2.33 \pm 0.58 & 2.00 \pm 1.73 ///hline 
+Cluster  & s  add 32 & s  multiply 32 \\\hline
+307.00,198.00 & 2.50 $\pm$ 0.53 & 4.50 $\pm$ 1.20 \\\hline 
+307.00,238.00 & 2.50 $\pm$ 0.71 & 2.00 $\pm$ 0.00 \\\hline 
+310.00,215.00 & 1.00 $\pm$ 0.00 & 3.50 $\pm$ 0.71 \\\hline 
+310.00,223.00 & 1.00 $\pm$ 0.00 & 5.50 $\pm$ 0.71 \\\hline 
+310.00,259.00 & 1.50 $\pm$ 0.71 & 1.50 $\pm$ 0.71 \\\hline 
+607.00,209.00 & 2.50 $\pm$ 0.71 & 1.00 $\pm$ 0.00 \\\hline 
+613.00,251.00 & NaN $\pm$ NaN & NaN $\pm$ NaN \\\hline 
+613.00,251.00 & NaN $\pm$ NaN & NaN $\pm$ NaN \\\hline 
+613.00,251.00 & NaN $\pm$ NaN & NaN $\pm$ NaN \\\hline 
+613.00,251.00 & 3.00 $\pm$ 1.41 & 3.00 $\pm$ 1.41 \\\hline 
