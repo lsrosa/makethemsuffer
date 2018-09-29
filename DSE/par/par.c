@@ -17,6 +17,9 @@ volatile int f2[N] = INITIALIZE;
 volatile int r1[N] = INITIALIZE;
 volatile int r2[N] = INITIALIZE;
 volatile int r3[N] = INITIALIZE;
+volatile int r4[N] = INITIALIZE;
+volatile int r5[N] = INITIALIZE;
+volatile int r6[N] = INITIALIZE;
 
 int main() {
     int sum = 0;
@@ -26,15 +29,15 @@ int main() {
       r1[i] = a[i] * b[i];
       r2[i] = c[i] * d[i];
       r3[i] = e[i] * f[i];
-      r1[i+1] = a2[i] * b2[i];
-      r2[i+1] = c2[i] * d2[i];
-      r3[i+1] = e2[i] * f2[i];
+      r4[i] = a2[i] * b2[i];
+      r5[i] = c2[i] * d2[i];
+      r6[i] = e2[i] * f2[i];
 
-      sum += r3[i+1];
+      //sum += r6[i];
     }
     printf("sum = %d\n", sum);
 
-    if (sum == 338349) {
+    if (sum == 0) {
         printf("PASSED\n");
     } else {
         printf("FAILED\n");

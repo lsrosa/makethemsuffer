@@ -9,27 +9,48 @@ volatile int d[N] = INITIALIZE;
 volatile int e[N] = INITIALIZE;
 volatile int f[N] = INITIALIZE;
 
+volatile int a2[N] = INITIALIZE;
+volatile int b2[N] = INITIALIZE;
+volatile int c2[N] = INITIALIZE;
+volatile int d2[N] = INITIALIZE;
+volatile int e2[N] = INITIALIZE;
+volatile int f2[N] = INITIALIZE;
+
+volatile int a3[N] = INITIALIZE;
+volatile int b3[N] = INITIALIZE;
+volatile int c3[N] = INITIALIZE;
+volatile int d3[N] = INITIALIZE;
+volatile int e3[N] = INITIALIZE;
+volatile int f3[N] = INITIALIZE;
+
+volatile int r1[N] = INITIALIZE;
+volatile int r2[N] = INITIALIZE;
+volatile int r3[N] = INITIALIZE;
+volatile int r4[N] = INITIALIZE;
+volatile int r5[N] = INITIALIZE;
+volatile int r6[N] = INITIALIZE;
+
+volatile int r7[N] = INITIALIZE;
+volatile int r8[N] = INITIALIZE;
+volatile int r9[N] = INITIALIZE;
+
 int main() {
     int sum = 0;
     int i;
 
     loop0:  for (i = 0; i < N-1; i++) {
-      int tmp1 = a[i] * b[i];
-      int tmp2 = c[i] * d[i];
-      int tmp3 = e[i] * f[i];
-      int tmp4 = a[i+1] * b[i+1];
-      int tmp5 = c[i+1] * d[i+1];
-      int tmp6 = e[i+1] * f[i+1];
-
-      int tmp7 = tmp1/tmp2;
-      int tmp8 = tmp3/tmp4;
-      int tmp9 = tmp5/tmp6;
-
-      sum += tmp9-tmp8+tmp7;
+      r1[i] = a[i] * b[i];
+      r2[i] = c[i] * d[i];
+      r3[i] = e[i] * f[i];
+      r4[i] = a2[i] * b2[i];
+  		r5[i] = c2[i] * d2[i];
+  		r6[i] = e2[i] * f2[i];
+  		r7[i] = a3[i]/b3[i];
+  		r8[i] = c3[i]/d3[i];
+  		r9[i] = e3[i]/f3[i];
     }
-    printf("sum = %d\n", sum);
 
-    if (sum == 198) {
+    if (sum == 0) {
         printf("PASSED\n");
     } else {
         printf("FAILED\n");

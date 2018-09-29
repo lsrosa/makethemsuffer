@@ -8,6 +8,12 @@ volatile int c[N] = INITIALIZE;
 volatile int d[N] = INITIALIZE;
 volatile int e[N] = INITIALIZE;
 volatile int f[N] = INITIALIZE;
+volatile int a2[N] = INITIALIZE;
+volatile int b2[N] = INITIALIZE;
+volatile int c2[N] = INITIALIZE;
+volatile int d2[N] = INITIALIZE;
+volatile int e2[N] = INITIALIZE;
+volatile int f2[N] = INITIALIZE;
 
 int main() {
     int sum = 0;
@@ -20,13 +26,12 @@ int main() {
       tmp1 *= d[i];
       tmp1 *= e[i];
       tmp1 *= f[i];
-
-      tmp1 *= a[i+1];
-      tmp1 *= b[i+1];
-      tmp1 *= c[i+1];
-      tmp1 *= d[i+1];
-      tmp1 *= e[i+1];
-      tmp1 *= f[i+1];
+      tmp1 *= a2[i];
+      tmp1 *= b2[i];
+      tmp1 *= c2[i];
+      tmp1 *= d2[i];
+      tmp1 *= e2[i];
+      tmp1 *= f2[i];
 
       sum += tmp1;
     }
