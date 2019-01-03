@@ -6,7 +6,13 @@ TARGETS=$(patsubst %, %/plots, $(BENCHS))
 FULL_TARGETS=$(patsubst %, %/plots/ALMs_full.jpg, $(BENCHS))
 FAST_TARGETS=$(patsubst %, %/plots/ALMs_fast.jpg, $(BENCHS))
 
-all:$(FAST_TARGETS)
+all:$(TARGETS)
+	@echo done "=)"
+
+full:$(FULL_TARGETS)
+	@echo done "=)"
+
+fast:$(FAST_TARGETS)
 	@echo done "=)"
 
 %/plots/ALMs_full.jpg:%
