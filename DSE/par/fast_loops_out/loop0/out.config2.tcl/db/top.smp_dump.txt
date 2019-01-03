@@ -1,6 +1,0 @@
-
-State Machine - |top|main:main_inst|cur_state
-Name cur_state.LEGUP_0 cur_state.LEGUP_F_main_BB__21_2 cur_state.LEGUP_loop_pipeline_wait_loop0_1_1 
-cur_state.LEGUP_0 0 0 0 
-cur_state.LEGUP_loop_pipeline_wait_loop0_1_1 1 0 1 
-cur_state.LEGUP_F_main_BB__21_2 1 1 0 

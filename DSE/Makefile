@@ -1,4 +1,4 @@
-BENCHS=adderchain complex dividers faddtree multipliers
+BENCHS=adderchain complex dividers faddtree multipliers par par2 seq seq2
 #BENCHS= complex faddtree #faltando
 #BENCHS=faddtree
 
