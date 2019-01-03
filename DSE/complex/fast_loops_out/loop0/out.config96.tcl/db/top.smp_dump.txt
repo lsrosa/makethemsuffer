@@ -1,0 +1,17 @@
+
+State Machine - |top|main:main_inst|cur_state
+Name cur_state.LEGUP_F_main_BB__75_6 cur_state.LEGUP_F_main_BB__73_5 cur_state.LEGUP_F_main_BB__71_4 cur_state.LEGUP_F_main_BB__67_3 cur_state.LEGUP_F_main_BB__67_2 cur_state.LEGUP_loop_pipeline_wait_loop0_1_1 cur_state.LEGUP_0 
+cur_state.LEGUP_0 0 0 0 0 0 0 0 
+cur_state.LEGUP_loop_pipeline_wait_loop0_1_1 0 0 0 0 0 1 1 
+cur_state.LEGUP_F_main_BB__67_2 0 0 0 0 1 0 1 
+cur_state.LEGUP_F_main_BB__67_3 0 0 0 1 0 0 1 
+cur_state.LEGUP_F_main_BB__71_4 0 0 1 0 0 0 1 
+cur_state.LEGUP_F_main_BB__73_5 0 1 0 0 0 0 1 
+cur_state.LEGUP_F_main_BB__75_6 1 0 0 0 0 0 1 
+
+State Machine - |top|main:main_inst|loop0_1_ii_state
+Name loop0_1_ii_state.11 loop0_1_ii_state.10 loop0_1_ii_state.01 loop0_1_ii_state.00 
+loop0_1_ii_state.00 0 0 0 0 
+loop0_1_ii_state.01 0 0 1 1 
+loop0_1_ii_state.10 0 1 0 1 
+loop0_1_ii_state.11 1 0 0 1 

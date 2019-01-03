@@ -1,0 +1,16 @@
+# vsim -c -do "run 7000000000000000ns; exit;" work.main_tb 
+# Start time: 15:04:20 on Sep 03,2018
+# Loading work.main_tb
+# Loading work.top
+# Loading work.main
+# Loading work.ram_dual_port
+# Loading work.ALTERA_MF_MEMORY_INITIALIZATION
+# run 7000000000000000ns
+# sum =   180022946
+# FAILED
+# At t=             4310000 clk=1 finish=1 return_val= 180022946
+# Cycles:                  213
+# ** Note: $finish    : module.v(2787)
+#    Time: 4310 ns  Iteration: 2  Instance: /main_tb
+# End time: 15:04:20 on Sep 03,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

@@ -20,9 +20,8 @@ for (i = 0; i < N-10; i++) {
     c[i+1] = tmp1 + tmp2 + c[i];
 
     printf("d[%d] = %lld\n", i+1, d[i+1]);
-
+sum += c[i];
 }
-    sum = d[i];
 
     printf("sum = %lld\n", sum);
 

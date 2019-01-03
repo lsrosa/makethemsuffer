@@ -1,0 +1,51 @@
+\documentclass[landscape]{article}
+\usepackage{gantt}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%sum.02 = phi i32 [ 0, \%0 ], [ \%19, \%1 ], !legup.pipeline.start\_time !2, ...}{1}{1}
+\ganttbar{  \%i.01 = phi i32 [ 0, \%0 ], [ \%20, \%1 ], !legup.canonical\_induction !4, !l...}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{4}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%22 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([10 x i8]...}{1}{1}
+\ganttbar{  \%23 = icmp eq i32 \%19, 250102}{1}{1}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  br i1 \%23, label \%24, label \%26}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%25 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([8 x i8]*...}{1}{1}
+\ganttbar{  br label \%28}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%27 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([8 x i8]*...}{1}{1}
+\ganttbar{  br label \%28}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{2}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  ret i32 \%19}{1}{1}
+\end{gantt}
+\end{figure}
+\end{document}

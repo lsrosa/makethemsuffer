@@ -1,10 +1,19 @@
 BENCHS=adderchain complex dividers faddtree multipliers
 #BENCHS= complex faddtree #faltando
 #BENCHS=faddtree
-TARGETS=$(patsubst %, %/plots, $(BENCHS))
 
-all:$(TARGETS)
+TARGETS=$(patsubst %, %/plots, $(BENCHS))
+FULL_TARGETS=$(patsubst %, %/plots/ALMs_full.jpg, $(BENCHS))
+FAST_TARGETS=$(patsubst %, %/plots/ALMs_fast.jpg, $(BENCHS))
+
+all:$(FAST_TARGETS)
 	@echo done "=)"
+
+%/plots/ALMs_full.jpg:%
+	make -C $< -f lup.make singleLoopFullDSE
+
+%/plots/ALMs_fast.jpg:%
+	make -C $< -f lup.make singleLoopFastDSE
 
 %/plots:%
 	make -C $< -f lup.make extracNests
