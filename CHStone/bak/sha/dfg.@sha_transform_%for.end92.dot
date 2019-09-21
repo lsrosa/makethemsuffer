@@ -1,0 +1,32 @@
+digraph {
+Node0x33441f0[label="  %33 = load i32* @sha_info_digest.0, al..."];
+Node0x33441f0 -> Node0x33441f0[label="D:0.00ns L:2",color=blue];
+Node0x33443b0[label="  store i32 %add93, i32* @sha_info_diges..."];
+Node0x33441f0 -> Node0x33443b0[label="D:0.00ns L:2",color=red];
+Node0x33442d0[label="  %add93 = add i32 %33, %add86"];
+Node0x33442d0 -> Node0x33442d0[label="D:1.16ns L:0",color=blue];
+Node0x3344490[label="  %34 = load i32* @sha_info_digest.1, al..."];
+Node0x3344490 -> Node0x3344490[label="D:0.00ns L:2",color=blue];
+Node0x3344650[label="  store i32 %add94, i32* @sha_info_diges..."];
+Node0x3344490 -> Node0x3344650[label="D:0.00ns L:2",color=red];
+Node0x3344570[label="  %add94 = add i32 %34, %A.3173"];
+Node0x3344570 -> Node0x3344570[label="D:1.16ns L:0",color=blue];
+Node0x3344730[label="  %35 = load i32* @sha_info_digest.2, al..."];
+Node0x3344730 -> Node0x3344730[label="D:0.00ns L:2",color=blue];
+Node0x33448f0[label="  store i32 %add95, i32* @sha_info_diges..."];
+Node0x3344730 -> Node0x33448f0[label="D:0.00ns L:2",color=red];
+Node0x3344810[label="  %add95 = add i32 %35, %or89"];
+Node0x3344810 -> Node0x3344810[label="D:1.16ns L:0",color=blue];
+Node0x334b650[label="  %36 = load i32* @sha_info_digest.3, al..."];
+Node0x334b650 -> Node0x334b650[label="D:0.00ns L:2",color=blue];
+Node0x334b810[label="  store i32 %add96, i32* @sha_info_diges..."];
+Node0x334b650 -> Node0x334b810[label="D:0.00ns L:2",color=red];
+Node0x334b730[label="  %add96 = add i32 %36, %C.3175"];
+Node0x334b730 -> Node0x334b730[label="D:1.16ns L:0",color=blue];
+Node0x334b8f0[label="  %37 = load i32* @sha_info_digest.4, al..."];
+Node0x334b8f0 -> Node0x334b8f0[label="D:0.00ns L:2",color=blue];
+Node0x334bab0[label="  store i32 %add97, i32* @sha_info_diges..."];
+Node0x334b8f0 -> Node0x334bab0[label="D:0.00ns L:2",color=red];
+Node0x334b9d0[label="  %add97 = add i32 %37, %D.3176"];
+Node0x334b9d0 -> Node0x334b9d0[label="D:1.16ns L:0",color=blue];
+}

@@ -1,0 +1,52 @@
+--------------------------------------------------------------------------------
+Optimal objective: 2.500000e+01
+
+
+
+resource: mem_dual_port - limited to: 2 - is used by # insts: 1
+resource: signed_add_32 - limited to: 3 - is used by # insts: 6
+Optimal objective: 2.000000e+00
+Optimal objective: 2.600000e+01
+Optimal objective: 2.600000e+01
+Saporradeucerto  -- II: 2
+
+ final sched latency: 5
+--------------------------------------------------------------------------------
+Optimal objective: 2.500000e+01
+
+
+
+resource: mem_dual_port - limited to: 2 - is used by # insts: 1
+resource: signed_add_32 - limited to: 3 - is used by # insts: 6
+Optimal objective: 2.000000e+00
+Optimal objective: 3.000000e+01
+Optimal objective: 2.600000e+01
+Saporradeucerto  -- II: 2
+
+ final sched latency: 5
+--------------------------------------------------------------------------------
+Optimal objective: 2.500000e+01
+
+
+
+resource: mem_dual_port - limited to: 2 - is used by # insts: 1
+resource: signed_add_32 - limited to: 3 - is used by # insts: 6
+Optimal objective: 2.000000e+00
+Optimal objective: 2.600000e+01
+Optimal objective: 2.600000e+01
+Saporradeucerto  -- II: 2
+
+ final sched latency: 5
+--------------------------------------------------------------------------------
+Optimal objective: 9.000000e+00
+
+
+
+resource: mem_dual_port - limited to: 2 - is used by # insts: 1
+resource: signed_add_32 - limited to: 3 - is used by # insts: 5
+Optimal objective: 2.000000e+00
+Optimal objective: 3.000000e+01
+Optimal objective: 1.000000e+01
+Saporradeucerto  -- II: 2
+
+ final sched latency: 3

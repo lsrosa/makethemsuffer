@@ -1,0 +1,340 @@
+\documentclass[landscape]{article}
+\usepackage{gantt}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{8}{5}
+\begin{ganttitle}
+\numtitle{0}{1}{4}{1}
+\end{ganttitle}
+\ganttbar{  store i32 1732584193, i32* @sha\_info\_digest.0, align 4, !tbaa !2}{1}{1}
+\ganttbar{  store i32 -271733879, i32* @sha\_info\_digest.1, align 4, !tbaa !2}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str, ...}{1}{1}
+\ganttbar{  br label \%while.body.i.preheader.i}{1}{1}
+\ganttbar{  store i32 -1732584194, i32* @sha\_info\_digest.2, align 4, !tbaa !2}{2}{1}
+\ganttbar{  store i32 271733878, i32* @sha\_info\_digest.3, align 4, !tbaa !2}{2}{1}
+\ganttbar{  store i32 -1009589776, i32* @sha\_info\_digest.4, align 4, !tbaa !2}{3}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{7}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar10 = phi i32 [ \%indvar.next11, \%memcpy.exit.i ], [ 0, \%if.end.i ]}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%0 = shl i32 \%indvar10, 6}{1}{1}
+\ganttcon{2}{2}{1}{5}
+\ganttcon{2}{2}{1}{4}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  \%1 = or i32 \%0, 1}{1}{1}
+\ganttbar{  \%2 = or i32 \%0, 2}{1}{1}
+\ganttbar{  \%3 = or i32 \%0, 3}{1}{1}
+\ganttbar{  br label \%while.body.i.i}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{30}{7}
+\begin{ganttitle}
+\numtitle{0}{1}{6}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar7 = phi i32 [ \%indvar.next8, \%while.body.i.i ], [ 0, \%while.body.i....}{1}{1}
+\ganttcon{2}{1}{2}{13}
+\ganttcon{2}{1}{1}{6}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%4 = shl i32 \%indvar7, 2}{1}{1}
+\ganttcon{2}{2}{2}{10}
+\ganttcon{2}{2}{1}{5}
+\ganttcon{2}{2}{1}{4}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  \%5 = add i32 \%1, \%4}{1}{1}
+\ganttcon{2}{3}{2}{7}
+\ganttbar{  \%6 = add i32 \%0, \%4}{1}{1}
+\ganttcon{2}{4}{2}{8}
+\ganttbar{  \%7 = add i32 \%2, \%4}{1}{1}
+\ganttcon{2}{5}{2}{9}
+\ganttbar{  \%p1.027.i.i = getelementptr [16 x i32]* @sha\_info\_data, i32 0, i32 \%indvar...}{1}{1}
+\ganttcon{2}{6}{5}{29}
+\ganttbar{  \%incdec.ptr.i.i = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 0, i32...}{2}{1}
+\ganttcon{3}{7}{2}{12}
+\ganttbar{  \%p2.026.i.i = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 0, i32 \%6}{2}{1}
+\ganttcon{3}{8}{2}{11}
+\ganttbar{  \%incdec.ptr2.i.i = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 0, i3...}{2}{1}
+\ganttcon{3}{9}{3}{17}
+\ganttbar{  \%8 = add i32 \%3, \%4}{2}{1}
+\ganttcon{3}{10}{3}{16}
+\ganttbar{  \%9 = load i8* \%p2.026.i.i, align 1, !tbaa !6}{2}{2}
+\ganttcon{4}{11}{4}{19}
+\ganttbar{  \%10 = load i8* \%incdec.ptr.i.i, align 1, !tbaa !6}{2}{2}
+\ganttcon{4}{12}{4}{20}
+\ganttbar{  \%indvar.next8 = add i32 \%indvar7, 1}{2}{1}
+\ganttcon{3}{13}{2}{14}
+\ganttcon{3}{13}{1}{1}
+\ganttbar{  \%exitcond9 = icmp eq i32 \%indvar.next8, 16}{2}{1}
+\ganttcon{3}{14}{2}{15}
+\ganttbar{  br i1 \%exitcond9, label \%memcpy.exit.i, label \%while.body.i.i}{2}{1}
+\ganttbar{  \%incdec.ptr6.i.i = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 0, i3...}{3}{1}
+\ganttcon{4}{16}{3}{18}
+\ganttbar{  \%11 = load i8* \%incdec.ptr2.i.i, align 1, !tbaa !6}{3}{2}
+\ganttcon{5}{17}{5}{23}
+\ganttbar{  \%12 = load i8* \%incdec.ptr6.i.i, align 1, !tbaa !6}{3}{2}
+\ganttcon{5}{18}{5}{26}
+\ganttbar{  \%conv.i.i = zext i8 \%9 to i32}{4}{1}
+\ganttcon{5}{19}{4}{22}
+\ganttbar{  \%conv3.i.i = zext i8 \%10 to i32}{4}{1}
+\ganttcon{5}{20}{4}{21}
+\ganttbar{  \%shl.i.i = shl nuw nsw i32 \%conv3.i.i, 8}{4}{1}
+\ganttcon{5}{21}{4}{22}
+\ganttbar{  \%or5.i.i = or i32 \%shl.i.i, \%conv.i.i}{4}{1}
+\ganttcon{5}{22}{5}{25}
+\ganttbar{  \%conv7.i.i = zext i8 \%11 to i32}{5}{1}
+\ganttcon{6}{23}{5}{24}
+\ganttbar{  \%shl9.i.i = shl nuw nsw i32 \%conv7.i.i, 16}{5}{1}
+\ganttcon{6}{24}{5}{25}
+\ganttbar{  \%or10.i.i = or i32 \%or5.i.i, \%shl9.i.i}{5}{1}
+\ganttcon{6}{25}{5}{28}
+\ganttbar{  \%conv12.i.i = zext i8 \%12 to i32}{5}{1}
+\ganttcon{6}{26}{5}{27}
+\ganttbar{  \%shl14.i.i = shl nuw i32 \%conv12.i.i, 24}{5}{1}
+\ganttcon{6}{27}{5}{28}
+\ganttbar{  \%or15.i.i = or i32 \%or10.i.i, \%shl14.i.i}{5}{1}
+\ganttcon{6}{28}{5}{29}
+\ganttbar{  store i32 \%or15.i.i, i32* \%p1.027.i.i, align 4, !tbaa !2}{5}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{5}{4}
+\begin{ganttitle}
+\numtitle{0}{1}{3}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar.next11 = add i32 \%indvar10, 1}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%exitcond12 = icmp eq i32 \%indvar.next11, 128}{1}{1}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  br i1 \%exitcond12, label \%if.end.i6, label \%while.body.i.preheader.i}{1}{1}
+\ganttbar{  tail call fastcc void @sha\_transform() #2}{2}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str, ...}{1}{1}
+\ganttbar{  br label \%while.body.i.preheader.i9}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{7}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar4 = phi i32 [ \%indvar.next5, \%memcpy.exit.i34 ], [ 0, \%if.end.i6 ]}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%13 = shl i32 \%indvar4, 6}{1}{1}
+\ganttcon{2}{2}{1}{5}
+\ganttcon{2}{2}{1}{4}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  \%14 = or i32 \%13, 1}{1}{1}
+\ganttbar{  \%15 = or i32 \%13, 2}{1}{1}
+\ganttbar{  \%16 = or i32 \%13, 3}{1}{1}
+\ganttbar{  br label \%while.body.i.i30}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{30}{7}
+\begin{ganttitle}
+\numtitle{0}{1}{6}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar1 = phi i32 [ \%indvar.next2, \%while.body.i.i30 ], [ 0, \%while.body....}{1}{1}
+\ganttcon{2}{1}{2}{13}
+\ganttcon{2}{1}{1}{6}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%17 = shl i32 \%indvar1, 2}{1}{1}
+\ganttcon{2}{2}{2}{10}
+\ganttcon{2}{2}{1}{5}
+\ganttcon{2}{2}{1}{4}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  \%18 = add i32 \%14, \%17}{1}{1}
+\ganttcon{2}{3}{2}{7}
+\ganttbar{  \%19 = add i32 \%13, \%17}{1}{1}
+\ganttcon{2}{4}{2}{8}
+\ganttbar{  \%20 = add i32 \%15, \%17}{1}{1}
+\ganttcon{2}{5}{2}{9}
+\ganttbar{  \%p1.027.i.i11 = getelementptr [16 x i32]* @sha\_info\_data, i32 0, i32 \%indv...}{1}{1}
+\ganttcon{2}{6}{5}{29}
+\ganttbar{  \%incdec.ptr.i.i14 = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 1, i...}{2}{1}
+\ganttcon{3}{7}{2}{12}
+\ganttbar{  \%p2.026.i.i12 = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 1, i32 \...}{2}{1}
+\ganttcon{3}{8}{2}{11}
+\ganttbar{  \%incdec.ptr2.i.i16 = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 1, ...}{2}{1}
+\ganttcon{3}{9}{3}{17}
+\ganttbar{  \%21 = add i32 \%16, \%17}{2}{1}
+\ganttcon{3}{10}{3}{16}
+\ganttbar{  \%22 = load i8* \%p2.026.i.i12, align 1, !tbaa !6}{2}{2}
+\ganttcon{4}{11}{4}{19}
+\ganttbar{  \%23 = load i8* \%incdec.ptr.i.i14, align 1, !tbaa !6}{2}{2}
+\ganttcon{4}{12}{4}{20}
+\ganttbar{  \%indvar.next2 = add i32 \%indvar1, 1}{2}{1}
+\ganttcon{3}{13}{2}{14}
+\ganttcon{3}{13}{1}{1}
+\ganttbar{  \%exitcond3 = icmp eq i32 \%indvar.next2, 16}{2}{1}
+\ganttcon{3}{14}{2}{15}
+\ganttbar{  br i1 \%exitcond3, label \%memcpy.exit.i34, label \%while.body.i.i30}{2}{1}
+\ganttbar{  \%incdec.ptr6.i.i20 = getelementptr [2 x [8192 x i8]]* @indata, i32 0, i32 1, ...}{3}{1}
+\ganttcon{4}{16}{3}{18}
+\ganttbar{  \%24 = load i8* \%incdec.ptr2.i.i16, align 1, !tbaa !6}{3}{2}
+\ganttcon{5}{17}{5}{23}
+\ganttbar{  \%25 = load i8* \%incdec.ptr6.i.i20, align 1, !tbaa !6}{3}{2}
+\ganttcon{5}{18}{5}{26}
+\ganttbar{  \%conv.i.i15 = zext i8 \%22 to i32}{4}{1}
+\ganttcon{5}{19}{4}{22}
+\ganttbar{  \%conv3.i.i17 = zext i8 \%23 to i32}{4}{1}
+\ganttcon{5}{20}{4}{21}
+\ganttbar{  \%shl.i.i18 = shl nuw nsw i32 \%conv3.i.i17, 8}{4}{1}
+\ganttcon{5}{21}{4}{22}
+\ganttbar{  \%or5.i.i19 = or i32 \%shl.i.i18, \%conv.i.i15}{4}{1}
+\ganttcon{5}{22}{5}{25}
+\ganttbar{  \%conv7.i.i21 = zext i8 \%24 to i32}{5}{1}
+\ganttcon{6}{23}{5}{24}
+\ganttbar{  \%shl9.i.i22 = shl nuw nsw i32 \%conv7.i.i21, 16}{5}{1}
+\ganttcon{6}{24}{5}{25}
+\ganttbar{  \%or10.i.i23 = or i32 \%or5.i.i19, \%shl9.i.i22}{5}{1}
+\ganttcon{6}{25}{5}{28}
+\ganttbar{  \%conv12.i.i25 = zext i8 \%25 to i32}{5}{1}
+\ganttcon{6}{26}{5}{27}
+\ganttbar{  \%shl14.i.i26 = shl nuw i32 \%conv12.i.i25, 24}{5}{1}
+\ganttcon{6}{27}{5}{28}
+\ganttbar{  \%or15.i.i27 = or i32 \%or10.i.i23, \%shl14.i.i26}{5}{1}
+\ganttcon{6}{28}{5}{29}
+\ganttbar{  store i32 \%or15.i.i27, i32* \%p1.027.i.i11, align 4, !tbaa !2}{5}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{5}{4}
+\begin{ganttitle}
+\numtitle{0}{1}{3}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar.next5 = add i32 \%indvar4, 1}{1}{1}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%exitcond6 = icmp eq i32 \%indvar.next5, 128}{1}{1}
+\ganttcon{2}{2}{1}{3}
+\ganttbar{  br i1 \%exitcond6, label \%while.body4.i22.preheader.i, label \%while.body.i.p...}{1}{1}
+\ganttbar{  tail call fastcc void @sha\_transform() #2}{2}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{3}
+\begin{ganttitle}
+\numtitle{0}{1}{2}{1}
+\end{ganttitle}
+\ganttbar{  store i32 128, i32* getelementptr inbounds ([16 x i32]* @sha\_info\_data, i32 ...}{1}{1}
+\ganttbar{  br label \%while.body4.i22.i}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{8}{4}
+\begin{ganttitle}
+\numtitle{0}{1}{3}{1}
+\end{ganttitle}
+\ganttbar{  \%indvar = phi i32 [ \%indvar.next, \%while.body4.i22.i ], [ 0, \%while.body4....}{1}{1}
+\ganttcon{2}{1}{1}{3}
+\ganttcon{2}{1}{1}{2}
+\ganttbar{  \%26 = add i32 \%indvar, 1}{1}{1}
+\ganttcon{2}{2}{2}{6}
+\ganttbar{  \%indvar.next = add i32 \%indvar, 1}{1}{1}
+\ganttcon{2}{3}{1}{4}
+\ganttcon{2}{3}{1}{1}
+\ganttbar{  \%exitcond = icmp eq i32 \%indvar.next, 13}{1}{1}
+\ganttcon{2}{4}{1}{5}
+\ganttbar{  br i1 \%exitcond, label \%sha\_final.exit, label \%while.body4.i22.i}{1}{1}
+\ganttbar{  \%p.19.i18.i = getelementptr [16 x i32]* @sha\_info\_data, i32 0, i32 \%26}{2}{1}
+\ganttcon{3}{6}{2}{7}
+\ganttbar{  store i32 0, i32* \%p.19.i18.i, align 4, !tbaa !2}{2}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{31}{9}
+\begin{ganttitle}
+\numtitle{0}{1}{8}{1}
+\end{ganttitle}
+\ganttbar{  store i32 0, i32* getelementptr inbounds ([16 x i32]* @sha\_info\_data, i32 0,...}{1}{1}
+\ganttbar{  store i32 131072, i32* getelementptr inbounds ([16 x i32]* @sha\_info\_data, i...}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str1,...}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str1,...}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str1,...}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str1,...}{1}{1}
+\ganttbar{  tail call void @\_\_legup\_label(i8* getelementptr inbounds ([6 x i8]* @.str1,...}{1}{1}
+\ganttbar{  tail call fastcc void @sha\_transform() #2}{3}{1}
+\ganttbar{  \%27 = load i32* @sha\_info\_digest.0, align 4, !tbaa !2}{4}{2}
+\ganttcon{6}{9}{6}{13}
+\ganttbar{  \%28 = load i32* @sha\_info\_digest.1, align 4, !tbaa !2}{4}{2}
+\ganttcon{6}{10}{6}{15}
+\ganttbar{  \%29 = load i32* @sha\_info\_digest.2, align 4, !tbaa !2}{5}{2}
+\ganttcon{7}{11}{7}{19}
+\ganttbar{  \%30 = load i32* @sha\_info\_digest.3, align 4, !tbaa !2}{5}{2}
+\ganttcon{7}{12}{7}{22}
+\ganttbar{  \%cmp2 = icmp eq i32 \%27, 6969911}{6}{1}
+\ganttcon{7}{13}{6}{14}
+\ganttbar{  \%conv = zext i1 \%cmp2 to i32}{6}{1}
+\ganttcon{7}{14}{6}{17}
+\ganttbar{  \%cmp2.1 = icmp eq i32 \%28, -1814260603}{6}{1}
+\ganttcon{7}{15}{6}{16}
+\ganttbar{  \%conv.1 = zext i1 \%cmp2.1 to i32}{6}{1}
+\ganttcon{7}{16}{6}{17}
+\ganttbar{  \%add.1 = add nuw nsw i32 \%conv.1, \%conv}{6}{1}
+\ganttcon{7}{17}{7}{21}
+\ganttbar{  \%31 = load i32* @sha\_info\_digest.4, align 4, !tbaa !2}{6}{2}
+\ganttcon{8}{18}{8}{25}
+\ganttbar{  \%cmp2.2 = icmp eq i32 \%29, 742465810}{7}{1}
+\ganttcon{8}{19}{7}{20}
+\ganttbar{  \%conv.2 = zext i1 \%cmp2.2 to i32}{7}{1}
+\ganttcon{8}{20}{7}{21}
+\ganttbar{  \%add.2 = add nuw nsw i32 \%conv.2, \%add.1}{7}{1}
+\ganttcon{8}{21}{7}{24}
+\ganttbar{  \%cmp2.3 = icmp eq i32 \%30, 1677179459}{7}{1}
+\ganttcon{8}{22}{7}{23}
+\ganttbar{  \%conv.3 = zext i1 \%cmp2.3 to i32}{7}{1}
+\ganttcon{8}{23}{7}{24}
+\ganttbar{  \%add.3 = add nuw nsw i32 \%conv.3, \%add.2}{7}{1}
+\ganttcon{8}{24}{8}{27}
+\ganttbar{  \%cmp2.4 = icmp eq i32 \%31, -1384908510}{8}{1}
+\ganttcon{9}{25}{8}{26}
+\ganttbar{  \%conv.4 = zext i1 \%cmp2.4 to i32}{8}{1}
+\ganttcon{9}{26}{8}{27}
+\ganttbar{  \%add.4 = add nuw nsw i32 \%conv.4, \%add.3}{8}{1}
+\ganttcon{9}{27}{8}{29}
+\ganttcon{9}{27}{8}{28}
+\ganttbar{  \%call = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([12 x i...}{8}{1}
+\ganttbar{  \%cmp3 = icmp eq i32 \%add.4, 5}{8}{1}
+\ganttcon{9}{29}{8}{30}
+\ganttbar{  br i1 \%cmp3, label \%if.then, label \%if.else}{8}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%call5 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([14 x ...}{1}{1}
+\ganttbar{  br label \%if.end}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{3}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  \%call6 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([14 x ...}{1}{1}
+\ganttbar{  br label \%if.end}{1}{1}
+\end{gantt}
+\end{figure}
+\begin{figure}
+\begin{gantt}[fontsize=\scriptsize]{2}{2}
+\begin{ganttitle}
+\numtitle{0}{1}{1}{1}
+\end{ganttitle}
+\ganttbar{  ret i32 \%add.4}{1}{1}
+\end{gantt}
+\end{figure}
+\end{document}
