@@ -19,7 +19,7 @@ ga:
 ni:
 	for dir in $(DIRS_NI); do make -C $$dir; done
 
-SMS:
+sms:
 	for dir in $(DIRS_SMS); do make -C $$dir; done
 
 clean_test:

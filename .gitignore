@@ -9,6 +9,8 @@
 *.v
 *.qsf
 *.sdc
-*.tcl
 *_labeled.c
 *.swp
+*.bak
+*loops_out*
+*octave-workspace*

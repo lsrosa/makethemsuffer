@@ -37,8 +37,7 @@ loop_pipeline "loop34"
 loop_pipeline "loop35"
 
 
-set_resource_constraint add 3
-
+set_resource_constraint add 10
 
 set_combine_basicblock 2
 #loop_pipeline "loop0"

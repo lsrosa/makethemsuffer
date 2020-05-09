@@ -1,0 +1,3 @@
+Name	InstCount	Allocation	Scheduling	Binding	SchedMapping	SchedSolve	SchedFSM	overhead	totalCycles
+BF_encrypt	378	0.000251	0.075865	0.000377	0.023086	0.041481	0.000380	0.010918	74
+main	325	0.000251	0.046625	0.000377	0.011758	0.024391	0.000407	0.010069	95
