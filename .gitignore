@@ -1,0 +1,14 @@
+*.tex
+*.legup.rpt
+*.dot
+*.mif
+*.bc
+*.ll
+*.txt
+*.mps
+*.v
+*.qsf
+*.sdc
+*.tcl
+*_labeled.c
+*.swp
